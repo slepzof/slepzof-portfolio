@@ -69,7 +69,15 @@
   #process.sx38-visible .sx38-track-wrap{transition-delay:.37s!important}
   #process.sx38-visible .sx38-controls{transition-delay:.46s!important}
   #process .sx38-card img{transition:transform .7s cubic-bezier(.22,1,.36,1)}
-  @media(hover:hover) and (pointer:fine){#process .sx38-card:hover img{transform:scale(1.014)}}
+  #process.sx38-js-ready .sx38-card{opacity:0}
+  #process.sx38-js-ready.sx38-visible .sx38-card{opacity:1;transition:opacity .65s cubic-bezier(.22,1,.36,1)}
+  #process.sx38-visible .sx38-card:nth-child(1){transition-delay:.47s}
+  #process.sx38-visible .sx38-card:nth-child(2){transition-delay:.56s}
+  #process.sx38-visible .sx38-card:nth-child(3){transition-delay:.65s}
+  #process.sx38-visible .sx38-card:nth-child(4){transition-delay:.74s}
+}
+@media (hover:hover) and (pointer:fine){
+  #process .sx38-card:hover img{transform:scale(1.014)}
 }
 @media(prefers-reduced-motion:reduce){
   #process .sx38-head h2,#process .sx38-head p,#process .sx38-portrait,#process .sx38-track-wrap,#process .sx38-controls,#process .sx38-card img{transition:none!important;transform:none!important;opacity:1!important}
