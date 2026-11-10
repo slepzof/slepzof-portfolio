@@ -13,13 +13,11 @@
     try {
       instance = window.lottie.loadAnimation({
         container: el,
-        renderer: compact ? 'canvas' : 'svg',
+        renderer: 'svg',
         loop: !reducedMotion,
         autoplay: !reducedMotion,
         path: url,
-        rendererSettings: compact
-          ? { preserveAspectRatio: 'xMidYMid meet', clearCanvas: true, dpr: Math.min(window.devicePixelRatio || 1, 1.5) }
-          : { preserveAspectRatio: 'xMidYMid meet', progressiveLoad: true, hideOnTransparent: true }
+        rendererSettings: { preserveAspectRatio: 'xMidYMid meet', progressiveLoad: true, hideOnTransparent: true }
       });
       instance.addEventListener('DOMLoaded', function () {
         el.classList.add('sx20-ready');
