@@ -17,13 +17,17 @@
       next.disabled=x>=max-3;
     }
     function move(dir){
-      const card=rail.querySelector(".sx38-card");
-      if(!card)return;
-      const gap=parseFloat(getComputedStyle(rail).columnGap)||0;
-      const step=card.getBoundingClientRect().width+gap;
+      const cards=[...rail.querySelectorAll(".sx38-card")];
+      if(!cards.length)return;
+      const first=cards[0].getBoundingClientRect();
+      const stops=cards.map(card=>card.getBoundingClientRect().left-first.left);
       const x=rail.scrollLeft;
-      // One complete card per click, no fractional jumps and no looping.
-      rail.scrollTo({left:Math.max(0,Math.min(rail.scrollWidth-rail.clientWidth,x+step*dir)),behavior:motion.matches?"auto":"smooth"});
+      // Use real card boundaries: the supplied desktop covers have different widths.
+      let target;
+      if(dir>0)target=stops.find(pos=>pos>x+3);
+      else target=stops.filter(pos=>pos<x-3).pop();
+      if(target==null)target=dir>0?rail.scrollWidth-rail.clientWidth:0;
+      rail.scrollTo({left:Math.max(0,Math.min(rail.scrollWidth-rail.clientWidth,target)),behavior:motion.matches?"auto":"smooth"});
       window.setTimeout(update,450);
     }
     prev.addEventListener("click",()=>move(-1));
