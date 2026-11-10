@@ -1,0 +1,1 @@
+Beyond UI v29. Exact provided radar geometry + feathered spotlight mask and original skill icons. Intro reduced by 25%. Bigger radar on desktop and mobile, opaque black mobile overlay with fade. Three Onlinesklad placeholders unchanged. Tool brand logos are pending separate source exports. Other site blocks untouched.

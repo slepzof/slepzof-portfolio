@@ -1,0 +1,112 @@
+/* Beyond UI v33 — desktop bleed, transition blackplate and a single mobile story state.
+   This file changes only scoped #beyond-ui styles and the two approved metrics pill variants. */
+#beyond-ui .sx28-panel[hidden]{display:none!important;}
+#selected .sx25b3-metric {padding-right:24px!important;}
+#beyond-ui .sx28-card .sx25b3-metric {padding-right:24px!important;}
+/* For shorter pill texts, do not stretch the label; preserve the approved wording. */
+#selected .sx25b3-metric span,
+#beyond-ui .sx28-card .sx25b3-metric span {min-width:0;}
+@media(min-width:801px){
+  #beyond-ui.sx33-desktop .sx28-story{background:#000;isolation:isolate;}
+  #beyond-ui.sx33-desktop .sx28-panel-column{background-color:#000!important;}
+  #beyond-ui.sx33-desktop .sx28-panel-column::before{
+    content:"";position:absolute;top:-2px;bottom:-2px;left:0;right:-100vw;
+    z-index:0;background:#000;pointer-events:none;
+  }
+  #beyond-ui.sx33-desktop .sx28-panel{z-index:1;padding-bottom:90px!important;}
+  #beyond-ui.sx33-desktop .sx28-carousel{
+    /* Retain edge-to-edge reading but give the cut edge room to breathe. */
+    max-width:none;overflow:visible;
+  }
+  #beyond-ui.sx33-desktop .sx28-carousel-rail{
+    padding-right:0!important;
+    scroll-padding-inline:0;
+    scroll-snap-type:x mandatory;
+    -webkit-mask-image:linear-gradient(to right,#000 0px,#000 calc(100% - 42px),transparent 100%);
+    mask-image:linear-gradient(to right,#000 0px,#000 calc(100% - 42px),transparent 100%);
+  }
+  /* Trailing safe space allows the last card to snap fully to the start. */
+  #beyond-ui.sx33-desktop .sx28-carousel-rail::after{
+    content:"";display:block;flex:0 0 max(0px,calc(100% - var(--sx28-card-width) - 20px));
+    pointer-events:none;
+  }
+  #beyond-ui.sx33-desktop .sx28-card{scroll-snap-stop:always;}
+  #beyond-ui.sx33-desktop .sx28-carousel-controls{margin-bottom:0;}
+}
+@media(max-width:800px){
+  #beyond-ui.sx33-mobile .sx28-intro{padding-left:23px!important;padding-right:23px!important;max-width:560px;}
+  #beyond-ui.sx33-mobile .sx28-intro h2{
+    width:auto;max-width:24ch;margin-inline:auto!important;
+    line-height:1.16;letter-spacing:-.035em;text-wrap:balance;
+    font-size:clamp(26px,6vw,34px)!important;
+  }
+  #beyond-ui.sx33-mobile .sx28-intro p{max-width:31ch;text-wrap:pretty;}
+  #beyond-ui.sx33-mobile .sx28-story{
+    display:block!important;height:auto!important;overflow:visible!important;
+    padding:0;background:#000;
+  }
+  #beyond-ui.sx33-mobile .sx28-panel-column{
+    display:block;position:relative!important;width:100%;height:auto!important;
+    background:#000;overflow:visible!important;contain:none!important;
+  }
+  #beyond-ui.sx33-mobile .sx28-panel[hidden]{display:none!important;}
+  #beyond-ui.sx33-mobile .sx28-panel{
+    display:flex!important;position:relative!important;flex-direction:column;
+    padding-bottom:190px!important;min-height:0!important;
+    opacity:1;transform:none;visibility:visible;
+    scroll-margin-top:calc(var(--sx28-nav) + 9px)!important;
+    transition:opacity .24s ease,transform .32s ease;
+  }
+  #beyond-ui.sx33-mobile .sx28-panel.sx33-leaving{
+    opacity:0!important;transform:translate3d(0,-12px,0)!important;
+  }
+  #beyond-ui.sx33-mobile .sx28-panel.sx33-entering{
+    opacity:0!important;transform:translate3d(0,24px,0)!important;
+  }
+  #beyond-ui.sx33-mobile .sx28-panel.sx33-entered{
+    opacity:1!important;transform:none!important;
+    transition:opacity .56s ease,transform .65s cubic-bezier(.17,.8,.28,1);
+  }
+  #beyond-ui.sx33-mobile .sx28-panel .sx28-skill-head h3{
+    text-wrap:pretty;max-width:23ch;overflow-wrap:normal;hyphens:none;
+  }
+  #beyond-ui.sx33-mobile .sx28-panel .sx28-body p{
+    text-wrap:pretty;white-space:normal;overflow-wrap:normal;hyphens:none;
+  }
+  #beyond-ui.sx33-mobile .sx28-carousel{
+    width:calc(100vw - 20px)!important;max-width:none!important;
+  }
+  #beyond-ui.sx33-mobile .sx28-carousel-rail{
+    scroll-snap-type:x mandatory;scroll-padding-inline:0;padding-right:0!important;
+    -webkit-mask-image:linear-gradient(to right,#000 0px,#000 calc(100% - 32px),transparent 100%);
+    mask-image:linear-gradient(to right,#000 0px,#000 calc(100% - 32px),transparent 100%);
+  }
+  #beyond-ui.sx33-mobile .sx28-carousel-rail::after{
+    content:"";display:block;flex:0 0 max(0px,calc(100% - var(--sx28-card-width) - 16px));pointer-events:none;
+  }
+  #beyond-ui.sx33-mobile .sx28-card{scroll-snap-stop:always;}
+  #beyond-ui.sx33-mobile .sx28-carousel-controls{padding-right:5px!important;}
+}
+@media(max-width:560px){
+  #beyond-ui.sx33-mobile .sx28-intro{padding-left:20px!important;padding-right:20px!important;}
+  #beyond-ui.sx33-mobile .sx28-intro h2{max-width:22ch!important;font-size:clamp(25px,6.4vw,31px)!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  #beyond-ui.sx33-mobile .sx28-panel{transition:none!important;}
+}
+
+/* Only a rail that has actually moved fades its leading edge. */
+#beyond-ui .sx28-carousel-rail.sx33-has-leading{
+  -webkit-mask-image:linear-gradient(to right,transparent 0px,#000 34px,#000 calc(100% - 42px),transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0px,#000 34px,#000 calc(100% - 42px),transparent 100%);
+}
+@media(max-width:800px){
+  #beyond-ui .sx28-carousel-rail.sx33-has-leading{
+    -webkit-mask-image:linear-gradient(to right,transparent 0px,#000 25px,#000 calc(100% - 32px),transparent 100%);
+    mask-image:linear-gradient(to right,transparent 0px,#000 25px,#000 calc(100% - 32px),transparent 100%);
+  }
+}
+/* Safari has a site-wide smooth-scroll rule. Disable it only during controlled
+   chapter repositioning; the requestAnimationFrame animation stays smooth. */
+html.sx33-controlled-scroll{scroll-behavior:auto!important;scroll-snap-type:none!important;}
+#beyond-ui.sx33-mobile .sx28-story{overflow-anchor:none;}

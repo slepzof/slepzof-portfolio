@@ -1,0 +1,109 @@
+/* SLEPZOF v25. Exact Figma Main.pdf first-screen composition, shared navigation and contact dock. */
+:root { --sx25-blue:#007bfa; --sx25-ink:#1d1d1f; --sx25-hero-bg:#f6f6f8; }
+.sx25-status-bar {position:relative!important;z-index:105!important;width:100%;min-height:44px;background:#0875e9!important;border:0!important;display:flex;justify-content:center;align-items:center;text-align:center;color:#fff!important;padding:8px 20px!important;box-sizing:border-box;font-size:13px!important;line-height:1.45!important;letter-spacing:0;}
+.sx25-status-text {max-width:1240px;margin:auto;font-weight:400!important;}
+.sx25-status-text a {color:#fff!important;font-size:inherit!important;font-weight:400!important;display:inline!important;border-bottom:0!important;text-decoration:underline!important;text-underline-offset:2px;padding:0!important;white-space:nowrap;}
+.sx25-status-text a span {font-size:15px!important;text-decoration:none;display:inline-block;line-height:1}
+.sx25-nav {box-sizing:border-box!important;position:sticky!important;top:0!important;z-index:150!important;background:#fff!important;height:48px!important;padding:0!important;box-shadow:none!important;border-bottom:0!important;width:100%!important;}
+.sx25-nav-inner {box-sizing:border-box;max-width:1116px;height:100%;margin:0 auto;padding:0;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.sx25-nav .sx25-logo {font-size:16px!important;font-weight:760!important;letter-spacing:-.055em!important;flex-shrink:0!important;line-height:1!important;text-decoration:none!important;color:#181818!important;}
+.sx25-nav .sx25-navlinks {margin-left:auto!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:clamp(24px,3vw,57px)!important;font-size:14px!important;letter-spacing:0!important;}
+.sx25-nav .sx25-navlinks a {padding:0!important;margin:0!important;display:inline-flex;align-items:center;white-space:nowrap;color:#666!important;font-weight:400!important;line-height:1.5;text-decoration:none!important;border:none!important;background:transparent!important;border-radius:0!important;font-size:14px!important;}
+.sx25-nav .sx25-navlinks a:hover,.sx25-nav .sx25-navlinks a[aria-current="page"] {color:var(--sx25-blue)!important;}
+.sx25-header-right {display:flex;align-items:center;justify-content:center;width:24px;margin-left:26px;flex-shrink:0;}
+.sx25-translate-icon {display:block;width:24px;height:24px;object-fit:contain;}
+.sx25-nav .sx25-menubutton {display:none;}
+/* Hero: exact supplied copy, content first, transparent Lottie under actions. */
+.sx25-hero {background:var(--sx25-hero-bg)!important;padding:54px 0 0!important;margin:0!important;overflow:hidden!important;text-align:center!important;min-height:0!important;height:auto!important;}
+.sx25-hero .sx25-hero-intro {max-width:1120px!important;position:relative;z-index:1;margin:0 auto;padding:0 18px!important;box-sizing:border-box;}
+.sx25-hero .sx25-kicker {display:block!important;color:#777!important;font-size:13px!important;font-weight:600!important;letter-spacing:.005em!important;line-height:1.45!important;margin:0 0 7px!important;}
+.sx25-hero h1 {color:#161616!important;max-width:920px!important;font-size:clamp(37px,3.5vw,49px)!important;font-weight:650!important;letter-spacing:-.045em!important;line-height:1.13!important;white-space:normal!important;margin:0 auto!important;text-wrap:unset!important;}
+.sx25-hero p {max-width:820px!important;margin:14px auto 0!important;color:#7a7a7a!important;font-weight:400!important;font-size:20px!important;line-height:1.25!important;letter-spacing:.002em!important;text-wrap:balance;}
+.sx25-hero .sx25-hero-actions {display:flex;align-items:center;justify-content:center;gap:12px!important;margin:49px auto 0!important;}
+.sx25-hero .sx25-hero-actions .sx-button {box-sizing:border-box!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;min-width:0;min-height:48px!important;border-radius:999px!important;padding:12px 24px!important;font-size:16px!important;font-weight:500!important;letter-spacing:0!important;text-decoration:none!important;box-shadow:none!important;}
+.sx25-hero .sx25-hero-actions .sx25-primary {background:#007aff!important;border:1px solid #007aff!important;color:#fff!important;}
+.sx25-hero .sx25-hero-actions .sx25-primary:hover {background:#0066d9!important;}
+.sx25-hero .sx25-hero-actions .sx25-secondary {background:transparent!important;border:1px solid #007aff!important;color:#007aff!important;}
+.sx25-hero .sx25-hero-actions .sx25-secondary:hover {background:#eef5ff!important;}
+.sx25-hero .sx25-animation-wrap {width:100%!important;max-width:1600px!important;height:auto!important;aspect-ratio:7200/2048!important;min-height:0!important;position:relative!important;display:block!important;margin:29px auto 0!important;padding:0!important;background:transparent!important;overflow:hidden!important;border:0!important;border-radius:0!important;box-shadow:none!important;line-height:0!important;isolation:isolate;}
+.sx25-hero .sx25-animation-wrap::before,.sx25-hero .sx25-animation-wrap::after {display:none!important;content:none!important;}
+.sx25-hero .sx25-animation-wrap .sx20-lottie {position:absolute!important;inset:0!important;width:100%!important;height:100%!important;left:0!important;top:0!important;overflow:hidden!important;min-height:0!important;background:transparent!important;transform:none!important;}
+.sx25-hero .sx25-animation-wrap .sx20-lottie>svg,.sx25-hero .sx25-animation-wrap .sx20-lottie>canvas {position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;overflow:visible!important;object-fit:contain!important;transform:none!important;}
+.sx25-hero .sx25-animation-wrap .sx20-static-fallback {object-fit:contain!important;width:100%!important;height:100%!important;}
+/* Contact toolbar: four equal actions, original Figma icons, subtle dividers. */
+.sx25-contact-dock {box-sizing:border-box!important;display:flex!important;align-items:center!important;justify-content:center!important;position:fixed!important;z-index:220!important;left:50%!important;bottom:max(15px,env(safe-area-inset-bottom))!important;transform:translateX(-50%)!important;width:auto!important;max-width:calc(100vw - 24px)!important;padding:0 7px!important;margin:0!important;gap:0!important;border:1px solid rgba(240,240,243,.68)!important;border-radius:15px!important;background:rgba(255,255,255,.91)!important;box-shadow:0 7px 24px rgba(0,0,0,.045)!important;-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);font-family:inherit;}
+.sx25-contact-dock>a {box-sizing:border-box!important;position:relative;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;gap:6px!important;text-decoration:none!important;white-space:nowrap!important;min-height:42px!important;padding:10px 15px!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;font-size:14px!important;font-weight:400!important;line-height:1.3!important;color:#1c1c1e!important;transition:background .17s ease!important;}
+.sx25-contact-dock>a:not(:last-child)::after {content:'';width:1px;height:22px;position:absolute;right:0;top:50%;transform:translateY(-50%);background:#e2e2e6;}
+.sx25-contact-dock>a:hover {background:#f1f5fa!important;transform:none!important;}
+.sx25-contact-dock>a:first-child {border-radius:13px 0 0 13px!important;}
+.sx25-contact-dock>a:last-child {border-radius:0 13px 13px 0!important;}
+.sx25-contact-dock img {width:16px;height:16px;flex:0 0 16px;object-fit:contain;}
+.sx25-contact-dock .sx25-dock-download {color:#007aff!important;}
+.sx25-contact-dock .sx25-short-label {display:none;}
+@media (max-width:1200px) {
+  .sx25-nav-inner {max-width:calc(100% - 60px);}
+  .sx25-nav .sx25-navlinks {gap:clamp(16px,2.4vw,35px)!important;}
+  .sx25-header-right{margin-left:5px;}
+}
+@media (max-width:950px) {
+  .sx25-nav {height:54px!important;}
+  .sx25-nav-inner{max-width:calc(100% - 42px);}
+  .sx25-nav .sx25-navlinks {display:none!important;position:absolute!important;top:54px!important;left:0!important;right:0!important;background:rgba(255,255,255,.98)!important;padding:14px 22px 22px!important;z-index:180!important;box-shadow:0 12px 28px rgba(0,0,0,.08)!important;border-top:1px solid #ececf0!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;}
+  .sx25-nav.sx-open .sx25-navlinks {display:flex!important;}
+  .sx25-nav .sx25-navlinks a {padding:10px 0!important;font-size:15px!important;border-bottom:1px solid #f1f1f4!important;}
+  .sx25-nav .sx25-menubutton {display:block!important;position:relative!important;}
+  .sx25-header-right {width:auto;gap:16px;}
+  .sx25-hero {padding-top:56px!important;}
+  .sx25-hero h1{font-size:clamp(35px,5vw,48px)!important;}
+  .sx25-hero p{font-size:clamp(16px,2.1vw,19px)!important;max-width:710px!important;}
+}
+@media (max-width:650px) {
+ .sx25-status-bar {padding:8px 14px!important;min-height:0;font-size:11px!important;}
+ .sx25-status-text {max-width:480px;line-height:1.4!important;}
+ .sx25-nav-inner {max-width:calc(100% - 36px);}
+ .sx25-hero {padding-top:45px!important;}
+ .sx25-hero .sx25-hero-intro {padding:0 16px!important;}
+ .sx25-hero .sx25-kicker {font-size:10px!important;letter-spacing:0!important;margin-bottom:12px!important;}
+ .sx25-hero h1 {font-size:clamp(30px,7.6vw,42px)!important;line-height:1.12!important;letter-spacing:-.045em!important;}
+ .sx25-hero h1 .sx25-desktop-break {display:none;}
+ .sx25-hero p {font-size:15px!important;line-height:1.48!important;margin-top:16px!important;max-width:490px!important;}
+ .sx25-hero .sx25-hero-actions {margin-top:26px!important;gap:9px!important;}
+ .sx25-hero .sx25-hero-actions .sx-button {font-size:13px!important;min-height:45px!important;padding:11px 17px!important;}
+ .sx25-hero .sx25-animation-wrap {margin-top:22px!important;aspect-ratio:7200/2048!important;width:100%!important;height:auto!important;}
+ .sx25-contact-dock {width:calc(100% - 18px)!important;bottom:max(8px,env(safe-area-inset-bottom))!important;padding:2px!important;border-radius:13px!important;}
+ .sx25-contact-dock>a {flex:1 1 25%!important;min-width:0!important;padding:10px 3px!important;min-height:42px!important;font-size:11px!important;gap:4px!important;}
+ .sx25-contact-dock .sx25-long-label {display:none;}
+ .sx25-contact-dock .sx25-short-label {display:inline;}
+ .sx25-contact-dock img {width:15px!important;height:15px!important;flex:0 0 15px;}
+ .sx25-contact-dock>a:not(:last-child)::after {height:18px;}
+ .sx25-header-right{gap:10px;}
+ .sx25-translate-icon{width:20px;height:20px;}
+}
+@media (max-width:355px){.sx25-contact-dock>a{font-size:10px!important;gap:3px!important;}}
+@media(prefers-reduced-motion:reduce){.sx25-contact-dock>a{transition:none!important}}
+/* Fine alignment against supplied 1440x836 Figma frame. */
+.sx25-nav-inner {width:100%!important;}
+.sx25-hero .sx25-hero-actions {margin-top:41px!important;}
+.sx25-hero .sx25-animation-wrap {margin-top:-6px!important;}
+@media(max-width:650px) {
+ .sx25-hero .sx25-hero-actions {margin-top:26px!important;}
+ .sx25-hero .sx25-animation-wrap {margin-top:0!important;}
+}
+@media(min-width:951px){
+ .sx25-nav .sx25-navlinks {flex:1 1 auto!important;min-width:0!important;margin-left:clamp(30px,5.15vw,74px)!important;margin-right:clamp(18px,3.2vw,46px)!important;gap:0!important;justify-content:space-between!important;}
+ .sx25-header-right {margin-left:0!important;}
+}
+@media(min-width:951px){.sx25-nav .sx25-navlinks{margin-left:clamp(24px,3.75vw,54px)!important;}}
+/* Transparent artwork extracted from the supplied Figma PDF is shown instantly,
+   then replaced seamlessly by the actual Lottie SVG once it loads. */
+.sx25-animation-wrap .sx20-lottie .sx20-static-fallback {display:block!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:contain!important;z-index:0!important;}
+.sx25-animation-wrap .sx20-lottie.sx20-ready .sx20-static-fallback {display:none!important;}
+.sx25-animation-wrap .sx20-lottie .sx20-lottie-loading {display:none!important;}
+.sx25-animation-wrap .sx20-lottie>svg {z-index:1!important;}
+@media(min-width:951px) {
+ .sx25-status-bar {font-size:14px!important;}
+ .sx25-hero .sx25-kicker {margin-bottom:3px!important;}
+ .sx25-hero p {margin-top:12px!important;}
+ .sx25-hero .sx25-hero-actions {margin-top:47px!important;}
+ .sx25-hero .sx25-animation-wrap {margin-top:-9px!important;}
+}

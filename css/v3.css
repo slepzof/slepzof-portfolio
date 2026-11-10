@@ -1,0 +1,207 @@
+/* SLEPZOF v3 — restrained product-first typography and layout.
+   Based on native system typography, no bundled fonts. */
+:root { --max:1160px; --vink:#1d1d1f; --vsilver:#f5f5f7; --vsecondary:#6e6e73; --vstroke:#e5e5e7; --vblue:#0066cc; }
+html { scroll-padding-top:64px; }
+body { color:#1d1d1f; font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif; font-weight:400; line-height:1.45; -webkit-font-smoothing:antialiased; }
+.container { width:min(1160px,calc(100% - 64px)); }
+.site-nav { padding:0 max(32px,calc((100vw - 1160px)/2)); background:rgba(250,250,252,.94); min-height:54px; }
+.brand { font-size:19px; font-weight:750; letter-spacing:-.065em; }
+.nav-links { gap:28px; }
+.nav-links a { font-size:12px; font-weight:470; letter-spacing:0; color:#33343a; }
+h1,h2,h3,h4 { font-family:inherit; letter-spacing:-.038em; }
+.minor-label { font-size:11px; letter-spacing:.10em; font-weight:550; color:#85858c; margin:0 0 13px; }
+.apple-link { font-size:15px; font-weight:450; color:#0066cc; }
+.apple-button { font-size:14px; font-weight:470; padding:11px 19px; gap:12px; background:#0071e3; border-radius:50px; }
+/* On the homepage, product composition should be visible inside the first viewport. */
+.apple-hero { padding:52px 0 0; background:#f5f5f7; }
+.apple-hero .container { text-align:center; }
+.apple-hero .hero-label { font-size:11px; letter-spacing:.11em; margin:0 auto; }
+.apple-hero h1 { max-width:1100px; margin:17px auto 13px; font-size:clamp(37px,3.5vw,48px); line-height:1.115; letter-spacing:-.046em; font-weight:640; }
+.apple-hero h1 span { color:#77777e; display:block; }
+.hero-deck { color:#606068; font-size:clamp(16px,1.36vw,18px); font-weight:400; line-height:1.42; max-width:750px; margin:0 auto; letter-spacing:-.011em; }
+.hero-buttons { gap:23px; margin:20px auto 8px; }
+.hero-wide-art { height:clamp(225px,24vw,325px); overflow:hidden; margin:0 auto; }
+.hero-wide-art img { width:min(680px,100%); height:100%; max-height:100%; object-fit:contain; object-position:center bottom; }
+.hero-wide-art span { right:8px; bottom:8px; font-size:9px; color:#92929a; letter-spacing:.08em; }
+/* A compact, natural type scale, not poster typography everywhere. */
+.v2-section { padding:83px 0; }
+.apple-section-heading { margin-bottom:31px; }
+.apple-section-heading h2 { font-size:clamp(34px,3.5vw,48px); line-height:1.14; letter-spacing:-.043em; font-weight:650; margin:0 0 9px; }
+.apple-section-heading>p:last-child { max-width:700px; font-size:16px; line-height:1.47; color:#6e6e73; }
+/* Featured cards: name and description are visible BEFORE images. */
+.featured-grid { gap:17px; }
+.featured-spot { margin-bottom:17px; }
+.product-card { background:#f5f5f7; border-radius:20px; transform:none; box-shadow:none; }
+.product-card:hover { box-shadow:0 7px 24px rgba(0,0,0,.045); transform:translateY(-2px); }
+.product-card.normal { display:flex; flex-direction:column; }
+.product-card.normal .product-card-body { order:-1; padding:28px 30px 0; flex:0 0 auto; min-height:126px; }
+.product-card.normal .product-art { height:245px; margin:0 22px 18px; padding:0; background:transparent; border-radius:12px; display:flex; align-items:flex-end; justify-content:center; }
+.product-card.normal .product-art img { width:100%; height:100%; object-fit:contain; object-position:center bottom; }
+.product-card-kicker { letter-spacing:.025em; font-size:12px; font-weight:460; color:#75757b; }
+.product-card-kicker span { font-size:16px; }
+.product-card-body h3 { font-size:clamp(25px,2.3vw,33px); font-weight:640; line-height:1.16; letter-spacing:-.043em; margin:7px 0 7px; }
+.product-card-body p { font-size:15px; line-height:1.42; font-weight:400; color:#66666e; max-width:580px; }
+.product-card.featured { min-height:340px; grid-template-columns:48% 52%; }
+.featured .product-art { height:340px; padding:14px 16px 0 0; }
+.featured .product-art img { object-fit:contain; object-position:center bottom; }
+.featured .product-card-body { padding:34px 12px 34px 45px; }
+.featured .product-card-body h3 { font-size:clamp(39px,3.9vw,53px); line-height:1.08; font-weight:640; letter-spacing:-.045em; }
+.featured .product-card-body p { font-size:16px; }
+/* A short contrast section is enough: no second gigantic hero. */
+.big-statement { padding:85px 0; background:#101014; }
+.big-statement h2 { max-width:1030px; font-size:clamp(34px,3.7vw,51px); line-height:1.15; letter-spacing:-.043em; font-weight:620; margin:10px 0 21px; }
+.big-statement h2 span { color:#93939c; }
+.big-statement p:last-child { max-width:710px; font-size:17px; line-height:1.5; color:#bbbcc4; }
+/* Experience modules should look like quiet Apple product surfaces, not oversized keynote slides. */
+.career-item { grid-template-columns:215px minmax(0,1fr); gap:35px; padding:54px 0 63px; }
+.career-title>div { top:79px; }
+.career-title h3 { font-size:30px; letter-spacing:-.043em; font-weight:650; line-height:1.13; }
+.career-take { font-size:clamp(18px,1.65vw,23px); line-height:1.39; letter-spacing:-.022em; font-weight:470; margin:0 0 23px; }
+.career-feature { border-radius:20px; min-height:290px; }
+.career-picture { min-height:260px; padding:18px; }
+.career-picture img { max-height:320px; }
+.career-copy { padding:30px; }
+.career-copy h3 { font-size:clamp(26px,2.7vw,36px); font-weight:630; letter-spacing:-.035em; }
+.career-copy p:not(.minor-label) { color:#6e6e73; font-size:15px; }
+.career-subhead { margin:0 0 18px; }
+.career-subhead h4 { font-size:23px; font-weight:620; letter-spacing:-.03em; }
+.bonape-story,.year-banner { border-radius:20px; padding:30px; margin-bottom:26px; }
+.bonape-story { grid-template-columns:115px 1fr; gap:29px; }
+.bonape-number strong { font-size:66px; font-weight:570; letter-spacing:-.04em; }
+.bonape-story h4 { font-size:24px; font-weight:620; letter-spacing:-.035em; line-height:1.22; }
+.bonape-story p { font-size:14px; line-height:1.5; }
+.proof-grid { gap:14px; }
+.proof-card { border-radius:18px; background:#f5f5f7; }
+.proof-img { height:178px; background:#edeef1; padding:7px; }
+.proof-img img { object-fit:contain; }
+.proof-text { min-height:124px; padding:16px 30px 16px 17px; }
+.proof-text b { font-size:16px; letter-spacing:-.021em; }
+.proof-text small { font-size:12px; line-height:1.4; color:#74747c; }
+.skill-pill { font-size:10px; background:#e8e8ed; color:#505058; }
+.forfis-story { border-radius:20px; padding:32px; }
+.forfis-story h4 { font-size:clamp(26px,2.9vw,39px); letter-spacing:-.043em; }
+.forfis-story p { font-size:15px; }
+.year-banner { grid-template-columns:1fr 110px; }
+.year-banner h4 { font-size:clamp(24px,2.4vw,34px); font-weight:610; letter-spacing:-.04em; }
+.year-banner p { font-size:14px; }
+.year-banner>strong { font-size:50px; font-weight:550; letter-spacing:-.045em; }
+/* About as an editorial teaser, not giant display typography. */
+.v2-about { padding:90px 0; }
+.about-main { grid-template-columns:1.1fr .84fr; gap:70px; }
+.about-main h2 { font-size:clamp(36px,3.5vw,49px); font-weight:650; letter-spacing:-.048em; line-height:1.13; }
+.about-main p { font-size:16px; line-height:1.55; }
+.about-main p.about-large { font-size:21px; font-weight:500; line-height:1.44; letter-spacing:-.015em; }
+.about-quote { font-size:clamp(24px,2.45vw,33px); font-weight:570; line-height:1.3; letter-spacing:-.035em; }
+.footnote-strip { margin-top:42px; }
+.v2-work { padding:85px 0; }
+.v2-work h2 { font-size:clamp(36px,4vw,52px); font-weight:610; letter-spacing:-.044em; line-height:1.15; }
+.v2-work p:not(.minor-label) { font-size:16px; }
+.v2-contact { padding:72px 0; }
+.v2-contact-line a { font-size:clamp(35px,4.7vw,62px); font-weight:500; }
+.archive-mini { padding-bottom:85px; }
+/* Respectful sizing for secondary pages; prevent repeated 100px headings. */
+.catalog-hero { padding:78px 0 50px; }
+.catalog-hero h1 { font-size:clamp(46px,5vw,67px); letter-spacing:-.05em; line-height:1.12; font-weight:650; }
+.catalog-hero>p:last-child { font-size:17px; }
+.catalog-grid { gap:17px; }
+.catalog-card .product-art { height:215px; }
+.catalog-card .product-card-body h3 { font-size:24px; }
+.about-v2-hero { padding:77px 0 85px; }
+.about-v2-hero h1,.work-with-hero h1 { font-size:clamp(43px,5vw,68px); letter-spacing:-.048em; font-weight:640; line-height:1.12; }
+.about-v2-hero p:not(.minor-label),.work-with-hero p:not(.minor-label) { font-size:19px; line-height:1.45; }
+.about-v2-chapter { padding:59px 0; }
+.about-v2-chapter h2 { font-size:clamp(30px,3vw,43px); font-weight:620; letter-spacing:-.04em; }
+.about-v2-chapter p:not(.minor-label) { font-size:16px; }
+.about-v2-education { padding:75px 0; }
+.about-v2-education h2 { font-size:clamp(35px,3.6vw,50px); font-weight:630; }
+.about-v2-conclusion { padding:83px 0; }
+.about-v2-conclusion h2 { font-size:clamp(34px,4vw,51px); font-weight:640; }
+.work-with-hero { padding:83px 0; }
+.work-services { padding:83px 0; }
+.services-grid h2 { font-size:32px; font-weight:620; }
+.availability-v2 { padding:86px 0; }
+.availability-v2 h2 { font-size:clamp(37px,4vw,54px); font-weight:630; }
+.short-case-hero { padding:72px 0; }
+.short-case-grid h1 { font-size:clamp(39px,5vw,69px); font-weight:640; letter-spacing:-.045em; }
+.short-case-lede { font-size:21px; }
+.short-case-empty h2 { font-size:clamp(31px,3.6vw,50px); }
+/* Mobile: title and primary action remain legible; images never cover the copy. */
+@media(max-width:1120px){
+ .container{width:calc(100% - 62px)}
+ .site-nav{padding:0 31px}
+ .career-item{grid-template-columns:190px 1fr;gap:26px}
+ .about-main{gap:44px}
+}
+@media(max-width:800px){
+ .container{width:calc(100% - 36px)}
+ .site-nav{padding:0 18px}
+ .apple-hero{padding-top:52px}
+ .apple-hero h1{font-size:clamp(34px,5.6vw,46px);letter-spacing:-.045em}
+ .hero-wide-art{height:280px}
+ .apple-section-heading h2{font-size:37px}
+ .v2-section{padding:66px 0}
+ .featured .product-card-body{padding:28px 12px 28px 28px}
+ .featured .product-art{height:315px}
+ .career-item{display:block;padding:42px 0 57px}
+ .career-title{display:block}
+ .career-title>div{position:static;margin-bottom:13px}
+ .career-title h3{font-size:27px}
+ .career-take{margin-bottom:20px;font-size:20px}
+ .about-main{grid-template-columns:1fr;gap:36px}
+ .v2-about{padding:68px 0}
+}
+@media(max-width:560px){
+ .container{width:calc(100% - 34px)}
+ .apple-hero{padding-top:39px}
+ .apple-hero .hero-label{font-size:9px}
+ .apple-hero h1{font-size:clamp(32px,9vw,43px);margin:13px auto 14px;line-height:1.12}
+ .hero-deck{font-size:15px;max-width:340px}
+ .hero-buttons{flex-direction:row;flex-wrap:wrap;gap:16px;margin:21px auto 5px}
+ .apple-button{padding:10px 15px;font-size:13px}
+ .apple-link{font-size:13px}
+ .hero-wide-art{height:215px}
+ .hero-wide-art img{width:100%}
+ .hero-wide-art span{font-size:7px;bottom:5px}
+ .apple-section-heading h2{font-size:34px}
+ .apple-section-heading>p:last-child{font-size:15px}
+ .featured-grid,.proof-grid,.services-grid,.catalog-grid{grid-template-columns:1fr}
+ .product-card.featured{display:flex;flex-direction:column;min-height:0}
+ .featured .product-card-body{order:-1;padding:25px 22px 10px}
+ .featured .product-card-body h3{font-size:38px}
+ .featured .product-card-body p{font-size:15px}
+ .featured .product-art{order:0;height:245px;width:100%;padding:0 10px}
+ .product-card.normal .product-card-body{min-height:unset;padding:24px 22px 3px}
+ .product-card.normal .product-art{height:210px;margin:0 15px 13px}
+ .product-card-body h3{font-size:29px}
+ .big-statement{padding:62px 0}
+ .big-statement h2{font-size:34px;line-height:1.16}
+ .big-statement p:last-child{font-size:15px}
+ .career-feature,.career-feature.reversed{display:flex;flex-direction:column}
+ .career-feature.reversed .career-picture{order:0}
+ .career-picture{height:245px;min-height:200px}
+ .career-copy{padding:24px}
+ .bonape-story{padding:25px;display:block}
+ .bonape-number{margin-bottom:19px}
+ .bonape-story h4{font-size:23px}
+ .proof-img{height:180px}
+ .proof-text{min-height:0}
+ .forfis-story{padding:24px}
+ .year-banner{display:block;padding:24px}
+ .year-banner>strong{font-size:43px}
+ .v2-about{padding:65px 0}
+ .about-main h2{font-size:36px}
+ .about-main p.about-large{font-size:19px}
+ .about-quote{font-size:26px}
+ .footnote-strip{display:block}
+ .v2-work{padding:68px 0}
+ .v2-work h2{font-size:37px}
+ .v2-contact-line a{font-size:clamp(33px,9vw,49px)}
+ .catalog-hero h1{font-size:43px}
+ .about-v2-hero h1,.work-with-hero h1{font-size:clamp(37px,9vw,52px)}
+ .about-v2-hero p:not(.minor-label),.work-with-hero p:not(.minor-label){font-size:16px}
+ .about-v2-chapter{padding:41px 0}
+ .about-v2-chapter h2{font-size:32px}
+ .services-grid h2{font-size:30px}
+ .availability-v2 h2{font-size:38px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto} .product-card,.proof-card,.career-picture img{transition:none}}

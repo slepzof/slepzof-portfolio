@@ -1,0 +1,19 @@
+/* v21: transparent hero animation and watermark suppression */
+.sx-hero .sx20-hero-motion{background:transparent!important}
+.sx-hero .sx20-hero-motion::after{
+  content:"";
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:168px;
+  height:44px;
+  background:linear-gradient(90deg, rgba(245,245,247,0) 0%, #f5f5f7 28%, #f5f5f7 100%);
+  z-index:4;
+  pointer-events:none;
+}
+.sx-hero .sx20-hero-motion .sx20-lottie,
+.sx-hero .sx20-hero-motion .sx20-lottie svg,
+.sx-hero .sx20-hero-motion .sx20-lottie canvas{background:transparent!important}
+@media (max-width:750px){
+  .sx-hero .sx20-hero-motion::after{width:112px;height:30px}
+}

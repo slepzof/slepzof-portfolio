@@ -1,0 +1,51 @@
+/* SLEPZOF Beyond UI v29: visual refinement, does not touch other sections */
+#beyond-ui.sx28-beyond{--sx28-card-width:270px}
+/* The intro heading remains at the approved 75% size. */
+#beyond-ui .sx28-intro h2{font-size:clamp(28px,3.45vw,57px)!important}
+@media(max-width:800px){#beyond-ui .sx28-intro h2{font-size:clamp(26px,4.65vw,37.5px)!important}}
+@media(max-width:560px){#beyond-ui .sx28-intro h2{font-size:clamp(24px,6vw,30px)!important}}
+/* The radar is the visual anchor: more space on desktop, actual Figma 359px radar scaled up. */
+@media(min-width:801px){
+ #beyond-ui .sx28-story{grid-template-columns:minmax(0,46%) minmax(0,54%);max-width:1600px}
+ #beyond-ui .sx28-radar-sticky{min-height:620px;padding:0}
+ #beyond-ui .sx28-radar-shade{background:linear-gradient(90deg,#000 0%,#000 84%,rgba(0,0,0,.96) 92%,rgba(0,0,0,0) 100%)}
+ #beyond-ui .sx28-radar{width:min(100%,645px);max-height:100%;transform:translateY(-70px)}
+ #beyond-ui .sx28-panel{padding-top:16px;padding-left:12px;padding-right:max(24px,calc((100vw - 1510px)/2));}
+}
+#beyond-ui .sx28-radar-svg{overflow:visible}
+#beyond-ui #sx28-accent-beam,#beyond-ui #sx28-accent-point{display:none!important}
+#beyond-ui .sx28-node{z-index:2;transition:color .25s ease}
+#beyond-ui .sx28-node svg{width:29px;height:29px;transition:transform .3s ease}
+#beyond-ui .sx28-node[aria-pressed="true"] svg{transform:scale(1.07)}
+#beyond-ui .sx28-node span{font-size:12px}
+#beyond-ui .sx28-node b{font-size:14px}
+/* Precise mobile overlay: solid dark area behind full chart, then an intentional fade at the bottom. */
+@media(max-width:800px){
+ #beyond-ui .sx28-radar-sticky{height:448px;min-height:0;top:var(--sx28-nav);z-index:15}
+ #beyond-ui .sx28-radar-shade{justify-content:center;align-items:flex-start;background:linear-gradient(to bottom,#000 0%,#000 83%,rgba(0,0,0,.97) 89%,rgba(0,0,0,.64) 96%,transparent 100%)}
+ #beyond-ui .sx28-radar{width:min(calc(100vw - 28px),425px);max-height:none;aspect-ratio:1;flex-shrink:0}
+ #beyond-ui .sx28-panel{padding-top:28px;scroll-margin-top:calc(var(--sx28-nav) + 410px);}
+ #beyond-ui .sx28-panel-column{z-index:1}
+ #beyond-ui .sx28-node{min-width:70px;max-width:95px}
+ #beyond-ui .sx28-node svg{width:24px;height:24px}
+ #beyond-ui .sx28-node span{font-size:10px}
+ #beyond-ui .sx28-node b{font-size:11px}
+}
+@media(max-width:560px){
+ #beyond-ui .sx28-radar-sticky{height:410px}
+ #beyond-ui .sx28-radar{width:min(calc(100vw - 8px),410px)}
+ #beyond-ui .sx28-radar-shade{background:linear-gradient(to bottom,#000 0%,#000 84%,rgba(0,0,0,.98) 90%,rgba(0,0,0,.64) 97%,transparent 100%)}
+ #beyond-ui .sx28-node svg{width:24px;height:24px}
+ #beyond-ui .sx28-node span{font-size:9px;letter-spacing:-.01em}
+ #beyond-ui .sx28-node b{font-size:10px}
+ #beyond-ui .sx28-node{min-width:67px;max-width:86px;gap:3px}
+ #beyond-ui .sx28-panel{padding-top:30px;scroll-margin-top:calc(var(--sx28-nav) + 372px)}
+}
+@media(max-width:350px){
+ #beyond-ui .sx28-radar-sticky{height:346px}
+ #beyond-ui .sx28-radar{width:calc(100vw - 8px)}
+ #beyond-ui .sx28-node svg{width:21px;height:21px}
+ #beyond-ui .sx28-node span{font-size:8px}
+ #beyond-ui .sx28-node b{font-size:9px}
+ #beyond-ui .sx28-panel{scroll-margin-top:calc(var(--sx28-nav) + 310px)}
+}

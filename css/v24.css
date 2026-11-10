@@ -1,0 +1,74 @@
+/* SLEPZOF v24. Hero + global header, all viewport sizes, no cropped animation */
+:root { --sx24-ink: #1d1d1f; --sx24-blue: #0071e3; --sx24-muted: #62646c; }
+.sx24-topline {background:#0071e3!important; border:none!important;}
+.sx24-topline .sx22-status-inner {max-width:1260px;min-height:38px;padding:7px 28px;font-size:12px;gap:14px;}
+.sx24-topline .sx22-status-message {font-weight:520;gap:11px;}
+.sx24-topline .sx22-pulse {width:6px;height:6px;box-shadow:0 0 0 3px rgba(255,255,255,.2);}
+.sx24-topline a {font-weight:600;text-decoration:none;border:0!important;}
+.sx24-topline a:hover {text-decoration:underline;}
+.sx24-nav {height:68px!important;padding:0 max(28px,calc((100vw - 1200px)/2))!important;background:rgba(255,255,255,.93)!important;border-bottom:1px solid #e9eaef;}
+.sx24-nav .sx-logo {font-size:19px!important;font-weight:770;letter-spacing:-.055em;}
+.sx24-nav .sx-navlinks {display:flex;align-items:center;gap:clamp(20px,2.9vw,39px);font-size:13px;letter-spacing:-.008em;}
+.sx24-nav .sx-navlinks a {color:#45464d;transition:color .15s ease;}
+.sx24-nav .sx-navlinks a:hover {color:#0071e3;}
+.sx24-nav .sx-navcontact {padding:9px 15px;border:1px solid #d9e6fc;border-radius:999px;color:#0071e3!important;background:#f4f8ff;font-size:13px;font-weight:640;}
+.sx24-nav .sx-navcontact:hover {background:#e8f1ff;}
+/* Undo legacy hero height limits, including rules with !important in v18/v20. */
+.sx24-hero {position:relative;isolation:isolate;overflow:visible!important;background:#f6f6f8!important;padding:clamp(64px,6.1vw,100px) 0 0!important;text-align:center;}
+.sx24-hero-intro {position:relative;z-index:1;max-width:1210px;}
+.sx24-hero .sx24-kicker {display:block;margin:0 0 23px!important;color:#73767f;font-size:11px;letter-spacing:.09em;font-weight:640;}
+.sx24-kicker span {padding:0 7px;color:#b8b8be;}
+.sx24-hero h1 {max-width:1120px!important;margin:0 auto!important;font-size:clamp(40px,4.75vw,70px)!important;font-weight:740!important;line-height:1.09!important;letter-spacing:-.065em!important;text-wrap:balance;}
+.sx24-hero h1 span {display:block;color:#777982;}
+.sx24-hero p {margin:25px auto 0!important;max-width:945px!important;color:#62646c;font-size:clamp(16px,1.35vw,19px)!important;line-height:1.52!important;letter-spacing:-.014em;text-wrap:pretty;}
+.sx24-hero-actions {display:flex;align-items:center;justify-content:center;gap:12px;margin:30px auto 0;}
+.sx24-hero-actions .sx-button {min-height:50px;padding:13px 22px;font-size:14px;gap:10px;font-weight:640;}
+.sx24-hero-actions .sx-blue {background:#0071e3;}
+.sx24-hero-actions .sx24-secondary {background:rgba(255,255,255,.67);color:#1d1d1f;border-color:#d5d6dc;}
+.sx24-hero-actions .sx24-secondary:hover {background:white;}
+.sx24-hero .sx24-animation-wrap {box-sizing:border-box;display:block!important;position:relative!important;width:min(100%,1600px)!important;max-width:none!important;margin:42px auto 0!important;height:auto!important;min-height:0!important;aspect-ratio:7200 / 2048!important;overflow:visible!important;background:transparent!important;isolation:isolate;line-height:0;}
+.sx24-hero .sx24-animation-wrap::after {content:none!important;display:none!important;}
+.sx24-hero .sx24-animation-wrap .sx20-lottie {position:absolute!important;inset:0!important;width:100%!important;height:100%!important;overflow:visible!important;background:transparent!important;}
+.sx24-hero .sx24-animation-wrap .sx20-lottie > svg {width:100%!important;height:100%!important;max-width:none!important;position:absolute;inset:0;display:block;overflow:visible!important;}
+.sx24-hero .sx24-animation-wrap .sx20-lottie > canvas {height:100%!important;width:100%!important;max-width:none!important;object-fit:contain!important;}
+.sx24-hero .sx24-animation-wrap .sx20-static-fallback {object-fit:contain;}
+.sx24-hero + .sx-proof {margin:0!important;padding-top:0!important;}
+/* Tablet: the entire animation frame stays visible, never zoom to 180%. */
+@media(max-width:900px) {
+ .sx24-nav{height:60px!important;padding:0 24px!important;}
+ .sx24-nav .sx-navlinks{gap:20px;font-size:12px;}
+ .sx24-nav .sx-navcontact{padding:7px 11px;}
+ .sx24-hero{padding-top:68px!important;}
+ .sx24-hero h1{font-size:clamp(40px,5.9vw,54px)!important;}
+ .sx24-hero p{max-width:710px!important;}
+ .sx24-hero .sx24-animation-wrap{margin-top:30px!important;width:100%!important;height:auto!important;aspect-ratio:7200 / 2048!important;}
+ .sx24-hero .sx24-animation-wrap .sx20-lottie{left:0!important;width:100%!important;}
+}
+@media(max-width:700px) {
+ .sx24-topline .sx22-status-inner{min-height:35px;padding:7px 16px;font-size:11px;}
+ .sx24-topline a{font-size:11px;}
+ .sx24-nav{height:58px!important;padding:0 20px!important;}
+ .sx24-nav .sx-menubutton{display:block;position:relative;z-index:4;}
+ .sx24-nav .sx-navlinks{display:none;position:absolute;top:58px;left:0;right:0;z-index:3;background:rgba(255,255,255,.98);box-shadow:0 19px 26px rgba(0,0,0,.07);border-bottom:1px solid #ebecf0;padding:20px;flex-direction:column;align-items:stretch;gap:0;font-size:15px;}
+ .sx24-nav.sx-open .sx-navlinks{display:flex;}
+ .sx24-nav .sx-navlinks>a{padding:12px 7px;border-bottom:1px solid #f1f1f4;}
+ .sx24-nav .sx-navlinks .sx-navcontact{margin-top:14px;text-align:center;padding:13px 14px;border:1px solid #d9e6fc;}
+ .sx24-hero{padding-top:56px!important;}
+ .sx24-hero-intro{width:calc(100% - 36px)!important;}
+ .sx24-hero .sx24-kicker{font-size:10px;letter-spacing:.055em;line-height:1.6;margin-bottom:19px!important;}
+ .sx24-hero h1{font-size:clamp(34px,7vw,46px)!important;line-height:1.1!important;letter-spacing:-.058em!important;}
+ .sx24-hero h1 span{margin-top:3px;}
+ .sx24-hero p{font-size:15px!important;line-height:1.5!important;margin-top:22px!important;}
+ .sx24-hero-actions{margin-top:26px;gap:9px;}
+ .sx24-hero-actions .sx-button{padding:12px 16px;min-height:45px;font-size:12px;}
+ .sx24-hero .sx24-animation-wrap{margin:30px auto 0!important;width:100%!important;height:auto!important;aspect-ratio:7200 / 2048!important;}
+ .sx24-hero .sx24-animation-wrap .sx20-lottie{left:0!important;width:100%!important;height:100%!important;}
+}
+@media(max-width:380px) {
+ .sx24-topline .sx22-status-inner{padding:7px 11px;}
+ .sx24-topline .sx22-status-message{gap:7px;}
+ .sx24-hero-intro{width:calc(100% - 28px)!important;}
+ .sx24-hero h1{font-size:32px!important;}
+ .sx24-hero-actions .sx-button{padding-inline:10px;font-size:11px;}
+}
+@media(prefers-reduced-motion:reduce){.sx24-hero-actions .sx-button{transition:none;}}

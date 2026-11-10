@@ -1,0 +1,147 @@
+/* v15. User-provided SVG compositions have full art, roles and captions baked in.
+   Never place a second card UI or old placeholder over them. */
+:root{--sx15-gap:14px}
+.sx-selected-grid,.sx-v13-mosaic{gap:var(--sx15-gap)!important}
+a.sx-card.sx-v15-card{background:var(--sx-v15-bg)!important; color:white!important;
+  border:0!important;border-radius:26px!important;overflow:hidden!important;
+  min-height:0!important;box-shadow:none!important;isolation:isolate;
+  transition:transform .16s ease,box-shadow .16s ease!important}
+a.sx-card.sx-v15-card.sx-v15-light{color:#181b21!important}
+a.sx-card.sx-v15-card:hover{transform:translateY(-2px)!important;box-shadow:0 10px 22px rgba(0,0,0,.10)!important}
+/* The SVG itself draws the exact double outline; no additional white frame. */
+a.sx-card.sx-v15-exact-card{display:block!important;padding:0!important;line-height:0!important;background:transparent!important;border:0!important;border-radius:26px!important;box-shadow:none!important}
+a.sx-card.sx-v15-exact-card::before,a.sx-card.sx-v15-exact-card::after{content:none!important;display:none!important}
+a.sx-card.sx-v15-exact-card img.sx-v15-svg{width:100%!important;height:100%!important;display:block!important;position:absolute!important;inset:0!important;
+ object-fit:fill!important;object-position:center!important;border:0!important;border-radius:0!important;margin:0!important;padding:0!important;opacity:1!important;filter:none!important}
+a.sx-card.sx-v15-exact-card .sx-card-copy,a.sx-card.sx-v15-exact-card .sx-card-image,a.sx-card.sx-v15-exact-card .sx-card-role{display:none!important}
+/* Cards without user artwork remain clean, deliberately without old placeholders. */
+a.sx-card.sx-v15-text-card .sx-card-image{display:none!important}
+a.sx-card.sx-v15-text-card .sx-card-copy{display:flex!important;position:absolute!important;inset:0!important;flex-direction:column!important;align-items:flex-start!important;
+ height:100%!important;padding:22px 22px 19px!important;background:none!important}
+a.sx-card.sx-v15-text-card::after{content:""!important;display:block!important;position:absolute!important;inset:3px!important;border:1.5px solid rgba(0,0,0,.23)!important;border-radius:22px!important;z-index:5;pointer-events:none}
+a.sx-card.sx-v15-text-card:not(.sx-v15-light)::after{border-color:rgba(0,0,0,.28)!important}
+a.sx-card.sx-v15-text-card .sx-card-role{width:100%!important;max-width:calc(100% - 4px)!important;gap:5px!important;display:flex!important;
+ flex-wrap:nowrap!important;overflow:hidden!important;align-items:center!important;white-space:nowrap!important}
+a.sx-card.sx-v15-text-card .sx-tag{display:inline-flex!important;padding:4px 8px!important;font-size:9px!important;border:1px solid currentColor!important;
+ background:transparent!important;color:inherit!important;opacity:.88!important;line-height:1.15!important;border-radius:30px!important}
+a.sx-card.sx-v15-text-card .sx-tag.sx-tag-hidden{display:none!important}
+a.sx-card.sx-v15-text-card .sx-card-copy>h4{display:block!important;width:100%!important;max-width:100%!important;
+ margin:auto 0 9px!important;font-size:clamp(21px,2.0vw,29px)!important;line-height:1.09!important;letter-spacing:-.045em!important}
+a.sx-card.sx-v15-text-card .sx-card-copy>p{width:100%!important;max-width:660px!important;font-size:13px!important;line-height:1.45!important;
+ margin:0 0 15px!important;-webkit-line-clamp:2!important}
+a.sx-card.sx-v15-text-card .sx-card-metric{display:flex!important;align-items:baseline!important;gap:8px!important;max-width:100%!important;
+ padding:0!important;margin:0!important;border:none!important}
+a.sx-card.sx-v15-text-card .sx-card-metric strong{font-size:clamp(25px,3vw,34px)!important;line-height:1!important;letter-spacing:-.06em!important}
+a.sx-card.sx-v15-text-card .sx-card-metric span{font-size:11px!important;line-height:1.2!important;max-width:300px!important}
+a.sx-card.sx-v15-text-card .sx-card-arrow{display:none!important}
+/* Main feature is 2 rows: 596x474 reference; small cards 290x231 references. */
+.sx-selected-grid{grid-template-rows:repeat(2,236px)!important;grid-auto-rows:236px!important}
+.sx-selected-grid>a.sx-v15-card:first-child{grid-column:span 6!important;grid-row:span 2!important}
+.sx-selected-grid>a.sx-v15-card:nth-child(n+2){grid-column:span 3!important;grid-row:span 1!important}
+/* Wide automotive funnel SVG occupies the whole half-row, no clipping. */
+#auto-2026 .sx-mosaic.sx-count-3{grid-auto-rows:230px!important}
+#auto-2026 .sx-mosaic.sx-count-3>a:first-child{grid-column:span 6!important;grid-row:span 2!important}
+#auto-2026 .sx-mosaic.sx-count-3>a:nth-child(2),#auto-2026 .sx-mosaic.sx-count-3>a:nth-child(3){grid-column:span 6!important;grid-row:span 1!important}
+/* Summer: exactly two rows per visible slide, one large Pixel Drop and four cards beside it. */
+#summer-2026 .sx-slide:first-child .sx-mosaic.sx-v15-summer-five{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;
+ grid-template-rows:repeat(2,231px)!important;grid-auto-rows:231px!important;gap:var(--sx15-gap)!important}
+#summer-2026 .sx-slide:first-child .sx-mosaic.sx-v15-summer-five>a.sx-v15-card{grid-column:span 3!important;grid-row:span 1!important;height:auto!important}
+#summer-2026 .sx-slide:first-child .sx-mosaic.sx-v15-summer-five>a[data-slug="pixel-drop"]{grid-column:span 6!important;grid-row:span 2!important}
+/* Big one-project sections use whole available width. */
+#duck .sx-mosaic.sx-count-1>a.sx-v15-card,#onlinesklad .sx-mosaic.sx-count-1>a.sx-v15-card,
+#restar .sx-mosaic.sx-count-1>a.sx-v15-card,#media .sx-mosaic.sx-count-1>a.sx-v15-card{width:100%!important}
+/* Catalog: same visual vocabulary, not a separate old grey-card system. */
+.sx-catalog-grid>a.sx-card.sx-v15-card{position:relative!important;display:block!important;min-height:235px!important;overflow:hidden!important;
+ padding:0!important;background:var(--sx-v15-bg)!important;color:white!important}
+.sx-catalog-grid>a.sx-card.sx-v15-card.sx-v15-light{color:#191b20!important}
+.sx-catalog-grid>a.sx-card.sx-v15-text-card .sx-card-copy{max-width:none!important;width:100%!important}
+.sx-catalog-grid>a.sx-card.sx-v15-exact-card img.sx-v15-svg{object-fit:contain!important}
+@media(max-width:1100px){
+ .sx-selected-grid{grid-template-rows:repeat(2,210px)!important;grid-auto-rows:210px!important}
+ #summer-2026 .sx-slide:first-child .sx-mosaic.sx-v15-summer-five{grid-template-rows:repeat(2,205px)!important;grid-auto-rows:205px!important}
+}
+@media(max-width:720px){
+ :root{--sx15-gap:10px}
+ .sx-selected-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(4,190px)!important;grid-auto-rows:190px!important}
+ .sx-selected-grid>a.sx-v15-card:first-child{grid-column:span 2!important;grid-row:span 2!important}
+ .sx-selected-grid>a.sx-v15-card:nth-child(n+2){grid-column:span 1!important;grid-row:span 1!important}
+ #auto-2026 .sx-mosaic.sx-count-3>a:first-child{grid-column:span 2!important;grid-row:span 2!important}
+ #auto-2026 .sx-mosaic.sx-count-3>a:nth-child(2),#auto-2026 .sx-mosaic.sx-count-3>a:nth-child(3){grid-column:span 2!important;grid-row:span 1!important}
+ #summer-2026 .sx-slide:first-child .sx-mosaic.sx-v15-summer-five{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(4,190px)!important;grid-auto-rows:190px!important}
+ #summer-2026 .sx-slide:first-child .sx-mosaic.sx-v15-summer-five>a.sx-v15-card{grid-column:span 1!important;grid-row:span 1!important}
+ #summer-2026 .sx-slide:first-child .sx-mosaic.sx-v15-summer-five>a[data-slug="pixel-drop"]{grid-column:span 2!important;grid-row:span 2!important}
+ a.sx-card.sx-v15-text-card .sx-card-copy{padding:14px!important}
+ a.sx-card.sx-v15-text-card .sx-card-copy>h4{font-size:18px!important;line-height:1.1!important}
+ a.sx-card.sx-v15-text-card .sx-card-copy>p{font-size:11px!important;line-height:1.34!important}
+ a.sx-card.sx-v15-text-card .sx-tag{font-size:8px!important;padding:3px 5px!important}
+ a.sx-card.sx-v15-text-card .sx-card-metric strong{font-size:25px!important}
+ a.sx-card.sx-v15-text-card .sx-card-metric span{display:none!important}
+}
+/* A tall SVG remains tall. Entire first slide of private work becomes a two-row
+   290/592px tessellation exactly matching the provided art ratios. */
+#private-2025 .sx-slide:first-child .sx-mosaic.sx-count-7{
+  grid-template-columns:repeat(12,minmax(0,1fr))!important;grid-template-rows:repeat(2,231px)!important;
+  grid-auto-rows:231px!important;grid-auto-flow:row dense!important;height:auto!important;
+}
+#private-2025 .sx-slide:first-child .sx-mosaic.sx-count-7>a.sx-v15-card{
+  grid-column:span 3!important;grid-row:span 1!important;height:auto!important;
+}
+#private-2025 .sx-slide:first-child .sx-mosaic.sx-count-7>a[data-slug='echo-app']{
+  grid-column:span 3!important;grid-row:span 2!important;
+}
+/* Flexible track height, not legacy equal-height ghost space. */
+.sx-slide>.sx-mosaic{height:auto!important}
+#summer-2026 .sx-slide>.sx-mosaic.sx-v15-summer-page{
+  grid-template-columns:repeat(12,minmax(0,1fr))!important;
+  grid-template-rows:repeat(2,231px)!important;
+  grid-auto-rows:231px!important;height:auto!important;grid-auto-flow:row dense!important;
+}
+#summer-2026 .sx-slide>.sx-mosaic.sx-v15-summer-page>a.sx-v15-card{grid-column:span 3!important;grid-row:span 1!important}
+#summer-2026 .sx-slide>.sx-mosaic.sx-v15-summer-page.sx-count-5>a:first-child{grid-column:span 6!important;grid-row:span 2!important}
+#summer-2026 .sx-slide:nth-child(3)>.sx-mosaic.sx-v15-summer-page>a.sx-v15-card{grid-column:span 6!important;grid-row:span 1!important}
+@media(max-width:720px){
+ #private-2025 .sx-slide:first-child .sx-mosaic.sx-count-7,
+ #summer-2026 .sx-slide>.sx-mosaic.sx-v15-summer-page{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:none!important;grid-auto-rows:190px!important}
+ #private-2025 .sx-slide:first-child .sx-mosaic.sx-count-7>a.sx-v15-card,
+ #summer-2026 .sx-slide>.sx-mosaic.sx-v15-summer-page>a.sx-v15-card{grid-column:span 1!important;grid-row:span 1!important}
+ #private-2025 .sx-slide:first-child .sx-mosaic.sx-count-7>a[data-slug='echo-app']{grid-column:span 1!important;grid-row:span 2!important}
+ #summer-2026 .sx-slide>.sx-mosaic.sx-v15-summer-page.sx-count-5>a:first-child{grid-column:span 2!important;grid-row:span 2!important}
+ #summer-2026 .sx-slide:nth-child(3)>.sx-mosaic.sx-v15-summer-page>a.sx-v15-card{grid-column:span 1!important;grid-row:span 1!important}
+}
+/* Preserve intrinsic art ratios when catalog items land on a different tile size. */
+.sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card img.sx-v15-svg{object-fit:contain!important}
+.sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='pixel-drop']{grid-column:span 6!important;grid-row:span 2!important}
+.sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='engine-leads']{grid-column:span 6!important;grid-row:span 1!important}
+.sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='echo-app']{grid-column:span 3!important;grid-row:span 2!important}
+.sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='parking'],
+.sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='vita-ai']{grid-column:span 3!important;grid-row:span 1!important}
+#private-2025 .sx-slide:nth-child(2) .sx-mosaic>a.sx-v15-exact-card[data-slug='vita-ai']{grid-column:span 3!important;grid-row:span 1!important}
+@media(max-width:720px){
+ .sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='pixel-drop'],
+ .sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='engine-leads']{grid-column:span 2!important;grid-row:span 2!important}
+ .sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='echo-app']{grid-column:span 1!important;grid-row:span 2!important}
+ .sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='parking'],
+ .sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='vita-ai']{grid-column:span 1!important;grid-row:span 1!important}
+ #private-2025 .sx-slide:nth-child(2) .sx-mosaic>a.sx-v15-exact-card[data-slug='vita-ai']{grid-column:span 1!important;grid-row:span 1!important}
+}
+/* One unbroken, mixed-size catalog. Dense placement pulls subsequent projects
+   into free grid cells instead of leaving holes between separate mini-grids. */
+.sx-catalog-wall .sx-mosaic{grid-template-columns:repeat(12,minmax(0,1fr))!important;grid-auto-rows:232px!important;
+  grid-auto-flow:row dense!important;gap:14px!important}
+.sx-catalog-wall .sx-mosaic>a.sx-v15-card{grid-column:span 3!important;grid-row:span 1!important}
+.sx-catalog-wall .sx-mosaic>a.sx-v15-card:nth-child(9n+1):not(.sx-v15-exact-card){grid-column:span 6!important;grid-row:span 2!important}
+.sx-catalog-wall .sx-mosaic>a.sx-v15-card:nth-child(9n+5):not(.sx-v15-exact-card){grid-column:span 6!important;grid-row:span 1!important}
+.sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='pixel-drop']{grid-column:span 6!important;grid-row:span 2!important}
+.sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='engine-leads']{grid-column:span 6!important;grid-row:span 1!important}
+.sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='echo-app']{grid-column:span 3!important;grid-row:span 2!important}
+.sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='parking'],
+.sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='vita-ai']{grid-column:span 3!important;grid-row:span 1!important}
+@media(max-width:720px){
+ .sx-catalog-wall .sx-mosaic{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-auto-rows:158px!important;gap:10px!important}
+ .sx-catalog-wall .sx-mosaic>a.sx-v15-card{grid-column:span 1!important;grid-row:span 1!important}
+ .sx-catalog-wall .sx-mosaic>a.sx-v15-card:nth-child(9n+1):not(.sx-v15-exact-card){grid-column:span 2!important;grid-row:span 2!important}
+ .sx-catalog-wall .sx-mosaic>a.sx-v15-card:nth-child(9n+5):not(.sx-v15-exact-card){grid-column:span 2!important;grid-row:span 1!important}
+ .sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='pixel-drop'],
+ .sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='engine-leads']{grid-column:span 2!important;grid-row:span 2!important}
+ .sx-catalog-wall .sx-mosaic>a.sx-v15-exact-card[data-slug='echo-app']{grid-column:span 1!important;grid-row:span 2!important}
+}

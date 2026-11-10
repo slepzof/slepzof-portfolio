@@ -1,0 +1,618 @@
+[
+  {
+    "title": "Главная · SLEPZOF",
+    "path": "/"
+  },
+  {
+    "title": "Обо мне · SLEPZOF",
+    "path": "/about/"
+  },
+  {
+    "title": "Работа со мной · SLEPZOF",
+    "path": "/work-with-me/"
+  },
+  {
+    "title": "Все проекты · SLEPZOF",
+    "path": "/projects/"
+  },
+  {
+    "title": "2Space · SLEPZOF",
+    "path": "/cases/2space/"
+  },
+  {
+    "title": "AiCors · SLEPZOF",
+    "path": "/cases/aicors/"
+  },
+  {
+    "title": "Al Maktoum · SLEPZOF",
+    "path": "/cases/al-maktoum/"
+  },
+  {
+    "title": "Apple Bar. кейс SLEPZOF",
+    "path": "/cases/apple-bar/"
+  },
+  {
+    "title": "Apple Bar: обучение · SLEPZOF",
+    "path": "/cases/applebar-training/"
+  },
+  {
+    "title": "Aquator · SLEPZOF",
+    "path": "/cases/aquator/"
+  },
+  {
+    "title": "ARTSAVUR · SLEPZOF",
+    "path": "/cases/artsavur/"
+  },
+  {
+    "title": "Автомобильные продажи · SLEPZOF",
+    "path": "/cases/auto-sales/"
+  },
+  {
+    "title": "Автомобильные продукты · SLEPZOF",
+    "path": "/cases/automotive/"
+  },
+  {
+    "title": "Автоматизация автопродаж · SLEPZOF",
+    "path": "/cases/automotive-automation/"
+  },
+  {
+    "title": "АвтоШкола · SLEPZOF",
+    "path": "/cases/avtoshkola/"
+  },
+  {
+    "title": "Работа в пекарне · SLEPZOF",
+    "path": "/cases/bakery/"
+  },
+  {
+    "title": "BARAHOLKA34 · SLEPZOF",
+    "path": "/cases/baraholka34/"
+  },
+  {
+    "title": "BBETS / 1WIN Roulette · SLEPZOF",
+    "path": "/cases/bbets/"
+  },
+  {
+    "title": "Bill Split · SLEPZOF",
+    "path": "/cases/bill-split/"
+  },
+  {
+    "title": "Blog Hamilya · SLEPZOF",
+    "path": "/cases/blog-hamilya/"
+  },
+  {
+    "title": "BNQR · SLEPZOF",
+    "path": "/cases/bnqr/"
+  },
+  {
+    "title": "BONAPE · SLEPZOF",
+    "path": "/cases/bonape/"
+  },
+  {
+    "title": "Обучение 24 специалистов · BONAPE / Опыт работы · SLEPZOF",
+    "path": "/cases/bonape-training/"
+  },
+  {
+    "title": "Celtway · SLEPZOF",
+    "path": "/cases/celtway/"
+  },
+  {
+    "title": "Chatus · SLEPZOF",
+    "path": "/cases/chatus/"
+  },
+  {
+    "title": "Chexolchik · SLEPZOF",
+    "path": "/cases/chexolchik/"
+  },
+  {
+    "title": "China Car · SLEPZOF",
+    "path": "/cases/china-car/"
+  },
+  {
+    "title": "City Exchange · SLEPZOF",
+    "path": "/cases/city-exchange/"
+  },
+  {
+    "title": "Crush · SLEPZOF",
+    "path": "/cases/crush/"
+  },
+  {
+    "title": "Dead Choices. кейс SLEPZOF",
+    "path": "/cases/dead-choices/"
+  },
+  {
+    "title": "Deli She · SLEPZOF",
+    "path": "/cases/deli-she/"
+  },
+  {
+    "title": "Diary Book · SLEPZOF",
+    "path": "/cases/diary-book/"
+  },
+  {
+    "title": "Цифровой юрист · SLEPZOF",
+    "path": "/cases/digital-lawyer/"
+  },
+  {
+    "title": "Домашний Доктор · SLEPZOF",
+    "path": "/cases/domashniy-doktor/"
+  },
+  {
+    "title": "Domodel · SLEPZOF",
+    "path": "/cases/domodel/"
+  },
+  {
+    "title": "DuckMaster. кейс SLEPZOF",
+    "path": "/cases/duckmaster/"
+  },
+  {
+    "title": "Переход к основному кейсу · SLEPZOF",
+    "path": "/cases/duckmaster-cards/"
+  },
+  {
+    "title": "DuckMaster / Экономика · SLEPZOF",
+    "path": "/cases/duckmaster-economy/"
+  },
+  {
+    "title": "DuckMaster / Игровые сценарии · SLEPZOF",
+    "path": "/cases/duckmaster-progression/"
+  },
+  {
+    "title": "Переход к основному кейсу · SLEPZOF",
+    "path": "/cases/duckmaster-quests/"
+  },
+  {
+    "title": "Переход к основному кейсу · SLEPZOF",
+    "path": "/cases/duckmaster-referrals/"
+  },
+  {
+    "title": "DuckMaster / UI Kit · SLEPZOF",
+    "path": "/cases/duckmaster-uikit/"
+  },
+  {
+    "title": "ЭХО · SLEPZOF",
+    "path": "/cases/echo-app/"
+  },
+  {
+    "title": "Подбор двигателей · SLEPZOF",
+    "path": "/cases/engine-leads/"
+  },
+  {
+    "title": "Eurotek · SLEPZOF",
+    "path": "/cases/eurotek/"
+  },
+  {
+    "title": "Exo Fleet Brain · SLEPZOF",
+    "path": "/cases/exo-fleet-brain/"
+  },
+  {
+    "title": "Exo OS · SLEPZOF",
+    "path": "/cases/exo-os/"
+  },
+  {
+    "title": "Exo Vision · SLEPZOF",
+    "path": "/cases/exo-vision/"
+  },
+  {
+    "title": "EXOCURE × MEYDAN · SLEPZOF",
+    "path": "/cases/exocure/"
+  },
+  {
+    "title": "Eyebogo · SLEPZOF",
+    "path": "/cases/eyebogo/"
+  },
+  {
+    "title": "FinFlow · SLEPZOF",
+    "path": "/cases/finflow/"
+  },
+  {
+    "title": "FitnessPro · SLEPZOF",
+    "path": "/cases/fitnesspro/"
+  },
+  {
+    "title": "Fly Ball · SLEPZOF",
+    "path": "/cases/fly-ball/"
+  },
+  {
+    "title": "FORFIS · SLEPZOF",
+    "path": "/cases/forfis/"
+  },
+  {
+    "title": "Forfis: новый сайт · SLEPZOF",
+    "path": "/cases/forfis-new-site/"
+  },
+  {
+    "title": "Game of Year · SLEPZOF",
+    "path": "/cases/game-of-year/"
+  },
+  {
+    "title": "Главбанкрот. кейс SLEPZOF",
+    "path": "/cases/glavbankrot/"
+  },
+  {
+    "title": "Greenbox · SLEPZOF",
+    "path": "/cases/greenbox/"
+  },
+  {
+    "title": "Hamilya Astro · SLEPZOF",
+    "path": "/cases/hamilya-astro/"
+  },
+  {
+    "title": "Hamilya · SLEPZOF",
+    "path": "/cases/hamilya-shop/"
+  },
+  {
+    "title": "Hash Hedge / Дашборд · SLEPZOF",
+    "path": "/cases/hash-account/"
+  },
+  {
+    "title": "Переход к основному кейсу · SLEPZOF",
+    "path": "/cases/hash-affiliate/"
+  },
+  {
+    "title": "Переход к основному кейсу · SLEPZOF",
+    "path": "/cases/hash-challenges/"
+  },
+  {
+    "title": "Hash Hedge. кейс SLEPZOF",
+    "path": "/cases/hash-hedge/"
+  },
+  {
+    "title": "Переход к основному кейсу · SLEPZOF",
+    "path": "/cases/hash-payments/"
+  },
+  {
+    "title": "Переход к основному кейсу · SLEPZOF",
+    "path": "/cases/hash-risk/"
+  },
+  {
+    "title": "Hash Hedge / Сайт · SLEPZOF",
+    "path": "/cases/hash-site/"
+  },
+  {
+    "title": "Hash Hedge / Терминал · SLEPZOF",
+    "path": "/cases/hash-trading/"
+  },
+  {
+    "title": "Переход к основному кейсу · SLEPZOF",
+    "path": "/cases/hash-withdrawals/"
+  },
+  {
+    "title": "History App · SLEPZOF",
+    "path": "/cases/history-app/"
+  },
+  {
+    "title": "Hub71 · SLEPZOF",
+    "path": "/cases/hub71/"
+  },
+  {
+    "title": "Internship Platform · SLEPZOF",
+    "path": "/cases/internship-platform/"
+  },
+  {
+    "title": "Инвапром · SLEPZOF",
+    "path": "/cases/invaprom/"
+  },
+  {
+    "title": "ИЗЮМ · SLEPZOF",
+    "path": "/cases/izum/"
+  },
+  {
+    "title": "Jet Hunter · SLEPZOF",
+    "path": "/cases/jet-hunter/"
+  },
+  {
+    "title": "Хлеб из тандыра · SLEPZOF",
+    "path": "/cases/khleb-iz-tandyra/"
+  },
+  {
+    "title": "Logirus · SLEPZOF",
+    "path": "/cases/logirus/"
+  },
+  {
+    "title": "Луч · SLEPZOF",
+    "path": "/cases/luch/"
+  },
+  {
+    "title": "Mafia · SLEPZOF",
+    "path": "/cases/mafia/"
+  },
+  {
+    "title": "Marcodo · SLEPZOF",
+    "path": "/cases/marcodo/"
+  },
+  {
+    "title": "YouTube и VK: медийная работа · SLEPZOF",
+    "path": "/cases/media/"
+  },
+  {
+    "title": "Переход к основному кейсу · SLEPZOF",
+    "path": "/cases/media-esports/"
+  },
+  {
+    "title": "Media Garant · SLEPZOF",
+    "path": "/cases/media-garant/"
+  },
+  {
+    "title": "Переход к основному кейсу · SLEPZOF",
+    "path": "/cases/media-minecraft/"
+  },
+  {
+    "title": "Meydan Racecourse · SLEPZOF",
+    "path": "/cases/meydan-racecourse/"
+  },
+  {
+    "title": "Mobilka34 · SLEPZOF",
+    "path": "/cases/mobilka34/"
+  },
+  {
+    "title": "Moonlight · SLEPZOF",
+    "path": "/cases/moonlight/"
+  },
+  {
+    "title": "Мясной двор · SLEPZOF",
+    "path": "/cases/myasnoy-dvor/"
+  },
+  {
+    "title": "Neurostar · SLEPZOF",
+    "path": "/cases/neurostar/"
+  },
+  {
+    "title": "Numa · SLEPZOF",
+    "path": "/cases/numa/"
+  },
+  {
+    "title": "1Case · SLEPZOF",
+    "path": "/cases/onecase/"
+  },
+  {
+    "title": "Onlinesklad. кейс SLEPZOF",
+    "path": "/cases/onlinesklad/"
+  },
+  {
+    "title": "Onlinesklad / Кабинеты · SLEPZOF",
+    "path": "/cases/onlinesklad-buyer/"
+  },
+  {
+    "title": "Onlinesklad / Каталог · SLEPZOF",
+    "path": "/cases/onlinesklad-catalog/"
+  },
+  {
+    "title": "Onlinesklad / Заказ · SLEPZOF",
+    "path": "/cases/onlinesklad-order/"
+  },
+  {
+    "title": "Переход к основному кейсу · SLEPZOF",
+    "path": "/cases/onlinesklad-qa/"
+  },
+  {
+    "title": "Переход к основному кейсу · SLEPZOF",
+    "path": "/cases/onlinesklad-supplier/"
+  },
+  {
+    "title": "Papa Pizza · SLEPZOF",
+    "path": "/cases/papa-pizza/"
+  },
+  {
+    "title": "Parking · SLEPZOF",
+    "path": "/cases/parking/"
+  },
+  {
+    "title": "Payment Gateway · SLEPZOF",
+    "path": "/cases/payment-gateway/"
+  },
+  {
+    "title": "Pelikan · SLEPZOF",
+    "path": "/cases/pelikan/"
+  },
+  {
+    "title": "Pelikan / Web · SLEPZOF",
+    "path": "/cases/pelikan-web/"
+  },
+  {
+    "title": "PILOTS APP. кейс SLEPZOF",
+    "path": "/cases/pilots-app/"
+  },
+  {
+    "title": "Pixel Drop. кейс SLEPZOF",
+    "path": "/cases/pixel-drop/"
+  },
+  {
+    "title": "Pizza Dashboard · SLEPZOF",
+    "path": "/cases/pizza-dashboard/"
+  },
+  {
+    "title": "Poizon Shop · SLEPZOF",
+    "path": "/cases/poizon-shop/"
+  },
+  {
+    "title": "Пропуска · SLEPZOF",
+    "path": "/cases/propuska/"
+  },
+  {
+    "title": "Психологические консультации · SLEPZOF",
+    "path": "/cases/psychology/"
+  },
+  {
+    "title": "RD mart · SLEPZOF",
+    "path": "/cases/rd-mart/"
+  },
+  {
+    "title": "RESTAR · SLEPZOF",
+    "path": "/cases/restar/"
+  },
+  {
+    "title": "Restomesto · SLEPZOF",
+    "path": "/cases/restomesto/"
+  },
+  {
+    "title": "Rocket Jet · SLEPZOF",
+    "path": "/cases/rocket-jet/"
+  },
+  {
+    "title": "РСК · SLEPZOF",
+    "path": "/cases/rsk/"
+  },
+  {
+    "title": "Sailor Planner · SLEPZOF",
+    "path": "/cases/sailor-planner/"
+  },
+  {
+    "title": "SALUTE · SLEPZOF",
+    "path": "/cases/salute/"
+  },
+  {
+    "title": "Рекламные воронки · SLEPZOF",
+    "path": "/cases/salute-funnels/"
+  },
+  {
+    "title": "Telegram-сетка · SLEPZOF",
+    "path": "/cases/salute-telegram/"
+  },
+  {
+    "title": "She Talks · SLEPZOF",
+    "path": "/cases/she-talks/"
+  },
+  {
+    "title": "Shutterstock · SLEPZOF",
+    "path": "/cases/shutterstock/"
+  },
+  {
+    "title": "Slab Service · SLEPZOF",
+    "path": "/cases/slab-service/"
+  },
+  {
+    "title": "Sober Driver / Админка · SLEPZOF",
+    "path": "/cases/sober-admin/"
+  },
+  {
+    "title": "Sober Driver / Клиент · SLEPZOF",
+    "path": "/cases/sober-client/"
+  },
+  {
+    "title": "Sober Driver. кейс SLEPZOF",
+    "path": "/cases/sober-driver/"
+  },
+  {
+    "title": "Административная панель · SLEPZOF",
+    "path": "/cases/sober-driver-admin/"
+  },
+  {
+    "title": "Sober Driver / Водитель · SLEPZOF",
+    "path": "/cases/sober-driver-app/"
+  },
+  {
+    "title": "Приложение водителя · SLEPZOF",
+    "path": "/cases/sober-driver-driver/"
+  },
+  {
+    "title": "Сайт и воронка · SLEPZOF",
+    "path": "/cases/sober-driver-web/"
+  },
+  {
+    "title": "Sober Driver / Воронки · SLEPZOF",
+    "path": "/cases/sober-growth/"
+  },
+  {
+    "title": "Sober Driver / Сайт · SLEPZOF",
+    "path": "/cases/sober-web/"
+  },
+  {
+    "title": "Star Exchange · SLEPZOF",
+    "path": "/cases/star-exchange/"
+  },
+  {
+    "title": "StarHash Benchmark · SLEPZOF",
+    "path": "/cases/starhash-benchmark/"
+  },
+  {
+    "title": "TezGO · SLEPZOF",
+    "path": "/cases/tezgo/"
+  },
+  {
+    "title": "The Heights · SLEPZOF",
+    "path": "/cases/the-heights/"
+  },
+  {
+    "title": "Transport Tech · SLEPZOF",
+    "path": "/cases/transport-tech/"
+  },
+  {
+    "title": "Transport Tech / CRM · SLEPZOF",
+    "path": "/cases/transport-tech-admin/"
+  },
+  {
+    "title": "Treasures of Pskov · SLEPZOF",
+    "path": "/cases/treasures-pskov/"
+  },
+  {
+    "title": "Trips / City Travel · SLEPZOF",
+    "path": "/cases/trips/"
+  },
+  {
+    "title": "Trips / Публикация · SLEPZOF",
+    "path": "/cases/trips-publishing/"
+  },
+  {
+    "title": "Twin Finder · SLEPZOF",
+    "path": "/cases/twin-finder/"
+  },
+  {
+    "title": "Verbatica · SLEPZOF",
+    "path": "/cases/verbatica/"
+  },
+  {
+    "title": "Везу Еду · SLEPZOF",
+    "path": "/cases/vezu-edu/"
+  },
+  {
+    "title": "Virus · SLEPZOF",
+    "path": "/cases/virus/"
+  },
+  {
+    "title": "Vita AI · SLEPZOF",
+    "path": "/cases/vita-ai/"
+  },
+  {
+    "title": "Vita Med · SLEPZOF",
+    "path": "/cases/vita-med/"
+  },
+  {
+    "title": "Переход к основному кейсу · SLEPZOF",
+    "path": "/cases/vk-communities/"
+  },
+  {
+    "title": "Vlad Bykov · SLEPZOF",
+    "path": "/cases/vlad-bykov/"
+  },
+  {
+    "title": "Vodacom · SLEPZOF",
+    "path": "/cases/vodacom/"
+  },
+  {
+    "title": "Сайт ВолГУ · SLEPZOF",
+    "path": "/cases/volgu-site/"
+  },
+  {
+    "title": "Времена года · SLEPZOF",
+    "path": "/cases/vremena-goda/"
+  },
+  {
+    "title": "Выбор · SLEPZOF",
+    "path": "/cases/vybor/"
+  },
+  {
+    "title": "WSCT · SLEPZOF",
+    "path": "/cases/wsct/"
+  },
+  {
+    "title": "X6 · SLEPZOF",
+    "path": "/cases/x6/"
+  },
+  {
+    "title": "Yacht Center · SLEPZOF",
+    "path": "/cases/yacht-center/"
+  },
+  {
+    "title": "Твоё Время · SLEPZOF",
+    "path": "/cases/your-time/"
+  }
+]

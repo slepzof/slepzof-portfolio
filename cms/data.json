@@ -1,0 +1,3849 @@
+{
+  "version": 1,
+  "projects": {
+    "automotive": {
+      "slug": "automotive",
+      "title": "Продажа автомобилей",
+      "summary": "Сайты, рекламные кампании, аналитика, скрипты менеджеров и передача лидов в CRM.",
+      "roles": [
+        "Дизайн",
+        "Разработка",
+        "Маркетинг"
+      ],
+      "period": "auto-2026",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "62",
+      "metricLabel": "лида",
+      "images": {
+        "desktop": "/assets/cases/automotive/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/automotive/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "engine-leads": {
+      "slug": "engine-leads",
+      "title": "Подбор двигателей",
+      "summary": "Посадочные страницы, интеграции, автоматизация обработки заявок и управление рекламой.",
+      "roles": [
+        "Дизайн",
+        "Разработка",
+        "Маркетинг"
+      ],
+      "period": "auto-2026",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "324",
+      "metricLabel": "обращения",
+      "images": {
+        "desktop": "/assets/cases/engine-leads/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/engine-leads/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "automotive-automation": {
+      "slug": "automotive-automation",
+      "title": "Автоматизация автопродаж",
+      "summary": "Парсеры, Telegram-боты, CRM, маршрутизация обращений и контроль работы менеджеров.",
+      "roles": [
+        "Разработка",
+        "Маркетинг"
+      ],
+      "period": "auto-2026",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/automotive-automation/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/automotive-automation/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "rsk": {
+      "slug": "rsk",
+      "title": "РСК",
+      "summary": "Коробки, упаковка, дизайн и сопутствующие цифровые задачи.",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "summer-2026",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/rsk/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/rsk/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "vremena-goda": {
+      "slug": "vremena-goda",
+      "title": "Времена года",
+      "summary": "Интернет-магазин с каталогом, заказами и пользовательскими сценариями.",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "summer-2026",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/vremena-goda/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/vremena-goda/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "payment-gateway": {
+      "slug": "payment-gateway",
+      "title": "Payment Gateway",
+      "summary": "Платёжный продукт, пользовательские сценарии и интерфейсы.",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "summer-2026",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/payment-gateway/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/payment-gateway/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "pixel-drop": {
+      "slug": "pixel-drop",
+      "title": "Pixel Drop",
+      "summary": "Игровой маркетплейс: кейсы, инвентарь, внутренняя экономика, задания и вывод предметов.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "summer-2026",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "241",
+      "metricLabel": "адаптивное состояние",
+      "images": {
+        "desktop": "/assets/cases/pixel-drop/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/pixel-drop/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      },
+      "featured": true,
+      "featuredCover": "/assets/featured-v17/pixel-drop.webp"
+    },
+    "dead-choices": {
+      "slug": "dead-choices",
+      "title": "Dead Choices",
+      "summary": "Нелинейная мобильная игра. Сценарии выбора, сюжетные ветки и состояния экранов.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "summer-2026",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "171",
+      "metricLabel": "сюжетная сцена",
+      "images": {
+        "desktop": "/assets/cases/dead-choices/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/dead-choices/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "vezu-edu": {
+      "slug": "vezu-edu",
+      "title": "Везу Еду",
+      "summary": "Приложение доставки с клиентскими сценариями и маршрутом заказа.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "summer-2026",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/vezu-edu/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/vezu-edu/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "exocure": {
+      "slug": "exocure",
+      "title": "EXOCURE",
+      "summary": "Комплексная система презентационных и цифровых концепций для нескольких продуктов.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "summer-2026",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "7",
+      "metricLabel": "направлений",
+      "images": {
+        "desktop": "/assets/cases/exocure/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/exocure/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "meydan-racecourse": {
+      "slug": "meydan-racecourse",
+      "title": "Meydan Racecourse",
+      "summary": "Концепция продукта для гоночного комплекса и презентация.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "summer-2026",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/meydan-racecourse/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/meydan-racecourse/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "the-heights": {
+      "slug": "the-heights",
+      "title": "The Heights",
+      "summary": "Концепция и продуктовая презентация.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "summer-2026",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/the-heights/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/the-heights/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "hub71": {
+      "slug": "hub71",
+      "title": "Hub71",
+      "summary": "Концепция и коммуникационные материалы.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "summer-2026",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/hub71/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/hub71/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "exo-fleet-brain": {
+      "slug": "exo-fleet-brain",
+      "title": "Exo Fleet Brain",
+      "summary": "Продуктовая концепция и визуальная система.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "summer-2026",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/exo-fleet-brain/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/exo-fleet-brain/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "exo-vision": {
+      "slug": "exo-vision",
+      "title": "Exo Vision",
+      "summary": "Концепция интерфейсов и продуктовая презентация.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "summer-2026",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/exo-vision/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/exo-vision/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "exo-os": {
+      "slug": "exo-os",
+      "title": "Exo OS",
+      "summary": "Концепция экосистемы, интерфейсы и презентация.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "summer-2026",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/exo-os/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/exo-os/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "al-maktoum": {
+      "slug": "al-maktoum",
+      "title": "Al Maktoum",
+      "summary": "Презентационные и концептуальные материалы.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "summer-2026",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/al-maktoum/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/al-maktoum/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "hash-hedge": {
+      "slug": "hash-hedge",
+      "title": "Hash Hedge",
+      "summary": "Сайт, статьи, турниры, рекламные воронки, дашборд, торговый терминал, испытания и выплаты. Первую версию сайта сверстал самостоятельно.",
+      "roles": [
+        "Дизайн",
+        "Разработка",
+        "QA"
+      ],
+      "period": "hash",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "465+",
+      "metricLabel": "состояний интерфейса",
+      "images": {
+        "desktop": "/assets/cases/hash-hedge/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/hash-hedge/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      },
+      "featured": true,
+      "featuredCover": "/assets/featured-v17/hash-hedge.webp"
+    },
+    "wsct": {
+      "slug": "wsct",
+      "title": "WSCT",
+      "summary": "Работа над цифровым продуктом в рамках основного периода занятости.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "hash",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/wsct/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/wsct/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "echo-app": {
+      "slug": "echo-app",
+      "title": "ЭХО",
+      "summary": "Приложение для общения, сценарии коммуникации и интерфейсы.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/echo-app/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/echo-app/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "propuska": {
+      "slug": "propuska",
+      "title": "Пропуска",
+      "summary": "Приложение для управляющей компании: выдача и управление пропусками.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/propuska/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/propuska/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "parking": {
+      "slug": "parking",
+      "title": "Parking",
+      "summary": "Приложение поиска парковок в Москве.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/parking/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/parking/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "vlad-bykov": {
+      "slug": "vlad-bykov",
+      "title": "Vlad Bykov",
+      "summary": "Персональный коммерческий сайт.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/vlad-bykov/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/vlad-bykov/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "media-garant": {
+      "slug": "media-garant",
+      "title": "Media Garant",
+      "summary": "Telegram Mini App для сопровождения сделок, помощь с двухнедельным рекламным тестом.",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/media-garant/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/media-garant/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "chatus": {
+      "slug": "chatus",
+      "title": "Chatus",
+      "summary": "Приложение общения, сценарии знакомств, чаты и модерация.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "105",
+      "metricLabel": "экранов",
+      "images": {
+        "desktop": "/assets/cases/chatus/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/chatus/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "twin-finder": {
+      "slug": "twin-finder",
+      "title": "Twin Finder",
+      "summary": "Сервис поиска внешне похожих людей на основе ИИ.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/twin-finder/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/twin-finder/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "game-of-year": {
+      "slug": "game-of-year",
+      "title": "Game of Year",
+      "summary": "Дизайн игрового продукта, проект не запущен.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/game-of-year/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/game-of-year/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "bbets": {
+      "slug": "bbets",
+      "title": "1WIN Roulette",
+      "summary": "Колесо фортуны и Telegram-посевы с переходом на партнёрские продукты.",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "period": "salute",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/bbets/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/bbets/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "internship-platform": {
+      "slug": "internship-platform",
+      "title": "Internship Platform",
+      "summary": "Сервис стажировок и взаимодействия кандидатов с работодателями.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/internship-platform/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/internship-platform/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "starhash-benchmark": {
+      "slug": "starhash-benchmark",
+      "title": "StarHash Benchmark",
+      "summary": "Цифровой продукт, дизайн интерфейсов.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/starhash-benchmark/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/starhash-benchmark/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "vita-ai": {
+      "slug": "vita-ai",
+      "title": "Vita AI",
+      "summary": "Продукт с ИИ-функциональностью, интерфейсы.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/vita-ai/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/vita-ai/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "luch": {
+      "slug": "luch",
+      "title": "Луч",
+      "summary": "Цифровой проект, интерфейсы и визуальная работа.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/luch/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/luch/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "logirus": {
+      "slug": "logirus",
+      "title": "Logirus",
+      "summary": "Коммерческий проект, дизайн интерфейсов.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/logirus/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/logirus/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "2space": {
+      "slug": "2space",
+      "title": "2Space",
+      "summary": "Цифровой продукт и интерфейсы.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/2space/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/2space/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "forfis-new-site": {
+      "slug": "forfis-new-site",
+      "title": "Forfis: новый сайт",
+      "summary": "Редизайн сайта Forfis.",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/forfis-new-site/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/forfis-new-site/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "city-exchange": {
+      "slug": "city-exchange",
+      "title": "City Exchange",
+      "summary": "Приложение обмена криптовалюты.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/city-exchange/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/city-exchange/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "digital-lawyer": {
+      "slug": "digital-lawyer",
+      "title": "Цифровой юрист",
+      "summary": "Презентация юридического продукта.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/digital-lawyer/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/digital-lawyer/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "star-exchange": {
+      "slug": "star-exchange",
+      "title": "Star Exchange",
+      "summary": "Сервис обмена Telegram Stars на криптовалюту.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/star-exchange/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/star-exchange/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "marcodo": {
+      "slug": "marcodo",
+      "title": "Marcodo",
+      "summary": "Дизайн приложения для майнинга.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/marcodo/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/marcodo/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "crush": {
+      "slug": "crush",
+      "title": "Crush",
+      "summary": "Telegram Mini App с игровой механикой ракетки.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "bonape",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/crush/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/crush/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "invaprom": {
+      "slug": "invaprom",
+      "title": "Инвапром",
+      "summary": "Сайт производителя подъёмников и оборудования доступной среды.",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/invaprom/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/invaprom/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "aicors": {
+      "slug": "aicors",
+      "title": "AiCors",
+      "summary": "ИИ-платформа обучения: курсы, уроки и генерация материалов.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "51",
+      "metricLabel": "основной мобильный экран",
+      "images": {
+        "desktop": "/assets/cases/aicors/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/aicors/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "eurotek": {
+      "slug": "eurotek",
+      "title": "Eurotek",
+      "summary": "Сайт транспортной компании для контейнеров и грузов.",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/eurotek/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/eurotek/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "neurostar": {
+      "slug": "neurostar",
+      "title": "Neurostar",
+      "summary": "Дизайн цифрового продукта, запуск не подтверждён.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "private-2025",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/neurostar/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/neurostar/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "duckmaster": {
+      "slug": "duckmaster",
+      "title": "DuckMaster",
+      "summary": "Переработка UI Kit, игровая экономика, карточки, рейды, торговля, рефералы и множество версий приложения.",
+      "roles": [
+        "Дизайн",
+        "Аналитика",
+        "QA"
+      ],
+      "period": "duck",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "264",
+      "metricLabel": "состояния интерфейса",
+      "images": {
+        "desktop": "/assets/cases/duckmaster/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/duckmaster/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      },
+      "featured": true,
+      "featuredCover": "/assets/featured-v17/duckmaster.webp"
+    },
+    "bonape-training": {
+      "slug": "bonape-training",
+      "title": "Обучение в BONAPE",
+      "summary": "Авторская программа, задания, проверки, Figma, разборы и проекты для реальных заказчиков.",
+      "roles": [
+        "Руководство",
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "bonape",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "24",
+      "metricLabel": "подготовленных специалиста",
+      "images": {
+        "desktop": "/assets/cases/bonape-training/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/bonape-training/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "apple-bar": {
+      "slug": "apple-bar",
+      "title": "Apple Bar",
+      "summary": "Сайт, интернет-магазин и Instagram-реклама с участием учеников.",
+      "roles": [
+        "Руководство",
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "period": "bonape",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "132",
+      "metricLabel": "оплаченных заказа",
+      "images": {
+        "desktop": "/assets/cases/apple-bar/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/apple-bar/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      },
+      "featured": true,
+      "featuredCover": "/assets/featured-v17/apple-bar.webp"
+    },
+    "aquator": {
+      "slug": "aquator",
+      "title": "Aquator",
+      "summary": "Сайт бренда ионизаторов воды. Дизайн сайта и подготовка материалов.",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "period": "bonape",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/aquator/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/aquator/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "yacht-center": {
+      "slug": "yacht-center",
+      "title": "Yacht Center",
+      "summary": "Веб-каталог и мобильная WebView-оболочка.",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "bonape",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/yacht-center/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/yacht-center/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "jet-hunter": {
+      "slug": "jet-hunter",
+      "title": "Jet Hunter",
+      "summary": "Сайт по покупке и продаже частных самолётов.",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "period": "bonape",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/jet-hunter/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/jet-hunter/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "greenbox": {
+      "slug": "greenbox",
+      "title": "Greenbox",
+      "summary": "Сайт и рекламная воронка для рулонных газонов и сезонных предзаказов.",
+      "roles": [
+        "Руководство",
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "period": "bonape",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "19",
+      "metricLabel": "оплаченных заказов",
+      "images": {
+        "desktop": "/assets/cases/greenbox/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/greenbox/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "domashniy-doktor": {
+      "slug": "domashniy-doktor",
+      "title": "Домашний доктор",
+      "summary": "Запись в частную клинику и вызов врача на дом.",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "period": "forfis",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/domashniy-doktor/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/domashniy-doktor/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "slab-service": {
+      "slug": "slab-service",
+      "title": "Slab Service",
+      "summary": "Коммерческий проект, сайт и пользовательские сценарии.",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "period": "bonape",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/slab-service/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/slab-service/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "china-car": {
+      "slug": "china-car",
+      "title": "China Car",
+      "summary": "Автомобильный коммерческий проект, дизайн и цифровые сценарии.",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "period": "bonape",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/china-car/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/china-car/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "trips": {
+      "slug": "trips",
+      "title": "City Travel / Trips",
+      "summary": "Повторно используемые приложения туроператоров и сопровождение рекламы.",
+      "roles": [
+        "Руководство",
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "period": "forfis",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "6–7",
+      "metricLabel": "клиентов",
+      "images": {
+        "desktop": "/assets/cases/trips/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/trips/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "fitnesspro": {
+      "slug": "fitnesspro",
+      "title": "FitnessPro",
+      "summary": "Сайт для спортивного бизнеса.",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "period": "bonape",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/fitnesspro/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/fitnesspro/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "avtoshkola": {
+      "slug": "avtoshkola",
+      "title": "АвтоШкола",
+      "summary": "Коммерческий сайт автошколы.",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "period": "bonape",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/avtoshkola/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/avtoshkola/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "domodel": {
+      "slug": "domodel",
+      "title": "Domodel",
+      "summary": "Мобильное приложение недвижимости, работа учеников под моим руководством.",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "period": "bonape",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/domodel/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/domodel/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "vita-med": {
+      "slug": "vita-med",
+      "title": "Vita Med",
+      "summary": "Медицинское приложение, работа учеников под моим руководством.",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "period": "bonape",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/vita-med/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/vita-med/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "sailor-planner": {
+      "slug": "sailor-planner",
+      "title": "Sailor Planner",
+      "summary": "Мобильное приложение, работа ученика под моим руководством.",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "period": "bonape",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/sailor-planner/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/sailor-planner/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "poizon-shop": {
+      "slug": "poizon-shop",
+      "title": "Poizon Shop",
+      "summary": "Независимый магазин обуви. Дизайн ученика, рекламная кампания под моим управлением.",
+      "roles": [
+        "Руководство",
+        "Маркетинг"
+      ],
+      "period": "salute",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "60",
+      "metricLabel": "оплат",
+      "images": {
+        "desktop": "/assets/cases/poizon-shop/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/poizon-shop/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "glavbankrot": {
+      "slug": "glavbankrot",
+      "title": "Главбанкрот",
+      "summary": "Продукт и продвижение услуг банкротства.",
+      "roles": [
+        "Руководство",
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "period": "salute",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "×4",
+      "metricLabel": "клиенты за 3 месяца",
+      "images": {
+        "desktop": "/assets/cases/glavbankrot/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/glavbankrot/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "shutterstock": {
+      "slug": "shutterstock",
+      "title": "Shutterstock",
+      "summary": "Коммерческая работа с участием учеников, материалы для дизайна.",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "period": "bonape",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/shutterstock/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/shutterstock/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "salute": {
+      "slug": "salute",
+      "title": "SALUTE: агентство",
+      "summary": "Организация рекламных кампаний, аналитики, гипотез и работы специалистов.",
+      "roles": [
+        "Руководство",
+        "Маркетинг"
+      ],
+      "period": "salute",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "12",
+      "metricLabel": "человек в команде",
+      "images": {
+        "desktop": "/assets/cases/salute/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/salute/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "salute-telegram": {
+      "slug": "salute-telegram",
+      "title": "Telegram-сетка",
+      "summary": "Рекламные размещения и координация сети Telegram-каналов.",
+      "roles": [
+        "Маркетинг"
+      ],
+      "period": "salute",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "31+",
+      "metricLabel": "канал",
+      "images": {
+        "desktop": "/assets/cases/salute-telegram/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/salute-telegram/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "x6": {
+      "slug": "x6",
+      "title": "X6",
+      "summary": "Дизайн и руководство специалистами по маркетингу.",
+      "roles": [
+        "Руководство",
+        "Маркетинг"
+      ],
+      "period": "salute",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/x6/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/x6/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "salute-funnels": {
+      "slug": "salute-funnels",
+      "title": "Рекламные воронки",
+      "summary": "Посадочные страницы, сегменты кампаний, CPL, аналитика и передача лидов.",
+      "roles": [
+        "Маркетинг"
+      ],
+      "period": "salute",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/salute-funnels/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/salute-funnels/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "artsavur": {
+      "slug": "artsavur",
+      "title": "ARTSAVUR: агентство",
+      "summary": "Дизайн и разработка коммерческих цифровых продуктов.",
+      "roles": [
+        "Руководство",
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "artsavur",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/artsavur/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/artsavur/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "rocket-jet": {
+      "slug": "rocket-jet",
+      "title": "Rocket Jet",
+      "summary": "Сайт аренды и покупки частных самолётов.",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "artsavur",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/rocket-jet/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/rocket-jet/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "she-talks": {
+      "slug": "she-talks",
+      "title": "She Talks",
+      "summary": "Сайт для образовательного продукта.",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "artsavur",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/she-talks/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/she-talks/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "celtway": {
+      "slug": "celtway",
+      "title": "Celtway",
+      "summary": "SaaS для образовательных организаций, преподавателей и учеников.",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "artsavur",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/celtway/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/celtway/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "verbatica": {
+      "slug": "verbatica",
+      "title": "Verbatica",
+      "summary": "Образовательный стартап, дизайн и презентационная упаковка для привлечения финансирования.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "artsavur",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/verbatica/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/verbatica/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "numa": {
+      "slug": "numa",
+      "title": "Numa",
+      "summary": "Коммерческий продукт в сфере медицинских технологий.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "artsavur",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/numa/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/numa/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "vybor": {
+      "slug": "vybor",
+      "title": "Выбор",
+      "summary": "Сайт компании строительных материалов.",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "artsavur",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/vybor/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/vybor/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "onlinesklad": {
+      "slug": "onlinesklad",
+      "title": "Onlinesklad",
+      "summary": "Каталог, кабинеты, поставщики, покупатели, заказы, адаптивные интерфейсы и QA.",
+      "roles": [
+        "Дизайн",
+        "QA"
+      ],
+      "period": "onlinesklad",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "17",
+      "metricLabel": "человек в команде",
+      "images": {
+        "desktop": "/assets/cases/onlinesklad/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/onlinesklad/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      },
+      "featured": true,
+      "featuredCover": "/assets/featured-v17/onlinesklad.webp"
+    },
+    "sober-driver": {
+      "slug": "sober-driver",
+      "title": "Sober Driver",
+      "summary": "Экосистема заказа услуг водителя: клиент, исполнитель, администратор, сайт и привлечение пользователей.",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "period": "sober",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "5",
+      "metricLabel": "направлений",
+      "images": {
+        "desktop": "/assets/cases/sober-driver/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/sober-driver/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      },
+      "featured": true,
+      "featuredCover": "/assets/featured-v17/sober-driver.webp"
+    },
+    "sober-driver-app": {
+      "slug": "sober-driver-app",
+      "title": "Приложение клиента",
+      "summary": "Заказ, адреса, тарифы, статусы и оплата.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "sober",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/sober-driver-app/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/sober-driver-app/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "sober-driver-driver": {
+      "slug": "sober-driver-driver",
+      "title": "Приложение водителя",
+      "summary": "Входящие заказы, маршруты, баланс, выплаты.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "sober",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/sober-driver-driver/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/sober-driver-driver/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "sober-driver-admin": {
+      "slug": "sober-driver-admin",
+      "title": "Административная панель",
+      "summary": "Операционные сценарии, роли, управление заказами.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "sober",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/sober-driver-admin/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/sober-driver-admin/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "sober-driver-web": {
+      "slug": "sober-driver-web",
+      "title": "Сайт и воронка",
+      "summary": "Посадочная страница, оформление заявки и продвижение.",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "period": "sober",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/sober-driver-web/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/sober-driver-web/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "pelikan": {
+      "slug": "pelikan",
+      "title": "Pelikan",
+      "summary": "Приложение доставки с оформлением заказа списком, работало с реальными заказами.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "forfis",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/pelikan/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/pelikan/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "fly-ball": {
+      "slug": "fly-ball",
+      "title": "Fly Ball",
+      "summary": "Приложение для волейбольных тренеров.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "forfis",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/fly-ball/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/fly-ball/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "vodacom": {
+      "slug": "vodacom",
+      "title": "Vodacom",
+      "summary": "Доставка воды. Продукт, сайт, маркетинг, рекламная воронка.",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "period": "forfis",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "86",
+      "metricLabel": "заявок за месяц",
+      "images": {
+        "desktop": "/assets/cases/vodacom/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/vodacom/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "psychology": {
+      "slug": "psychology",
+      "title": "Психологические консультации",
+      "summary": "Приложение, консультационная воронка, рекламные объявления и чаты.",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "period": "forfis",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "7 000",
+      "metricLabel": "чатов за 2 недели",
+      "images": {
+        "desktop": "/assets/cases/psychology/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/psychology/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "hamilya-shop": {
+      "slug": "hamilya-shop",
+      "title": "Hamilya",
+      "summary": "Магазин одежды и вещей: сайт и коммерческие сценарии.",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "forfis",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/hamilya-shop/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/hamilya-shop/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "hamilya-astro": {
+      "slug": "hamilya-astro",
+      "title": "Hamilya Astro",
+      "summary": "Сайт расчёта натальной карты и персональных данных.",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "forfis",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/hamilya-astro/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/hamilya-astro/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "blog-hamilya": {
+      "slug": "blog-hamilya",
+      "title": "Blog Hamilya",
+      "summary": "Блог Hamilya, контентная система и страницы статей.",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "forfis",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/blog-hamilya/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/blog-hamilya/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "eyebogo": {
+      "slug": "eyebogo",
+      "title": "Eyebogo",
+      "summary": "Коммерческий веб-сайт и цифровое присутствие.",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "forfis",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/eyebogo/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/eyebogo/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "treasures-pskov": {
+      "slug": "treasures-pskov",
+      "title": "Сокровища Пскова",
+      "summary": "Исторические маршруты и контентное управление, приложение и админка.",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "period": "forfis",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/treasures-pskov/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/treasures-pskov/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "history-app": {
+      "slug": "history-app",
+      "title": "Исторические места",
+      "summary": "Карта важных мест Москвы и Петербурга с аудиогидом.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "forfis",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/history-app/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/history-app/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "transport-tech": {
+      "slug": "transport-tech",
+      "title": "Transport Tech",
+      "summary": "Приложение клиента, приложение заправщика и административная система.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "forfis",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/transport-tech/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/transport-tech/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "tezgo": {
+      "slug": "tezgo",
+      "title": "TezGO",
+      "summary": "Сервис доставки, реклама и аналитика первых заказов.",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "period": "forfis",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "300–350",
+      "metricLabel": "заказов на 2-й месяц",
+      "images": {
+        "desktop": "/assets/cases/tezgo/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/tezgo/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "pizza-dashboard": {
+      "slug": "pizza-dashboard",
+      "title": "Pizza Dashboard",
+      "summary": "Панель управления пиццерией.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "forfis",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/pizza-dashboard/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/pizza-dashboard/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "deli-she": {
+      "slug": "deli-she",
+      "title": "Deli She",
+      "summary": "Сервис доставки и такси.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "forfis",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/deli-she/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/deli-she/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "diary-book": {
+      "slug": "diary-book",
+      "title": "Diary Book",
+      "summary": "Приложение личных заметок и воспоминаний.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "forfis",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/diary-book/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/diary-book/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "restomesto": {
+      "slug": "restomesto",
+      "title": "Restomesto",
+      "summary": "Продукт бронирования ресторанов, дизайн завершён.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "forfis",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/restomesto/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/restomesto/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "volgu-site": {
+      "slug": "volgu-site",
+      "title": "Сайт ВолГУ",
+      "summary": "Дизайн сайта университета, не запущен.",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "forfis",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/volgu-site/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/volgu-site/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "myasnoy-dvor": {
+      "slug": "myasnoy-dvor",
+      "title": "Мясной двор",
+      "summary": "Сайт, офлайн-воронка и онлайн-заказы кейтеринга.",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "period": "2020-projects",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "270",
+      "metricLabel": "заказов в месяц",
+      "images": {
+        "desktop": "/assets/cases/myasnoy-dvor/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/myasnoy-dvor/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "papa-pizza": {
+      "slug": "papa-pizza",
+      "title": "Papa Pizza",
+      "summary": "Реклама еды и мероприятий.",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "period": "2020-projects",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "400",
+      "metricLabel": "заказов в месяц",
+      "images": {
+        "desktop": "/assets/cases/papa-pizza/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/papa-pizza/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "khleb-iz-tandyra": {
+      "slug": "khleb-iz-tandyra",
+      "title": "Хлеб из тандыра",
+      "summary": "Офлайн-брендинг пекарни, листовки, баннеры, визитки и продажи.",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "period": "2020-projects",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/khleb-iz-tandyra/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/khleb-iz-tandyra/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "moonlight": {
+      "slug": "moonlight",
+      "title": "Moonlight",
+      "summary": "Магазин часов на WordPress, реклама в Instagram.",
+      "roles": [
+        "Дизайн",
+        "Разработка",
+        "Маркетинг"
+      ],
+      "period": "2020-projects",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "42",
+      "metricLabel": "продажи из 537 заявок",
+      "images": {
+        "desktop": "/assets/cases/moonlight/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/moonlight/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "chexolchik": {
+      "slug": "chexolchik",
+      "title": "Chexolchik",
+      "summary": "Instagram/VK-магазин лимитированных чехлов с доставкой.",
+      "roles": [
+        "Маркетинг"
+      ],
+      "period": "2020-projects",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/chexolchik/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/chexolchik/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "mobilka34": {
+      "slug": "mobilka34",
+      "title": "Mobilka34",
+      "summary": "Сайт, оформление соцсетей, VK-посевы, Instagram-реклама и продажи по промокоду.",
+      "roles": [
+        "Дизайн",
+        "Разработка",
+        "Маркетинг"
+      ],
+      "period": "2020-projects",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "3 410",
+      "metricLabel": "офлайн-продаж",
+      "images": {
+        "desktop": "/assets/cases/mobilka34/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/mobilka34/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "baraholka34": {
+      "slug": "baraholka34",
+      "title": "BARAHOLKA34",
+      "summary": "Сайт-каталог одежды и привлечение покупателей в новый магазин.",
+      "roles": [
+        "Дизайн",
+        "Разработка",
+        "Маркетинг"
+      ],
+      "period": "2020-projects",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "7 431+",
+      "metricLabel": "посетитель за 2 месяца",
+      "images": {
+        "desktop": "/assets/cases/baraholka34/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/baraholka34/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "izum": {
+      "slug": "izum",
+      "title": "ИЗЮМ",
+      "summary": "Сайт, социальные сети, бот, логистика, рекламная воронка и скрипты менеджеров.",
+      "roles": [
+        "Дизайн",
+        "Разработка",
+        "Маркетинг"
+      ],
+      "period": "2020-projects",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "522",
+      "metricLabel": "заказа в месяц",
+      "images": {
+        "desktop": "/assets/cases/izum/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/izum/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "bakery": {
+      "slug": "bakery",
+      "title": "Работа в пекарне",
+      "summary": "Работа с покупателями, выкладкой, ассортиментом, витринами и продажами. Это опыт, который впоследствии перенёс в продуктовый дизайн.",
+      "roles": [
+        "Маркетинг"
+      ],
+      "period": "bakery",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/bakery/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/bakery/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "restar": {
+      "slug": "restar",
+      "title": "RESTAR",
+      "summary": "Сайт и прямое продвижение через профессиональные сообщества.",
+      "roles": [
+        "Дизайн",
+        "Разработка",
+        "Маркетинг"
+      ],
+      "period": "restar",
+      "size": "large",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "8–9",
+      "metricLabel": "оплаченных заказов в год",
+      "images": {
+        "desktop": "/assets/cases/restar/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/restar/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "media": {
+      "slug": "media",
+      "title": "YouTube и VK: медийная работа",
+      "summary": "toboboroda, tobogant64d и BLVT.",
+      "roles": [
+        "Контент",
+        "Маркетинг"
+      ],
+      "period": "media",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "210k",
+      "metricLabel": "подписок на площадках",
+      "images": {
+        "desktop": "/assets/cases/media/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/media/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "finflow": {
+      "slug": "finflow",
+      "title": "FinFlow",
+      "summary": "Личные финансы, счета и аналитика",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "more",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/finflow/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/finflow/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "bill-split": {
+      "slug": "bill-split",
+      "title": "Bill Split",
+      "summary": "Разделение совместных расходов",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "more",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/bill-split/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/bill-split/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "pilots-app": {
+      "slug": "pilots-app",
+      "title": "PILOTS APP",
+      "summary": "Авиамаркетплейс вакансий",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "more",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/pilots-app/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/pilots-app/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "mafia": {
+      "slug": "mafia",
+      "title": "Mafia",
+      "summary": "Подрядный дизайн",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "more",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/mafia/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/mafia/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "onecase": {
+      "slug": "onecase",
+      "title": "1Case",
+      "summary": "Дизайн Telegram Mini App",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "more",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/onecase/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/onecase/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "virus": {
+      "slug": "virus",
+      "title": "Virus",
+      "summary": "Дополнительная UX/UI-проработка",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "more",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/virus/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/virus/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "your-time": {
+      "slug": "your-time",
+      "title": "Your Time",
+      "summary": "Собственный стартап \"Твоё Время\"",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "more",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/your-time/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/your-time/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "bnqr": {
+      "slug": "bnqr",
+      "title": "BNQR",
+      "summary": "Цифровой продукт",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "more",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/bnqr/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/bnqr/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "rd-mart": {
+      "slug": "rd-mart",
+      "title": "RD mart",
+      "summary": "Коммерческий продукт",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "more",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/rd-mart/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/rd-mart/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "applebar-training": {
+      "slug": "applebar-training",
+      "title": "Apple Bar: обучение",
+      "summary": "Обучение и реальная команда",
+      "roles": [
+        "Руководство"
+      ],
+      "period": "more",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/applebar-training/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/applebar-training/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "hash-site": {
+      "slug": "hash-site",
+      "title": "Hash Hedge: сайт",
+      "summary": "Модуль основного продукта",
+      "roles": [
+        "Разработка"
+      ],
+      "period": "more",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/hash-site/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/hash-site/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "hash-account": {
+      "slug": "hash-account",
+      "title": "Hash Hedge: дашборд",
+      "summary": "Модуль основного продукта",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "more",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/hash-account/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/hash-account/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "hash-trading": {
+      "slug": "hash-trading",
+      "title": "Hash Hedge: терминал",
+      "summary": "Модуль основного продукта",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "more",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/hash-trading/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/hash-trading/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "onlinesklad-catalog": {
+      "slug": "onlinesklad-catalog",
+      "title": "Onlinesklad: каталог",
+      "summary": "Модуль основного продукта",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "more",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/onlinesklad-catalog/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/onlinesklad-catalog/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    },
+    "onlinesklad-buyer": {
+      "slug": "onlinesklad-buyer",
+      "title": "Onlinesklad: кабинеты",
+      "summary": "Модуль основного продукта",
+      "roles": [
+        "Дизайн"
+      ],
+      "period": "more",
+      "size": "small",
+      "color": "#dfe5f0",
+      "ink": "dark",
+      "metric": "",
+      "metricLabel": "",
+      "images": {
+        "desktop": "/assets/cases/onlinesklad-buyer/cover.webp",
+        "tablet": "",
+        "mobile": ""
+      },
+      "url": "/cases/onlinesklad-buyer/",
+      "managed": false,
+      "isNew": false,
+      "detail": {
+        "subtitle": "",
+        "intro": "",
+        "problem": "",
+        "solution": "",
+        "result": "",
+        "gallery": []
+      }
+    }
+  },
+  "periods": [
+    {
+      "id": "auto-2026",
+      "title": "Автомобильные продукты"
+    },
+    {
+      "id": "summer-2026",
+      "title": "Продуктовая и проектная работа"
+    },
+    {
+      "id": "hash",
+      "title": "Hash Hedge & WSCT"
+    },
+    {
+      "id": "private-2025",
+      "title": "Частная практика"
+    },
+    {
+      "id": "duck",
+      "title": "DuckMaster"
+    },
+    {
+      "id": "bonape",
+      "title": "BONAPE"
+    },
+    {
+      "id": "salute",
+      "title": "SALUTE"
+    },
+    {
+      "id": "artsavur",
+      "title": "ARTSAVUR"
+    },
+    {
+      "id": "onlinesklad",
+      "title": "Onlinesklad"
+    },
+    {
+      "id": "sober",
+      "title": "Sober Driver"
+    },
+    {
+      "id": "forfis",
+      "title": "FORFIS"
+    },
+    {
+      "id": "2020-projects",
+      "title": "Коммерческие проекты"
+    },
+    {
+      "id": "bakery",
+      "title": "Пекарня"
+    },
+    {
+      "id": "restar",
+      "title": "RESTAR"
+    },
+    {
+      "id": "media",
+      "title": "YouTube и ВКонтакте"
+    },
+    {
+      "id": "more",
+      "title": "Другие проекты"
+    }
+  ],
+  "pageEdits": {},
+  "globalText": [],
+  "createdAt": "2026-10-24"
+}

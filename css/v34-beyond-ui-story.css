@@ -1,0 +1,52 @@
+/* Beyond UI v34: correctly sized mobile introduction. Existing copy untouched. */
+@media(max-width:800px){
+  #beyond-ui.sx28-beyond .sx28-intro{
+    box-sizing:border-box;
+    max-width:620px!important;
+    width:100%;
+    padding:78px 26px 65px!important;
+    margin:0 auto;
+    text-align:left!important;
+  }
+  #beyond-ui.sx28-beyond .sx28-intro h2{
+    display:block;
+    max-width:none!important;
+    width:100%!important;
+    margin:0 0 24px!important;
+    font-size:clamp(28px,5.6vw,38px)!important;
+    font-weight:610;
+    line-height:1.13;
+    letter-spacing:-.046em;
+    text-align:left!important;
+    text-wrap:wrap!important;
+    overflow-wrap:normal;
+    hyphens:none;
+  }
+  #beyond-ui.sx28-beyond .sx28-intro h2 br{display:none!important;}
+  #beyond-ui.sx28-beyond .sx28-intro p{
+    display:block;
+    max-width:none!important;
+    width:100%!important;
+    margin:0;
+    font-size:clamp(16px,2.1vw,18px)!important;
+    line-height:1.46;
+    letter-spacing:-.015em;
+    text-align:left!important;
+    text-wrap:pretty;
+    overflow-wrap:normal;
+  }
+}
+@media(max-width:560px){
+  #beyond-ui.sx28-beyond .sx28-intro{
+    padding:65px 20px 64px!important;
+  }
+  #beyond-ui.sx28-beyond .sx28-intro h2{
+    font-size:clamp(29px,7.7vw,36px)!important;
+    margin-bottom:22px!important;
+  }
+  #beyond-ui.sx28-beyond .sx28-intro p{
+    font-size:16.5px!important;
+    line-height:1.43;
+  }
+}
+/* No carousel artwork, diagrams, metric text or approved section layout changed. */

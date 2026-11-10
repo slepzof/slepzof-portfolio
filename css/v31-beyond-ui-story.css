@@ -1,0 +1,63 @@
+/* v31: scoped refinements. All approved texts, typography, cover art, and metrics remain untouched. */
+@media(min-width:801px){
+  /* The case cards now scroll all the way to the right viewport edge.
+     Importantly, ONLY the carousel bleeds; the descriptive copy does not widen. */
+  #beyond-ui.sx31-desktop .sx28-panel-column{
+    overflow:visible!important;contain:none!important;isolation:auto;
+  }
+  #beyond-ui.sx31-desktop .sx28-carousel{
+    width:var(--sx31-bleed,610px)!important;max-width:none!important;
+  }
+  #beyond-ui.sx31-desktop .sx28-carousel-rail{
+    width:100%;padding-right:20px;overscroll-behavior-x:contain;
+  }
+  #beyond-ui.sx31-desktop .sx28-carousel-controls{padding-right:20px}
+  #beyond-ui.sx31-desktop .sx28-panel{overflow:visible;}
+  /* Reveal copy, then the counter group, tools one by one, finally projects. */
+  #beyond-ui.sx31-desktop .sx28-panel .sx28-skill-head,
+  #beyond-ui.sx31-desktop .sx28-panel .sx28-body,
+  #beyond-ui.sx31-desktop .sx28-panel .sx28-stats,
+  #beyond-ui.sx31-desktop .sx28-panel .sx28-tools,
+  #beyond-ui.sx31-desktop .sx28-panel .sx28-carousel{
+    opacity:0;transform:translate3d(0,17px,0);
+    transition:opacity .44s ease,transform .62s cubic-bezier(.18,.78,.27,1);
+  }
+  #beyond-ui.sx31-desktop .sx28-panel.sx31-revealed .sx28-skill-head{opacity:1;transform:none;transition-delay:.02s}
+  #beyond-ui.sx31-desktop .sx28-panel.sx31-revealed .sx28-body{opacity:1;transform:none;transition-delay:.17s}
+  #beyond-ui.sx31-desktop .sx28-panel.sx31-revealed .sx28-stats{opacity:1;transform:none;transition-delay:.31s}
+  #beyond-ui.sx31-desktop .sx28-panel.sx31-revealed .sx28-tools{opacity:1;transform:none;transition-delay:.57s}
+  #beyond-ui.sx31-desktop .sx28-panel.sx31-revealed .sx28-carousel{opacity:1;transform:none;transition-delay:.83s}
+  #beyond-ui.sx31-desktop .sx28-tool{transition:opacity .3s ease,transform .36s ease}
+  #beyond-ui.sx31-desktop .sx28-panel:not(.sx31-revealed) .sx28-tool{opacity:0;transform:translateY(7px)}
+  #beyond-ui.sx31-desktop .sx28-panel.sx31-revealed .sx28-tool{opacity:1;transform:none}
+  #beyond-ui.sx31-desktop .sx28-panel.sx31-revealed .sx28-tool:nth-child(1){transition-delay:.62s}
+  #beyond-ui.sx31-desktop .sx28-panel.sx31-revealed .sx28-tool:nth-child(2){transition-delay:.72s}
+  #beyond-ui.sx31-desktop .sx28-panel.sx31-revealed .sx28-tool:nth-child(3){transition-delay:.82s}
+  #beyond-ui.sx31-desktop .sx28-panel.sx31-revealed .sx28-tool:nth-child(4){transition-delay:.92s}
+  #beyond-ui.sx31-desktop .sx28-panel.sx31-revealed .sx28-tool:nth-child(5){transition-delay:1.02s}
+}
+/* An entrance with visual direction, not an instant black section. */
+#beyond-ui.sx31-motion-ready .sx28-intro h2,
+#beyond-ui.sx31-motion-ready .sx28-intro p{
+  opacity:0;transform:translate3d(0,32px,0);filter:blur(5px);
+  transition:opacity .8s ease,transform .88s cubic-bezier(.17,.78,.28,1),filter .9s ease;
+}
+#beyond-ui.sx31-intro-in .sx28-intro h2{opacity:1;transform:none;filter:none;transition-delay:.08s}
+#beyond-ui.sx31-intro-in .sx28-intro p{opacity:1;transform:none;filter:none;transition-delay:.4s}
+#beyond-ui.sx31-motion-ready .sx28-radar{
+ opacity:0;transform:translate3d(0,22px,0) scale(.93)!important;
+ transition:opacity .9s ease,transform 1.1s cubic-bezier(.17,.78,.28,1)!important;
+}
+#beyond-ui.sx31-radar-in .sx28-radar{
+ opacity:1;transform:none!important;
+}
+@media(prefers-reduced-motion:reduce){
+ #beyond-ui .sx28-intro h2,#beyond-ui .sx28-intro p,#beyond-ui .sx28-radar,
+ #beyond-ui.sx31-desktop .sx28-panel .sx28-skill-head,
+ #beyond-ui.sx31-desktop .sx28-panel .sx28-body,
+ #beyond-ui.sx31-desktop .sx28-panel .sx28-stats,
+ #beyond-ui.sx31-desktop .sx28-panel .sx28-tools,
+ #beyond-ui.sx31-desktop .sx28-panel .sx28-carousel{
+  transition:none!important;opacity:1!important;transform:none!important;filter:none!important;
+ }
+}

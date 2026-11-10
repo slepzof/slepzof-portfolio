@@ -1,0 +1,64 @@
+/* SLEPZOF Beyond UI v30 — only this section; desktop scrollytelling.
+   Each skill has its own reading distance, and changes with a scroll-driven crossfade.
+   Mobile deliberately retains the approved v29 natural flow pending separate iteration. */
+#beyond-ui .sx28-tool{display:inline-flex;align-items:center;vertical-align:middle;gap:5px}
+#beyond-ui .sx30-tool-icon{display:block;width:16px;height:16px;flex:none;object-fit:contain}
+#beyond-ui .sx28-tools-row{column-gap:13px}
+#beyond-ui .sx28-tool + .sx28-tool::before{margin-right:7px}
+#beyond-ui .sx28-stat strong{font-variant-numeric:tabular-nums}
+@media(min-width:801px){
+ #beyond-ui.sx30-desktop .sx28-story{
+  --sx30-story-height:7600px;
+  grid-template-columns:minmax(0,56%) minmax(0,44%);
+  max-width:1600px;height:var(--sx30-story-height);
+  align-items:start;overflow:visible;
+ }
+ /* The earlier translateY(-70px) was putting the first node behind the fixed header. */
+ #beyond-ui.sx30-desktop .sx28-radar-sticky{
+  top:calc(var(--sx28-nav) + 18px);min-height:0;
+  height:calc(100svh - var(--sx28-nav) - 32px);padding:0;
+ }
+ #beyond-ui.sx30-desktop .sx28-radar{transform:none!important;width:min(100%,645px);max-height:100%;}
+ #beyond-ui.sx30-desktop .sx28-radar-shade{
+  background:linear-gradient(90deg,#000 0%,#000 79%,rgba(0,0,0,.98) 89%,rgba(0,0,0,0) 100%);
+ }
+ /* The pinned right stage shows ~1.5 original-sized cards, not three compressed ones. */
+ #beyond-ui.sx30-desktop .sx28-panel-column{
+  position:sticky;top:calc(var(--sx28-nav) + 10px);
+  height:calc(100svh - var(--sx28-nav) - 20px);
+  min-height:0;padding:0;margin:0;z-index:1;
+  overflow:hidden;isolation:isolate;contain:layout;
+ }
+ #beyond-ui.sx30-desktop .sx28-panel{
+  position:absolute;top:0;left:42px;right:auto;
+  width:min(420px,calc(100% - 64px));height:auto;min-height:0;
+  padding:17px 0 10px;margin:0;max-width:none;
+  display:flex;flex-direction:column;
+  pointer-events:none;opacity:0;visibility:visible;
+  will-change:transform,opacity;
+  filter:none;transition:none!important;
+  scroll-margin-top:0;
+ }
+ #beyond-ui.sx30-desktop .sx28-panel:last-child{min-height:0}
+ #beyond-ui.sx30-desktop .sx28-panel[data-sx30-interactive="true"]{pointer-events:auto}
+ #beyond-ui.sx30-desktop .sx28-skill-head,
+ #beyond-ui.sx30-desktop .sx28-body,
+ #beyond-ui.sx30-desktop .sx28-stats,
+ #beyond-ui.sx30-desktop .sx28-tools{max-width:100%}
+ #beyond-ui.sx30-desktop .sx28-tools{margin-bottom:27px}
+ #beyond-ui.sx30-desktop .sx28-carousel{width:100%;}
+ #beyond-ui.sx30-desktop .sx28-carousel-rail{gap:17px;padding-right:8px;}
+ #beyond-ui.sx30-desktop .sx28-carousel-controls{margin-top:12px}
+}
+@media(min-width:801px) and (max-width:1120px){
+ #beyond-ui.sx30-desktop .sx28-story{grid-template-columns:minmax(0,55%) minmax(0,45%)}
+ #beyond-ui.sx30-desktop .sx28-panel{left:28px;width:min(420px,calc(100% - 45px))}
+ #beyond-ui.sx30-desktop .sx28-radar{width:min(100%,565px)}
+}
+@media(min-width:801px) and (max-height:740px){
+ #beyond-ui.sx30-desktop .sx28-radar{width:min(100%,calc(100svh - 135px))}
+ #beyond-ui.sx30-desktop .sx28-panel{padding-top:8px}
+}
+@media(prefers-reduced-motion:reduce){
+ #beyond-ui.sx30-desktop .sx28-panel{will-change:auto}
+}

@@ -1,0 +1,38 @@
+/* v19: genuinely two-row card pages, no invisible blank slide region. */
+#experience .sx-stage .sx-track.sx19-track{align-items:flex-start!important;padding:2px 0 4px!important;gap:18px!important;transition:height .18s ease;overflow-y:hidden!important;box-sizing:border-box!important;scroll-snap-type:x mandatory!important;}
+#experience .sx-stage .sx19-track>.sx-slide.sx19-page{flex:0 0 100%!important;max-width:100%!important;min-width:100%!important;height:auto!important;min-height:0!important;align-self:flex-start!important;scroll-snap-align:start!important;box-sizing:border-box!important;overflow:visible!important;}
+#experience .sx-stage .sx-mosaic.sx19-mosaic{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;grid-template-rows:repeat(2,218px)!important;grid-auto-rows:218px!important;grid-auto-flow:row!important;gap:16px!important;align-items:stretch!important;height:auto!important;width:100%!important;min-height:0!important;padding:0!important;box-sizing:border-box!important;}
+#experience .sx-stage .sx-mosaic.sx19-mosaic>a.sx-card{height:auto!important;min-height:0!important;max-height:none!important;width:100%!important;grid-column:span 3!important;grid-row:span 1!important;min-width:0!important;align-self:stretch!important;}
+/* Five cards: one hero on left and four small cards on right, two rows exact. */
+#experience .sx-stage .sx-mosaic.sx19-n-5>a.sx-card:first-child{grid-column:span 6!important;grid-row:span 2!important;}
+/* Four: hero and three flexible satellites. */
+#experience .sx-stage .sx-mosaic.sx19-n-4>a.sx-card:first-child{grid-column:span 6!important;grid-row:span 2!important;}
+#experience .sx-stage .sx-mosaic.sx19-n-4>a.sx-card:nth-child(2){grid-column:span 6!important;grid-row:span 1!important;}
+/* Three: hero + pair; last item is full-right, no visual hole. */
+#experience .sx-stage .sx-mosaic.sx19-n-3>a.sx-card:first-child{grid-column:span 6!important;grid-row:span 2!important;}
+#experience .sx-stage .sx-mosaic.sx19-n-3>a.sx-card:nth-child(n+2){grid-column:span 6!important;grid-row:span 1!important;}
+/* One or two cases deserve width, not 400px fragments. */
+#experience .sx-stage .sx-mosaic.sx19-n-2{grid-template-rows:330px!important;grid-auto-rows:330px!important;}
+#experience .sx-stage .sx-mosaic.sx19-n-2>a.sx-card{grid-column:span 6!important;grid-row:span 1!important;}
+#experience .sx-stage .sx-mosaic.sx19-n-1{grid-template-rows:340px!important;grid-auto-rows:340px!important;}
+#experience .sx-stage .sx-mosaic.sx19-n-1>a.sx-card{grid-column:span 12!important;grid-row:span 1!important;height:340px!important;}
+/* Original project artwork is unaltered. Fill/crop is constrained within tile. */
+#experience .sx-stage .sx-mosaic.sx19-mosaic>a.sx-v15-exact-card img.sx-v15-svg{width:100%!important;height:100%!important;object-fit:cover!important;}
+/* Keep row count stable regardless of legacy nth-child/slug selectors. */
+#experience .sx-stage .sx19-track .sx-mosaic.sx19-mosaic{max-height:none!important;overflow:visible!important;}
+#experience .sx-stage .sx-track-bottom{margin-top:10px!important;}
+#experience .sx-stage .sx-mosaic.sx19-mosaic>a.sx-card .sx-card-copy>h4{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;max-height:2.35em!important;white-space:normal!important;}
+#experience .sx-stage .sx-mosaic.sx19-mosaic>a.sx-card .sx-card-copy>p{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;max-height:2.7em!important;white-space:normal!important;}
+/* Avoid a giant unused strip under each short page. */
+#experience .sx-stage .sx19-track>.sx19-page[aria-hidden="true"]{pointer-events:none;}
+@media(max-width:720px){
+ #experience .sx-stage .sx-mosaic.sx19-mosaic{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:none!important;grid-auto-rows:185px!important;gap:10px!important;}
+ #experience .sx-stage .sx-mosaic.sx19-mosaic>a.sx-card{grid-column:span 1!important;grid-row:span 1!important;}
+ #experience .sx-stage .sx-mosaic.sx19-n-5>a.sx-card:first-child,#experience .sx-stage .sx-mosaic.sx19-n-4>a.sx-card:first-child,#experience .sx-stage .sx-mosaic.sx19-n-3>a.sx-card:first-child{grid-column:span 2!important;grid-row:span 2!important;}
+ #experience .sx-stage .sx-mosaic.sx19-n-4>a.sx-card:nth-child(2),#experience .sx-stage .sx-mosaic.sx19-n-3>a.sx-card:nth-child(n+2){grid-column:span 2!important;grid-row:span 1!important;}
+ #experience .sx-stage .sx-mosaic.sx19-n-2,#experience .sx-stage .sx-mosaic.sx19-n-1{grid-template-rows:none!important;grid-auto-rows:220px!important;}
+ #experience .sx-stage .sx-mosaic.sx19-n-2>a.sx-card{grid-column:span 2!important;grid-row:span 1!important;}
+ #experience .sx-stage .sx-mosaic.sx19-n-1>a.sx-card{grid-column:span 2!important;grid-row:span 1!important;height:300px!important;}
+ #experience .sx-stage .sx-mosaic.sx19-n-5>a.sx-card:nth-child(n+2){grid-column:span 1!important;grid-row:span 1!important;}
+}
+@media(prefers-reduced-motion:reduce){#experience .sx-stage .sx19-track{transition:none!important}}

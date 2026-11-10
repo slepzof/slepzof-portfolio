@@ -1,0 +1,3341 @@
+{
+  "stages": [
+    {
+      "id": "auto-2026",
+      "date": "Август 2026 - октябрь 2026",
+      "title": "Автомобильные продукты",
+      "role": "Частная практика",
+      "lead": "Сайты и рекламные воронки для автомобильного направления. Парсеры, боты, интеграции с CRM и передача обращений менеджерам. Отдельно отвечал за аналитику и работу рекламы.",
+      "items": [
+        {
+          "name": "Продажа автомобилей",
+          "slug": "automotive",
+          "desc": "Сайты, рекламные кампании, аналитика, скрипты менеджеров и передача лидов в CRM.",
+          "metric": "62",
+          "unit": "лида",
+          "roles": [
+            "Дизайн",
+            "Разработка",
+            "Маркетинг"
+          ],
+          "size": "big",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "Подбор двигателей",
+          "slug": "engine-leads",
+          "desc": "Посадочные страницы, интеграции, автоматизация обработки заявок и управление рекламой.",
+          "metric": "324",
+          "unit": "обращения",
+          "roles": [
+            "Дизайн",
+            "Разработка",
+            "Маркетинг"
+          ],
+          "size": "medium",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "Автоматизация автопродаж",
+          "slug": "automotive-automation",
+          "desc": "Парсеры, Telegram-боты, CRM, маршрутизация обращений и контроль работы менеджеров.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Разработка",
+            "Маркетинг"
+          ],
+          "size": "medium",
+          "type": "development",
+          "note": ""
+        }
+      ],
+      "kind": "practice",
+      "cover": null
+    },
+    {
+      "id": "summer-2026",
+      "date": "Июнь 2026 - август 2026",
+      "title": "Продуктовая и проектная работа",
+      "role": "Product Designer / Developer",
+      "lead": "Июнь, июль и август 2026. Разные по масштабу продукты: игры, платёжные системы, коммерческие сайты и интерфейсы. Для приложений также готовил материалы к публикации в App Store и Google Play.",
+      "items": [
+        {
+          "name": "РСК",
+          "slug": "rsk",
+          "desc": "Коробки, упаковка, дизайн и сопутствующие цифровые задачи.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Времена года",
+          "slug": "vremena-goda",
+          "desc": "Интернет-магазин с каталогом, заказами и пользовательскими сценариями.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Payment Gateway",
+          "slug": "payment-gateway",
+          "desc": "Платёжный продукт, пользовательские сценарии и интерфейсы.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Pixel Drop",
+          "slug": "pixel-drop",
+          "desc": "Игровой маркетплейс: кейсы, инвентарь, внутренняя экономика, задания и вывод предметов.",
+          "metric": "241",
+          "unit": "адаптивное состояние",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Dead Choices",
+          "slug": "dead-choices",
+          "desc": "Нелинейная мобильная игра. Сценарии выбора, сюжетные ветки и состояния экранов.",
+          "metric": "171",
+          "unit": "сюжетная сцена",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "big",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Везу Еду",
+          "slug": "vezu-edu",
+          "desc": "Приложение доставки с клиентскими сценариями и маршрутом заказа.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "EXOCURE",
+          "slug": "exocure",
+          "desc": "Комплексная система презентационных и цифровых концепций для нескольких продуктов.",
+          "metric": "7",
+          "unit": "направлений",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "big",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Meydan Racecourse",
+          "slug": "meydan-racecourse",
+          "desc": "Концепция продукта для гоночного комплекса и презентация.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "presentation",
+          "note": ""
+        },
+        {
+          "name": "The Heights",
+          "slug": "the-heights",
+          "desc": "Концепция и продуктовая презентация.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "presentation",
+          "note": ""
+        },
+        {
+          "name": "Hub71",
+          "slug": "hub71",
+          "desc": "Концепция и коммуникационные материалы.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "presentation",
+          "note": ""
+        },
+        {
+          "name": "Exo Fleet Brain",
+          "slug": "exo-fleet-brain",
+          "desc": "Продуктовая концепция и визуальная система.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "presentation",
+          "note": ""
+        },
+        {
+          "name": "Exo Vision",
+          "slug": "exo-vision",
+          "desc": "Концепция интерфейсов и продуктовая презентация.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "presentation",
+          "note": ""
+        },
+        {
+          "name": "Exo OS",
+          "slug": "exo-os",
+          "desc": "Концепция экосистемы, интерфейсы и презентация.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "presentation",
+          "note": ""
+        },
+        {
+          "name": "Al Maktoum",
+          "slug": "al-maktoum",
+          "desc": "Презентационные и концептуальные материалы.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "presentation",
+          "note": ""
+        }
+      ],
+      "kind": "practice",
+      "cover": null
+    },
+    {
+      "id": "hash",
+      "date": "Апрель 2025 - май 2026",
+      "title": "Hash Hedge & WSCT",
+      "role": "Product Designer / Frontend",
+      "lead": "Торговые продукты с несколькими ролями, состояниями счёта, платежами, терминалом и публичными веб-интерфейсами.",
+      "items": [
+        {
+          "name": "Hash Hedge",
+          "slug": "hash-hedge",
+          "desc": "Сайт, статьи, турниры, рекламные воронки, дашборд, торговый терминал, испытания и выплаты. Первую версию сайта сверстал самостоятельно.",
+          "metric": "4,8/5",
+          "unit": "оценка удобства продукта",
+          "roles": [
+            "Дизайн",
+            "Разработка",
+            "QA",
+            "Маркетинг"
+          ],
+          "size": "big",
+          "type": "product",
+          "note": "Tilda, затем HTML, CSS, JavaScript для публичной части."
+        },
+        {
+          "name": "WSCT",
+          "slug": "wsct",
+          "desc": "Работа над цифровым продуктом в рамках основного периода занятости.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "big",
+          "type": "product",
+          "note": ""
+        }
+      ],
+      "kind": "company",
+      "cover": null
+    },
+    {
+      "id": "private-2025",
+      "date": "Декабрь 2024 - апрель 2025",
+      "title": "Частная практика",
+      "role": "Product Designer / Developer",
+      "lead": "Самостоятельные заказы на приложения, сайты, цифровые продукты и презентации. Проекты разного масштаба, от одной задачи до полноценного сервиса.",
+      "items": [
+        {
+          "name": "ЭХО",
+          "slug": "echo-app",
+          "desc": "Приложение для общения, сценарии коммуникации и интерфейсы.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Пропуска",
+          "slug": "propuska",
+          "desc": "Приложение для управляющей компании: выдача и управление пропусками.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Parking",
+          "slug": "parking",
+          "desc": "Приложение поиска парковок в Москве.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Vlad Bykov",
+          "slug": "vlad-bykov",
+          "desc": "Персональный коммерческий сайт.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Media Garant",
+          "slug": "media-garant",
+          "desc": "Telegram Mini App для сопровождения сделок, помощь с двухнедельным рекламным тестом.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Маркетинг"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Chatus",
+          "slug": "chatus",
+          "desc": "Приложение общения, сценарии знакомств, чаты и модерация.",
+          "metric": "105",
+          "unit": "экранов",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Twin Finder",
+          "slug": "twin-finder",
+          "desc": "Сервис поиска внешне похожих людей на основе ИИ.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Game of Year",
+          "slug": "game-of-year",
+          "desc": "Дизайн игрового продукта, проект не запущен.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "1WIN Roulette",
+          "slug": "bbets",
+          "desc": "Колесо фортуны и Telegram-посевы с переходом на партнёрские продукты.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Маркетинг"
+          ],
+          "size": "small",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "Internship Platform",
+          "slug": "internship-platform",
+          "desc": "Сервис стажировок и взаимодействия кандидатов с работодателями.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "StarHash Benchmark",
+          "slug": "starhash-benchmark",
+          "desc": "Цифровой продукт, дизайн интерфейсов.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Vita AI",
+          "slug": "vita-ai",
+          "desc": "Продукт с ИИ-функциональностью, интерфейсы.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Луч",
+          "slug": "luch",
+          "desc": "Цифровой проект, интерфейсы и визуальная работа.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Logirus",
+          "slug": "logirus",
+          "desc": "Коммерческий проект, дизайн интерфейсов.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "2Space",
+          "slug": "2space",
+          "desc": "Цифровой продукт и интерфейсы.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Forfis: новый сайт",
+          "slug": "forfis-new-site",
+          "desc": "Редизайн сайта Forfis.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "City Exchange",
+          "slug": "city-exchange",
+          "desc": "Приложение обмена криптовалюты.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Цифровой юрист",
+          "slug": "digital-lawyer",
+          "desc": "Презентация юридического продукта.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "presentation",
+          "note": ""
+        },
+        {
+          "name": "Star Exchange",
+          "slug": "star-exchange",
+          "desc": "Сервис обмена Telegram Stars на криптовалюту.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Marcodo",
+          "slug": "marcodo",
+          "desc": "Дизайн приложения для майнинга.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Crush",
+          "slug": "crush",
+          "desc": "Telegram Mini App с игровой механикой ракетки.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Инвапром",
+          "slug": "invaprom",
+          "desc": "Сайт производителя подъёмников и оборудования доступной среды.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "AiCors",
+          "slug": "aicors",
+          "desc": "ИИ-платформа обучения: курсы, уроки и генерация материалов.",
+          "metric": "51",
+          "unit": "основной мобильный экран",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Eurotek",
+          "slug": "eurotek",
+          "desc": "Сайт транспортной компании для контейнеров и грузов.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Neurostar",
+          "slug": "neurostar",
+          "desc": "Дизайн цифрового продукта, запуск не подтверждён.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        }
+      ],
+      "kind": "practice",
+      "cover": null
+    },
+    {
+      "id": "duck",
+      "date": "Август 2024 - декабрь 2024",
+      "title": "DuckMaster",
+      "role": "Product Designer / QA",
+      "lead": "Игровая экономика, прогрессия, социальные механики и постоянное развитие Telegram Mini App.",
+      "items": [
+        {
+          "name": "DuckMaster",
+          "slug": "duckmaster",
+          "desc": "Переработка UI Kit, игровая экономика, карточки, рейды, торговля, рефералы и множество версий приложения.",
+          "metric": "12",
+          "unit": "версий игрового продукта",
+          "roles": [
+            "Дизайн",
+            "Аналитика",
+            "QA"
+          ],
+          "size": "big",
+          "type": "product",
+          "note": ""
+        }
+      ],
+      "kind": "company",
+      "cover": null
+    },
+    {
+      "id": "bonape",
+      "date": "Январь 2023 - август 2024",
+      "title": "BONAPE",
+      "role": "Lead Designer / Обучение / Проекты",
+      "lead": "Создал программу обучения с нуля, подготовил 24 специалистов и руководил коммерческими работами вместе с учениками.",
+      "items": [
+        {
+          "name": "Обучение в BONAPE",
+          "slug": "bonape-training",
+          "desc": "Авторская программа, задания, проверки, Figma, разборы и проекты для реальных заказчиков.",
+          "metric": "24",
+          "unit": "подготовленных специалиста",
+          "roles": [
+            "Руководство",
+            "Дизайн",
+            "Разработка",
+            "Маркетинг"
+          ],
+          "size": "big",
+          "type": "leadership",
+          "note": ""
+        },
+        {
+          "name": "Apple Bar",
+          "slug": "apple-bar",
+          "desc": "Сайт, интернет-магазин и Instagram-реклама с участием учеников.",
+          "metric": "132",
+          "unit": "оплаченных заказа",
+          "roles": [
+            "Руководство",
+            "Дизайн",
+            "Маркетинг"
+          ],
+          "size": "big",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "Aquator",
+          "slug": "aquator",
+          "desc": "Сайт бренда ионизаторов воды. Дизайн сайта и подготовка материалов.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Руководство",
+            "Дизайн"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Yacht Center",
+          "slug": "yacht-center",
+          "desc": "Веб-каталог и мобильная WebView-оболочка.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Jet Hunter",
+          "slug": "jet-hunter",
+          "desc": "Сайт по покупке и продаже частных самолётов.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Руководство",
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Greenbox",
+          "slug": "greenbox",
+          "desc": "Сайт и рекламная воронка для рулонных газонов и сезонных предзаказов.",
+          "metric": "19",
+          "unit": "оплаченных заказов",
+          "roles": [
+            "Руководство",
+            "Дизайн",
+            "Маркетинг"
+          ],
+          "size": "medium",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "Домашний доктор",
+          "slug": "domashniy-doktor",
+          "desc": "Запись в частную клинику и вызов врача на дом.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Руководство",
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Slab Service",
+          "slug": "slab-service",
+          "desc": "Коммерческий проект, сайт и пользовательские сценарии.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Руководство",
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "China Car",
+          "slug": "china-car",
+          "desc": "Автомобильный коммерческий проект, дизайн и цифровые сценарии.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Руководство",
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "City Travel / Trips",
+          "slug": "trips",
+          "desc": "Повторно используемые приложения туроператоров и сопровождение рекламы.",
+          "metric": "6–7",
+          "unit": "клиентов",
+          "roles": [
+            "Руководство",
+            "Дизайн",
+            "Маркетинг",
+            "Разработка"
+          ],
+          "size": "big",
+          "type": "marketing",
+          "note": "Сотрудничество с Forfis. Fun Sun, Библио-Глобус, 1001 Тур, Розовый слон, География, Чип Трип и другие направления."
+        },
+        {
+          "name": "FitnessPro",
+          "slug": "fitnesspro",
+          "desc": "Сайт для спортивного бизнеса.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Руководство",
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "АвтоШкола",
+          "slug": "avtoshkola",
+          "desc": "Коммерческий сайт автошколы.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Руководство",
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Domodel",
+          "slug": "domodel",
+          "desc": "Мобильное приложение недвижимости, работа учеников под моим руководством.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Руководство",
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Vita Med",
+          "slug": "vita-med",
+          "desc": "Медицинское приложение, работа учеников под моим руководством.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Руководство",
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Sailor Planner",
+          "slug": "sailor-planner",
+          "desc": "Мобильное приложение, работа ученика под моим руководством.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Руководство",
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Poizon Shop",
+          "slug": "poizon-shop",
+          "desc": "Независимый магазин обуви. Дизайн ученика, рекламная кампания под моим управлением.",
+          "metric": "60",
+          "unit": "оплат",
+          "roles": [
+            "Руководство",
+            "Маркетинг"
+          ],
+          "size": "medium",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "Главбанкрот",
+          "slug": "glavbankrot",
+          "desc": "Продукт и продвижение услуг банкротства.",
+          "metric": "×4",
+          "unit": "клиенты за 3 месяца",
+          "roles": [
+            "Руководство",
+            "Дизайн",
+            "Маркетинг"
+          ],
+          "size": "medium",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "Crush",
+          "slug": "crush",
+          "desc": "Игровое приложение, проект ученика под моим руководством.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Руководство",
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        }
+      ],
+      "kind": "agency",
+      "cover": null
+    },
+    {
+      "id": "salute",
+      "date": "Январь 2023 - август 2024",
+      "title": "SALUTE",
+      "role": "Маркетинговое агентство",
+      "lead": "В SALUTE отвечал за маркетинг и работу рекламной команды из 12 человек. Кампании, каналы привлечения, посадочные страницы, аналитика и лиды.",
+      "items": [
+        {
+          "name": "SALUTE: агентство",
+          "slug": "salute",
+          "desc": "Организация рекламных кампаний, аналитики, гипотез и работы специалистов.",
+          "metric": "12",
+          "unit": "человек в команде",
+          "roles": [
+            "Руководство",
+            "Маркетинг"
+          ],
+          "size": "big",
+          "type": "leadership",
+          "note": ""
+        },
+        {
+          "name": "Telegram-сетка",
+          "slug": "salute-telegram",
+          "desc": "Рекламные размещения и координация сети Telegram-каналов.",
+          "metric": "31+",
+          "unit": "канал",
+          "roles": [
+            "Маркетинг"
+          ],
+          "size": "medium",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "X6",
+          "slug": "x6",
+          "desc": "Дизайн и руководство специалистами по маркетингу.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Руководство",
+            "Маркетинг"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Рекламные воронки",
+          "slug": "salute-funnels",
+          "desc": "Посадочные страницы, сегменты кампаний, CPL, аналитика и передача лидов.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Маркетинг"
+          ],
+          "size": "medium",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "Главбанкрот",
+          "slug": "glavbankrot",
+          "desc": "Продвижение юридических услуг, посадочные страницы и обработка входящих обращений.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Маркетинг",
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "marketing"
+        },
+        {
+          "name": "Poizon Shop",
+          "slug": "poizon-shop",
+          "desc": "Маркетинговые сценарии и реклама интернет-магазина.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Маркетинг"
+          ],
+          "size": "small",
+          "type": "marketing"
+        },
+        {
+          "name": "1WIN Roulette",
+          "slug": "bbets",
+          "desc": "Сценарии игровой рулетки, интерфейс и материалы для рекламного продвижения.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Маркетинг"
+          ],
+          "size": "small",
+          "type": "marketing"
+        }
+      ],
+      "kind": "agency",
+      "cover": null
+    },
+    {
+      "id": "artsavur",
+      "date": "Январь 2023 - август 2024",
+      "title": "ARTSAVUR",
+      "role": "Дизайн и разработка",
+      "lead": "В ARTSAVUR работал с опытными дизайнерами и разработчиками. Проектировал сервисы, сайты и приложения, участвовал в реализации и проверял, что итог работает как задумано.",
+      "items": [
+        {
+          "name": "ARTSAVUR: агентство",
+          "slug": "artsavur",
+          "desc": "Дизайн и разработка коммерческих цифровых продуктов.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Руководство",
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "big",
+          "type": "leadership",
+          "note": ""
+        },
+        {
+          "name": "Rocket Jet",
+          "slug": "rocket-jet",
+          "desc": "Сайт аренды и покупки частных самолётов.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "She Talks",
+          "slug": "she-talks",
+          "desc": "Сайт для образовательного продукта.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Celtway",
+          "slug": "celtway",
+          "desc": "SaaS для образовательных организаций, преподавателей и учеников.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Verbatica",
+          "slug": "verbatica",
+          "desc": "Образовательный стартап, дизайн и презентационная упаковка для привлечения финансирования.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Numa",
+          "slug": "numa",
+          "desc": "Коммерческий продукт в сфере медицинских технологий.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Выбор",
+          "slug": "vybor",
+          "desc": "Сайт компании строительных материалов.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        }
+      ],
+      "kind": "agency",
+      "cover": null
+    },
+    {
+      "id": "onlinesklad",
+      "date": "Июнь 2022 - январь 2023",
+      "title": "Onlinesklad",
+      "role": "Product Designer / QA",
+      "lead": "Единственный дизайнер в команде из 17 человек. Проектировал B2B/B2C-систему, проверял сценарии и соответствие реализации продуктовой логике.",
+      "items": [
+        {
+          "name": "Onlinesklad",
+          "slug": "onlinesklad",
+          "desc": "Каталог, кабинеты, поставщики, покупатели, заказы, адаптивные интерфейсы и QA.",
+          "metric": "17",
+          "unit": "человек в продуктовой команде",
+          "roles": [
+            "Дизайн",
+            "QA"
+          ],
+          "size": "big",
+          "type": "product",
+          "note": ""
+        }
+      ],
+      "kind": "company",
+      "cover": null
+    },
+    {
+      "id": "sober",
+      "date": "Декабрь 2021 - май 2022",
+      "title": "Sober Driver",
+      "role": "Product Designer / Marketing",
+      "lead": "Развивал сервис заказа водителей после этапа работы с Forfis. Четыре цифровых интерфейса и коммерческая воронка в одной системе.",
+      "items": [
+        {
+          "name": "Sober Driver",
+          "slug": "sober-driver",
+          "desc": "Экосистема заказа услуг водителя: клиент, исполнитель, администратор, сайт и привлечение пользователей.",
+          "metric": "4",
+          "unit": "продуктовые системы",
+          "roles": [
+            "Дизайн",
+            "Маркетинг"
+          ],
+          "size": "big",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Приложение клиента",
+          "slug": "sober-driver-app",
+          "desc": "Заказ, адреса, тарифы, статусы и оплата.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Приложение водителя",
+          "slug": "sober-driver-driver",
+          "desc": "Входящие заказы, маршруты, баланс, выплаты.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Административная панель",
+          "slug": "sober-driver-admin",
+          "desc": "Операционные сценарии, роли, управление заказами.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Сайт и воронка",
+          "slug": "sober-driver-web",
+          "desc": "Посадочная страница, оформление заявки и продвижение.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Маркетинг"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        }
+      ],
+      "kind": "company",
+      "cover": null
+    },
+    {
+      "id": "forfis",
+      "date": "Ноябрь 2020 - декабрь 2021",
+      "title": "FORFIS",
+      "role": "Product Design / Development / Marketing",
+      "lead": "Приложения, сайты, реклама, прототипы, готовые шаблоны и публикации приложений в App Store и Google Play. От клиентской задачи до рабочего продукта.",
+      "items": [
+        {
+          "name": "Pelikan",
+          "slug": "pelikan",
+          "desc": "Приложение доставки с оформлением заказа списком, работало с реальными заказами.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Fly Ball",
+          "slug": "fly-ball",
+          "desc": "Приложение для волейбольных тренеров.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Vodacom",
+          "slug": "vodacom",
+          "desc": "Доставка воды. Продукт, сайт, маркетинг, рекламная воронка.",
+          "metric": "86",
+          "unit": "заявок за месяц",
+          "roles": [
+            "Дизайн",
+            "Маркетинг"
+          ],
+          "size": "big",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "Психологические консультации",
+          "slug": "psychology",
+          "desc": "Приложение, консультационная воронка, рекламные объявления и чаты.",
+          "metric": "7 000",
+          "unit": "чатов за 2 недели",
+          "roles": [
+            "Дизайн",
+            "Маркетинг"
+          ],
+          "size": "big",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "Hamilya",
+          "slug": "hamilya-shop",
+          "desc": "Магазин одежды и вещей: сайт и коммерческие сценарии.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Hamilya Astro",
+          "slug": "hamilya-astro",
+          "desc": "Сайт расчёта натальной карты и персональных данных.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Blog Hamilya",
+          "slug": "blog-hamilya",
+          "desc": "Блог Hamilya, контентная система и страницы статей.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Eyebogo",
+          "slug": "eyebogo",
+          "desc": "Коммерческий веб-сайт и цифровое присутствие.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Домашний доктор: ранний этап",
+          "slug": "domashniy-doktor",
+          "desc": "Приложение врача на дом и записи в частную клинику.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Сокровища Пскова",
+          "slug": "treasures-pskov",
+          "desc": "Исторические маршруты и контентное управление, приложение и админка.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Исторические места",
+          "slug": "history-app",
+          "desc": "Карта важных мест Москвы и Петербурга с аудиогидом.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Transport Tech",
+          "slug": "transport-tech",
+          "desc": "Приложение клиента, приложение заправщика и административная система.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "medium",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "TezGO",
+          "slug": "tezgo",
+          "desc": "Сервис доставки, реклама и аналитика первых заказов.",
+          "metric": "300–350",
+          "unit": "заказов на 2-й месяц",
+          "roles": [
+            "Дизайн",
+            "Маркетинг"
+          ],
+          "size": "big",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "Pizza Dashboard",
+          "slug": "pizza-dashboard",
+          "desc": "Панель управления пиццерией.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Deli She",
+          "slug": "deli-she",
+          "desc": "Сервис доставки и такси.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Diary Book",
+          "slug": "diary-book",
+          "desc": "Приложение личных заметок и воспоминаний.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Restomesto",
+          "slug": "restomesto",
+          "desc": "Продукт бронирования ресторанов, дизайн завершён.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Сайт ВолГУ",
+          "slug": "volgu-site",
+          "desc": "Дизайн сайта университета, не запущен.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Trips",
+          "slug": "trips",
+          "desc": "Туристические white-label приложения с выпуском и рекламой.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Разработка",
+            "Маркетинг"
+          ],
+          "size": "medium",
+          "type": "marketing",
+          "note": ""
+        }
+      ],
+      "kind": "agency",
+      "cover": null
+    },
+    {
+      "id": "2020-projects",
+      "date": "Январь 2020 - ноябрь 2020",
+      "title": "Коммерческие проекты",
+      "role": "Дизайн / Разработка / Маркетинг",
+      "lead": "Сайты, упаковка брендов, реклама и первые полноценные воронки продаж. Работал на конечный заказ и выручку, а не на красивую обложку.",
+      "items": [
+        {
+          "name": "Мясной двор",
+          "slug": "myasnoy-dvor",
+          "desc": "Сайт, офлайн-воронка и онлайн-заказы кейтеринга.",
+          "metric": "270",
+          "unit": "заказов в месяц",
+          "roles": [
+            "Дизайн",
+            "Маркетинг"
+          ],
+          "size": "big",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "Papa Pizza",
+          "slug": "papa-pizza",
+          "desc": "Реклама еды и мероприятий.",
+          "metric": "400",
+          "unit": "заказов в месяц",
+          "roles": [
+            "Дизайн",
+            "Маркетинг"
+          ],
+          "size": "medium",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "Хлеб из тандыра",
+          "slug": "khleb-iz-tandyra",
+          "desc": "Офлайн-брендинг пекарни, листовки, баннеры, визитки и продажи.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Дизайн",
+            "Маркетинг"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Moonlight",
+          "slug": "moonlight",
+          "desc": "Магазин часов на WordPress, реклама в Instagram.",
+          "metric": "42",
+          "unit": "продажи из 537 заявок",
+          "roles": [
+            "Дизайн",
+            "Разработка",
+            "Маркетинг"
+          ],
+          "size": "big",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "Chexolchik",
+          "slug": "chexolchik",
+          "desc": "Instagram/VK-магазин лимитированных чехлов с доставкой.",
+          "metric": "",
+          "unit": "",
+          "roles": [
+            "Маркетинг"
+          ],
+          "size": "small",
+          "type": "product",
+          "note": ""
+        },
+        {
+          "name": "Mobilka34",
+          "slug": "mobilka34",
+          "desc": "Сайт, оформление соцсетей, VK-посевы, Instagram-реклама и продажи по промокоду.",
+          "metric": "3 410",
+          "unit": "офлайн-продаж",
+          "roles": [
+            "Дизайн",
+            "Разработка",
+            "Маркетинг"
+          ],
+          "size": "big",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "BARAHOLKA34",
+          "slug": "baraholka34",
+          "desc": "Сайт-каталог одежды и привлечение покупателей в новый магазин.",
+          "metric": "7 431+",
+          "unit": "посетитель за 2 месяца",
+          "roles": [
+            "Дизайн",
+            "Разработка",
+            "Маркетинг"
+          ],
+          "size": "medium",
+          "type": "marketing",
+          "note": ""
+        },
+        {
+          "name": "ИЗЮМ",
+          "slug": "izum",
+          "desc": "Сайт, социальные сети, бот, логистика, рекламная воронка и скрипты менеджеров.",
+          "metric": "522",
+          "unit": "заказа в месяц",
+          "roles": [
+            "Дизайн",
+            "Разработка",
+            "Маркетинг"
+          ],
+          "size": "big",
+          "type": "marketing",
+          "note": ""
+        }
+      ],
+      "kind": "practice",
+      "cover": null
+    },
+    {
+      "id": "restar",
+      "date": "Февраль 2018 - март 2018",
+      "title": "RESTAR",
+      "role": "Дизайн / Маркетинг",
+      "lead": "Мой первый заметный B2B-кейс: сайт и ручное продвижение дорогостоящей железнодорожной продукции.",
+      "items": [
+        {
+          "name": "RESTAR",
+          "slug": "restar",
+          "desc": "Сайт и прямое продвижение через профессиональные сообщества.",
+          "metric": "8–9",
+          "unit": "оплаченных заказов в год",
+          "roles": [
+            "Дизайн",
+            "Разработка",
+            "Маркетинг"
+          ],
+          "size": "big",
+          "type": "marketing",
+          "note": ""
+        }
+      ],
+      "kind": "origin",
+      "cover": null
+    },
+    {
+      "id": "media",
+      "date": "Сентябрь 2016 - декабрь 2019",
+      "title": "YouTube и ВКонтакте",
+      "role": "Контент / Продвижение / Аудитория",
+      "lead": "Сеть игровых каналов и сообществ: поиск тем, производство контента, дистрибуция и работа с подписчиками.",
+      "items": [
+        {
+          "name": "YouTube и VK: медийная работа",
+          "slug": "media",
+          "desc": "toboboroda, tobogant64d и BLVT.",
+          "metric": "210k",
+          "unit": "подписок на площадках",
+          "roles": [
+            "Контент",
+            "Маркетинг"
+          ],
+          "size": "big",
+          "type": "experience",
+          "note": ""
+        }
+      ],
+      "kind": "origin",
+      "cover": null
+    }
+  ],
+  "catalog": [
+    {
+      "name": "Продажа автомобилей",
+      "slug": "automotive",
+      "desc": "Сайты, рекламные кампании, аналитика, скрипты менеджеров и передача лидов в CRM.",
+      "metric": "62",
+      "unit": "лида",
+      "roles": [
+        "Дизайн",
+        "Разработка",
+        "Маркетинг"
+      ],
+      "size": "big",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "Подбор двигателей",
+      "slug": "engine-leads",
+      "desc": "Посадочные страницы, интеграции, автоматизация обработки заявок и управление рекламой.",
+      "metric": "324",
+      "unit": "обращения",
+      "roles": [
+        "Дизайн",
+        "Разработка",
+        "Маркетинг"
+      ],
+      "size": "medium",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "Автоматизация автопродаж",
+      "slug": "automotive-automation",
+      "desc": "Парсеры, Telegram-боты, CRM, маршрутизация обращений и контроль работы менеджеров.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Разработка",
+        "Маркетинг"
+      ],
+      "size": "medium",
+      "type": "development",
+      "note": ""
+    },
+    {
+      "name": "РСК",
+      "slug": "rsk",
+      "desc": "Коробки, упаковка, дизайн и сопутствующие цифровые задачи.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Времена года",
+      "slug": "vremena-goda",
+      "desc": "Интернет-магазин с каталогом, заказами и пользовательскими сценариями.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Payment Gateway",
+      "slug": "payment-gateway",
+      "desc": "Платёжный продукт, пользовательские сценарии и интерфейсы.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Pixel Drop",
+      "slug": "pixel-drop",
+      "desc": "Игровой маркетплейс: кейсы, инвентарь, внутренняя экономика, задания и вывод предметов.",
+      "metric": "241",
+      "unit": "адаптивное состояние",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Dead Choices",
+      "slug": "dead-choices",
+      "desc": "Нелинейная мобильная игра. Сценарии выбора, сюжетные ветки и состояния экранов.",
+      "metric": "171",
+      "unit": "сюжетная сцена",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "big",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Везу Еду",
+      "slug": "vezu-edu",
+      "desc": "Приложение доставки с клиентскими сценариями и маршрутом заказа.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "EXOCURE",
+      "slug": "exocure",
+      "desc": "Комплексная система презентационных и цифровых концепций для нескольких продуктов.",
+      "metric": "7",
+      "unit": "направлений",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "big",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Meydan Racecourse",
+      "slug": "meydan-racecourse",
+      "desc": "Концепция продукта для гоночного комплекса и презентация.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "presentation",
+      "note": ""
+    },
+    {
+      "name": "The Heights",
+      "slug": "the-heights",
+      "desc": "Концепция и продуктовая презентация.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "presentation",
+      "note": ""
+    },
+    {
+      "name": "Hub71",
+      "slug": "hub71",
+      "desc": "Концепция и коммуникационные материалы.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "presentation",
+      "note": ""
+    },
+    {
+      "name": "Exo Fleet Brain",
+      "slug": "exo-fleet-brain",
+      "desc": "Продуктовая концепция и визуальная система.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "presentation",
+      "note": ""
+    },
+    {
+      "name": "Exo Vision",
+      "slug": "exo-vision",
+      "desc": "Концепция интерфейсов и продуктовая презентация.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "presentation",
+      "note": ""
+    },
+    {
+      "name": "Exo OS",
+      "slug": "exo-os",
+      "desc": "Концепция экосистемы, интерфейсы и презентация.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "presentation",
+      "note": ""
+    },
+    {
+      "name": "Al Maktoum",
+      "slug": "al-maktoum",
+      "desc": "Презентационные и концептуальные материалы.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "presentation",
+      "note": ""
+    },
+    {
+      "name": "Hash Hedge",
+      "slug": "hash-hedge",
+      "desc": "Сайт, статьи, турниры, рекламные воронки, дашборд, торговый терминал, испытания и выплаты. Первую версию сайта сверстал самостоятельно.",
+      "metric": "465+",
+      "unit": "состояний интерфейса",
+      "roles": [
+        "Дизайн",
+        "Разработка",
+        "QA",
+        "Маркетинг"
+      ],
+      "size": "big",
+      "type": "product",
+      "note": "Tilda, затем HTML, CSS, JavaScript для публичной части."
+    },
+    {
+      "name": "WSCT",
+      "slug": "wsct",
+      "desc": "Работа над цифровым продуктом в рамках основного периода занятости.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "ЭХО",
+      "slug": "echo-app",
+      "desc": "Приложение для общения, сценарии коммуникации и интерфейсы.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Пропуска",
+      "slug": "propuska",
+      "desc": "Приложение для управляющей компании: выдача и управление пропусками.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Parking",
+      "slug": "parking",
+      "desc": "Приложение поиска парковок в Москве.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Vlad Bykov",
+      "slug": "vlad-bykov",
+      "desc": "Персональный коммерческий сайт.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Media Garant",
+      "slug": "media-garant",
+      "desc": "Telegram Mini App для сопровождения сделок, помощь с двухнедельным рекламным тестом.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Chatus",
+      "slug": "chatus",
+      "desc": "Приложение общения, сценарии знакомств, чаты и модерация.",
+      "metric": "105",
+      "unit": "экранов",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Twin Finder",
+      "slug": "twin-finder",
+      "desc": "Сервис поиска внешне похожих людей на основе ИИ.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Game of Year",
+      "slug": "game-of-year",
+      "desc": "Дизайн игрового продукта, проект не запущен.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "1WIN Roulette",
+      "slug": "bbets",
+      "desc": "Колесо фортуны и Telegram-посевы с переходом на партнёрские продукты.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "size": "small",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "Internship Platform",
+      "slug": "internship-platform",
+      "desc": "Сервис стажировок и взаимодействия кандидатов с работодателями.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "StarHash Benchmark",
+      "slug": "starhash-benchmark",
+      "desc": "Цифровой продукт, дизайн интерфейсов.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Vita AI",
+      "slug": "vita-ai",
+      "desc": "Продукт с ИИ-функциональностью, интерфейсы.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Луч",
+      "slug": "luch",
+      "desc": "Цифровой проект, интерфейсы и визуальная работа.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Logirus",
+      "slug": "logirus",
+      "desc": "Коммерческий проект, дизайн интерфейсов.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "2Space",
+      "slug": "2space",
+      "desc": "Цифровой продукт и интерфейсы.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Forfis: новый сайт",
+      "slug": "forfis-new-site",
+      "desc": "Редизайн сайта Forfis.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "City Exchange",
+      "slug": "city-exchange",
+      "desc": "Приложение обмена криптовалюты.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Цифровой юрист",
+      "slug": "digital-lawyer",
+      "desc": "Презентация юридического продукта.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "presentation",
+      "note": ""
+    },
+    {
+      "name": "Star Exchange",
+      "slug": "star-exchange",
+      "desc": "Сервис обмена Telegram Stars на криптовалюту.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Marcodo",
+      "slug": "marcodo",
+      "desc": "Дизайн приложения для майнинга.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Crush",
+      "slug": "crush",
+      "desc": "Telegram Mini App с игровой механикой ракетки.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Инвапром",
+      "slug": "invaprom",
+      "desc": "Сайт производителя подъёмников и оборудования доступной среды.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "AiCors",
+      "slug": "aicors",
+      "desc": "ИИ-платформа обучения: курсы, уроки и генерация материалов.",
+      "metric": "51",
+      "unit": "основной мобильный экран",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Eurotek",
+      "slug": "eurotek",
+      "desc": "Сайт транспортной компании для контейнеров и грузов.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Neurostar",
+      "slug": "neurostar",
+      "desc": "Дизайн цифрового продукта, запуск не подтверждён.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "DuckMaster",
+      "slug": "duckmaster",
+      "desc": "Переработка UI Kit, игровая экономика, карточки, рейды, торговля, рефералы и множество версий приложения.",
+      "metric": "264",
+      "unit": "состояния интерфейса",
+      "roles": [
+        "Дизайн",
+        "Аналитика",
+        "QA"
+      ],
+      "size": "big",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Обучение в BONAPE",
+      "slug": "bonape-training",
+      "desc": "Авторская программа, задания, проверки, Figma, разборы и проекты для реальных заказчиков.",
+      "metric": "24",
+      "unit": "подготовленных специалиста",
+      "roles": [
+        "Руководство",
+        "Дизайн",
+        "Разработка",
+        "Маркетинг"
+      ],
+      "size": "big",
+      "type": "leadership",
+      "note": ""
+    },
+    {
+      "name": "Apple Bar",
+      "slug": "apple-bar",
+      "desc": "Сайт, интернет-магазин и Instagram-реклама с участием учеников.",
+      "metric": "132",
+      "unit": "оплаченных заказа",
+      "roles": [
+        "Руководство",
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "size": "big",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "Aquator",
+      "slug": "aquator",
+      "desc": "Сайт бренда ионизаторов воды. Дизайн сайта и подготовка материалов.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Yacht Center",
+      "slug": "yacht-center",
+      "desc": "Веб-каталог и мобильная WebView-оболочка.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Jet Hunter",
+      "slug": "jet-hunter",
+      "desc": "Сайт по покупке и продаже частных самолётов.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Greenbox",
+      "slug": "greenbox",
+      "desc": "Сайт и рекламная воронка для рулонных газонов и сезонных предзаказов.",
+      "metric": "19",
+      "unit": "оплаченных заказов",
+      "roles": [
+        "Руководство",
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "size": "medium",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "Домашний доктор",
+      "slug": "domashniy-doktor",
+      "desc": "Запись в частную клинику и вызов врача на дом.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Slab Service",
+      "slug": "slab-service",
+      "desc": "Коммерческий проект, сайт и пользовательские сценарии.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "China Car",
+      "slug": "china-car",
+      "desc": "Автомобильный коммерческий проект, дизайн и цифровые сценарии.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "City Travel / Trips",
+      "slug": "trips",
+      "desc": "Повторно используемые приложения туроператоров и сопровождение рекламы.",
+      "metric": "6–7",
+      "unit": "клиентов",
+      "roles": [
+        "Руководство",
+        "Дизайн",
+        "Маркетинг",
+        "Разработка"
+      ],
+      "size": "big",
+      "type": "marketing",
+      "note": "Сотрудничество с Forfis. Fun Sun, Библио-Глобус, 1001 Тур, Розовый слон, География, Чип Трип и другие направления."
+    },
+    {
+      "name": "FitnessPro",
+      "slug": "fitnesspro",
+      "desc": "Сайт для спортивного бизнеса.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "АвтоШкола",
+      "slug": "avtoshkola",
+      "desc": "Коммерческий сайт автошколы.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Domodel",
+      "slug": "domodel",
+      "desc": "Мобильное приложение недвижимости, работа учеников под моим руководством.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Vita Med",
+      "slug": "vita-med",
+      "desc": "Медицинское приложение, работа учеников под моим руководством.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Sailor Planner",
+      "slug": "sailor-planner",
+      "desc": "Мобильное приложение, работа ученика под моим руководством.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Руководство",
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Poizon Shop",
+      "slug": "poizon-shop",
+      "desc": "Независимый магазин обуви. Дизайн ученика, рекламная кампания под моим управлением.",
+      "metric": "60",
+      "unit": "оплат",
+      "roles": [
+        "Руководство",
+        "Маркетинг"
+      ],
+      "size": "medium",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "Главбанкрот",
+      "slug": "glavbankrot",
+      "desc": "Продукт и продвижение услуг банкротства.",
+      "metric": "×4",
+      "unit": "клиенты за 3 месяца",
+      "roles": [
+        "Руководство",
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "size": "medium",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "SALUTE: агентство",
+      "slug": "salute",
+      "desc": "Организация рекламных кампаний, аналитики, гипотез и работы специалистов.",
+      "metric": "12",
+      "unit": "человек в команде",
+      "roles": [
+        "Руководство",
+        "Маркетинг"
+      ],
+      "size": "big",
+      "type": "leadership",
+      "note": ""
+    },
+    {
+      "name": "Telegram-сетка",
+      "slug": "salute-telegram",
+      "desc": "Рекламные размещения и координация сети Telegram-каналов.",
+      "metric": "31+",
+      "unit": "канал",
+      "roles": [
+        "Маркетинг"
+      ],
+      "size": "medium",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "X6",
+      "slug": "x6",
+      "desc": "Дизайн и руководство специалистами по маркетингу.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Руководство",
+        "Маркетинг"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Рекламные воронки",
+      "slug": "salute-funnels",
+      "desc": "Посадочные страницы, сегменты кампаний, CPL, аналитика и передача лидов.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Маркетинг"
+      ],
+      "size": "medium",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "ARTSAVUR: агентство",
+      "slug": "artsavur",
+      "desc": "Дизайн и разработка коммерческих цифровых продуктов.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Руководство",
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "big",
+      "type": "leadership",
+      "note": ""
+    },
+    {
+      "name": "Rocket Jet",
+      "slug": "rocket-jet",
+      "desc": "Сайт аренды и покупки частных самолётов.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "She Talks",
+      "slug": "she-talks",
+      "desc": "Сайт для образовательного продукта.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Celtway",
+      "slug": "celtway",
+      "desc": "SaaS для образовательных организаций, преподавателей и учеников.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Verbatica",
+      "slug": "verbatica",
+      "desc": "Образовательный стартап, дизайн и презентационная упаковка для привлечения финансирования.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Numa",
+      "slug": "numa",
+      "desc": "Коммерческий продукт в сфере медицинских технологий.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Выбор",
+      "slug": "vybor",
+      "desc": "Сайт компании строительных материалов.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Onlinesklad",
+      "slug": "onlinesklad",
+      "desc": "Каталог, кабинеты, поставщики, покупатели, заказы, адаптивные интерфейсы и QA.",
+      "metric": "17",
+      "unit": "человек в команде",
+      "roles": [
+        "Дизайн",
+        "QA"
+      ],
+      "size": "big",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Sober Driver",
+      "slug": "sober-driver",
+      "desc": "Экосистема заказа услуг водителя: клиент, исполнитель, администратор, сайт и привлечение пользователей.",
+      "metric": "5",
+      "unit": "направлений",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "size": "big",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Приложение клиента",
+      "slug": "sober-driver-app",
+      "desc": "Заказ, адреса, тарифы, статусы и оплата.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Приложение водителя",
+      "slug": "sober-driver-driver",
+      "desc": "Входящие заказы, маршруты, баланс, выплаты.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Административная панель",
+      "slug": "sober-driver-admin",
+      "desc": "Операционные сценарии, роли, управление заказами.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Сайт и воронка",
+      "slug": "sober-driver-web",
+      "desc": "Посадочная страница, оформление заявки и продвижение.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Pelikan",
+      "slug": "pelikan",
+      "desc": "Приложение доставки с оформлением заказа списком, работало с реальными заказами.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Fly Ball",
+      "slug": "fly-ball",
+      "desc": "Приложение для волейбольных тренеров.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Vodacom",
+      "slug": "vodacom",
+      "desc": "Доставка воды. Продукт, сайт, маркетинг, рекламная воронка.",
+      "metric": "86",
+      "unit": "заявок за месяц",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "size": "big",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "Психологические консультации",
+      "slug": "psychology",
+      "desc": "Приложение, консультационная воронка, рекламные объявления и чаты.",
+      "metric": "7 000",
+      "unit": "чатов за 2 недели",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "size": "big",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "Hamilya",
+      "slug": "hamilya-shop",
+      "desc": "Магазин одежды и вещей: сайт и коммерческие сценарии.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Hamilya Astro",
+      "slug": "hamilya-astro",
+      "desc": "Сайт расчёта натальной карты и персональных данных.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Blog Hamilya",
+      "slug": "blog-hamilya",
+      "desc": "Блог Hamilya, контентная система и страницы статей.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Eyebogo",
+      "slug": "eyebogo",
+      "desc": "Коммерческий веб-сайт и цифровое присутствие.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Сокровища Пскова",
+      "slug": "treasures-pskov",
+      "desc": "Исторические маршруты и контентное управление, приложение и админка.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Разработка"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Исторические места",
+      "slug": "history-app",
+      "desc": "Карта важных мест Москвы и Петербурга с аудиогидом.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Transport Tech",
+      "slug": "transport-tech",
+      "desc": "Приложение клиента, приложение заправщика и административная система.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "medium",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "TezGO",
+      "slug": "tezgo",
+      "desc": "Сервис доставки, реклама и аналитика первых заказов.",
+      "metric": "300–350",
+      "unit": "заказов на 2-й месяц",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "size": "big",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "Pizza Dashboard",
+      "slug": "pizza-dashboard",
+      "desc": "Панель управления пиццерией.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Deli She",
+      "slug": "deli-she",
+      "desc": "Сервис доставки и такси.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Diary Book",
+      "slug": "diary-book",
+      "desc": "Приложение личных заметок и воспоминаний.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Restomesto",
+      "slug": "restomesto",
+      "desc": "Продукт бронирования ресторанов, дизайн завершён.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Сайт ВолГУ",
+      "slug": "volgu-site",
+      "desc": "Дизайн сайта университета, не запущен.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Мясной двор",
+      "slug": "myasnoy-dvor",
+      "desc": "Сайт, офлайн-воронка и онлайн-заказы кейтеринга.",
+      "metric": "270",
+      "unit": "заказов в месяц",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "size": "big",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "Papa Pizza",
+      "slug": "papa-pizza",
+      "desc": "Реклама еды и мероприятий.",
+      "metric": "400",
+      "unit": "заказов в месяц",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "size": "medium",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "Хлеб из тандыра",
+      "slug": "khleb-iz-tandyra",
+      "desc": "Офлайн-брендинг пекарни, листовки, баннеры, визитки и продажи.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн",
+        "Маркетинг"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Moonlight",
+      "slug": "moonlight",
+      "desc": "Магазин часов на WordPress, реклама в Instagram.",
+      "metric": "42",
+      "unit": "продажи из 537 заявок",
+      "roles": [
+        "Дизайн",
+        "Разработка",
+        "Маркетинг"
+      ],
+      "size": "big",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "Chexolchik",
+      "slug": "chexolchik",
+      "desc": "Instagram/VK-магазин лимитированных чехлов с доставкой.",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Маркетинг"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Mobilka34",
+      "slug": "mobilka34",
+      "desc": "Сайт, оформление соцсетей, VK-посевы, Instagram-реклама и продажи по промокоду.",
+      "metric": "3 410",
+      "unit": "офлайн-продаж",
+      "roles": [
+        "Дизайн",
+        "Разработка",
+        "Маркетинг"
+      ],
+      "size": "big",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "BARAHOLKA34",
+      "slug": "baraholka34",
+      "desc": "Сайт-каталог одежды и привлечение покупателей в новый магазин.",
+      "metric": "7 431+",
+      "unit": "посетитель за 2 месяца",
+      "roles": [
+        "Дизайн",
+        "Разработка",
+        "Маркетинг"
+      ],
+      "size": "medium",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "ИЗЮМ",
+      "slug": "izum",
+      "desc": "Сайт, социальные сети, бот, логистика, рекламная воронка и скрипты менеджеров.",
+      "metric": "522",
+      "unit": "заказа в месяц",
+      "roles": [
+        "Дизайн",
+        "Разработка",
+        "Маркетинг"
+      ],
+      "size": "big",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "RESTAR",
+      "slug": "restar",
+      "desc": "Сайт и прямое продвижение через профессиональные сообщества.",
+      "metric": "8–9",
+      "unit": "оплаченных заказов в год",
+      "roles": [
+        "Дизайн",
+        "Разработка",
+        "Маркетинг"
+      ],
+      "size": "big",
+      "type": "marketing",
+      "note": ""
+    },
+    {
+      "name": "YouTube и VK: медийная работа",
+      "slug": "media",
+      "desc": "toboboroda, tobogant64d и BLVT.",
+      "metric": "210k",
+      "unit": "подписок на площадках",
+      "roles": [
+        "Контент",
+        "Маркетинг"
+      ],
+      "size": "big",
+      "type": "experience",
+      "note": ""
+    },
+    {
+      "name": "FinFlow",
+      "slug": "finflow",
+      "desc": "Личные финансы, счета и аналитика",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Bill Split",
+      "slug": "bill-split",
+      "desc": "Разделение совместных расходов",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "PILOTS APP",
+      "slug": "pilots-app",
+      "desc": "Авиамаркетплейс вакансий",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Mafia",
+      "slug": "mafia",
+      "desc": "Подрядный дизайн",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "1Case",
+      "slug": "onecase",
+      "desc": "Дизайн Telegram Mini App",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Virus",
+      "slug": "virus",
+      "desc": "Дополнительная UX/UI-проработка",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Your Time",
+      "slug": "your-time",
+      "desc": "Собственный стартап «Твоё Время»",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "BNQR",
+      "slug": "bnqr",
+      "desc": "Цифровой продукт",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "RD mart",
+      "slug": "rd-mart",
+      "desc": "Коммерческий продукт",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Apple Bar: обучение",
+      "slug": "applebar-training",
+      "desc": "Обучение и реальная команда",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Руководство"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Hash Hedge: сайт",
+      "slug": "hash-site",
+      "desc": "Модуль основного продукта",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Разработка"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Hash Hedge: дашборд",
+      "slug": "hash-account",
+      "desc": "Модуль основного продукта",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Hash Hedge: терминал",
+      "slug": "hash-trading",
+      "desc": "Модуль основного продукта",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Onlinesklad: каталог",
+      "slug": "onlinesklad-catalog",
+      "desc": "Модуль основного продукта",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    },
+    {
+      "name": "Onlinesklad: кабинеты",
+      "slug": "onlinesklad-buyer",
+      "desc": "Модуль основного продукта",
+      "metric": "",
+      "unit": "",
+      "roles": [
+        "Дизайн"
+      ],
+      "size": "small",
+      "type": "product",
+      "note": ""
+    }
+  ]
+}

@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="#f5f5f7" name="theme-color"/><title>Главная · SLEPZOF</title><meta content="Продуктовый дизайн, разработка, маркетинг. Богдан Слепцов." name="description"/><style>
+/* SLEPZOF V10 - design system: accessible, responsive and lightweight */
+:root{--sx-text:#1d1d1f;--sx-muted:#66686f;--sx-bg:#fff;--sx-soft:#f5f5f7;--sx-line:#e7e7eb;--sx-blue:#0071e3;--sx-rad:22px}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;color:var(--sx-text);background:var(--sx-bg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body,button,input{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer}
+img{max-width:100%}
+.sx-wrap{width:min(1160px,calc(100% - 72px));margin-inline:auto}
+.sx-eyebrow{display:block;color:#76767e;font-size:12px;letter-spacing:.095em;font-weight:650;text-transform:uppercase;line-height:1.5}
+.sx-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 max(36px,calc((100vw - 1160px)/2));height:58px;background:rgba(251,251,253,.87);backdrop-filter:blur(20px);border-bottom:1px solid #e9e9ed}
+.sx-logo{font-size:18px;font-weight:760;letter-spacing:-.06em;line-height:1}.sx-logo span{color:var(--sx-blue)}
+.sx-navlinks{display:flex;align-items:center;gap:31px;font-size:12.5px;color:#49494e}.sx-navlinks a:hover{color:#0071e3}.sx-navcontact{color:#0071e3!important;font-weight:600}
+.sx-menubutton{display:none;background:transparent;border:0;padding:10px}.sx-menubutton i{display:block;width:20px;height:2px;background:#222;border-radius:2px;margin:4px 0}
+.sx-button{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:44px;border-radius:999px;padding:12px 22px;font-size:14px;font-weight:580;white-space:nowrap;transition:background .2s,transform .2s;border:1px solid transparent}.sx-button:hover{transform:translateY(-1px)}
+.sx-blue{background:#0071e3;color:white}.sx-blue:hover{background:#0077ed}
+.sx-dark{color:white;background:#1d1d1f}.sx-dark:hover{background:#333338}
+.sx-outline{background:#fff;color:#1d1d1f;border-color:#c6c6cb}.sx-outline:hover{background:#f3f3f6}
+.sx-inline-link{display:inline-flex;color:#0071e3;font-size:15px;font-weight:620;margin-top:16px}.sx-inline-link:hover{text-decoration:underline}
+.sx-hero{background:linear-gradient(#fbfbfd,#f5f5f7);padding:105px 0 0;text-align:center;overflow:hidden}
+.sx-hero .sx-eyebrow{margin:0 0 22px}
+.sx-hero h1,.sx-page-hero h1{font-weight:710;font-size:clamp(42px,4.4vw,66px);line-height:1.085;letter-spacing:-.057em;margin:0 auto;max-width:1030px;text-wrap:balance}
+.sx-hero h1 span{color:#787980}
+.sx-hero p{font-size:clamp(16px,1.55vw,19px);line-height:1.55;max-width:665px;color:#55565e;margin:24px auto 29px}
+.sx-hero-art{height:clamp(200px,35vw,440px);margin:46px auto 0;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.sx-hero-art img{object-fit:contain;width:min(940px,100%);height:100%;object-position:center bottom}
+.sx-hero-art span{display:none}
+.sx-proof{padding:92px 0 86px;background:#fff}
+.sx-proof-intro{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;padding-bottom:34px;border-bottom:1px solid var(--sx-line)}
+.sx-proof-intro h2{font-size:clamp(30px,3.2vw,45px);line-height:1.1;letter-spacing:-.05em;margin:12px 0 0}
+.sx-proof-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;padding:42px 0 46px}
+.sx-proof-grid>div{display:flex;flex-direction:column;gap:13px;min-width:0}
+.sx-proof-grid strong{font-size:clamp(36px,4vw,55px);font-weight:730;letter-spacing:-.065em;line-height:1;white-space:nowrap}
+.sx-proof-grid span{color:#66676e;font-size:14px;line-height:1.42;max-width:170px}
+.sx-proof-resume{display:flex;justify-content:space-between;align-items:center;gap:24px;background:#f5f5f7;border-radius:20px;padding:23px 26px;font-size:17px;font-weight:610;letter-spacing:-.025em}
+.sx-section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:35px;margin-bottom:30px}.sx-section-head>div{max-width:820px}
+.sx-section-head h2{font-weight:700;font-size:clamp(34px,4.25vw,56px);line-height:1.1;letter-spacing:-.055em;margin:10px 0 15px}
+.sx-section-head p{font-size:16px;line-height:1.6;color:#696a71;max-width:700px;margin:0}
+.sx-section-head>a,.sx-track-bottom>a{color:#0071e3;font-size:14px;white-space:nowrap;font-weight:600}.sx-section-head>a:hover,.sx-track-bottom>a:hover{text-decoration:underline}
+.sx-selected{padding-top:70px;padding-bottom:120px}
+.sx-selected-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;grid-auto-rows:310px}
+.sx-selected-grid .sx-card:first-child{grid-column:1/-1;min-height:430px}
+.sx-selected-grid{grid-template-rows:430px 310px 310px}
+.sx-selected-grid .sx-card:first-child .sx-card-copy{padding:45px;max-width:53%}
+.sx-selected-grid .sx-card:first-child h4{font-size:38px}
+.sx-selected-grid .sx-card:first-child .sx-card-image{width:55%}
+.sx-card{display:block;position:relative;overflow:hidden;border-radius:23px;background:#f4f4f6;color:#1d1d1f;min-width:0;min-height:0;isolation:isolate;transition:box-shadow .2s,transform .2s}
+.sx-card:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(18,18,25,.09)}
+.sx-card-copy{position:relative;z-index:2;display:flex;flex-direction:column;align-items:start;padding:22px;height:100%;max-width:65%}
+.sx-card-role{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.sx-tag{display:inline-block;border-radius:999px;padding:5px 9px;font-size:10px;line-height:1.2;font-weight:620;background:#e6e8ec;color:#4e5261;white-space:nowrap}
+.sx-tag-design{background:#e7edff;color:#4262ac}.sx-tag-marketing{background:#fff0e4;color:#a25d20}.sx-tag-dev{background:#e4f4e8;color:#39764d}.sx-tag-lead{background:#eee7f9;color:#6c4b9d}.sx-tag-qa{background:#ececed;color:#585861}
+.sx-card h4{font-size:24px;font-weight:710;letter-spacing:-.04em;line-height:1.13;margin:0 0 12px;overflow-wrap:anywhere}
+.sx-card p{font-size:13px;color:#606169;line-height:1.52;margin:0;max-width:330px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.sx-card-metric{display:flex;flex-wrap:wrap;align-items:baseline;gap:9px;margin-top:auto;padding-top:10px}
+.sx-card-metric strong{font-size:27px;font-weight:750;letter-spacing:-.058em;line-height:1;white-space:nowrap}
+.sx-card-metric span{font-size:12px;color:#656670;line-height:1.25;max-width:160px}
+.sx-card-image{position:absolute;inset:0 0 0 auto;z-index:0;width:55%;height:100%;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.sx-card-image::before{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(90deg,#f4f4f6 0%,rgba(244,244,246,.3) 45%,rgba(244,244,246,0) 100%);pointer-events:none}
+.sx-card-image img{width:100%;height:100%;object-fit:contain;object-position:center right}
+.sx-card-arrow{position:absolute;z-index:3;top:20px;right:20px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px}
+.sx-card.sx-big{grid-column:span 2;grid-row:span 2}.sx-card.sx-big .sx-card-copy{max-width:56%;padding:31px}.sx-card.sx-big h4{font-size:29px}.sx-card.sx-big .sx-card-image{width:59%}.sx-card.sx-big .sx-card-metric strong{font-size:34px}
+.sx-card.sx-medium{grid-column:span 2;grid-row:span 1}.sx-card.sx-medium .sx-card-copy{max-width:64%}
+.sx-card.sx-small{grid-column:span 1;grid-row:span 1}.sx-card.sx-small .sx-card-copy{max-width:94%;padding:17px}.sx-card.sx-small h4{font-size:17px;margin-bottom:8px}.sx-card.sx-small p{font-size:12px;-webkit-line-clamp:2}.sx-card.sx-small .sx-card-image{width:42%;opacity:.42}.sx-card.sx-small .sx-card-role{margin-bottom:8px}.sx-card.sx-small .sx-tag{font-size:9px;padding:4px 7px}.sx-card.sx-small .sx-card-metric strong{font-size:21px}
+.sx-manifest{background:#101113;color:white;padding:115px 0 120px}.sx-manifest .sx-wrap{max-width:1120px}.sx-manifest .sx-eyebrow{color:#909198}
+.sx-manifest h2{font-size:clamp(37px,4.6vw,63px);font-weight:670;line-height:1.13;letter-spacing:-.055em;max-width:1010px;margin:20px 0}
+.sx-manifest h2 span{color:#92939b}.sx-manifest p{font-size:17px;color:#adaeb5;line-height:1.62;max-width:740px;margin:24px 0 0}
+.sx-timeline{padding:100px 0 45px}.sx-experience-head{margin-bottom:95px}
+.sx-stage{margin:0 0 115px;min-width:0}.sx-stage-title{align-items:end;margin-bottom:23px}
+.sx-stage-title h3{font-size:clamp(31px,3.6vw,48px);margin:7px 0 6px;line-height:1.13;letter-spacing:-.047em}
+.sx-roleline{display:inline-block;font-size:13px;color:#0071e3;font-weight:640;margin:0 0 12px}
+.sx-stage-title p{max-width:760px;font-size:15px;line-height:1.6;margin:0;color:#6c6d73}
+.sx-midpoint{color:#a9abb0;margin:0 7px}
+.sx-slide-controls{display:flex;gap:8px;flex-shrink:0;padding-bottom:2px}
+.sx-slide-controls button{border:1px solid #d9dade;background:#f5f5f7;color:#1d1d1f;border-radius:50%;width:39px;height:39px;font-size:21px;line-height:1;transition:background .2s}
+.sx-slide-controls button:hover{background:#e7e7ea}.sx-slide-controls button:disabled{opacity:.28;cursor:default}
+.sx-track{display:flex;gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;padding:2px 1px 20px}
+.sx-track::-webkit-scrollbar{display:none}
+.sx-slide{flex:0 0 100%;scroll-snap-align:start;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,178px);gap:13px;grid-auto-flow:row dense;min-width:0}
+.sx-track-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid #ededf0;padding-top:15px}
+.sx-pagecount{font-size:12px;color:#86868b;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.sx-about-preview{background:#f5f5f7;padding:106px 0}.sx-about-preview-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.sx-about-preview h2{font-size:clamp(34px,4vw,52px);line-height:1.13;letter-spacing:-.05em;font-weight:700;margin:15px 0 26px}
+.sx-about-preview p{font-size:16px;line-height:1.65;color:#5e6067;max-width:620px}
+.sx-about-preview-visual{background:#e8e8ed;min-height:370px;border-radius:25px;overflow:hidden;display:flex;justify-content:center;align-items:center}
+.sx-about-preview-visual img{height:370px;width:100%;object-fit:contain}
+.sx-work-preview{padding:110px 0;background:#fff}.sx-work-preview h2{font-size:clamp(35px,4.2vw,58px);letter-spacing:-.054em;margin:11px 0 20px}
+.sx-work-preview p{font-size:17px;line-height:1.6;max-width:680px;color:#64666e}
+.sx-footer{background:#121214;color:#fff;padding:88px 0 25px}.sx-footer .sx-eyebrow{color:#92939a}
+.sx-footer h2{font-size:clamp(35px,4.3vw,58px);letter-spacing:-.057em;line-height:1.14;font-weight:690;max-width:950px;margin:15px 0 22px}.sx-footer h2 span{color:#a6a7ac}
+.sx-footer>div>p{max-width:660px;font-size:16px;line-height:1.62;color:#a9aab0}
+.sx-contact-actions{display:flex;align-items:center;gap:25px;margin:26px 0 75px}.sx-contact-actions>a:not(.sx-button){font-size:14px;color:#c4c4ca}
+.sx-footer-map{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:28px;padding-top:36px;border-top:1px solid #36363a}
+.sx-footer-map>div{display:flex;flex-direction:column;gap:12px;min-width:0}
+.sx-footer-map h4{font-size:12px;font-weight:700;margin:0 0 6px;color:#fafafa}.sx-footer-map a{font-size:12px;color:#a2a3a9;line-height:1.5;overflow-wrap:anywhere}.sx-footer-map a:hover{color:#fff}
+.sx-footer-final{display:flex;gap:20px;justify-content:space-between;color:#8b8d95;font-size:11px;padding:29px 0 0;border-top:1px solid #36363a;margin-top:46px}
+/* Inner pages */
+.sx-page-hero{background:#f5f5f7;padding:98px 0 90px}.sx-page-hero h1{margin:17px 0 24px;text-align:left}
+.sx-page-hero p{max-width:760px;color:#686970;font-size:18px;line-height:1.65;margin:0}
+.sx-page-hero .sx-eyebrow{color:#686970}
+.sx-story{padding:88px 0}.sx-story:nth-of-type(odd){background:#f8f8fa}
+.sx-story-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.sx-story:nth-of-type(odd) .sx-story-inner .sx-story-image{order:-1}
+.sx-story h2{font-size:clamp(29px,3.4vw,44px);letter-spacing:-.05em;line-height:1.14;margin:14px 0 18px}
+.sx-story p{font-size:17px;line-height:1.7;color:#60616a;max-width:635px;margin:0}
+.sx-story-image{height:340px;background:#efeff2;border-radius:23px;position:relative;display:flex;justify-content:center;align-items:center;overflow:hidden}
+.sx-story-image img{width:100%;height:100%;object-fit:cover}
+.sx-story-image span{position:absolute;left:22px;bottom:20px;font-size:12px;color:#a0a1a8;pointer-events:none}
+.sx-story-image:not(.sx-empty-visual) span{display:none}
+.sx-about-facts{padding:90px 0;background:#161619;color:white}.sx-about-facts .sx-eyebrow{color:#9e9ea4}
+.sx-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:40px}
+.sx-facts>div{display:flex;flex-direction:column;gap:15px}.sx-facts strong{font-size:clamp(25px,3vw,38px);letter-spacing:-.045em}.sx-facts span{font-size:13px;line-height:1.45;color:#b4b5bb}
+.sx-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:27px}
+.sx-work-arrangements,.sx-work-format,.sx-work-disciplines,.sx-work-final{padding:102px 0}
+.sx-work-options{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.sx-work-options article{padding:29px 25px;background:#f5f5f7;border-radius:20px}
+.sx-work-options article>span{font-size:12px;color:#878990}.sx-work-options h3{font-size:27px;margin:15px 0;letter-spacing:-.04em}.sx-work-options p{font-size:14px;color:#6b6c73;line-height:1.62;margin:0}
+.sx-work-format{background:#f7f7f9}.sx-work-format h2,.sx-work-disciplines h2,.sx-work-final h2{font-size:clamp(36px,4vw,55px);letter-spacing:-.05em;line-height:1.13;margin:13px 0 30px}
+.sx-work-double{display:grid;grid-template-columns:repeat(2,1fr);gap:40px}.sx-work-double>div{padding:25px 0;border-top:1px solid #dedee2}
+.sx-work-double h3{font-size:22px;letter-spacing:-.03em;margin:0 0 18px}.sx-work-double p{line-height:1.67;color:#686970;font-size:15px;max-width:520px}
+.sx-work-list{display:grid;grid-template-columns:repeat(2,1fr);gap:25px}.sx-work-list>div{padding:24px 0;border-top:1px solid #dddddf}.sx-work-list strong{font-size:21px;letter-spacing:-.02em}.sx-work-list p{color:#63646c;font-size:15px;line-height:1.6}
+.sx-work-final{background:#f5f5f7}.sx-work-final p{color:#65666d;font-size:16px;line-height:1.6;max-width:690px}
+.sx-contact-inline{display:flex;gap:30px;flex-wrap:wrap;margin-top:30px;font-size:13px;color:#0071e3}
+/* Catalog */
+.sx-catalog-hero{padding-bottom:55px}.sx-catalog-tools{display:flex;flex-direction:column;gap:19px;margin-top:38px}
+#sx-project-search{max-width:530px;width:100%;border:1px solid #d6d6db;background:white;padding:15px 18px;border-radius:15px;font-size:15px;outline:0}
+#sx-project-search:focus{border-color:#0071e3}
+.sx-filters{display:flex;gap:8px;overflow:auto;padding-bottom:4px}.sx-filters button{white-space:nowrap;border-radius:999px;background:#fff;border:1px solid #dddde1;padding:9px 16px;font-size:13px;font-weight:600;color:#4c4d55}
+.sx-filters button.is-active{background:#1d1d1f;color:white;border-color:#1d1d1f}
+.sx-catalog-body{padding-top:66px;padding-bottom:115px}.sx-catalog-section{margin-bottom:90px}.sx-catalog-section .sx-section-head h2{font-size:clamp(28px,3.1vw,43px)}
+.sx-catalog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;grid-auto-rows:260px}
+.sx-catalog-grid .sx-card{grid-column:auto;grid-row:auto}.sx-catalog-grid .sx-card-copy{max-width:77%}.sx-catalog-grid .sx-card-image{width:50%}
+.sx-catalog-grid .sx-card.sx-small .sx-card-copy{max-width:95%}.sx-catalog-grid .sx-card.sx-medium h4{font-size:22px}
+.sx-catalog-section.sx-is-hidden,.sx-catalog-grid .sx-card.sx-is-hidden{display:none}
+/* Generated case pages */
+.sx-backlink{display:inline-block;color:#0071e3;font-size:14px;margin-bottom:45px}
+.sx-case-roles{display:flex;flex-wrap:wrap;gap:7px;margin-top:25px}
+.sx-case-metric{display:flex;gap:15px;align-items:baseline;margin-top:25px}
+.sx-case-metric strong{font-size:45px;letter-spacing:-.055em}.sx-case-metric span{color:#64666e;font-size:16px}
+.sx-case-display{padding:60px 0}.sx-case-display-img{height:530px;background:#f5f5f7;border-radius:24px;display:flex;justify-content:center;align-items:center;overflow:hidden}
+.sx-case-display-img img{height:100%;width:100%;object-fit:contain}
+.sx-case-story{padding:75px 0 130px}.sx-case-story .sx-wrap{max-width:1020px}.sx-case-story h2{font-size:clamp(32px,4vw,52px);letter-spacing:-.053em;margin:10px 0 22px}.sx-case-story p{font-size:17px;color:#666870;line-height:1.6;max-width:720px}
+.sx-gallery-placeholder{margin-top:75px;border-top:1px solid #e4e4e8;padding-top:40px}.sx-gallery-placeholder h3{font-size:23px;letter-spacing:-.035em}
+.sx-gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:22px}.sx-gallery-grid img{display:block;width:100%;height:auto;border-radius:12px}
+.sx-next-case{background:#f5f5f7;padding:55px 0}.sx-next-case a{color:#0071e3;font-weight:600}
+/* Light consistency adjustments for legacy v9 case pages only; do not destroy existing layouts */
+body:has(.case-hero) .case-hero h1,body:has(.case-hero) .case-hero h2{letter-spacing:-.047em;line-height:1.12}
+body:has(.case-hero) .case-hero h1{font-size:clamp(40px,4vw,62px)}
+body:has(.case-hero) .case-hero p{line-height:1.6}
+/* Responsive */
+@media (max-width:1000px){.sx-selected-grid{grid-auto-rows:280px;grid-template-rows:370px 280px 280px}.sx-slide{grid-template-rows:repeat(2,180px)}.sx-card.sx-big .sx-card-copy{max-width:65%}.sx-card.sx-medium .sx-card-copy{max-width:76%}.sx-card-image{opacity:.7}.sx-footer-map{grid-template-columns:repeat(2,1fr);gap:35px}.sx-catalog-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){
+ .sx-wrap{width:calc(100% - 36px)}
+ .sx-nav{height:55px;padding:0 18px}.sx-logo{font-size:17px}.sx-menubutton{display:block}
+ .sx-navlinks{display:none;position:absolute;left:0;top:55px;right:0;padding:16px 24px 22px;flex-direction:column;align-items:flex-start;gap:17px;background:rgba(251,251,253,.98);border-bottom:1px solid #e7e7eb;font-size:15px}
+ .sx-nav.sx-open .sx-navlinks{display:flex}
+ .sx-hero{padding-top:70px}.sx-hero .sx-eyebrow{font-size:10px}.sx-hero h1,.sx-page-hero h1{font-size:clamp(34px,8.2vw,49px);letter-spacing:-.055em}
+ .sx-hero p{font-size:15px;margin:20px auto 25px}.sx-hero-art{height:210px;margin-top:30px}
+ .sx-proof{padding:65px 0}.sx-proof-intro{padding-bottom:25px}.sx-proof-intro h2{font-size:34px}.sx-proof-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:35px 18px;padding:34px 0}.sx-proof-grid strong{font-size:40px}.sx-proof-grid span{font-size:12px}
+ .sx-proof-resume{flex-direction:column;align-items:flex-start;gap:17px;padding:23px;font-size:16px}.sx-proof-resume .sx-button{width:100%}
+ .sx-section-head{flex-direction:column;align-items:flex-start;gap:16px}.sx-section-head h2{font-size:35px}.sx-section-head p{font-size:14px}
+ .sx-selected{padding-top:44px;padding-bottom:78px}.sx-selected-grid{grid-template-columns:1fr;grid-template-rows:auto;grid-auto-rows:300px;gap:12px}.sx-selected-grid .sx-card:first-child{grid-column:auto;min-height:340px}
+ .sx-selected-grid .sx-card:first-child h4{font-size:29px}.sx-selected-grid .sx-card:first-child .sx-card-copy{padding:24px;max-width:65%}
+ .sx-card.sx-medium .sx-card-copy{max-width:70%}.sx-card h4{font-size:22px}.sx-card p{font-size:12px}.sx-card-metric strong{font-size:24px}
+ .sx-manifest{padding:80px 0}.sx-manifest h2{font-size:36px}.sx-manifest p{font-size:15px}
+ .sx-timeline{padding-top:72px}.sx-experience-head{margin-bottom:65px}.sx-stage{margin-bottom:75px}.sx-stage-title{flex-direction:row;align-items:flex-end;gap:16px}
+ .sx-stage-title h3{font-size:30px}.sx-stage-title p{font-size:13px}.sx-slide-controls button{width:34px;height:34px}
+ .sx-slide{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,145px);gap:9px}
+ .sx-card.sx-big{grid-column:span 2;grid-row:span 2}.sx-card.sx-medium{grid-column:span 2;grid-row:span 1}.sx-card.sx-small{grid-column:span 1;grid-row:span 1}
+ .sx-card.sx-big .sx-card-copy{max-width:64%;padding:20px}.sx-card.sx-big h4{font-size:24px}.sx-card.sx-big .sx-card-metric strong{font-size:29px}
+ .sx-card.sx-medium .sx-card-copy{padding:16px;max-width:71%}.sx-card.sx-medium h4{font-size:19px}.sx-card.sx-medium p{font-size:12px;-webkit-line-clamp:2}
+ .sx-card.sx-small .sx-card-copy{padding:12px}.sx-card.sx-small h4{font-size:15px}.sx-card.sx-small p{font-size:11px}.sx-card.sx-small .sx-tag{font-size:8px}
+ .sx-card-arrow{top:10px;right:10px;width:24px;height:24px;font-size:12px}.sx-card-image{opacity:.5}
+ .sx-track-bottom a{font-size:12px}.sx-pagecount{font-size:11px}
+ .sx-about-preview{padding:70px 0}.sx-about-preview-inner{grid-template-columns:1fr;gap:32px}.sx-about-preview h2{font-size:34px}.sx-about-preview p{font-size:15px}.sx-about-preview-visual{min-height:220px;height:260px}.sx-about-preview-visual img{height:260px}
+ .sx-work-preview{padding:75px 0}.sx-work-preview h2{font-size:36px}.sx-work-preview p{font-size:15px}
+ .sx-footer{padding:70px 0 22px}.sx-footer h2{font-size:34px}.sx-footer>div>p{font-size:14px}.sx-contact-actions{align-items:flex-start;flex-direction:column;margin-bottom:55px}
+ .sx-footer-map{grid-template-columns:repeat(2,1fr);gap:32px 14px}.sx-footer-map a{font-size:11px}.sx-footer-final{flex-wrap:wrap}
+ .sx-page-hero{padding:70px 0 60px}.sx-page-hero p{font-size:15px}
+ .sx-story{padding:55px 0}.sx-story-inner{grid-template-columns:1fr;gap:25px}.sx-story:nth-of-type(odd) .sx-story-inner .sx-story-image{order:0}.sx-story h2{font-size:31px}.sx-story p{font-size:15px}.sx-story-image{height:220px}
+ .sx-facts{grid-template-columns:repeat(2,1fr);gap:30px 18px}.sx-facts strong{font-size:29px}
+ .sx-work-arrangements,.sx-work-format,.sx-work-disciplines,.sx-work-final{padding:70px 0}.sx-work-options{grid-template-columns:1fr}.sx-work-double{grid-template-columns:1fr;gap:9px}.sx-work-list{grid-template-columns:1fr;gap:8px}.sx-work-format h2,.sx-work-disciplines h2,.sx-work-final h2{font-size:36px}
+ .sx-catalog-grid{grid-template-columns:1fr;grid-auto-rows:255px}.sx-catalog-hero h1{font-size:42px}.sx-catalog-section{margin-bottom:70px}.sx-catalog-body{padding-top:50px}
+ .sx-case-display-img{height:300px}.sx-case-story{padding:55px 0}.sx-gallery-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sx-card,.sx-button{transition:none}}
+/* v10 refinements after visual QA */
+.sx-selected-grid .sx-card.sx-medium{grid-column:span 1;grid-row:span 1}
+.sx-selected-grid .sx-card.sx-medium .sx-card-copy{max-width:80%}
+.sx-selected-grid .sx-card.sx-medium .sx-card-image{width:52%;opacity:.6}
+.sx-stage-title h3 a{color:inherit}.sx-heading-arrow{font-size:.46em;display:inline-block;vertical-align:middle;color:#0071e3;opacity:.5;transition:opacity .2s}
+.sx-stage-title h3 a:hover .sx-heading-arrow{opacity:1}
+.sx-footer-all{border-top:1px solid #36363a;margin-top:55px;padding-top:32px}
+.sx-footer-all h4{font-size:13px;font-weight:680;margin:0 0 25px}
+.sx-footer-all>div{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:11px 26px}
+.sx-footer-all a{font-size:11px;color:#9799a1;line-height:1.45;overflow-wrap:anywhere}.sx-footer-all a:hover{color:#fff}
+@media (max-width:720px){.sx-selected-grid .sx-card.sx-medium{grid-column:1}.sx-footer-all>div{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 20px}}
+/* Agency details */
+.sx-agency-hero{padding-bottom:70px}.sx-agency-hero h1{font-size:clamp(50px,7vw,100px)}
+.sx-agency-scope{display:flex;gap:70px;margin-top:35px}.sx-agency-scope>div{display:flex;align-items:baseline;gap:13px}
+.sx-agency-scope strong{font-size:38px;letter-spacing:-.05em}.sx-agency-scope span{font-size:14px;color:#666}
+.sx-agency-visual{background:#191a1e;color:#81828a;height:300px;border-radius:24px;margin-top:70px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:13px}
+.sx-agency-work{padding:95px 0 110px}.sx-agency-work h2{font-size:clamp(34px,4vw,55px);margin:13px 0 14px;letter-spacing:-.05em}
+.sx-agency-work>.sx-wrap>p{max-width:650px;font-size:16px;line-height:1.6;color:#64666d;margin:0 0 35px}
+.sx-agency-detail{background:#f5f5f7;padding:80px 0 110px}.sx-agency-detail h2{font-size:clamp(31px,4vw,49px);letter-spacing:-.05em;margin:0 0 20px}.sx-agency-detail p{font-size:17px;max-width:750px;line-height:1.6;color:#60616a}
+/* Outcome-first layouts for marketing cases */
+.sx-market-hero{padding-bottom:95px}.sx-market-hero h1{font-size:clamp(42px,5.8vw,76px);max-width:970px;line-height:1.1}.sx-market-hero .sx-case-roles{margin-top:24px}
+.sx-market-kpi{background:#121214;color:#fff;padding:60px 0}
+.sx-market-kpi .sx-wrap{display:flex;gap:90px;align-items:center;flex-wrap:wrap}
+.sx-market-kpi .sx-wrap>div{display:flex;flex-direction:column;gap:9px;min-width:220px}
+.sx-market-kpi strong{font-size:clamp(44px,6vw,72px);line-height:1;letter-spacing:-.065em}
+.sx-market-kpi span{font-size:15px;color:#b2b3bb}
+.sx-market-process{padding:105px 0}.sx-market-intro{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
+.sx-market-intro h2{font-size:clamp(36px,4.5vw,58px);line-height:1.1;letter-spacing:-.052em;margin:14px 0 0}
+.sx-market-intro p{font-size:16px;line-height:1.65;color:#666870;margin:0}
+.sx-market-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:70px 0}
+.sx-market-step{border-top:1px solid #dedfe4;padding:19px 0 0;min-height:120px}.sx-market-step>span{font-size:13px;color:#999aa2}
+.sx-market-step h3{font-size:21px;line-height:1.3;font-weight:650;letter-spacing:-.03em;margin:18px 0}
+.sx-market-cover{height:480px;border-radius:24px;overflow:hidden;background:#f5f5f7;display:flex;justify-content:center;align-items:center}
+.sx-market-cover img{width:100%;height:100%;object-fit:contain}
+@media(max-width:720px){.sx-agency-scope{gap:25px;flex-wrap:wrap}.sx-agency-scope strong{font-size:29px}.sx-agency-visual{height:180px;margin-top:42px}.sx-agency-work{padding:65px 0}.sx-market-kpi{padding:55px 0}.sx-market-kpi .sx-wrap{gap:35px}.sx-market-kpi strong{font-size:44px}.sx-market-intro{grid-template-columns:1fr}.sx-market-process{padding:75px 0}.sx-market-steps{grid-template-columns:1fr;gap:0;margin:45px 0}.sx-market-step{min-height:100px}.sx-market-cover{height:280px}}
+
+</style><style>
+/* SLEPZOF v11 / cohesive editorial portfolio with adaptable project mosaics */
+:root {--sx-blue:#006fe6;--sx-accent:#0071e3;--sx-text:#1d1d1f;--sx-muted:#686972;--sx-space:clamp(64px,7vw,110px)}
+html {scroll-padding-top:76px}
+body {overflow-x:hidden}
+.sx-nav{height:62px;background:rgba(255,255,255,.94);box-shadow:none}
+.sx-wrap{width:min(1200px,calc(100% - 80px))}
+.sx-eyebrow{font-size:11px;letter-spacing:.11em}
+.sx-hero{padding:76px 0 0;background:#f6f6f8}
+.sx-hero h1{max-width:1120px;font-size:clamp(40px,4.2vw,64px);font-weight:720;line-height:1.08}
+.sx-hero p{max-width:750px;margin-top:24px;margin-bottom:25px}
+.sx-hero-art{height:clamp(200px,29vw,345px);margin-top:30px}
+.sx-hero-art img{width:min(910px,100%);object-position:center bottom}
+.sx-availability{display:inline-flex;border:1px solid #d6dbe7;background:#fff;padding:10px 17px;line-height:1.45;font-size:13px;color:#29547c;font-weight:620;border-radius:30px;margin:-7px 0 29px}
+.sx-proof{padding:56px 0 78px}
+.sx-proof-intro{display:flex;align-items:end;justify-content:space-between;padding-bottom:25px}
+.sx-proof-intro h2{font-size:clamp(32px,3.8vw,48px);margin:10px 0 0}
+.sx-proof-grid{gap:40px;padding:36px 0 35px}
+.sx-proof-grid strong{font-size:clamp(37px,4.4vw,62px)}
+.sx-proof-grid span{font-size:14px;line-height:1.45}
+.sx-proof-resume{background:#ecf3ff;border:1px solid #dbe8ff;min-height:100px;padding:22px 28px;flex-wrap:wrap}
+.sx-resume-cta{font-size:16px;box-shadow:0 8px 22px rgba(0,113,227,.15);padding:16px 26px}
+.sx-selected{padding-top:50px;padding-bottom:112px}
+.sx-section-head{margin-bottom:34px}.sx-section-head p{max-width:770px}
+/* Non-faded imagery, consistent card anatomy and muted brand-specific tile surfaces. */
+.sx-card.sx-tile-card{background:var(--sx-tile-color,#f2f2f4);display:grid;grid-template-columns:53% minmax(0,47%);grid-template-rows:1fr;position:relative;min-height:0;isolation:isolate;border-radius:25px;box-shadow:none}
+.sx-card.sx-tile-card:hover{transform:translateY(-2px);box-shadow:0 13px 26px rgba(28,28,40,.09)}
+.sx-card.sx-tile-card .sx-card-copy{max-width:none!important;min-width:0;width:100%;height:100%;padding:27px 26px 25px;z-index:1;position:relative;display:flex;flex-direction:column;align-items:flex-start}
+.sx-card.sx-tile-card .sx-card-image{position:relative;inset:auto;z-index:0;width:100%!important;height:100%;opacity:1!important;align-self:stretch;overflow:hidden;background:transparent;display:block}
+.sx-card.sx-tile-card .sx-card-image::before{display:none!important}
+.sx-card.sx-tile-card .sx-card-image img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;border-radius:0}
+.sx-card.sx-tile-card h4{font-size:clamp(19px,2vw,29px);line-height:1.12;letter-spacing:-.05em;margin:0 0 13px;max-width:100%;overflow-wrap:normal}
+.sx-card.sx-tile-card p{font-size:14px;line-height:1.49;color:#4c4e55;max-width:100%;-webkit-line-clamp:4;margin:0 0 8px}
+.sx-card.sx-tile-card .sx-card-role{margin:0 0 18px;gap:6px}
+.sx-card.sx-tile-card .sx-card-metric{margin-top:auto;padding-top:17px;gap:11px;align-items:baseline;width:100%}
+.sx-card.sx-tile-card .sx-card-metric strong{font-size:clamp(25px,2.9vw,39px);font-weight:730;letter-spacing:-.055em;color:#1d1d1f}
+.sx-card.sx-tile-card .sx-card-metric span{font-size:13px;max-width:170px;color:#4e5059;line-height:1.32}
+.sx-card.sx-tile-card .sx-card-arrow{right:12px;top:12px;width:30px;height:30px;background:rgba(255,255,255,.94);z-index:3}
+.sx-tag,.sx-tag-design,.sx-tag-marketing,.sx-tag-dev,.sx-tag-lead,.sx-tag-qa,.sx-tag-other{background:rgba(255,255,255,.62)!important;color:#3d424a!important;border:1px solid rgba(45,52,67,.10)!important;font-weight:630;border-radius:7px!important;font-size:10px!important;letter-spacing:0!important;padding:6px 9px!important}
+.sx-card .sx-tag:first-child{background:rgba(20,44,85,.08)!important;color:#254d79!important}
+/* One large hero followed by four deliberate, balanced cards. */
+.sx-selected-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:390px 310px 310px;grid-auto-rows:auto;gap:20px}
+.sx-selected-grid .sx-card:first-child{grid-column:1/-1;grid-row:auto;min-height:0}
+.sx-selected-grid .sx-card:first-child .sx-card-copy{padding:42px 44px;max-width:none}
+.sx-selected-grid .sx-card:first-child h4{font-size:43px}
+.sx-selected-grid .sx-card:first-child .sx-card-image{width:100%}
+.sx-selected-grid .sx-card:first-child .sx-card-metric strong{font-size:54px}
+.sx-selected-grid .sx-card .sx-card-copy{padding:24px 27px}
+/* A specific explanation of whole-product thinking rather than another slogan. */
+.sx-manifest{padding:104px 0 110px;background:#111114}.sx-manifest h2{max-width:1080px}
+.sx-manifest p{max-width:920px;font-size:19px;line-height:1.67}
+/* Period navigation and mosaics */
+.sx-timeline{padding:95px 0 30px}.sx-experience-head{margin-bottom:76px}
+.sx-stage{margin-bottom:clamp(82px,8vw,145px)}
+.sx-stage-title{margin-bottom:27px;align-items:end}
+.sx-stage-title h3{font-size:clamp(32px,3.7vw,51px);margin:7px 0 5px}
+.sx-stage-title p{max-width:900px;font-size:17px;line-height:1.53}
+.sx-stage-title .sx-roleline{font-size:13px;margin:0 0 13px}
+.sx-stage-title .sx-slide-controls{margin-left:auto}
+.sx-mosaic{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:210px;gap:15px;grid-auto-flow:row dense;min-width:0}
+.sx-mosaic>.sx-tile-card{min-width:0;grid-column:span 4;grid-row:span 1}
+.sx-mosaic>.sx-tile-card .sx-card-copy{padding:20px 20px 19px}
+.sx-mosaic>.sx-tile-card h4{font-size:clamp(17px,1.55vw,24px)}
+.sx-mosaic>.sx-tile-card p{font-size:12.5px;line-height:1.43;-webkit-line-clamp:3}
+.sx-mosaic>.sx-tile-card .sx-card-role{margin-bottom:11px}
+.sx-mosaic>.sx-tile-card .sx-card-metric{padding-top:10px}
+.sx-mosaic>.sx-tile-card .sx-card-metric strong{font-size:26px}
+.sx-mosaic>.sx-tile-card .sx-card-metric span{font-size:11px}
+/* No empty grid tracks at all in one- and two-project periods */
+.sx-count-1{display:block}
+.sx-count-1>.sx-tile-card{display:grid;height:430px;width:100%;grid-template-columns:49% 51%}
+.sx-count-1>.sx-tile-card .sx-card-copy{padding:43px 46px}
+.sx-count-1>.sx-tile-card h4{font-size:clamp(32px,3.5vw,49px)}
+.sx-count-1>.sx-tile-card p{font-size:17px;-webkit-line-clamp:6;max-width:500px}
+.sx-count-1>.sx-tile-card .sx-card-metric strong{font-size:44px}
+.sx-count-2{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:350px}
+.sx-count-2>.sx-tile-card{grid-column:span 1;grid-row:span 1}
+.sx-count-2>.sx-tile-card h4{font-size:30px}
+.sx-count-2>.sx-tile-card p{font-size:14px;-webkit-line-clamp:5}
+.sx-count-3>.sx-tile-card:nth-child(1){grid-column:span 7;grid-row:span 2}
+.sx-count-3>.sx-tile-card:nth-child(n+2){grid-column:span 5;grid-row:span 1}
+.sx-count-3>.sx-tile-card:nth-child(1) h4{font-size:38px}
+.sx-count-4>.sx-tile-card:nth-child(1),.sx-count-5>.sx-tile-card:nth-child(1),.sx-count-6>.sx-tile-card:nth-child(1),.sx-count-7>.sx-tile-card:nth-child(1){grid-column:span 6;grid-row:span 2}
+.sx-count-4>.sx-tile-card:nth-child(2),.sx-count-5>.sx-tile-card:nth-child(2),.sx-count-6>.sx-tile-card:nth-child(2),.sx-count-7>.sx-tile-card:nth-child(2){grid-column:span 6;grid-row:span 1}
+.sx-count-4>.sx-tile-card:nth-child(3),.sx-count-4>.sx-tile-card:nth-child(4),.sx-count-5>.sx-tile-card:nth-child(3),.sx-count-5>.sx-tile-card:nth-child(4),.sx-count-6>.sx-tile-card:nth-child(3),.sx-count-6>.sx-tile-card:nth-child(4),.sx-count-7>.sx-tile-card:nth-child(3),.sx-count-7>.sx-tile-card:nth-child(4){grid-column:span 3;grid-row:span 1}
+.sx-count-5>.sx-tile-card:nth-child(5){grid-column:span 12}
+.sx-count-6>.sx-tile-card:nth-child(n+5){grid-column:span 6}
+.sx-count-7>.sx-tile-card:nth-child(n+5){grid-column:span 4}
+.sx-count-7.sx-variant-1>.sx-tile-card:nth-child(1){grid-column:span 4;grid-row:span 1}
+.sx-count-7.sx-variant-1>.sx-tile-card:nth-child(2){grid-column:span 4;grid-row:span 1}
+.sx-count-7.sx-variant-1>.sx-tile-card:nth-child(3){grid-column:span 4;grid-row:span 1}
+.sx-count-7.sx-variant-1>.sx-tile-card:nth-child(4){grid-column:span 6;grid-row:span 2}
+.sx-count-7.sx-variant-1>.sx-tile-card:nth-child(5){grid-column:span 6;grid-row:span 1}
+.sx-count-7.sx-variant-1>.sx-tile-card:nth-child(6),.sx-count-7.sx-variant-1>.sx-tile-card:nth-child(7){grid-column:span 3;grid-row:span 1}
+.sx-count-7.sx-variant-2>.sx-tile-card:nth-child(n){grid-column:span 4;grid-row:span 1}
+.sx-count-7.sx-variant-2>.sx-tile-card:nth-child(1),.sx-count-7.sx-variant-2>.sx-tile-card:nth-child(2){grid-column:span 6}
+.sx-count-7.sx-variant-2>.sx-tile-card:nth-child(6),.sx-count-7.sx-variant-2>.sx-tile-card:nth-child(7){grid-column:span 6}
+/* The track slides whole mosaic sets, not single tiny tiles. */
+.sx-track{gap:18px;align-items:stretch;padding:2px 1px 23px}
+.sx-slide{flex:0 0 100%;display:block!important;grid-template-columns:none!important;grid-template-rows:none!important;height:auto;min-height:0;scroll-snap-align:start}
+.sx-slide>.sx-mosaic{width:100%;height:100%}
+.sx-stage-more{display:block;text-align:right;padding-top:17px;font-size:14px;font-weight:600;color:#0071e3}
+.sx-track-bottom{margin-top:4px}
+/* Content panel for the bakery, not another portfolio case */
+.sx-about-preview{padding:110px 0;background:#f2f2f4}
+.sx-about-preview h2{font-size:clamp(37px,3.8vw,54px);max-width:610px}
+.sx-about-preview p{font-size:17px;line-height:1.66;max-width:610px;margin:18px 0 0}
+.sx-about-preview-visual{min-height:420px;position:relative;overflow:hidden;border-radius:23px;background:#e3e3e6}
+.sx-about-preview-visual img{height:100%;width:100%;object-fit:cover}
+.sx-photo-hint{position:absolute;bottom:18px;left:18px;font-size:12px;background:#f8f8f9ed;border-radius:5px;padding:7px 10px;color:#5a5b62}
+/* Contract formats, clear at first glance */
+.sx-work-preview{padding:105px 0 110px;background:#fff}
+.sx-work-preview h2{max-width:900px;font-size:clamp(36px,4.35vw,58px);line-height:1.09;letter-spacing:-.05em;margin:18px 0}
+.sx-work-preview>div>p{font-size:18px;color:#666670;max-width:770px;line-height:1.5;margin:0 0 35px}
+.sx-work-preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sx-work-choice{min-height:230px;background:#f4f4f6;padding:30px 28px;border-radius:23px;display:flex;flex-direction:column;gap:13px;transition:transform .2s ease}
+.sx-work-choice:hover{transform:translateY(-3px)}
+.sx-work-choice.sx-emphasis{background:#eaf2ff;border:1px solid #ccdfff}
+.sx-work-choice>span{font-size:14px;font-weight:700;color:#006fe6}
+.sx-work-choice>strong{font-size:29px;font-weight:690;letter-spacing:-.048em;line-height:1.12}
+.sx-work-choice>p{margin:0;font-size:14px;line-height:1.58;color:#666770}
+/* Modern case page kit and legacy content edges */
+body:has(.case-hero) .sx-nav{position:sticky;z-index:999}
+body:has(.case-hero) .sx-footer{margin-top:0}
+.sx-page-hero{padding:75px 0 75px}
+.sx-page-hero h1{max-width:1040px}
+.sx-work-options article,.sx-work-plan{background:#f5f5f7;border-radius:23px;border:1px solid transparent;padding:30px!important;min-height:265px}
+.sx-work-plan.sx-is-preferred{background:#eaf2ff!important;border-color:#bed9ff}
+.sx-work-plan-icon{width:38px;height:38px;border-radius:50%;background:#d6e6ff;margin-bottom:22px}
+.sx-work-plan:not(.sx-is-preferred) .sx-work-plan-icon{background:#e5e5ea}
+.sx-work-plan h3{font-size:30px}
+.sx-work-arrangements,.sx-work-format,.sx-work-disciplines,.sx-work-final{padding:84px 0}
+.sx-case-display-img img{object-fit:contain}
+/* Legacy case pages gain consistent scales without rewriting their real case narratives */
+body:has(.case-hero) .case-panel{padding-top:80px!important;padding-bottom:85px!important}
+body:has(.case-hero) .case-panel h2{font-size:clamp(35px,4vw,55px)!important;line-height:1.12!important;letter-spacing:-.048em!important}
+body:has(.case-hero) .case-panel p{font-size:16px!important;line-height:1.64!important}
+body:has(.case-hero) .case-hero h1{font-size:clamp(48px,5.4vw,78px)!important;line-height:1.07!important}
+.v9-insight{padding:85px 0 90px;background:#111114}
+.v9-insight-grid{gap:17px}
+.v9-insight-grid article{background:#1c1c20;border-radius:18px;border-top:0;min-height:240px}
+.v9-insight-grid article h3{font-size:clamp(22px,2.2vw,29px);margin:18px 0 11px}
+.v9-insight-grid article p{font-size:16px}
+.v9-hash-results{padding:85px 0 95px}
+.v9-hash-statgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.v9-hash-statgrid article{padding:27px 28px;min-height:190px}
+.v9-hash-statgrid strong{white-space:normal!important;overflow-wrap:break-word!important;max-width:100%;font-size:clamp(31px,3.7vw,54px)!important}
+.v9-hash-statgrid article.v9-stat-main strong{font-size:clamp(54px,6vw,95px)!important}
+.v9-hash-statgrid article h3{font-size:18px}
+/* A genuinely mixed catalogue; no employer sections or empty tiles */
+.sx-catalog-body{padding-top:45px;padding-bottom:105px}
+.sx-catalog-body>.sx-catalog-section{display:none!important}
+.sx-catalog-count{font-size:14px;color:#73747c;margin:0 0 24px}
+.sx-catalog-wall{display:flex;flex-direction:column;gap:15px}
+.sx-catalog-wall .sx-mosaic{grid-auto-rows:190px}
+.sx-catalog-wall .sx-card h4{font-size:20px}
+.sx-catalog-wall .sx-card p{font-size:12px;-webkit-line-clamp:3}
+.sx-catalog-wall .sx-tag{font-size:9px!important;padding:4px 6px!important}
+.sx-catalog-wall .sx-card.sx-tile-card .sx-card-copy{padding:18px}
+.sx-catalog-wall .sx-card.sx-tile-card .sx-card-role{margin-bottom:12px}
+.sx-catalog-wall .sx-card.sx-tile-card .sx-card-metric strong{font-size:26px}
+.sx-catalog-wall .sx-count-1>.sx-tile-card{height:390px}
+.sx-catalog-wall .sx-count-2{grid-auto-rows:300px}
+.sx-catalog-wall .sx-count-3{grid-auto-rows:188px}
+.sx-catalog-wall .sx-count-7.sx-variant-2{grid-auto-rows:190px}
+/* One consistent footer across the whole site */
+.sx-footer{padding:90px 0 30px;background:#141416}
+.sx-footer h2{font-size:clamp(40px,4.8vw,66px);max-width:950px;letter-spacing:-.052em}
+.sx-footer-map{margin-top:70px}
+.sx-footer-all{margin-top:58px}
+@media (max-width:960px){
+  .sx-wrap{width:calc(100% - 52px)}
+  .sx-mosaic{grid-auto-rows:180px}
+  .sx-selected-grid{grid-template-rows:350px 270px 270px}
+  .sx-mosaic .sx-card.sx-tile-card .sx-card-copy{padding:16px}
+  .sx-mosaic .sx-card.sx-tile-card h4{font-size:18px}
+  .sx-mosaic .sx-card.sx-tile-card p{font-size:12px;-webkit-line-clamp:2}
+  .sx-mosaic .sx-card.sx-tile-card .sx-card-metric strong{font-size:24px}
+  .sx-tag{font-size:9px!important;padding:5px 7px!important}
+}
+@media (max-width:720px){
+  .sx-wrap{width:calc(100% - 36px)}
+  .sx-nav{height:57px}
+  .sx-hero{padding-top:68px}
+  .sx-hero h1{font-size:clamp(36px,8.2vw,48px)}
+  .sx-availability{font-size:11px;padding:9px 12px;max-width:100%;text-align:center;line-height:1.4}
+  .sx-hero-art{height:220px;margin-top:26px}
+  .sx-proof{padding:52px 0 65px}.sx-proof-intro h2{font-size:34px}
+  .sx-proof-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 18px;padding:30px 0}
+  .sx-proof-grid strong{font-size:40px}.sx-proof-grid span{font-size:12px}
+  .sx-selected-grid{display:flex;flex-direction:column;gap:14px}
+  .sx-selected-grid .sx-card{min-height:290px;max-height:360px}
+  .sx-selected-grid .sx-card:first-child{height:370px;min-height:370px}
+  .sx-selected-grid .sx-card:first-child .sx-card-copy{padding:24px}.sx-selected-grid .sx-card:first-child h4{font-size:31px}
+  .sx-card.sx-tile-card{grid-template-columns:55% 45%}
+  .sx-card.sx-tile-card .sx-card-copy{padding:17px 16px 19px!important}
+  .sx-card.sx-tile-card .sx-card-role{margin:0 0 12px}
+  .sx-card.sx-tile-card h4{font-size:21px}
+  .sx-card.sx-tile-card p{font-size:12px;line-height:1.38;-webkit-line-clamp:4}
+  .sx-card.sx-tile-card .sx-card-metric strong{font-size:27px!important}
+  .sx-card.sx-tile-card .sx-card-metric span{font-size:11px!important}
+  .sx-stage-title h3{font-size:34px}
+  .sx-stage-title p{font-size:14px}
+  .sx-stage-title{flex-direction:row;align-items:end}
+  .sx-mosaic{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:195px;gap:10px}
+  .sx-mosaic>.sx-tile-card,.sx-count-3>.sx-tile-card:nth-child(n),.sx-count-4>.sx-tile-card:nth-child(n),.sx-count-5>.sx-tile-card:nth-child(n),.sx-count-6>.sx-tile-card:nth-child(n),.sx-count-7>.sx-tile-card:nth-child(n),.sx-count-7.sx-variant-1>.sx-tile-card:nth-child(n),.sx-count-7.sx-variant-2>.sx-tile-card:nth-child(n){grid-column:span 2;grid-row:span 1}
+  .sx-count-1>.sx-tile-card{height:330px}
+  .sx-count-2{grid-template-columns:1fr;grid-auto-rows:285px}
+  .sx-count-2>.sx-tile-card{grid-column:1}
+  .sx-mosaic .sx-card.sx-tile-card{grid-template-columns:55% 45%}
+  .sx-mosaic .sx-card.sx-tile-card .sx-card-copy{padding:17px 15px!important}
+  .sx-mosaic .sx-card.sx-tile-card h4{font-size:22px}
+  .sx-mosaic .sx-card.sx-tile-card .sx-card-metric strong{font-size:25px!important}
+  .sx-count-1>.sx-tile-card h4{font-size:29px!important}
+  .sx-count-1>.sx-tile-card p{font-size:13px!important}
+  .sx-slide{height:auto}
+  .sx-track{padding-bottom:15px}
+  .sx-manifest{padding:82px 0}.sx-manifest h2{font-size:35px}.sx-manifest p{font-size:15px}
+  .sx-about-preview{padding:75px 0}.sx-about-preview-visual{height:260px;min-height:260px}
+  .sx-work-preview{padding:74px 0}.sx-work-preview h2{font-size:37px}.sx-work-preview>div>p{font-size:15px}
+  .sx-work-preview-grid{grid-template-columns:1fr;gap:12px}
+  .sx-work-choice{min-height:165px;padding:24px}
+  .sx-catalog-wall .sx-mosaic{grid-auto-rows:190px}
+  .sx-catalog-wall .sx-count-1>.sx-tile-card{height:300px}
+  .sx-catalog-wall .sx-count-2{grid-auto-rows:220px}
+  .sx-footer h2{font-size:38px}.sx-footer-map{margin-top:56px}
+  .v9-insight-grid,.v9-hash-statgrid{grid-template-columns:1fr}
+  .v9-hash-statgrid article.v9-stat-main{grid-column:1}
+}
+@media (prefers-reduced-motion: reduce){.sx-work-choice,.sx-tile-card{transition:none}}
+
+</style><style>
+/* SLEPZOF v12 | Rebuilt project cards after the supplied editorial mosaic reference.
+   Changes are scoped to the preview grids and catalogue, retaining all v11 content. */
+:root { --sx-gap: 14px; }
+.sx-selected-grid,.sx-v12-mosaic {gap:var(--sx-gap)!important}
+.sx-stage-title{margin-bottom:32px!important}
+.sx-catalog-body{padding-top:35px}
+.sx-catalog-wall{gap:var(--sx-gap)!important}
+.sx-stage{margin-bottom:105px!important}
+.sx-section-head p{line-height:1.58}
+/* Mixed, saturated cards. Border is over the content, never outside the card. */
+a.sx-card.sx-v12-card{
+ display:block!important;position:relative!important;min-width:0;min-height:0;
+ background:var(--sx-tile-color,#078dff)!important;color:#fff!important;
+ border-radius:23px!important;overflow:hidden!important;
+ box-shadow:none!important;isolation:isolate;
+ text-decoration:none!important;contain:layout paint;
+}
+a.sx-card.sx-v12-card::after{
+ content:"";position:absolute;z-index:8;inset:4px;border:1px solid rgba(255,255,255,.43);
+ border-radius:19px;pointer-events:none;
+}
+a.sx-card.sx-v12-card.sx-ink-dark{color:#19212b!important}
+a.sx-card.sx-v12-card.sx-ink-dark::after{border-color:rgba(31,41,55,.17)}
+a.sx-card.sx-v12-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(17,30,47,.10)!important}
+a.sx-card.sx-v12-card:focus-visible{outline:3px solid #1253ff;outline-offset:4px}
+/* First-class typography, tags, and stats. */
+a.sx-card.sx-v12-card .sx-card-copy,
+.sx-selected-grid a.sx-card.sx-v12-card:first-child .sx-card-copy{
+ position:absolute!important;z-index:3;inset:0 auto 0 0;width:58%!important;max-width:none!important;
+ height:100%!important;padding:24px 23px 22px!important;display:flex!important;
+ flex-direction:column;align-items:flex-start;min-width:0;
+}
+a.sx-card.sx-v12-card h4,
+.sx-selected-grid a.sx-card.sx-v12-card:first-child h4{
+ font-size:clamp(20px,2.0vw,30px)!important;line-height:1.09!important;
+ letter-spacing:-.043em!important;font-weight:720!important;color:inherit!important;
+ overflow-wrap:anywhere;hyphens:auto;margin:0 0 10px!important;max-width:100%;
+}
+a.sx-card.sx-v12-card p{
+ font-size:13px!important;line-height:1.4!important;color:inherit!important;
+ opacity:.88!important;max-width:100%!important;min-width:0;
+ display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;
+ margin:0 0 10px!important;
+}
+a.sx-card.sx-v12-card .sx-card-role{
+ display:flex!important;flex-wrap:wrap!important;gap:5px!important;align-content:start;
+ margin:0 0 16px!important;max-width:100%;
+}
+a.sx-card.sx-v12-card .sx-tag,
+a.sx-card.sx-v12-card .sx-tag:first-child{
+ display:inline-flex;align-items:center;background:rgba(255,255,255,.10)!important;
+ border:1px solid rgba(255,255,255,.5)!important;color:inherit!important;
+ border-radius:100px!important;font-size:10px!important;line-height:1.2;
+ text-transform:uppercase;letter-spacing:.035em!important;font-weight:650!important;
+ padding:5px 8px!important;white-space:nowrap;
+}
+a.sx-card.sx-v12-card.sx-ink-dark .sx-tag{background:rgba(255,255,255,.28)!important;border-color:rgba(30,46,58,.23)!important}
+a.sx-card.sx-v12-card .sx-card-metric{
+ border:0!important;display:flex!important;align-items:center!important;
+ justify-content:flex-start!important;flex-wrap:nowrap!important;gap:8px!important;
+ margin-top:auto!important;margin-bottom:0!important;padding:12px 0 0!important;
+ color:inherit!important;min-width:0;
+}
+a.sx-card.sx-v12-card .sx-card-metric strong,
+.sx-selected-grid a.sx-card.sx-v12-card:first-child .sx-card-metric strong{
+ display:inline-flex;align-items:center;position:relative;white-space:nowrap;
+ font-size:clamp(27px,2.6vw,39px)!important;font-weight:750!important;
+ line-height:1.0!important;letter-spacing:-.06em!important;color:inherit!important;
+}
+a.sx-card.sx-v12-card .sx-card-metric strong::before,
+a.sx-card.sx-v12-card .sx-card-metric strong::after{
+ content:"";display:inline-block;flex:none;width:14px;height:28px;
+ background:url('file:///mnt/data/slepzof-v12/assets/icons/laurel.svg') no-repeat center/contain;
+ margin-right:3px;
+}
+a.sx-card.sx-v12-card .sx-card-metric strong::after{transform:scaleX(-1);margin:0 0 0 3px}
+a.sx-card.sx-v12-card.sx-ink-dark .sx-card-metric strong::before,
+a.sx-card.sx-v12-card.sx-ink-dark .sx-card-metric strong::after{filter:brightness(0) saturate(100%)}
+a.sx-card.sx-v12-card .sx-card-metric span{
+ font-size:11px!important;line-height:1.25!important;max-width:135px!important;
+ color:inherit!important;opacity:.94;min-width:0;
+}
+a.sx-card.sx-v12-card .sx-card-arrow{
+ display:flex;align-items:center;justify-content:center;
+ right:15px!important;top:15px!important;width:30px;height:30px;
+ background:rgba(255,255,255,.16)!important;border:1px solid rgba(255,255,255,.3);
+ color:inherit!important;z-index:9;border-radius:50%;font-size:15px;
+}
+a.sx-card.sx-v12-card.sx-ink-dark .sx-card-arrow{background:rgba(255,255,255,.5)!important;border-color:rgba(0,0,0,.1)}
+a.sx-card.sx-v12-card .sx-card-image{
+ position:absolute!important;right:0!important;top:0!important;bottom:0!important;left:auto!important;
+ display:block!important;width:55%!important;height:100%!important;z-index:1;
+ opacity:1!important;overflow:hidden!important;margin:0!important;border:0!important;
+ background:transparent!important;border-radius:0!important;
+}
+a.sx-card.sx-v12-card .sx-card-image img{
+ display:block!important;width:100%!important;height:100%!important;
+ object-fit:cover!important;object-position:center!important;border:0!important;
+ border-radius:0!important;margin:0!important;padding:0!important;
+}
+/* Large feature: visual above, editorial story and metrics below. */
+.sx-v12-mosaic>.sx-v12-card.sx-v12-feature,
+.sx-selected-grid>.sx-v12-card:first-child{
+ --sx-feature:1;
+}
+.sx-v12-mosaic>.sx-v12-card.sx-v12-feature .sx-card-image,
+.sx-selected-grid>.sx-v12-card:first-child .sx-card-image{
+ left:0!important;right:0!important;top:0!important;bottom:auto!important;
+ width:100%!important;height:56%!important;
+}
+.sx-v12-mosaic>.sx-v12-card.sx-v12-feature .sx-card-copy,
+.sx-selected-grid>.sx-v12-card:first-child .sx-card-copy{
+ inset:0!important;width:100%!important;max-width:none!important;
+ justify-content:flex-end!important;padding:28px 30px 24px!important;
+}
+.sx-v12-mosaic>.sx-v12-card.sx-v12-feature .sx-card-role,
+.sx-selected-grid>.sx-v12-card:first-child .sx-card-role{
+ position:absolute;left:24px;top:22px;margin:0!important;max-width:calc(100% - 76px);
+}
+.sx-v12-mosaic>.sx-v12-card.sx-v12-feature h4,
+.sx-selected-grid>.sx-v12-card:first-child h4{
+ font-size:clamp(27px,2.7vw,40px)!important;max-width:93%;
+}
+.sx-v12-mosaic>.sx-v12-card.sx-v12-feature p,
+.sx-selected-grid>.sx-v12-card:first-child p{
+ font-size:14px!important;-webkit-line-clamp:2;max-width:85%!important;
+}
+.sx-v12-mosaic>.sx-v12-card.sx-v12-feature .sx-card-metric,
+.sx-selected-grid>.sx-v12-card:first-child .sx-card-metric{margin-top:10px!important}
+/* Selection: one big square, four companion cards with absolutely no empty row. */
+.sx-selected-grid{
+ display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;
+ grid-template-rows:repeat(2,240px)!important;grid-auto-rows:240px!important;
+ gap:14px!important;
+}
+.sx-selected-grid>.sx-v12-card:first-child{grid-column:span 6!important;grid-row:span 2!important}
+.sx-selected-grid>.sx-v12-card:not(:first-child){grid-column:span 3!important;grid-row:span 1!important}
+.sx-selected-grid>.sx-v12-card:not(:first-child) .sx-card-copy{
+ width:78%!important;padding:19px 17px 16px!important;
+}
+.sx-selected-grid>.sx-v12-card:not(:first-child) .sx-card-image{width:60%!important;opacity:.68!important}
+.sx-selected-grid>.sx-v12-card:not(:first-child) h4{font-size:21px!important}
+.sx-selected-grid>.sx-v12-card:not(:first-child) p{font-size:12px!important;-webkit-line-clamp:2}
+.sx-selected-grid>.sx-v12-card:not(:first-child) .sx-card-metric strong{font-size:23px!important}
+.sx-selected-grid>.sx-v12-card:not(:first-child) .sx-card-metric span{font-size:10px!important}
+/* Period grids: deterministic layouts by count, guaranteeing filled rows. */
+.sx-v12-mosaic{
+ display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;
+ grid-auto-flow:row dense!important;grid-auto-rows:225px!important;
+ gap:var(--sx-gap)!important;min-width:0!important;
+}
+.sx-v12-mosaic>.sx-v12-card{grid-column:span 4!important;grid-row:span 1!important}
+.sx-v12-mosaic.sx-count-1{display:block!important}
+.sx-v12-mosaic.sx-count-1>.sx-v12-card{height:370px!important;width:100%!important}
+.sx-v12-mosaic.sx-count-1>.sx-v12-card .sx-card-copy{width:55%!important;padding:38px 43px!important}
+.sx-v12-mosaic.sx-count-1>.sx-v12-card .sx-card-image{width:51%!important;height:100%!important;left:auto!important;top:0!important}
+.sx-v12-mosaic.sx-count-1>.sx-v12-card h4{font-size:clamp(31px,3vw,45px)!important}
+.sx-v12-mosaic.sx-count-1>.sx-v12-card p{font-size:16px!important;max-width:450px!important}
+.sx-v12-mosaic.sx-count-1>.sx-v12-card .sx-card-role{position:static;margin:0 0 18px!important}
+.sx-v12-mosaic.sx-count-1>.sx-v12-card .sx-card-metric{margin-top:auto!important}
+.sx-v12-mosaic.sx-count-2>.sx-v12-card{grid-column:span 6!important}
+.sx-v12-mosaic.sx-count-2{grid-auto-rows:315px!important}
+.sx-v12-mosaic.sx-count-3>.sx-v12-card:first-child{grid-column:span 6!important;grid-row:span 2!important}
+.sx-v12-mosaic.sx-count-3>.sx-v12-card:not(:first-child){grid-column:span 6!important}
+.sx-v12-mosaic.sx-count-4>.sx-v12-card:first-child{grid-column:span 6!important;grid-row:span 2!important}
+.sx-v12-mosaic.sx-count-4>.sx-v12-card:nth-child(2){grid-column:span 6!important}
+.sx-v12-mosaic.sx-count-4>.sx-v12-card:nth-child(n+3){grid-column:span 3!important}
+.sx-v12-mosaic.sx-count-5>.sx-v12-card:first-child{grid-column:span 6!important;grid-row:span 2!important}
+.sx-v12-mosaic.sx-count-5>.sx-v12-card:not(:first-child){grid-column:span 3!important;grid-row:span 1!important}
+.sx-v12-mosaic.sx-count-6>.sx-v12-card:nth-child(1),
+.sx-v12-mosaic.sx-count-6>.sx-v12-card:nth-child(2){grid-column:span 6!important}
+.sx-v12-mosaic.sx-count-6>.sx-v12-card:nth-child(n+3){grid-column:span 3!important;grid-row:span 1!important}
+.sx-v12-mosaic.sx-count-7>.sx-v12-card:nth-child(1),
+.sx-v12-mosaic.sx-count-7>.sx-v12-card:nth-child(2),
+.sx-v12-mosaic.sx-count-7>.sx-v12-card:nth-child(6),
+.sx-v12-mosaic.sx-count-7>.sx-v12-card:nth-child(7){grid-column:span 6!important;grid-row:span 1!important}
+.sx-v12-mosaic.sx-count-7>.sx-v12-card:nth-child(3),
+.sx-v12-mosaic.sx-count-7>.sx-v12-card:nth-child(4),
+.sx-v12-mosaic.sx-count-7>.sx-v12-card:nth-child(5){grid-column:span 4!important;grid-row:span 1!important}
+/* Every seventh batch flips the geometric rhythm while preserving full-width rows. */
+.sx-v12-mosaic.sx-count-7.sx-variant-1>.sx-v12-card:nth-child(1),
+.sx-v12-mosaic.sx-count-7.sx-variant-1>.sx-v12-card:nth-child(4),
+.sx-v12-mosaic.sx-count-7.sx-variant-1>.sx-v12-card:nth-child(7){grid-column:span 6!important}
+.sx-v12-mosaic.sx-count-7.sx-variant-1>.sx-v12-card:nth-child(2),
+.sx-v12-mosaic.sx-count-7.sx-variant-1>.sx-v12-card:nth-child(3),
+.sx-v12-mosaic.sx-count-7.sx-variant-1>.sx-v12-card:nth-child(5),
+.sx-v12-mosaic.sx-count-7.sx-variant-1>.sx-v12-card:nth-child(6){grid-column:span 3!important}
+.sx-v12-mosaic.sx-count-7.sx-variant-2>.sx-v12-card:nth-child(1),
+.sx-v12-mosaic.sx-count-7.sx-variant-2>.sx-v12-card:nth-child(2),
+.sx-v12-mosaic.sx-count-7.sx-variant-2>.sx-v12-card:nth-child(3){grid-column:span 4!important}
+.sx-v12-mosaic.sx-count-7.sx-variant-2>.sx-v12-card:nth-child(n+4){grid-column:span 6!important}
+/* Emphasize a major item only when it really occupies two rows. */
+.sx-v12-mosaic.sx-count-3>.sx-v12-card:first-child,
+.sx-v12-mosaic.sx-count-4>.sx-v12-card:first-child,
+.sx-v12-mosaic.sx-count-5>.sx-v12-card:first-child{--sx-feature:1}
+.sx-v12-mosaic.sx-count-3>.sx-v12-card:first-child .sx-card-image,
+.sx-v12-mosaic.sx-count-4>.sx-v12-card:first-child .sx-card-image,
+.sx-v12-mosaic.sx-count-5>.sx-v12-card:first-child .sx-card-image{left:0!important;top:0!important;right:0!important;bottom:auto!important;width:100%!important;height:57%!important}
+.sx-v12-mosaic.sx-count-3>.sx-v12-card:first-child .sx-card-copy,
+.sx-v12-mosaic.sx-count-4>.sx-v12-card:first-child .sx-card-copy,
+.sx-v12-mosaic.sx-count-5>.sx-v12-card:first-child .sx-card-copy{width:100%!important;inset:0!important;justify-content:flex-end!important;padding:25px 27px!important}
+.sx-v12-mosaic.sx-count-3>.sx-v12-card:first-child .sx-card-role,
+.sx-v12-mosaic.sx-count-4>.sx-v12-card:first-child .sx-card-role,
+.sx-v12-mosaic.sx-count-5>.sx-v12-card:first-child .sx-card-role{position:absolute;left:24px;top:24px;max-width:calc(100% - 65px)}
+.sx-v12-mosaic.sx-count-3>.sx-v12-card:first-child h4,
+.sx-v12-mosaic.sx-count-4>.sx-v12-card:first-child h4,
+.sx-v12-mosaic.sx-count-5>.sx-v12-card:first-child h4{font-size:clamp(25px,2.7vw,36px)!important}
+.sx-v12-mosaic.sx-count-3>.sx-v12-card:first-child p,
+.sx-v12-mosaic.sx-count-4>.sx-v12-card:first-child p,
+.sx-v12-mosaic.sx-count-5>.sx-v12-card:first-child p{font-size:14px!important;max-width:90%!important;-webkit-line-clamp:3}
+.sx-v12-mosaic.sx-count-3>.sx-v12-card:first-child .sx-card-metric,
+.sx-v12-mosaic.sx-count-4>.sx-v12-card:first-child .sx-card-metric,
+.sx-v12-mosaic.sx-count-5>.sx-v12-card:first-child .sx-card-metric{margin-top:12px!important}
+/* Three/four-column compact tiles make their labels readable, not vanishingly small. */
+.sx-v12-mosaic>.sx-v12-card:not([style*="wide"]) .sx-card-copy{padding:19px 18px 17px!important}
+.sx-v12-mosaic>.sx-v12-card .sx-card-image{width:58%!important}
+.sx-v12-mosaic>.sx-v12-card .sx-card-copy{width:72%!important}
+.sx-v12-mosaic>.sx-v12-card h4{font-size:clamp(19px,1.55vw,24px)!important}
+.sx-v12-mosaic>.sx-v12-card p{font-size:12px!important;-webkit-line-clamp:2}
+.sx-v12-mosaic>.sx-v12-card .sx-card-metric strong{font-size:clamp(22px,2vw,30px)!important}
+.sx-v12-mosaic>.sx-v12-card .sx-card-metric span{font-size:10px!important}
+/* Re-assert feature geometry after compact rules. */
+.sx-v12-mosaic.sx-count-3>.sx-v12-card:first-child .sx-card-image,
+.sx-v12-mosaic.sx-count-4>.sx-v12-card:first-child .sx-card-image,
+.sx-v12-mosaic.sx-count-5>.sx-v12-card:first-child .sx-card-image{width:100%!important}
+.sx-v12-mosaic.sx-count-3>.sx-v12-card:first-child .sx-card-copy,
+.sx-v12-mosaic.sx-count-4>.sx-v12-card:first-child .sx-card-copy,
+.sx-v12-mosaic.sx-count-5>.sx-v12-card:first-child .sx-card-copy{width:100%!important;padding:25px 27px!important}
+/* Mosaics inside catalog keep exactly the same graphic system, but tighter rows. */
+.sx-catalog-wall .sx-v12-mosaic{grid-auto-rows:225px!important}
+.sx-catalog-wall .sx-v12-mosaic.sx-count-1>.sx-v12-card{height:370px!important}
+.sx-catalog-wall .sx-v12-mosaic.sx-count-2{grid-auto-rows:315px!important}
+.sx-catalog-wall .sx-v12-card p{font-size:12px!important}
+.sx-catalog-wall .sx-v12-card h4{font-size:clamp(19px,1.6vw,25px)!important}
+.sx-catalog-wall .sx-v12-card .sx-card-metric strong{font-size:clamp(22px,2.2vw,32px)!important}
+.sx-catalog-wall .sx-v12-card .sx-card-metric span{font-size:10px!important}
+.sx-catalog-wall .sx-v12-card .sx-card-role{margin-bottom:13px!important}
+.sx-catalog-wall .sx-v12-card .sx-tag{font-size:9px!important;padding:4px 6px!important}
+/* Slide containment. Cards snap by complete page rather than individually. */
+.sx-track{gap:15px!important}
+.sx-slide{flex:0 0 100%!important;min-width:0!important}
+.sx-slide>.sx-v12-mosaic{width:100%!important}
+/* User sees brand colors instead of role-specific rainbow tags. */
+.sx-tag,.sx-card-role .sx-tag:first-child{box-shadow:none!important}
+@media(max-width:1050px){
+ .sx-wrap{width:calc(100% - 46px)}
+ .sx-v12-mosaic{grid-auto-rows:208px!important}
+ .sx-selected-grid{grid-template-rows:repeat(2,216px)!important;grid-auto-rows:216px!important}
+ .sx-selected-grid>.sx-v12-card:first-child .sx-card-copy{padding:21px 23px!important}
+ .sx-selected-grid>.sx-v12-card:not(:first-child) .sx-card-copy{padding:16px!important}
+ .sx-selected-grid>.sx-v12-card:not(:first-child) .sx-card-metric span{display:none!important}
+ .sx-v12-mosaic>.sx-v12-card .sx-card-copy{padding:16px 15px!important}
+ .sx-v12-mosaic>.sx-v12-card .sx-tag{font-size:9px!important;padding:4px 6px!important}
+ .sx-v12-mosaic>.sx-v12-card .sx-card-metric span{display:none}
+}
+@media(max-width:720px){
+ :root{--sx-gap:11px}
+ .sx-wrap{width:calc(100% - 32px)!important}
+ .sx-selected-grid,.sx-v12-mosaic{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-auto-rows:220px!important;grid-template-rows:none!important;gap:11px!important}
+ .sx-selected-grid>.sx-v12-card:first-child{grid-column:span 2!important;grid-row:span 2!important}
+ .sx-selected-grid>.sx-v12-card:not(:first-child){grid-column:span 1!important;grid-row:span 1!important}
+ .sx-selected-grid>.sx-v12-card:not(:first-child) .sx-card-copy{width:92%!important}
+ .sx-selected-grid>.sx-v12-card:not(:first-child) .sx-card-image{width:70%!important;opacity:.42!important}
+ .sx-selected-grid>.sx-v12-card:not(:first-child) h4{font-size:18px!important}
+ .sx-selected-grid>.sx-v12-card:not(:first-child) p{font-size:11px!important;-webkit-line-clamp:2}
+ .sx-selected-grid>.sx-v12-card:first-child h4{font-size:30px!important}
+ .sx-selected-grid>.sx-v12-card:first-child .sx-card-image{height:51%!important}
+ .sx-selected-grid>.sx-v12-card:first-child .sx-card-copy{padding:23px!important}
+ .sx-v12-mosaic>.sx-v12-card,
+ .sx-v12-mosaic.sx-count-2>.sx-v12-card,
+ .sx-v12-mosaic.sx-count-3>.sx-v12-card:nth-child(n),
+ .sx-v12-mosaic.sx-count-4>.sx-v12-card:nth-child(n),
+ .sx-v12-mosaic.sx-count-5>.sx-v12-card:nth-child(n),
+ .sx-v12-mosaic.sx-count-6>.sx-v12-card:nth-child(n),
+ .sx-v12-mosaic.sx-count-7>.sx-v12-card:nth-child(n),
+ .sx-v12-mosaic.sx-count-7.sx-variant-1>.sx-v12-card:nth-child(n),
+ .sx-v12-mosaic.sx-count-7.sx-variant-2>.sx-v12-card:nth-child(n){grid-column:span 1!important;grid-row:span 1!important}
+ .sx-v12-mosaic.sx-count-3>.sx-v12-card:first-child,
+ .sx-v12-mosaic.sx-count-4>.sx-v12-card:first-child,
+ .sx-v12-mosaic.sx-count-5>.sx-v12-card:first-child,
+ .sx-v12-mosaic.sx-count-7>.sx-v12-card:first-child{grid-column:span 2!important;grid-row:span 2!important}
+ .sx-v12-mosaic.sx-count-3>.sx-v12-card:first-child .sx-card-image,
+ .sx-v12-mosaic.sx-count-4>.sx-v12-card:first-child .sx-card-image,
+ .sx-v12-mosaic.sx-count-5>.sx-v12-card:first-child .sx-card-image{height:53%!important}
+ .sx-v12-mosaic.sx-count-1{display:block!important}
+ .sx-v12-mosaic.sx-count-1>.sx-v12-card{height:325px!important;display:block!important}
+ .sx-v12-mosaic.sx-count-1>.sx-v12-card .sx-card-copy{width:65%!important;padding:23px!important}
+ .sx-v12-mosaic.sx-count-1>.sx-v12-card h4{font-size:30px!important}
+ .sx-v12-mosaic.sx-count-1>.sx-v12-card p{font-size:13px!important}
+ .sx-v12-mosaic.sx-count-2{grid-auto-rows:260px!important}
+ .sx-v12-mosaic.sx-count-2>.sx-v12-card{grid-column:span 2!important}
+ .sx-v12-mosaic.sx-count-7>.sx-v12-card:nth-child(6){grid-column:span 2!important}
+ .sx-v12-mosaic>.sx-v12-card .sx-card-copy{width:92%!important;padding:16px 13px 13px!important}
+ .sx-v12-mosaic>.sx-v12-card .sx-card-image{width:69%!important;opacity:.48!important}
+ .sx-v12-mosaic>.sx-v12-card h4{font-size:18px!important}
+ .sx-v12-mosaic>.sx-v12-card p{font-size:11px!important;-webkit-line-clamp:2}
+ .sx-v12-mosaic>.sx-v12-card .sx-card-role{gap:3px!important;max-height:56px;overflow:hidden}
+ .sx-v12-mosaic>.sx-v12-card .sx-tag{font-size:8px!important;padding:3px 5px!important}
+ .sx-v12-mosaic>.sx-v12-card .sx-card-metric strong{font-size:22px!important}
+ .sx-v12-mosaic>.sx-v12-card .sx-card-metric strong::before,
+ .sx-v12-mosaic>.sx-v12-card .sx-card-metric strong::after{height:20px;width:10px}
+ .sx-v12-mosaic>.sx-v12-card .sx-card-metric span{display:none!important}
+ .sx-v12-mosaic.sx-count-3>.sx-v12-card:first-child .sx-card-copy,
+ .sx-v12-mosaic.sx-count-4>.sx-v12-card:first-child .sx-card-copy,
+ .sx-v12-mosaic.sx-count-5>.sx-v12-card:first-child .sx-card-copy{width:100%!important;padding:23px!important}
+ .sx-v12-mosaic.sx-count-3>.sx-v12-card:first-child h4,
+ .sx-v12-mosaic.sx-count-4>.sx-v12-card:first-child h4,
+ .sx-v12-mosaic.sx-count-5>.sx-v12-card:first-child h4{font-size:28px!important}
+ .sx-catalog-wall .sx-v12-mosaic{grid-auto-rows:220px!important}
+ .sx-catalog-wall .sx-v12-mosaic.sx-count-1>.sx-v12-card{height:325px!important}
+ .sx-catalog-wall .sx-v12-mosaic.sx-count-2{grid-auto-rows:260px!important}
+ .sx-stage{margin-bottom:72px!important}
+}
+@media(max-width:430px){
+ .sx-selected-grid,.sx-v12-mosaic,.sx-catalog-wall .sx-v12-mosaic{grid-auto-rows:190px!important}
+ .sx-v12-mosaic>.sx-v12-card .sx-card-metric{padding-top:6px!important}
+ .sx-v12-mosaic>.sx-v12-card p{font-size:10px!important}
+ .sx-v12-mosaic>.sx-v12-card h4{font-size:17px!important}
+ .sx-selected-grid>.sx-v12-card:first-child h4{font-size:26px!important}
+}
+@media(prefers-reduced-motion:reduce){a.sx-card.sx-v12-card:hover{transform:none!important}}
+
+</style></head><body><header class="sx-nav"><a class="sx-logo" href="/">SLEPZOF<span>.</span></a><nav class="sx-navlinks"><a href="/#selected">Кейсы</a><a href="/#experience">Опыт</a><a href="/about/">Обо мне</a><a href="/work-with-me/">Работа со мной</a><a class="sx-navcontact" href="https://t.me/slepzof" rel="noopener" target="_blank">Telegram ↗</a></nav><button aria-expanded="false" aria-label="Меню" class="sx-menubutton"><i></i><i></i></button></header><main><section class="sx-hero" id="top"><div class="sx-wrap"><span class="sx-eyebrow">БОГДАН СЛЕПЦОВ · PRODUCT DESIGNER / BUILDER</span><div class="sx-availability">Свободен для Full-time  ·  Remote в приоритете  ·  Открыт к предложениям</div><h1>Проектирую для продаж и бизнеса.<br/><span>Не для учебных кейсов на Behance.</span></h1><p>Проектирую интерфейсы, разбираюсь в разработке и маркетинге. Мне важно, чтобы продукт работал после релиза: им пользовались, через него покупали и бизнес понимал, на чём зарабатывает.</p><a class="sx-button sx-blue" href="#selected">Смотреть кейсы ↗</a><div class="sx-hero-art"><img alt="Подборка работ SLEPZOF" onerror="this.src='file:///mnt/data/slepzof-v12/assets/cases/hash-hedge/hero.webp'" src="file:///mnt/data/slepzof-v12/assets/home/hero.webp"/><span>Место для твоего видео или главного визуала</span></div></div></section><section class="sx-proof" id="numbers"><div class="sx-wrap"><div class="sx-proof-intro"><span class="sx-eyebrow">ОТ ИДЕИ ДО РЕАЛЬНОГО ПРОДУКТА</span><h2>Работа в цифрах.</h2></div><div class="sx-proof-grid"><div><strong>200+</strong><span>проектов и задач</span></div><div><strong>24</strong><span>обученных специалиста</span></div><div><strong>52</strong><span>человека под руководством</span></div><div><strong>160k+</strong><span>привлечённых лидов</span></div></div><div class="sx-proof-resume"><span>6+ лет в дизайне. В резюме весь опыт по порядку.</span><a class="sx-button sx-blue sx-resume-cta" download="" href="/assets/resume.pdf">Скачать резюме PDF  ↓</a></div></div></section><section class="sx-selected sx-wrap" id="selected"><div class="sx-section-head"><div><span class="sx-eyebrow">01 / SELECTED WORK</span><h2>Избранные проекты</h2><p>Не учебные концепты. Реальные продукты, на которых приходилось отвечать за дизайн, разработку, процессы и результат.</p></div><a href="/projects/">Все проекты ↗</a></div><div class="sx-selected-grid"><a class="sx-card sx-tile-card" data-slug="hash-hedge" href="/cases/hash-hedge/" style="--sx-tile-color:#f4f1e8;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span><span class="sx-tag">QA</span></div><h4>Hash Hedge</h4><p>Сайт, статьи, турниры, рекламные воронки, кабинет, торговый терминал, испытания и выплаты. Первую версию сайта сверстал сам.</p><div class="sx-card-metric"><strong>4,8/5</strong><span>оценка удобства</span></div></div><div class="sx-card-image"><img alt="Hash Hedge" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/hash-hedge/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card" data-slug="onlinesklad" href="/cases/onlinesklad/" style="--sx-tile-color:#e3edf2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">QA</span></div><h4>Onlinesklad</h4><p>Большой B2B/B2C-маркетплейс. Каталог, кабинеты, заказы, адаптивность и QA. Был единственным дизайнером в команде.</p><div class="sx-card-metric"><strong>17</strong><span>человек в продуктовой команде</span></div></div><div class="sx-card-image"><img alt="Onlinesklad" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/onlinesklad/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card" data-slug="sober-driver" href="/cases/sober-driver/" style="--sx-tile-color:#e6ecf0;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span></div><h4>Sober Driver</h4><p>Клиентское приложение, приложение водителя, админка, сайт и реклама. Один сервис с разными сценариями для каждой роли.</p><div class="sx-card-metric"><strong>4</strong><span>цифровые системы</span></div></div><div class="sx-card-image"><img alt="Sober Driver" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/sober-driver/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card" data-slug="duckmaster" href="/cases/duckmaster/" style="--sx-tile-color:#dfeae0;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Аналитика</span><span class="sx-tag">QA</span></div><h4>DuckMaster</h4><p>Telegram Mini App с игровой экономикой, коллекциями, торговлей и прогрессией. Пересобрал UI Kit и интерфейсную систему.</p><div class="sx-card-metric"><strong>12</strong><span>версий продукта</span></div></div><div class="sx-card-image"><img alt="DuckMaster" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/duckmaster/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card" data-slug="apple-bar" href="/cases/apple-bar/" style="--sx-tile-color:#f5e6de;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span></div><h4>Apple Bar</h4><p>Интернет-магазин, реклама и продвижение. Руководил выполнением работы вместе с учениками.</p><div class="sx-card-metric"><strong>132</strong><span>оплаченных заказа</span></div></div><div class="sx-card-image"><img alt="Apple Bar" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/apple-bar/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></section><section class="sx-manifest"><div class="sx-wrap"><span class="sx-eyebrow">BEYOND UI</span><h2>У каждого продукта своя система.<br/><span>Я разбираюсь, что в ней мешает работать.</span></h2><p>Сайт может собирать трафик, но терять заявки. Приложение может работать, но путать пользователя. Интерфейс может быть готов в Figma, но разваливаться при разработке. Я разбираюсь в этой цепочке целиком: где возникает проблема, как она влияет на результат и что нужно менять в первую очередь.</p></div></section><section class="sx-timeline" id="experience"><div class="sx-wrap"><div class="sx-section-head sx-experience-head"><div><span class="sx-eyebrow">02 / EXPERIENCE</span><h2>Места работы.<br/>И конкретные проекты.</h2><p>Каждый период можно пролистать вправо. Карточки собраны группами, чтобы сразу видеть масштаб работы, а не искать его в выпадающих списках.</p></div><a href="/projects/">Полный каталог ↗</a></div></div><div class="sx-wrap"><section class="sx-stage" id="auto-2026"><div class="sx-section-head sx-stage-title"><div><span class="sx-eyebrow">Август 2026 - октябрь 2026   /   3 проекта</span><h3><a href="/projects/?period=auto-2026">Автомобильные продукты</a></h3><span class="sx-roleline">Частная практика</span><p>Сайты и рекламные воронки для автомобильного направления. Парсеры, боты, интеграции с CRM и передача обращений менеджерам. Отдельно отвечал за аналитику и работу рекламы.</p></div></div><div class="sx-mosaic sx-count-3 sx-variant-0"><a class="sx-card sx-tile-card sx-feature" data-slug="automotive" href="/cases/automotive/" style="--sx-tile-color:#e5ebed;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span><span class="sx-tag">Маркетинг</span></div><h4>Продажа автомобилей</h4><p>Сайты, рекламные кампании, аналитика, скрипты менеджеров и передача лидов в CRM.</p><div class="sx-card-metric"><strong>62</strong><span>лида</span></div></div><div class="sx-card-image"><img alt="Продажа автомобилей" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/automotive/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="engine-leads" href="/cases/engine-leads/" style="--sx-tile-color:#e7ecfa;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span><span class="sx-tag">Маркетинг</span></div><h4>Подбор двигателей</h4><p>Посадочные страницы, интеграции, автоматизация обработки заявок и управление рекламой.</p><div class="sx-card-metric"><strong>324</strong><span>обращения</span></div></div><div class="sx-card-image"><img alt="Подбор двигателей" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/engine-leads/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="automotive-automation" href="/cases/automotive-automation/" style="--sx-tile-color:#e8ebf3;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Разработка</span><span class="sx-tag">Маркетинг</span></div><h4>Автоматизация автопродаж</h4><p>Парсеры, Telegram-боты, CRM, маршрутизация обращений и контроль работы менеджеров.</p></div><div class="sx-card-image"><img alt="Автоматизация автопродаж" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/automotive-automation/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div><a class="sx-stage-more" href="/projects/?period=auto-2026">Все проекты этого периода ↗</a></section></div><div class="sx-wrap"><section class="sx-stage" id="summer-2026"><div class="sx-section-head sx-stage-title"><div><span class="sx-eyebrow">Июнь 2026 - август 2026   /   14 проектов</span><h3><a href="/projects/?period=summer-2026">Продуктовая и проектная работа</a></h3><span class="sx-roleline">Product Designer / Developer</span><p>Июнь, июль и август 2026. Разные по масштабу продукты: игры, платёжные системы, коммерческие сайты и интерфейсы. Для приложений также готовил материалы к публикации в App Store и Google Play.</p></div><div class="sx-slide-controls"><button aria-label="Предыдущая группа" class="sx-slide-prev">←</button><button aria-label="Следующая группа" class="sx-slide-next">→</button></div></div><div aria-label="Работы: Продуктовая и проектная работа" class="sx-track" tabindex="0"><div aria-label="Подборка 1 из 2" class="sx-slide"><div class="sx-mosaic sx-count-7 sx-variant-0"><a class="sx-card sx-tile-card sx-regular" data-slug="rsk" href="/cases/rsk/" style="--sx-tile-color:#e8eff1;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>РСК</h4><p>Коробки, упаковка, дизайн и сопутствующие цифровые задачи.</p></div><div class="sx-card-image"><img alt="РСК" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/rsk/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="vremena-goda" href="/cases/vremena-goda/" style="--sx-tile-color:#e8f0ef;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>Времена года</h4><p>Интернет-магазин с каталогом, заказами и пользовательскими сценариями.</p></div><div class="sx-card-image"><img alt="Времена года" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/vremena-goda/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="payment-gateway" href="/cases/payment-gateway/" style="--sx-tile-color:#e5edf0;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>Payment Gateway</h4><p>Платёжный продукт, пользовательские сценарии и интерфейсы.</p></div><div class="sx-card-image"><img alt="Payment Gateway" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/payment-gateway/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="pixel-drop" href="/cases/pixel-drop/" style="--sx-tile-color:#e8e7f5;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Pixel Drop</h4><p>Игровой маркетплейс: кейсы, инвентарь, внутренняя экономика, задания и вывод предметов.</p><div class="sx-card-metric"><strong>241</strong><span>адаптивное состояние</span></div></div><div class="sx-card-image"><img alt="Pixel Drop" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/pixel-drop/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-feature" data-slug="dead-choices" href="/cases/dead-choices/" style="--sx-tile-color:#e8eff1;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Dead Choices</h4><p>Нелинейная мобильная игра. Сценарии выбора, сюжетные ветки и состояния экранов.</p><div class="sx-card-metric"><strong>171</strong><span>сюжетная сцена</span></div></div><div class="sx-card-image"><img alt="Dead Choices" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/dead-choices/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="vezu-edu" href="/cases/vezu-edu/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Везу Еду</h4><p>Приложение доставки с клиентскими сценариями и маршрутом заказа.</p></div><div class="sx-card-image"><img alt="Везу Еду" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/vezu-edu/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-feature" data-slug="exocure" href="/cases/exocure/" style="--sx-tile-color:#e7e9f1;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>EXOCURE</h4><p>Комплексная система презентационных и цифровых концепций для нескольких продуктов.</p><div class="sx-card-metric"><strong>7</strong><span>направлений</span></div></div><div class="sx-card-image"><img alt="EXOCURE" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/exocure/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></div><div aria-label="Подборка 2 из 2" class="sx-slide"><div class="sx-mosaic sx-count-7 sx-variant-1"><a class="sx-card sx-tile-card sx-regular" data-slug="meydan-racecourse" href="/cases/meydan-racecourse/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Meydan Racecourse</h4><p>Концепция продукта для гоночного комплекса и презентация.</p></div><div class="sx-card-image"><img alt="Meydan Racecourse" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/meydan-racecourse/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="the-heights" href="/cases/the-heights/" style="--sx-tile-color:#e8f0ef;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>The Heights</h4><p>Концепция и продуктовая презентация.</p></div><div class="sx-card-image"><img alt="The Heights" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/the-heights/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="hub71" href="/cases/hub71/" style="--sx-tile-color:#e9f0e8;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Hub71</h4><p>Концепция и коммуникационные материалы.</p></div><div class="sx-card-image"><img alt="Hub71" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/hub71/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="exo-fleet-brain" href="/cases/exo-fleet-brain/" style="--sx-tile-color:#e8eff1;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Exo Fleet Brain</h4><p>Продуктовая концепция и визуальная система.</p></div><div class="sx-card-image"><img alt="Exo Fleet Brain" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/exo-fleet-brain/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="exo-vision" href="/cases/exo-vision/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Exo Vision</h4><p>Концепция интерфейсов и продуктовая презентация.</p></div><div class="sx-card-image"><img alt="Exo Vision" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/exo-vision/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="exo-os" href="/cases/exo-os/" style="--sx-tile-color:#e8f0ef;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Exo OS</h4><p>Концепция экосистемы, интерфейсы и презентация.</p></div><div class="sx-card-image"><img alt="Exo OS" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/exo-os/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="al-maktoum" href="/cases/al-maktoum/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Al Maktoum</h4><p>Презентационные и концептуальные материалы.</p></div><div class="sx-card-image"><img alt="Al Maktoum" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/al-maktoum/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></div></div><div class="sx-track-bottom"><span class="sx-pagecount">01 / 02</span><a href="/projects/?period=summer-2026">Все проекты этого периода ↗</a></div></section></div><div class="sx-wrap"><section class="sx-stage" id="hash"><div class="sx-section-head sx-stage-title"><div><span class="sx-eyebrow">Апрель 2025 - май 2026   /   2 проекта</span><h3><a href="/projects/?period=hash">Hash Hedge &amp; WSCT</a></h3><span class="sx-roleline">Product Designer / Frontend</span><p>Торговые продукты с несколькими ролями, состояниями счёта, платежами, терминалом и публичными веб-интерфейсами.</p></div></div><div class="sx-mosaic sx-count-2 sx-variant-0"><a class="sx-card sx-tile-card sx-feature" data-slug="hash-hedge" href="/cases/hash-hedge/" style="--sx-tile-color:#f4f1e8;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span><span class="sx-tag">QA</span><span class="sx-tag">Маркетинг</span></div><h4>Hash Hedge</h4><p>Сайт, статьи, турниры, рекламные воронки, дашборд, торговый терминал, испытания и выплаты. Первую версию сайта сверстал самостоятельно.</p><div class="sx-card-metric"><strong>4,8/5</strong><span>оценка удобства продукта</span></div></div><div class="sx-card-image"><img alt="Hash Hedge" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/hash-hedge/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-feature" data-slug="wsct" href="/cases/wsct/" style="--sx-tile-color:#e8ebf3;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>WSCT</h4><p>Работа над цифровым продуктом в рамках основного периода занятости.</p></div><div class="sx-card-image"><img alt="WSCT" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/wsct/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div><a class="sx-stage-more" href="/projects/?period=hash">Все проекты этого периода ↗</a></section></div><div class="sx-wrap"><section class="sx-stage" id="private-2025"><div class="sx-section-head sx-stage-title"><div><span class="sx-eyebrow">Декабрь 2024 - апрель 2025   /   25 проектов</span><h3><a href="/projects/?period=private-2025">Частная практика</a></h3><span class="sx-roleline">Product Designer / Developer</span><p>Самостоятельные заказы на приложения, сайты, цифровые продукты и презентации. Проекты разного масштаба, от одной задачи до полноценного сервиса.</p></div><div class="sx-slide-controls"><button aria-label="Предыдущая группа" class="sx-slide-prev">←</button><button aria-label="Следующая группа" class="sx-slide-next">→</button></div></div><div aria-label="Работы: Частная практика" class="sx-track" tabindex="0"><div aria-label="Подборка 1 из 4" class="sx-slide"><div class="sx-mosaic sx-count-7 sx-variant-0"><a class="sx-card sx-tile-card sx-regular" data-slug="echo-app" href="/cases/echo-app/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>ЭХО</h4><p>Приложение для общения, сценарии коммуникации и интерфейсы.</p></div><div class="sx-card-image"><img alt="ЭХО" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/echo-app/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="propuska" href="/cases/propuska/" style="--sx-tile-color:#e8f0ef;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Пропуска</h4><p>Приложение для управляющей компании: выдача и управление пропусками.</p></div><div class="sx-card-image"><img alt="Пропуска" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/propuska/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="parking" href="/cases/parking/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Parking</h4><p>Приложение поиска парковок в Москве.</p></div><div class="sx-card-image"><img alt="Parking" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/parking/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="vlad-bykov" href="/cases/vlad-bykov/" style="--sx-tile-color:#e9f0e8;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Vlad Bykov</h4><p>Персональный коммерческий сайт.</p></div><div class="sx-card-image"><img alt="Vlad Bykov" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/vlad-bykov/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="media-garant" href="/cases/media-garant/" style="--sx-tile-color:#ebe7e2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span></div><h4>Media Garant</h4><p>Telegram Mini App для сопровождения сделок, помощь с двухнедельным рекламным тестом.</p></div><div class="sx-card-image"><img alt="Media Garant" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/media-garant/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="chatus" href="/cases/chatus/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Chatus</h4><p>Приложение общения, сценарии знакомств, чаты и модерация.</p><div class="sx-card-metric"><strong>105</strong><span>экранов</span></div></div><div class="sx-card-image"><img alt="Chatus" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/chatus/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="twin-finder" href="/cases/twin-finder/" style="--sx-tile-color:#e9f0e8;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Twin Finder</h4><p>Сервис поиска внешне похожих людей на основе ИИ.</p></div><div class="sx-card-image"><img alt="Twin Finder" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/twin-finder/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></div><div aria-label="Подборка 2 из 4" class="sx-slide"><div class="sx-mosaic sx-count-6 sx-variant-1"><a class="sx-card sx-tile-card sx-regular" data-slug="game-of-year" href="/cases/game-of-year/" style="--sx-tile-color:#e8f0ef;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Game of Year</h4><p>Дизайн игрового продукта, проект не запущен.</p></div><div class="sx-card-image"><img alt="Game of Year" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/game-of-year/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="bbets" href="/cases/bbets/" style="--sx-tile-color:#ebe7e2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span></div><h4>1WIN Roulette</h4><p>Колесо фортуны и Telegram-посевы с переходом на партнёрские продукты.</p></div><div class="sx-card-image"><img alt="1WIN Roulette" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/bbets/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="internship-platform" href="/cases/internship-platform/" style="--sx-tile-color:#ebe7e2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Internship Platform</h4><p>Сервис стажировок и взаимодействия кандидатов с работодателями.</p></div><div class="sx-card-image"><img alt="Internship Platform" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/internship-platform/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="starhash-benchmark" href="/cases/starhash-benchmark/" style="--sx-tile-color:#f4ecdf;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>StarHash Benchmark</h4><p>Цифровой продукт, дизайн интерфейсов.</p></div><div class="sx-card-image"><img alt="StarHash Benchmark" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/starhash-benchmark/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="vita-ai" href="/cases/vita-ai/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Vita AI</h4><p>Продукт с ИИ-функциональностью, интерфейсы.</p></div><div class="sx-card-image"><img alt="Vita AI" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/vita-ai/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="luch" href="/cases/luch/" style="--sx-tile-color:#e8ebf3;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Луч</h4><p>Цифровой проект, интерфейсы и визуальная работа.</p></div><div class="sx-card-image"><img alt="Луч" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/luch/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></div><div aria-label="Подборка 3 из 4" class="sx-slide"><div class="sx-mosaic sx-count-6 sx-variant-2"><a class="sx-card sx-tile-card sx-regular" data-slug="logirus" href="/cases/logirus/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Logirus</h4><p>Коммерческий проект, дизайн интерфейсов.</p></div><div class="sx-card-image"><img alt="Logirus" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/logirus/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="2space" href="/cases/2space/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>2Space</h4><p>Цифровой продукт и интерфейсы.</p></div><div class="sx-card-image"><img alt="2Space" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/2space/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="forfis-new-site" href="/cases/forfis-new-site/" style="--sx-tile-color:#ebe7e2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>Forfis: новый сайт</h4><p>Редизайн сайта Forfis.</p></div><div class="sx-card-image"><img alt="Forfis: новый сайт" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/forfis-new-site/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="city-exchange" href="/cases/city-exchange/" style="--sx-tile-color:#eaeaf4;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>City Exchange</h4><p>Приложение обмена криптовалюты.</p></div><div class="sx-card-image"><img alt="City Exchange" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/city-exchange/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="digital-lawyer" href="/cases/digital-lawyer/" style="--sx-tile-color:#ebe7e2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Цифровой юрист</h4><p>Презентация юридического продукта.</p></div><div class="sx-card-image"><img alt="Цифровой юрист" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/digital-lawyer/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="star-exchange" href="/cases/star-exchange/" style="--sx-tile-color:#e8eff1;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Star Exchange</h4><p>Сервис обмена Telegram Stars на криптовалюту.</p></div><div class="sx-card-image"><img alt="Star Exchange" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/star-exchange/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></div><div aria-label="Подборка 4 из 4" class="sx-slide"><div class="sx-mosaic sx-count-6 sx-variant-0"><a class="sx-card sx-tile-card sx-regular" data-slug="marcodo" href="/cases/marcodo/" style="--sx-tile-color:#e8f0ef;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Marcodo</h4><p>Дизайн приложения для майнинга.</p></div><div class="sx-card-image"><img alt="Marcodo" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/marcodo/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="crush" href="/cases/crush/" style="--sx-tile-color:#ebe7e2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Crush</h4><p>Telegram Mini App с игровой механикой ракетки.</p></div><div class="sx-card-image"><img alt="Crush" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/crush/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="invaprom" href="/cases/invaprom/" style="--sx-tile-color:#e9f0e8;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>Инвапром</h4><p>Сайт производителя подъёмников и оборудования доступной среды.</p></div><div class="sx-card-image"><img alt="Инвапром" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/invaprom/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="aicors" href="/cases/aicors/" style="--sx-tile-color:#ebe7e2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>AiCors</h4><p>ИИ-платформа обучения: курсы, уроки и генерация материалов.</p><div class="sx-card-metric"><strong>51</strong><span>основной мобильный экран</span></div></div><div class="sx-card-image"><img alt="AiCors" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/aicors/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="eurotek" href="/cases/eurotek/" style="--sx-tile-color:#ebe7e2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>Eurotek</h4><p>Сайт транспортной компании для контейнеров и грузов.</p></div><div class="sx-card-image"><img alt="Eurotek" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/eurotek/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="neurostar" href="/cases/neurostar/" style="--sx-tile-color:#eaeaf4;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Neurostar</h4><p>Дизайн цифрового продукта, запуск не подтверждён.</p></div><div class="sx-card-image"><img alt="Neurostar" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/neurostar/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></div></div><div class="sx-track-bottom"><span class="sx-pagecount">01 / 04</span><a href="/projects/?period=private-2025">Все проекты этого периода ↗</a></div></section></div><div class="sx-wrap"><section class="sx-stage" id="duck"><div class="sx-section-head sx-stage-title"><div><span class="sx-eyebrow">Август 2024 - декабрь 2024   /   1 проект</span><h3><a href="/projects/?period=duck">DuckMaster</a></h3><span class="sx-roleline">Product Designer / QA</span><p>Игровая экономика, прогрессия, социальные механики и постоянное развитие Telegram Mini App.</p></div></div><div class="sx-mosaic sx-count-1 sx-variant-0"><a class="sx-card sx-tile-card sx-feature" data-slug="duckmaster" href="/cases/duckmaster/" style="--sx-tile-color:#dfeae0;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Аналитика</span><span class="sx-tag">QA</span></div><h4>DuckMaster</h4><p>Переработка UI Kit, игровая экономика, карточки, рейды, торговля, рефералы и множество версий приложения.</p><div class="sx-card-metric"><strong>12</strong><span>версий игрового продукта</span></div></div><div class="sx-card-image"><img alt="DuckMaster" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/duckmaster/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></section></div><div class="sx-wrap"><section class="sx-stage" id="bonape"><div class="sx-section-head sx-stage-title"><div><span class="sx-eyebrow">Январь 2023 - август 2024   /   18 проектов</span><h3><a href="/projects/?period=bonape">BONAPE</a></h3><span class="sx-roleline">Lead Designer / Обучение / Проекты</span><p>Создал программу обучения с нуля, подготовил 24 специалистов и руководил коммерческими работами вместе с учениками.</p></div><div class="sx-slide-controls"><button aria-label="Предыдущая группа" class="sx-slide-prev">←</button><button aria-label="Следующая группа" class="sx-slide-next">→</button></div></div><div aria-label="Работы: BONAPE" class="sx-track" tabindex="0"><div aria-label="Подборка 1 из 3" class="sx-slide"><div class="sx-mosaic sx-count-6 sx-variant-0"><a class="sx-card sx-tile-card sx-feature" data-slug="bonape-training" href="/cases/bonape-training/" style="--sx-tile-color:#e8e4f2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span><span class="sx-tag">Маркетинг</span></div><h4>Обучение в BONAPE</h4><p>Авторская программа, задания, проверки, Figma, разборы и проекты для реальных заказчиков.</p><div class="sx-card-metric"><strong>24</strong><span>подготовленных специалиста</span></div></div><div class="sx-card-image"><img alt="Обучение в BONAPE" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/bonape-training/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-feature" data-slug="apple-bar" href="/cases/apple-bar/" style="--sx-tile-color:#f5e6de;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span></div><h4>Apple Bar</h4><p>Сайт, интернет-магазин и Instagram-реклама с участием учеников.</p><div class="sx-card-metric"><strong>132</strong><span>оплаченных заказа</span></div></div><div class="sx-card-image"><img alt="Apple Bar" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/apple-bar/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="aquator" href="/cases/aquator/" style="--sx-tile-color:#ebe7e2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span></div><h4>Aquator</h4><p>Сайт бренда ионизаторов воды. Дизайн сайта и подготовка материалов.</p></div><div class="sx-card-image"><img alt="Aquator" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/aquator/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="yacht-center" href="/cases/yacht-center/" style="--sx-tile-color:#e8f0ef;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>Yacht Center</h4><p>Веб-каталог и мобильная WebView-оболочка.</p></div><div class="sx-card-image"><img alt="Yacht Center" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/yacht-center/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="jet-hunter" href="/cases/jet-hunter/" style="--sx-tile-color:#f4ecdf;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span></div><h4>Jet Hunter</h4><p>Сайт по покупке и продаже частных самолётов.</p></div><div class="sx-card-image"><img alt="Jet Hunter" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/jet-hunter/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="greenbox" href="/cases/greenbox/" style="--sx-tile-color:#e5f0e5;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span></div><h4>Greenbox</h4><p>Сайт и рекламная воронка для рулонных газонов и сезонных предзаказов.</p><div class="sx-card-metric"><strong>19</strong><span>оплаченных заказов</span></div></div><div class="sx-card-image"><img alt="Greenbox" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/greenbox/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></div><div aria-label="Подборка 2 из 3" class="sx-slide"><div class="sx-mosaic sx-count-6 sx-variant-1"><a class="sx-card sx-tile-card sx-regular" data-slug="domashniy-doktor" href="/cases/domashniy-doktor/" style="--sx-tile-color:#e8eff1;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span></div><h4>Домашний доктор</h4><p>Запись в частную клинику и вызов врача на дом.</p></div><div class="sx-card-image"><img alt="Домашний доктор" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/domashniy-doktor/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="slab-service" href="/cases/slab-service/" style="--sx-tile-color:#e9f0e8;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span></div><h4>Slab Service</h4><p>Коммерческий проект, сайт и пользовательские сценарии.</p></div><div class="sx-card-image"><img alt="Slab Service" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/slab-service/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="china-car" href="/cases/china-car/" style="--sx-tile-color:#e8f0ef;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span></div><h4>China Car</h4><p>Автомобильный коммерческий проект, дизайн и цифровые сценарии.</p></div><div class="sx-card-image"><img alt="China Car" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/china-car/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-feature" data-slug="trips" href="/cases/trips/" style="--sx-tile-color:#e8f0ef;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span><span class="sx-tag">Разработка</span></div><h4>City Travel / Trips</h4><p>Повторно используемые приложения туроператоров и сопровождение рекламы.</p><div class="sx-card-metric"><strong>6–7</strong><span>клиентов</span></div></div><div class="sx-card-image"><img alt="City Travel / Trips" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/trips/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="fitnesspro" href="/cases/fitnesspro/" style="--sx-tile-color:#e8eff1;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span></div><h4>FitnessPro</h4><p>Сайт для спортивного бизнеса.</p></div><div class="sx-card-image"><img alt="FitnessPro" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/fitnesspro/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="avtoshkola" href="/cases/avtoshkola/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span></div><h4>АвтоШкола</h4><p>Коммерческий сайт автошколы.</p></div><div class="sx-card-image"><img alt="АвтоШкола" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/avtoshkola/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></div><div aria-label="Подборка 3 из 3" class="sx-slide"><div class="sx-mosaic sx-count-6 sx-variant-2"><a class="sx-card sx-tile-card sx-regular" data-slug="domodel" href="/cases/domodel/" style="--sx-tile-color:#e8f0ef;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span></div><h4>Domodel</h4><p>Мобильное приложение недвижимости, работа учеников под моим руководством.</p></div><div class="sx-card-image"><img alt="Domodel" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/domodel/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="vita-med" href="/cases/vita-med/" style="--sx-tile-color:#e9f0e8;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span></div><h4>Vita Med</h4><p>Медицинское приложение, работа учеников под моим руководством.</p></div><div class="sx-card-image"><img alt="Vita Med" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/vita-med/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="sailor-planner" href="/cases/sailor-planner/" style="--sx-tile-color:#f4ecdf;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span></div><h4>Sailor Planner</h4><p>Мобильное приложение, работа ученика под моим руководством.</p></div><div class="sx-card-image"><img alt="Sailor Planner" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/sailor-planner/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="poizon-shop" href="/cases/poizon-shop/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Маркетинг</span></div><h4>Poizon Shop</h4><p>Независимый магазин обуви. Дизайн ученика, рекламная кампания под моим управлением.</p><div class="sx-card-metric"><strong>60</strong><span>оплат</span></div></div><div class="sx-card-image"><img alt="Poizon Shop" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/poizon-shop/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="glavbankrot" href="/cases/glavbankrot/" style="--sx-tile-color:#f4ecdf;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span></div><h4>Главбанкрот</h4><p>Продукт и продвижение услуг банкротства.</p><div class="sx-card-metric"><strong>×4</strong><span>клиенты за 3 месяца</span></div></div><div class="sx-card-image"><img alt="Главбанкрот" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/glavbankrot/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="crush" href="/cases/crush/" style="--sx-tile-color:#ebe7e2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span></div><h4>Crush</h4><p>Игровое приложение, проект ученика под моим руководством.</p></div><div class="sx-card-image"><img alt="Crush" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/crush/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></div></div><div class="sx-track-bottom"><span class="sx-pagecount">01 / 03</span><a href="/projects/?period=bonape">Все проекты этого периода ↗</a></div></section></div><div class="sx-wrap"><section class="sx-stage" id="salute"><div class="sx-section-head sx-stage-title"><div><span class="sx-eyebrow">Январь 2023 - август 2024   /   7 проектов</span><h3><a href="/projects/?period=salute">SALUTE</a></h3><span class="sx-roleline">Маркетинговое агентство</span><p>В SALUTE отвечал за маркетинг и работу рекламной команды из 12 человек. Кампании, каналы привлечения, посадочные страницы, аналитика и лиды.</p></div></div><div class="sx-mosaic sx-count-7 sx-variant-0"><a class="sx-card sx-tile-card sx-feature" data-slug="salute" href="/cases/salute/" style="--sx-tile-color:#e8eef6;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Маркетинг</span></div><h4>SALUTE: агентство</h4><p>Организация рекламных кампаний, аналитики, гипотез и работы специалистов.</p><div class="sx-card-metric"><strong>12</strong><span>человек в команде</span></div></div><div class="sx-card-image"><img alt="SALUTE: агентство" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/salute/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="salute-telegram" href="/cases/salute-telegram/" style="--sx-tile-color:#f4ecdf;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Маркетинг</span></div><h4>Telegram-сетка</h4><p>Рекламные размещения и координация сети Telegram-каналов.</p><div class="sx-card-metric"><strong>31+</strong><span>канал</span></div></div><div class="sx-card-image"><img alt="Telegram-сетка" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/salute-telegram/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="x6" href="/cases/x6/" style="--sx-tile-color:#e9f0e8;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Маркетинг</span></div><h4>X6</h4><p>Дизайн и руководство специалистами по маркетингу.</p></div><div class="sx-card-image"><img alt="X6" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/x6/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="salute-funnels" href="/cases/salute-funnels/" style="--sx-tile-color:#e8f0ef;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Маркетинг</span></div><h4>Рекламные воронки</h4><p>Посадочные страницы, сегменты кампаний, CPL, аналитика и передача лидов.</p></div><div class="sx-card-image"><img alt="Рекламные воронки" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/salute-funnels/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="bbets" href="/cases/bbets/" style="--sx-tile-color:#e9e9f2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span></div><h4>1WIN Roulette</h4><p>Сценарии игровой рулетки, интерфейс и материалы для продвижения.</p></div><div class="sx-card-image"><img alt="1WIN Roulette" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/bbets/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="glavbankrot" href="/cases/glavbankrot/" style="--sx-tile-color:#f4ecdf;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Маркетинг</span><span class="sx-tag">Дизайн</span></div><h4>Главбанкрот</h4><p>Продвижение юридических услуг, посадочные страницы и обработка входящих обращений.</p></div><div class="sx-card-image"><img alt="Главбанкрот" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/glavbankrot/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="poizon-shop" href="/cases/poizon-shop/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Маркетинг</span></div><h4>Poizon Shop</h4><p>Маркетинговые сценарии и реклама интернет-магазина.</p></div><div class="sx-card-image"><img alt="Poizon Shop" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/poizon-shop/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div><a class="sx-stage-more" href="/projects/?period=salute">Все проекты этого периода ↗</a></section></div><div class="sx-wrap"><section class="sx-stage" id="artsavur"><div class="sx-section-head sx-stage-title"><div><span class="sx-eyebrow">Январь 2023 - август 2024   /   7 проектов</span><h3><a href="/projects/?period=artsavur">ARTSAVUR</a></h3><span class="sx-roleline">Дизайн и разработка</span><p>В ARTSAVUR работал с опытными дизайнерами и разработчиками. Проектировал сервисы, сайты и приложения, участвовал в реализации и проверял, что итог работает как задумано.</p></div></div><div class="sx-mosaic sx-count-7 sx-variant-0"><a class="sx-card sx-tile-card sx-feature" data-slug="artsavur" href="/cases/artsavur/" style="--sx-tile-color:#eeecdf;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Руководство</span><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>ARTSAVUR: агентство</h4><p>Дизайн и разработка коммерческих цифровых продуктов.</p></div><div class="sx-card-image"><img alt="ARTSAVUR: агентство" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/artsavur/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="rocket-jet" href="/cases/rocket-jet/" style="--sx-tile-color:#e9f0e8;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>Rocket Jet</h4><p>Сайт аренды и покупки частных самолётов.</p></div><div class="sx-card-image"><img alt="Rocket Jet" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/rocket-jet/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="she-talks" href="/cases/she-talks/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>She Talks</h4><p>Сайт для образовательного продукта.</p></div><div class="sx-card-image"><img alt="She Talks" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/she-talks/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="celtway" href="/cases/celtway/" style="--sx-tile-color:#e8ebf3;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>Celtway</h4><p>SaaS для образовательных организаций, преподавателей и учеников.</p></div><div class="sx-card-image"><img alt="Celtway" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/celtway/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="verbatica" href="/cases/verbatica/" style="--sx-tile-color:#ebe7e2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Verbatica</h4><p>Образовательный стартап, дизайн и презентационная упаковка для привлечения финансирования.</p></div><div class="sx-card-image"><img alt="Verbatica" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/verbatica/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="numa" href="/cases/numa/" style="--sx-tile-color:#e8ebf3;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Numa</h4><p>Коммерческий продукт в сфере медицинских технологий.</p></div><div class="sx-card-image"><img alt="Numa" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/numa/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="vybor" href="/cases/vybor/" style="--sx-tile-color:#f4ecdf;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>Выбор</h4><p>Сайт компании строительных материалов.</p></div><div class="sx-card-image"><img alt="Выбор" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/vybor/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div><a class="sx-stage-more" href="/projects/?period=artsavur">Все проекты этого периода ↗</a></section></div><div class="sx-wrap"><section class="sx-stage" id="onlinesklad"><div class="sx-section-head sx-stage-title"><div><span class="sx-eyebrow">Июнь 2022 - январь 2023   /   1 проект</span><h3><a href="/projects/?period=onlinesklad">Onlinesklad</a></h3><span class="sx-roleline">Product Designer / QA</span><p>Единственный дизайнер в команде из 17 человек. Проектировал B2B/B2C-систему, проверял сценарии и соответствие реализации продуктовой логике.</p></div></div><div class="sx-mosaic sx-count-1 sx-variant-0"><a class="sx-card sx-tile-card sx-feature" data-slug="onlinesklad" href="/cases/onlinesklad/" style="--sx-tile-color:#e3edf2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">QA</span></div><h4>Onlinesklad</h4><p>Каталог, кабинеты, поставщики, покупатели, заказы, адаптивные интерфейсы и QA.</p><div class="sx-card-metric"><strong>17</strong><span>человек в продуктовой команде</span></div></div><div class="sx-card-image"><img alt="Onlinesklad" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/onlinesklad/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></section></div><div class="sx-wrap"><section class="sx-stage" id="sober"><div class="sx-section-head sx-stage-title"><div><span class="sx-eyebrow">Декабрь 2021 - май 2022   /   5 проектов</span><h3><a href="/projects/?period=sober">Sober Driver</a></h3><span class="sx-roleline">Product Designer / Marketing</span><p>Развивал сервис заказа водителей после этапа работы с Forfis. Четыре цифровых интерфейса и коммерческая воронка в одной системе.</p></div></div><div class="sx-mosaic sx-count-5 sx-variant-0"><a class="sx-card sx-tile-card sx-feature" data-slug="sober-driver" href="/cases/sober-driver/" style="--sx-tile-color:#e6ecf0;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span></div><h4>Sober Driver</h4><p>Экосистема заказа услуг водителя: клиент, исполнитель, администратор, сайт и привлечение пользователей.</p><div class="sx-card-metric"><strong>4</strong><span>продуктовые системы</span></div></div><div class="sx-card-image"><img alt="Sober Driver" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/sober-driver/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="sober-driver-app" href="/cases/sober-driver-app/" style="--sx-tile-color:#ebe7e2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Приложение клиента</h4><p>Заказ, адреса, тарифы, статусы и оплата.</p></div><div class="sx-card-image"><img alt="Приложение клиента" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/sober-driver-app/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="sober-driver-driver" href="/cases/sober-driver-driver/" style="--sx-tile-color:#ebe7e2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Приложение водителя</h4><p>Входящие заказы, маршруты, баланс, выплаты.</p></div><div class="sx-card-image"><img alt="Приложение водителя" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/sober-driver-driver/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="sober-driver-admin" href="/cases/sober-driver-admin/" style="--sx-tile-color:#eaeaf4;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Административная панель</h4><p>Операционные сценарии, роли, управление заказами.</p></div><div class="sx-card-image"><img alt="Административная панель" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/sober-driver-admin/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="sober-driver-web" href="/cases/sober-driver-web/" style="--sx-tile-color:#e8f0ef;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span></div><h4>Сайт и воронка</h4><p>Посадочная страница, оформление заявки и продвижение.</p></div><div class="sx-card-image"><img alt="Сайт и воронка" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/sober-driver-web/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div><a class="sx-stage-more" href="/projects/?period=sober">Все проекты этого периода ↗</a></section></div><div class="sx-wrap"><section class="sx-stage" id="forfis"><div class="sx-section-head sx-stage-title"><div><span class="sx-eyebrow">Ноябрь 2020 - декабрь 2021   /   19 проектов</span><h3><a href="/projects/?period=forfis">FORFIS</a></h3><span class="sx-roleline">Product Design / Development / Marketing</span><p>Приложения, сайты, реклама, прототипы, готовые шаблоны и публикации приложений в App Store и Google Play. От клиентской задачи до рабочего продукта.</p></div><div class="sx-slide-controls"><button aria-label="Предыдущая группа" class="sx-slide-prev">←</button><button aria-label="Следующая группа" class="sx-slide-next">→</button></div></div><div aria-label="Работы: FORFIS" class="sx-track" tabindex="0"><div aria-label="Подборка 1 из 3" class="sx-slide"><div class="sx-mosaic sx-count-7 sx-variant-0"><a class="sx-card sx-tile-card sx-regular" data-slug="pelikan" href="/cases/pelikan/" style="--sx-tile-color:#e8eff1;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Pelikan</h4><p>Приложение доставки с оформлением заказа списком, работало с реальными заказами.</p></div><div class="sx-card-image"><img alt="Pelikan" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/pelikan/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="fly-ball" href="/cases/fly-ball/" style="--sx-tile-color:#e8f0ef;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Fly Ball</h4><p>Приложение для волейбольных тренеров.</p></div><div class="sx-card-image"><img alt="Fly Ball" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/fly-ball/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-feature" data-slug="vodacom" href="/cases/vodacom/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span></div><h4>Vodacom</h4><p>Доставка воды. Продукт, сайт, маркетинг, рекламная воронка.</p><div class="sx-card-metric"><strong>86</strong><span>заявок за месяц</span></div></div><div class="sx-card-image"><img alt="Vodacom" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/vodacom/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-feature" data-slug="psychology" href="/cases/psychology/" style="--sx-tile-color:#e9f0e8;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span></div><h4>Психологические консультации</h4><p>Приложение, консультационная воронка, рекламные объявления и чаты.</p><div class="sx-card-metric"><strong>7 000</strong><span>чатов за 2 недели</span></div></div><div class="sx-card-image"><img alt="Психологические консультации" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/psychology/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="hamilya-shop" href="/cases/hamilya-shop/" style="--sx-tile-color:#e8f0ef;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>Hamilya</h4><p>Магазин одежды и вещей: сайт и коммерческие сценарии.</p></div><div class="sx-card-image"><img alt="Hamilya" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/hamilya-shop/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="hamilya-astro" href="/cases/hamilya-astro/" style="--sx-tile-color:#f4ecdf;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>Hamilya Astro</h4><p>Сайт расчёта натальной карты и персональных данных.</p></div><div class="sx-card-image"><img alt="Hamilya Astro" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/hamilya-astro/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="blog-hamilya" href="/cases/blog-hamilya/" style="--sx-tile-color:#f4ecdf;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>Blog Hamilya</h4><p>Блог Hamilya, контентная система и страницы статей.</p></div><div class="sx-card-image"><img alt="Blog Hamilya" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/blog-hamilya/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></div><div aria-label="Подборка 2 из 3" class="sx-slide"><div class="sx-mosaic sx-count-6 sx-variant-1"><a class="sx-card sx-tile-card sx-regular" data-slug="eyebogo" href="/cases/eyebogo/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>Eyebogo</h4><p>Коммерческий веб-сайт и цифровое присутствие.</p></div><div class="sx-card-image"><img alt="Eyebogo" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/eyebogo/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="domashniy-doktor" href="/cases/domashniy-doktor/" style="--sx-tile-color:#e8eff1;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Домашний доктор: ранний этап</h4><p>Приложение врача на дом и записи в частную клинику.</p></div><div class="sx-card-image"><img alt="Домашний доктор: ранний этап" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/domashniy-doktor/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="treasures-pskov" href="/cases/treasures-pskov/" style="--sx-tile-color:#f2ebe9;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span></div><h4>Сокровища Пскова</h4><p>Исторические маршруты и контентное управление, приложение и админка.</p></div><div class="sx-card-image"><img alt="Сокровища Пскова" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/treasures-pskov/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="history-app" href="/cases/history-app/" style="--sx-tile-color:#f4ecdf;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Исторические места</h4><p>Карта важных мест Москвы и Петербурга с аудиогидом.</p></div><div class="sx-card-image"><img alt="Исторические места" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/history-app/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="transport-tech" href="/cases/transport-tech/" style="--sx-tile-color:#e8eff1;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Transport Tech</h4><p>Приложение клиента, приложение заправщика и административная система.</p></div><div class="sx-card-image"><img alt="Transport Tech" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/transport-tech/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-feature" data-slug="tezgo" href="/cases/tezgo/" style="--sx-tile-color:#e8ebf3;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span></div><h4>TezGO</h4><p>Сервис доставки, реклама и аналитика первых заказов.</p><div class="sx-card-metric"><strong>300–350</strong><span>заказов на 2-й месяц</span></div></div><div class="sx-card-image"><img alt="TezGO" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/tezgo/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></div><div aria-label="Подборка 3 из 3" class="sx-slide"><div class="sx-mosaic sx-count-6 sx-variant-2"><a class="sx-card sx-tile-card sx-regular" data-slug="pizza-dashboard" href="/cases/pizza-dashboard/" style="--sx-tile-color:#f4ecdf;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Pizza Dashboard</h4><p>Панель управления пиццерией.</p></div><div class="sx-card-image"><img alt="Pizza Dashboard" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/pizza-dashboard/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="deli-she" href="/cases/deli-she/" style="--sx-tile-color:#f4ecdf;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Deli She</h4><p>Сервис доставки и такси.</p></div><div class="sx-card-image"><img alt="Deli She" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/deli-she/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="diary-book" href="/cases/diary-book/" style="--sx-tile-color:#eaeaf4;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Diary Book</h4><p>Приложение личных заметок и воспоминаний.</p></div><div class="sx-card-image"><img alt="Diary Book" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/diary-book/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="restomesto" href="/cases/restomesto/" style="--sx-tile-color:#e8ebf3;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Restomesto</h4><p>Продукт бронирования ресторанов, дизайн завершён.</p></div><div class="sx-card-image"><img alt="Restomesto" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/restomesto/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="volgu-site" href="/cases/volgu-site/" style="--sx-tile-color:#e9f0e8;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span></div><h4>Сайт ВолГУ</h4><p>Дизайн сайта университета, не запущен.</p></div><div class="sx-card-image"><img alt="Сайт ВолГУ" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/volgu-site/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="trips" href="/cases/trips/" style="--sx-tile-color:#e8f0ef;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span><span class="sx-tag">Маркетинг</span></div><h4>Trips</h4><p>Туристические white-label приложения с выпуском и рекламой.</p></div><div class="sx-card-image"><img alt="Trips" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/trips/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></div></div><div class="sx-track-bottom"><span class="sx-pagecount">01 / 03</span><a href="/projects/?period=forfis">Все проекты этого периода ↗</a></div></section></div><div class="sx-wrap"><section class="sx-stage" id="2020-projects"><div class="sx-section-head sx-stage-title"><div><span class="sx-eyebrow">Январь 2020 - ноябрь 2020   /   8 проектов</span><h3><a href="/projects/?period=2020-projects">Коммерческие проекты</a></h3><span class="sx-roleline">Дизайн / Разработка / Маркетинг</span><p>Сайты, упаковка брендов, реклама и первые полноценные воронки продаж. Работал на конечный заказ и выручку, а не на красивую обложку.</p></div><div class="sx-slide-controls"><button aria-label="Предыдущая группа" class="sx-slide-prev">←</button><button aria-label="Следующая группа" class="sx-slide-next">→</button></div></div><div aria-label="Работы: Коммерческие проекты" class="sx-track" tabindex="0"><div aria-label="Подборка 1 из 2" class="sx-slide"><div class="sx-mosaic sx-count-4 sx-variant-0"><a class="sx-card sx-tile-card sx-feature" data-slug="myasnoy-dvor" href="/cases/myasnoy-dvor/" style="--sx-tile-color:#f4ecdf;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span></div><h4>Мясной двор</h4><p>Сайт, офлайн-воронка и онлайн-заказы кейтеринга.</p><div class="sx-card-metric"><strong>270</strong><span>заказов в месяц</span></div></div><div class="sx-card-image"><img alt="Мясной двор" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/myasnoy-dvor/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="papa-pizza" href="/cases/papa-pizza/" style="--sx-tile-color:#e8eff1;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span></div><h4>Papa Pizza</h4><p>Реклама еды и мероприятий.</p><div class="sx-card-metric"><strong>400</strong><span>заказов в месяц</span></div></div><div class="sx-card-image"><img alt="Papa Pizza" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/papa-pizza/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="khleb-iz-tandyra" href="/cases/khleb-iz-tandyra/" style="--sx-tile-color:#e8eff1;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Маркетинг</span></div><h4>Хлеб из тандыра</h4><p>Офлайн-брендинг пекарни, листовки, баннеры, визитки и продажи.</p></div><div class="sx-card-image"><img alt="Хлеб из тандыра" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/khleb-iz-tandyra/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-feature" data-slug="moonlight" href="/cases/moonlight/" style="--sx-tile-color:#ebe7e2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span><span class="sx-tag">Маркетинг</span></div><h4>Moonlight</h4><p>Магазин часов на WordPress, реклама в Instagram.</p><div class="sx-card-metric"><strong>42</strong><span>продажи из 537 заявок</span></div></div><div class="sx-card-image"><img alt="Moonlight" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/moonlight/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></div><div aria-label="Подборка 2 из 2" class="sx-slide"><div class="sx-mosaic sx-count-4 sx-variant-1"><a class="sx-card sx-tile-card sx-regular" data-slug="chexolchik" href="/cases/chexolchik/" style="--sx-tile-color:#ebe7e2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Маркетинг</span></div><h4>Chexolchik</h4><p>Instagram/VK-магазин лимитированных чехлов с доставкой.</p></div><div class="sx-card-image"><img alt="Chexolchik" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/chexolchik/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-feature" data-slug="mobilka34" href="/cases/mobilka34/" style="--sx-tile-color:#e8ebf3;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span><span class="sx-tag">Маркетинг</span></div><h4>Mobilka34</h4><p>Сайт, оформление соцсетей, VK-посевы, Instagram-реклама и продажи по промокоду.</p><div class="sx-card-metric"><strong>3 410</strong><span>офлайн-продаж</span></div></div><div class="sx-card-image"><img alt="Mobilka34" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/mobilka34/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-regular" data-slug="baraholka34" href="/cases/baraholka34/" style="--sx-tile-color:#e8eff1;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span><span class="sx-tag">Маркетинг</span></div><h4>BARAHOLKA34</h4><p>Сайт-каталог одежды и привлечение покупателей в новый магазин.</p><div class="sx-card-metric"><strong>7 431+</strong><span>посетитель за 2 месяца</span></div></div><div class="sx-card-image"><img alt="BARAHOLKA34" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/baraholka34/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a><a class="sx-card sx-tile-card sx-feature" data-slug="izum" href="/cases/izum/" style="--sx-tile-color:#ebe7e2;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span><span class="sx-tag">Маркетинг</span></div><h4>ИЗЮМ</h4><p>Сайт, социальные сети, бот, логистика, рекламная воронка и скрипты менеджеров.</p><div class="sx-card-metric"><strong>522</strong><span>заказа в месяц</span></div></div><div class="sx-card-image"><img alt="ИЗЮМ" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/izum/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></div></div><div class="sx-track-bottom"><span class="sx-pagecount">01 / 02</span><a href="/projects/?period=2020-projects">Все проекты этого периода ↗</a></div></section></div><div class="sx-wrap"></div><div class="sx-wrap"><section class="sx-stage" id="restar"><div class="sx-section-head sx-stage-title"><div><span class="sx-eyebrow">Февраль 2018 - март 2018   /   1 проект</span><h3><a href="/projects/?period=restar">RESTAR</a></h3><span class="sx-roleline">Дизайн / Маркетинг</span><p>Мой первый заметный B2B-кейс: сайт и ручное продвижение дорогостоящей железнодорожной продукции.</p></div></div><div class="sx-mosaic sx-count-1 sx-variant-0"><a class="sx-card sx-tile-card sx-feature" data-slug="restar" href="/cases/restar/" style="--sx-tile-color:#edeaf0;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Дизайн</span><span class="sx-tag">Разработка</span><span class="sx-tag">Маркетинг</span></div><h4>RESTAR</h4><p>Сайт и прямое продвижение через профессиональные сообщества.</p><div class="sx-card-metric"><strong>8–9</strong><span>оплаченных заказов в год</span></div></div><div class="sx-card-image"><img alt="RESTAR" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/restar/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></section></div><div class="sx-wrap"><section class="sx-stage" id="media"><div class="sx-section-head sx-stage-title"><div><span class="sx-eyebrow">Сентябрь 2016 - декабрь 2019   /   1 проект</span><h3><a href="/projects/?period=media">YouTube и ВКонтакте</a></h3><span class="sx-roleline">Контент / Продвижение / Аудитория</span><p>Сеть игровых каналов и сообществ: поиск тем, производство контента, дистрибуция и работа с подписчиками.</p></div></div><div class="sx-mosaic sx-count-1 sx-variant-0"><a class="sx-card sx-tile-card sx-feature" data-slug="media" href="/cases/media/" style="--sx-tile-color:#e9edfc;"><div class="sx-card-copy"><div class="sx-card-role"><span class="sx-tag">Контент</span><span class="sx-tag">Маркетинг</span></div><h4>YouTube и VK: медийная работа</h4><p>toboboroda, tobogant64d и BLVT.</p><div class="sx-card-metric"><strong>210k</strong><span>подписок на площадках</span></div></div><div class="sx-card-image"><img alt="YouTube и VK: медийная работа" loading="lazy" src="file:///mnt/data/slepzof-v12/assets/cases/media/cover.webp"/></div><span aria-hidden="true" class="sx-card-arrow">↗</span></a></div></section></div></section><section class="sx-about-preview" id="bakery-story"><div class="sx-wrap sx-about-preview-inner"><div><span class="sx-eyebrow">2018 / ПЕКАРНЯ / ПЕРВЫЙ ОПЫТ</span><h2>До Figma я работал с покупателями. Вживую.</h2><p>С июня по октябрь 2018 года работал в пекарне. Здесь я впервые увидел простую вещь: даже выкладка товара и оформление витрины напрямую влияют на продажи. Человек выбирает глазами, сравнивает, задаёт вопросы и только потом платит.</p><p>Я оставил этот период в истории не ради строчки в трудовой. Именно там начал понимать, как устроена продажа. Позже те же принципы переносил на сайты, рекламу и интерфейсы.</p><a class="sx-inline-link" href="/about/">Моя история ↗</a></div><div class="sx-about-preview-visual"><img alt="Фото из пекарни" loading="lazy" onerror="this.onerror=null;this.src='file:///mnt/data/slepzof-v12/assets/cases/bakery/cover.webp'" src="file:///mnt/data/slepzof-v12/assets/about/bakery.webp"/><span class="sx-photo-hint">Заменить на фотографию 2018 года</span></div></div></section><section class="sx-work-preview"><div class="sx-wrap"><span class="sx-eyebrow">СОТРУДНИЧЕСТВО</span><h2>Ищу команду, где можно отвечать за продукт, а не только за макеты.</h2><p>Сейчас свободен от других проектов. Рассматриваю постоянную работу, удалённый формат в приоритете. Гибрид и офис тоже возможны.</p><div class="sx-work-preview-grid"><a class="sx-work-choice sx-emphasis" href="/work-with-me/"><span>Full-time</span><strong>Приоритет</strong><p>Хочу погружаться в один продукт и двигать его вместе с командой.</p></a><a class="sx-work-choice" href="/work-with-me/"><span>Remote</span><strong>Предпочитаю</strong><p>Работаю удалённо с прозрачной коммуникацией и ответственностью за результат.</p></a><a class="sx-work-choice" href="/work-with-me/"><span>Гибрид / офис</span><strong>Обсуждаю</strong><p>Готов рассмотреть сильную команду и формат, который нужен продукту.</p></a></div><a class="sx-inline-link" href="/work-with-me/">Обсудить работу ↗</a></div></section></main><footer class="sx-footer" id="contact"><div class="sx-wrap"><span class="sx-eyebrow sx-contrast">КОНТАКТЫ</span><h2>Есть продукт, который нужно запустить?</h2><p>Напиши, на каком вы этапе и что нужно сделать. Я разберусь в задаче и скажу, где могу быть полезен.</p><div class="sx-contact-actions"><a class="sx-button sx-blue" href="https://t.me/slepzof" rel="noopener" target="_blank">Написать в Telegram ↗</a><a href="/work-with-me/">Как я работаю ↗</a></div><div class="sx-footer-map"><div><h4>SLEPZOF</h4><a href="/about/">Обо мне</a><a href="/work-with-me/">Работа со мной</a><a href="/projects/">Все проекты</a><a download="" href="/assets/resume.pdf">Резюме PDF</a><a href="tel:+79883626977">+7 988 362-69-77</a><a href="mailto:bsleptcov@yandex.com">bsleptcov@yandex.com</a></div><div><h4>Продукты</h4><a href="/cases/hash-hedge/">Hash Hedge</a><a href="/cases/onlinesklad/">Onlinesklad</a><a href="/cases/sober-driver/">Sober Driver</a><a href="/cases/duckmaster/">DuckMaster</a><a href="/cases/apple-bar/">Apple Bar</a><a href="/cases/finflow/">FinFlow</a><a href="/cases/bill-split/">Bill Split</a><a href="/cases/pixel-drop/">Pixel Drop</a><a href="/cases/dead-choices/">Dead Choices</a><a href="/cases/celtway/">Celtway</a></div><div><h4>Маркетинг</h4><a href="/cases/moonlight/">Moonlight</a><a href="/cases/mobilka34/">Mobilka34</a><a href="/cases/izum/">ИЗЮМ</a><a href="/cases/vodacom/">Vodacom</a><a href="/cases/tezgo/">TezGO</a><a href="/cases/papa-pizza/">Papa Pizza</a><a href="/cases/greenbox/">Greenbox</a><a href="/cases/restar/">RESTAR</a></div><div><h4>Работа и опыт</h4><a href="/cases/bonape-training/">Обучение в BONAPE</a><a href="/cases/salute/">SALUTE: агентство</a><a href="/cases/artsavur/">ARTSAVUR: агентство</a><a href="/cases/forfis/">forfis</a><a href="/cases/media/">YouTube и VK: медийная работа</a><a href="/cases/automotive/">Продажа автомобилей</a></div></div><div class="sx-footer-all"><h4>Все работы</h4><div><a href="/cases/automotive/">Продажа автомобилей</a><a href="/cases/engine-leads/">Подбор двигателей</a><a href="/cases/automotive-automation/">Автоматизация автопродаж</a><a href="/cases/rsk/">РСК</a><a href="/cases/vremena-goda/">Времена года</a><a href="/cases/payment-gateway/">Payment Gateway</a><a href="/cases/pixel-drop/">Pixel Drop</a><a href="/cases/dead-choices/">Dead Choices</a><a href="/cases/vezu-edu/">Везу Еду</a><a href="/cases/exocure/">EXOCURE</a><a href="/cases/meydan-racecourse/">Meydan Racecourse</a><a href="/cases/the-heights/">The Heights</a><a href="/cases/hub71/">Hub71</a><a href="/cases/exo-fleet-brain/">Exo Fleet Brain</a><a href="/cases/exo-vision/">Exo Vision</a><a href="/cases/exo-os/">Exo OS</a><a href="/cases/al-maktoum/">Al Maktoum</a><a href="/cases/hash-hedge/">Hash Hedge</a><a href="/cases/wsct/">WSCT</a><a href="/cases/echo-app/">ЭХО</a><a href="/cases/propuska/">Пропуска</a><a href="/cases/parking/">Parking</a><a href="/cases/vlad-bykov/">Vlad Bykov</a><a href="/cases/media-garant/">Media Garant</a><a href="/cases/chatus/">Chatus</a><a href="/cases/twin-finder/">Twin Finder</a><a href="/cases/game-of-year/">Game of Year</a><a href="/cases/bbets/">1WIN Roulette</a><a href="/cases/internship-platform/">Internship Platform</a><a href="/cases/starhash-benchmark/">StarHash Benchmark</a><a href="/cases/vita-ai/">Vita AI</a><a href="/cases/luch/">Луч</a><a href="/cases/logirus/">Logirus</a><a href="/cases/2space/">2Space</a><a href="/cases/forfis-new-site/">Forfis: новый сайт</a><a href="/cases/city-exchange/">City Exchange</a><a href="/cases/digital-lawyer/">Цифровой юрист</a><a href="/cases/star-exchange/">Star Exchange</a><a href="/cases/marcodo/">Marcodo</a><a href="/cases/crush/">Crush</a><a href="/cases/invaprom/">Инвапром</a><a href="/cases/aicors/">AiCors</a><a href="/cases/eurotek/">Eurotek</a><a href="/cases/neurostar/">Neurostar</a><a href="/cases/duckmaster/">DuckMaster</a><a href="/cases/bonape-training/">Обучение в BONAPE</a><a href="/cases/apple-bar/">Apple Bar</a><a href="/cases/aquator/">Aquator</a><a href="/cases/yacht-center/">Yacht Center</a><a href="/cases/jet-hunter/">Jet Hunter</a><a href="/cases/greenbox/">Greenbox</a><a href="/cases/domashniy-doktor/">Домашний доктор</a><a href="/cases/slab-service/">Slab Service</a><a href="/cases/china-car/">China Car</a><a href="/cases/trips/">City Travel / Trips</a><a href="/cases/fitnesspro/">FitnessPro</a><a href="/cases/avtoshkola/">АвтоШкола</a><a href="/cases/domodel/">Domodel</a><a href="/cases/vita-med/">Vita Med</a><a href="/cases/sailor-planner/">Sailor Planner</a><a href="/cases/poizon-shop/">Poizon Shop</a><a href="/cases/glavbankrot/">Главбанкрот</a><a href="/cases/salute/">SALUTE: агентство</a><a href="/cases/salute-telegram/">Telegram-сетка</a><a href="/cases/x6/">X6</a><a href="/cases/salute-funnels/">Рекламные воронки</a><a href="/cases/artsavur/">ARTSAVUR: агентство</a><a href="/cases/rocket-jet/">Rocket Jet</a><a href="/cases/she-talks/">She Talks</a><a href="/cases/celtway/">Celtway</a><a href="/cases/verbatica/">Verbatica</a><a href="/cases/numa/">Numa</a><a href="/cases/vybor/">Выбор</a><a href="/cases/onlinesklad/">Onlinesklad</a><a href="/cases/sober-driver/">Sober Driver</a><a href="/cases/sober-driver-app/">Приложение клиента</a><a href="/cases/sober-driver-driver/">Приложение водителя</a><a href="/cases/sober-driver-admin/">Административная панель</a><a href="/cases/sober-driver-web/">Сайт и воронка</a><a href="/cases/pelikan/">Pelikan</a><a href="/cases/fly-ball/">Fly Ball</a><a href="/cases/vodacom/">Vodacom</a><a href="/cases/psychology/">Психологические консультации</a><a href="/cases/hamilya-shop/">Hamilya</a><a href="/cases/hamilya-astro/">Hamilya Astro</a><a href="/cases/blog-hamilya/">Blog Hamilya</a><a href="/cases/eyebogo/">Eyebogo</a><a href="/cases/treasures-pskov/">Сокровища Пскова</a><a href="/cases/history-app/">Исторические места</a><a href="/cases/transport-tech/">Transport Tech</a><a href="/cases/tezgo/">TezGO</a><a href="/cases/pizza-dashboard/">Pizza Dashboard</a><a href="/cases/deli-she/">Deli She</a><a href="/cases/diary-book/">Diary Book</a><a href="/cases/restomesto/">Restomesto</a><a href="/cases/volgu-site/">Сайт ВолГУ</a><a href="/cases/myasnoy-dvor/">Мясной двор</a><a href="/cases/papa-pizza/">Papa Pizza</a><a href="/cases/khleb-iz-tandyra/">Хлеб из тандыра</a><a href="/cases/moonlight/">Moonlight</a><a href="/cases/chexolchik/">Chexolchik</a><a href="/cases/mobilka34/">Mobilka34</a><a href="/cases/baraholka34/">BARAHOLKA34</a><a href="/cases/izum/">ИЗЮМ</a><a href="/cases/restar/">RESTAR</a><a href="/cases/media/">YouTube и VK: медийная работа</a><a href="/cases/finflow/">FinFlow</a><a href="/cases/bill-split/">Bill Split</a><a href="/cases/pilots-app/">PILOTS APP</a><a href="/cases/mafia/">Mafia</a><a href="/cases/onecase/">1Case</a><a href="/cases/virus/">Virus</a><a href="/cases/your-time/">Your Time</a><a href="/cases/bnqr/">BNQR</a><a href="/cases/rd-mart/">RD mart</a><a href="/cases/applebar-training/">Apple Bar: обучение</a><a href="/cases/hash-site/">Hash Hedge: сайт</a><a href="/cases/hash-account/">Hash Hedge: дашборд</a><a href="/cases/hash-trading/">Hash Hedge: терминал</a><a href="/cases/onlinesklad-catalog/">Onlinesklad: каталог</a><a href="/cases/onlinesklad-buyer/">Onlinesklad: кабинеты</a></div></div><div class="sx-footer-final"><span>© 2026 SLEPZOF</span><span>Дизайн · Разработка · Маркетинг</span><a href="#top">Наверх ↑</a></div></div></footer>
+<script>(() => {
+  const nav = document.querySelector('.sx-nav');
+  const menu = nav?.querySelector('.sx-menubutton');
+  menu?.addEventListener('click', () => {
+    const expanded = nav.classList.toggle('sx-open');
+    menu.setAttribute('aria-expanded', String(expanded));
+  });
+  document.querySelectorAll('.sx-navlinks a').forEach(a => a.addEventListener('click', () => {
+    nav?.classList.remove('sx-open');menu?.setAttribute('aria-expanded','false');
+  }));
+  document.querySelectorAll('.sx-stage').forEach(stage => {
+    const track = stage.querySelector('.sx-track');
+    if(!track) return;
+    const slides = [...track.querySelectorAll('.sx-slide')];
+    const prev = stage.querySelector('.sx-slide-prev');
+    const next = stage.querySelector('.sx-slide-next');
+    const counter = stage.querySelector('.sx-pagecount');
+    const position = i => slides[i].offsetLeft - slides[0].offsetLeft;
+    const current = () => {
+      let best = 0, dist = Infinity;
+      slides.forEach((el,i) => {const d=Math.abs(track.scrollLeft-position(i));if(d<dist){dist=d;best=i}});
+      return best;
+    };
+    const update = () => {
+      const i=current();
+      if(counter)counter.textContent=String(i+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
+      if(prev)prev.disabled=i===0;
+      if(next)next.disabled=i===slides.length-1;
+    };
+    const move = delta => {
+      const i=Math.min(slides.length-1,Math.max(0,current()+delta));
+      track.scrollTo({left:position(i),behavior:'smooth'});
+    };
+    prev?.addEventListener('click',()=>move(-1));next?.addEventListener('click',()=>move(1));
+    track?.addEventListener('scroll',()=>requestAnimationFrame(update),{passive:true});
+    update();
+  });
+  const search = document.querySelector('#sx-project-search');
+  const filters = [...document.querySelectorAll('.sx-filters button')];
+  let active='all';
+  function filterCatalog(){
+    const q=(search?.value||'').trim().toLocaleLowerCase('ru');
+    document.querySelectorAll('.sx-catalog-section').forEach(section => {
+      let visible=0;
+      section.querySelectorAll('.sx-card').forEach(card => {
+        const role=card.querySelector('.sx-card-role')?.textContent||'';
+        const okCat=active==='all'||role.includes(active);
+        const okText=!q||card.textContent.toLocaleLowerCase('ru').includes(q);
+        const ok=okCat&&okText;
+        card.classList.toggle('sx-is-hidden',!ok);
+        if(ok)visible++;
+      });
+      section.classList.toggle('sx-is-hidden',!visible);
+    });
+  }
+  search?.addEventListener('input',filterCatalog);
+  filters.forEach(b=>b.addEventListener('click',()=>{active=b.dataset.filter||'all';filters.forEach(x=>x.classList.toggle('is-active',x===b));filterCatalog()}));
+})();
+</script><script>// SLEPZOF v11 - mixed catalog with dynamic reflow, usable with search and period deep links.
+(() => {
+ const body=document.body;
+ const catalog=body.querySelector('.sx-catalog-body');
+ if(!catalog)return;
+ const oldSections=[...catalog.querySelectorAll('.sx-catalog-section')];
+ const items=[];
+ const seen=new Set();
+ const ignored=new Set(['shutterstock','bakery']);
+ const palette=['#f2ebe9','#e8eff1','#eaeaf4','#e9f0e8','#f4ecdf','#e8ebf3','#ebe7e2','#e8f0ef'];
+ const brands={'hash-hedge':'#f4f1e8','wsct':'#e8ebf3','duckmaster':'#dfeae0','onlinesklad':'#e3edf2','sober-driver':'#e6ecf0','apple-bar':'#f5e6de','bonape-training':'#e8e4f2','salute':'#e8eef6','artsavur':'#eeecdf','greenbox':'#e5f0e5','restar':'#edeaf0','media':'#e9edfc','automotive':'#e5ebed','engine-leads':'#e7ecfa','exocure':'#e7e9f1'};
+ const tint=slug=>brands[slug]||palette[[...slug].reduce((v,ch)=>(v*33+ch.charCodeAt(0))>>>0,7)%palette.length];
+ for(const section of oldSections){
+   const period=section.id.replace('group-','');
+   for(const card of section.querySelectorAll('.sx-card')){
+     const slug=card.getAttribute('href')?.replace(/\/$/,'').split('/').at(-1);
+     if(!slug||seen.has(slug)||ignored.has(slug))continue;
+     seen.add(slug);
+     card.classList.add('sx-tile-card');
+     card.style.setProperty('--sx-tile-color',tint(slug));
+     items.push({slug,period:card.dataset.period||period,roles:card.querySelector('.sx-card-role')?.textContent||'',label:card.textContent,el:card});
+   }
+   section.remove();
+ }
+ const wall=document.createElement('div');wall.className='sx-catalog-wall';catalog.append(wall);
+ const search=document.querySelector('#sx-project-search');
+ const filters=[...document.querySelectorAll('.sx-filters button')];
+ const countEl=document.querySelector('#sx-catalog-count');
+ const params=new URLSearchParams(location.search);const period=params.get('period');
+ let active='all';
+ const stageNames={'auto-2026':'Автомобильные продукты','summer-2026':'Проекты 2026','hash':'Hash Hedge & WSCT','private-2025':'Частная практика','duck':'DuckMaster','bonape':'BONAPE','salute':'SALUTE','artsavur':'ARTSAVUR','onlinesklad':'Onlinesklad','sober':'Sober Driver','forfis':'FORFIS','2020-projects':'Коммерческие проекты','restar':'RESTAR','media':'YouTube и VK'};
+ const title=document.querySelector('.sx-catalog-hero h1');
+ if(period&&stageNames[period]){
+  if(title)title.textContent='Работы периода: '+stageNames[period];
+  const link=document.createElement('a');link.href='/projects/';link.className='sx-inline-link';link.textContent='Смотреть весь каталог ↗';
+  document.querySelector('.sx-catalog-tools')?.append(link);
+ }
+ function redraw(){
+   const q=(search?.value||'').toLocaleLowerCase('ru').trim();
+   const matches=items.filter(i=>(!period||i.period===period)&&(active==='all'||i.roles.includes(active))&&(!q||i.label.toLocaleLowerCase('ru').includes(q)));
+   const tmp=document.createDocumentFragment();
+   const pageCount=Math.ceil(matches.length/7);
+   let offset=0;
+   for(let p=0;p<pageCount;p++){
+     const n=Math.floor(matches.length/pageCount)+(p<matches.length%pageCount?1:0);
+     const chunk=matches.slice(offset,offset+n);offset+=n;
+     const grid=document.createElement('div');grid.className=`sx-mosaic sx-count-${chunk.length} sx-variant-${p%3}`;
+     for(const item of chunk){grid.append(item.el)}
+     tmp.append(grid);
+   }
+   wall.replaceChildren(tmp);
+   if(countEl)countEl.textContent=`${matches.length} ${matches.length===1?'работа':matches.length%10>=2&&matches.length%10<=4&&(matches.length%100<10||matches.length%100>=20)?'работы':'работ'}${period&&stageNames[period]?' за выбранный период':''}`;
+   if(!matches.length){const p=document.createElement('p');p.textContent='Ничего не найдено. Попробуй другое название или направление.';wall.append(p)}
+ }
+ search?.addEventListener('input',redraw);
+ for(const b of filters){b.addEventListener('click',()=>{active=b.dataset.filter||'all';filters.forEach(x=>x.classList.toggle('is-active',x===b));redraw()})}
+ redraw();
+})();
+</script><script>/* v12. Preserves v11 pages and project catalog; changes only presentation metadata. */
+(() => {
+  const shades = [
+    ['#058ffd', false], ['#f64b38', false], ['#1bb951', false],
+    ['#7567ec', false], ['#ffde35', true], ['#a7c6ee', true],
+    ['#e8ded3', true], ['#3b4faa', false], ['#c9d2ff', true],
+    ['#06b6d8', false], ['#f4c8b6', true], ['#d8eeb7', true]
+  ];
+  const explicit = {
+    'hash-hedge': ['#ffdb33', true], 'wsct':['#dfe8fc',true],
+    'onlinesklad':['#b6d9f7',true], 'sober-driver':['#7264e7',false],
+    'duckmaster':['#15b851',false], 'apple-bar':['#f46c49',false],
+    'pixel-drop':['#02aef5',false], 'engine-leads':['#18b64b',false],
+    'automotive':['#ef483f',false], 'automotive-automation':['#5d63dc',false],
+    'echo-app':['#087dff',false], 'vita-ai':['#0584f6',false],
+    'parking':['#f24d4d',false], 'bonape-training':['#685ee2',false],
+    'restar':['#ded3e9',true], 'media':['#ffda32',true],
+    'salute':['#ff492d',false], 'salute-telegram':['#ff4e30',false],
+    'artsavur':['#7a64ee',false], 'greenbox':['#18bb59',false],
+    'rsk':['#ffda32',true], 'exocure':['#3379ee',false],
+    'meydan-racecourse':['#3d72e2',false], 'celtway':['#c8b7f9',true],
+    'te-zgo':['#ffcf33',true], 'moonlight':['#2f3e88',false],
+    'izum':['#d9c6eb',true], 'myasnoy-dvor':['#f04b34',false],
+    'papa-pizza':['#fce276',true], 'mobilka34':['#247cef',false]
+  };
+  function colorOf(slug) {
+    if(explicit[slug]) return explicit[slug];
+    let sum=2166136261;for(const ch of slug){sum=(sum ^ ch.charCodeAt(0))*16777619 >>>0;}
+    return shades[sum%shades.length];
+  }
+  function paint(card){
+    const slug=card.dataset.slug || card.href?.replace(/\/$/,'').split('/').pop() || '';
+    const [color,dark]=colorOf(slug);
+    card.style.setProperty('--sx-tile-color',color);
+    card.classList.add('sx-v12-card');
+    card.classList.toggle('sx-ink-dark',dark);
+    if(card.querySelector('.sx-card-metric strong')){
+      card.classList.add('sx-has-stat');
+    }
+    if(!card.querySelector('.sx-card-image img'))card.classList.add('sx-no-image');
+  }
+  document.querySelectorAll('.sx-tile-card').forEach(paint);
+  // The v11 catalog creates its mosaic on DOMContentLoaded. It also moves nodes,
+  // so paint only after it finishes its own synchronous initialization.
+  const catalog=document.querySelector('.sx-catalog-body');
+  if(catalog){
+    const obs=new MutationObserver(()=>{
+      catalog.querySelectorAll('.sx-tile-card:not(.sx-v12-card)').forEach(paint);
+      catalog.querySelectorAll('.sx-mosaic').forEach(grid=>grid.classList.add('sx-v12-mosaic'));
+    });
+    obs.observe(catalog,{subtree:true,childList:true});
+    catalog.querySelectorAll('.sx-tile-card:not(.sx-v12-card)').forEach(paint);
+    catalog.querySelectorAll('.sx-mosaic').forEach(grid=>grid.classList.add('sx-v12-mosaic'));
+  }
+  document.querySelectorAll('.sx-stage .sx-mosaic').forEach(grid=>grid.classList.add('sx-v12-mosaic'));
+  // Cover images stay original and can be replaced in assets/cases/<slug>/cover.webp.
+})();
+</script></body></html>

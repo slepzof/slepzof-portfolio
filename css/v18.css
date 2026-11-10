@@ -1,0 +1,88 @@
+/* v18 | Typography and carousel consistency, overlays remain HTML over exact customer backgrounds. */
+/* First impression and facts feel like one purposeful composition. */
+.sx-hero{padding-top:70px!important}
+.sx-hero .sx-availability{margin:4px 0 25px!important;display:inline-flex!important;border:0!important;background:#ecf2fb!important;border-radius:10px!important;color:#345276!important;font-size:13px!important;padding:8px 13px!important;box-shadow:none!important;letter-spacing:0!important}
+.sx-hero h1{font-size:clamp(40px,4.35vw,65px)!important}
+.sx-hero-art{margin-top:20px!important;height:clamp(180px,26vw,320px)!important}
+.sx-proof{padding:31px 0 62px!important}
+.sx-proof-grid{padding:23px 0 26px!important}
+.sx-proof-resume{min-height:80px!important;padding:17px 22px!important}
+.sx-manifest h2{max-width:none!important;font-size:clamp(33px,4vw,55px)!important;line-height:1.16!important;letter-spacing:-.055em!important}
+.sx-manifest .sx-wrap{max-width:1220px!important}
+.sx-manifest{padding:85px 0 90px!important}
+.sx-manifest p{max-width:920px!important}
+/* Selected project typography, use a fixed two-line headline, two-line description and metric row. */
+#selected .sx17-page{gap:16px!important}
+#selected a.sx17-case{border-radius:28px!important}
+#selected .sx17-top{top:5.3%!important;left:4.6%!important;right:4.6%!important;max-width:90.8%!important;align-items:center!important;overflow:visible!important}
+#selected .sx18-brand{display:block;flex:0 0 24px;width:24px;height:24px;object-fit:contain!important;max-width:24px;max-height:24px;border:none;border-radius:0;filter:none}
+#selected .sx17-tags{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;min-width:0!important;flex:0 1 auto!important;overflow:hidden!important;gap:5px!important}
+#selected .sx17-tag{font-size:9px!important;min-height:24px!important;height:24px!important;padding:4px 7px!important;gap:4px!important;font-weight:650!important;border-radius:99px!important;line-height:1!important;box-sizing:border-box!important}
+#selected .sx17-tag img{width:12px!important;height:12px!important;flex:0 0 12px!important}
+#selected .sx17-body{left:4.6%!important;right:4.6%!important;bottom:5.2%!important;display:flex!important;flex-direction:column!important;min-height:0!important;gap:0!important}
+#selected .sx17-body h3{font-size:clamp(20px,1.83vw,26px)!important;line-height:1.12!important;letter-spacing:-.038em!important;font-weight:730!important;display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;min-height:calc(2 * 1.12em)!important;max-height:calc(2 * 1.12em)!important;margin:0 0 9px!important;text-wrap:pretty!important}
+#selected .sx17-body>p{font-size:clamp(12px,1.05vw,15px)!important;line-height:1.35!important;margin:0 0 18px!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;min-height:2.7em!important;max-height:2.7em!important;overflow:hidden!important}
+#selected .sx17-metrics{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important;align-items:center!important;height:38px!important;min-height:38px!important}
+#selected .sx17-metric{display:flex!important;align-items:center!important;gap:2px!important;min-width:0!important;height:38px!important}
+#selected .sx17-metric img{width:10px!important;height:20px!important;flex-shrink:0!important;object-fit:contain!important}
+#selected .sx17-metric strong{font-size:clamp(20px,1.85vw,27px)!important;line-height:1!important;white-space:nowrap!important;font-variant-numeric:tabular-nums!important}
+#selected .sx17-metric span{font-size:clamp(9px,.78vw,11px)!important;line-height:1.19!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;max-height:2.38em!important;min-height:2.38em!important;overflow:hidden!important;margin-left:5px!important;flex:1 1 auto!important}
+/* Apple Bar has white artwork. Protect the black overlay labels from devices with a pale fade, no altered asset. */
+#selected .sx17-apple-bar .sx17-body:before{content:'';z-index:-1;position:absolute;left:-5.2%;right:-5.2%;top:-12%;bottom:-9%;background:linear-gradient(to bottom,rgba(250,250,252,.28),rgba(249,249,251,.99) 55%,rgba(249,249,251,1));pointer-events:none}
+/* One consistent carousel system for featured and timeline. */
+#selected .sx17-carousel-head,#experience .sx-slide-controls.sx18-controls{display:flex!important;gap:12px!important;align-items:center!important;justify-content:flex-end!important}
+#selected .sx17-carousel-head{justify-content:space-between!important;margin-bottom:18px!important}
+#selected .sx17-controls button,#experience .sx-slide-controls.sx18-controls button{width:40px!important;height:40px!important;border:1px solid #dbe0e7!important;border-radius:50%!important;background:#fff!important;color:#1f2937!important;display:grid!important;place-items:center!important;font-family:Arial,sans-serif!important;font-size:26px!important;font-weight:400!important;cursor:pointer!important}
+#selected .sx17-controls button:disabled,#experience .sx-slide-controls.sx18-controls button:disabled{opacity:.28!important}
+#experience .sx18-current{color:#717782;font-size:13px;white-space:nowrap;letter-spacing:.05em;margin-right:4px;font-variant-numeric:tabular-nums}
+#experience .sx18-dots{display:flex;gap:6px;align-items:center;height:16px}
+#experience .sx18-dot{border:0;background:#ccd1d9;height:7px;width:7px;border-radius:99px;padding:0;cursor:pointer;transition:background .15s,width .15s}
+#experience .sx18-dot.sx18-on{background:#007aff;width:23px}
+/* Every title and summary in the work galleries occupies at most two lines. */
+#experience .sx-mosaic .sx-card h4,#experience .sx-mosaic .sx-card p{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;white-space:normal!important;text-overflow:ellipsis!important}
+#experience .sx-mosaic .sx-card h4{max-height:2.35em!important;line-height:1.16!important}
+#experience .sx-mosaic .sx-card p{max-height:2.75em!important;line-height:1.35!important}
+#experience .sx-mosaic .sx-card-metric{align-items:center!important;gap:7px!important;min-width:0!important}
+#experience .sx-mosaic .sx-card-metric span{font-size:11px!important;line-height:1.2!important;max-height:2.4em!important;min-height:2.4em!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important}
+#experience .sx-mosaic .sx-card-role{flex-wrap:nowrap!important;white-space:nowrap!important;overflow:hidden!important;max-width:100%!important}
+#experience .sx-mosaic .sx-card-role .sx-tag{white-space:nowrap!important;flex:0 0 auto!important}
+/* Three equal media cards ready for supplied profile images. */
+#media .sx18-media-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+#media .sx18-media-card{background:#eef0f3;border:1px solid #e3e5e9;border-radius:24px;padding:26px;min-width:0;min-height:285px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start}
+#media .sx18-media-avatar{width:84px;height:84px;border-radius:22px;border:1px dashed #aeb5c0;background:#f9fafb;display:grid;place-items:center;color:#838a95;font-size:10px;text-align:center;margin-bottom:auto}
+#media .sx18-media-card h4{font-size:25px;line-height:1.12;letter-spacing:-.04em;margin:18px 0 9px}
+#media .sx18-media-card p{font-size:14px;color:#5f6670;line-height:1.48;margin:0;max-height:2.96em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#media .sx18-media-foot{font-size:14px!important;color:#656c76!important;margin:19px 0 0!important;line-height:1.45!important}
+@media(max-width:1050px){#selected .sx17-tag{font-size:8px!important;padding:3px 6px!important;min-height:21px!important;height:21px!important}#selected .sx17-tag img{width:11px!important;height:11px!important;flex-basis:11px!important}#selected .sx18-brand{width:21px!important;height:21px!important;flex-basis:21px!important}#selected .sx17-body h3{font-size:clamp(16px,2.25vw,23px)!important}#selected .sx17-body>p{font-size:clamp(10px,1.33vw,13px)!important;margin-bottom:12px!important}#selected .sx17-metric span{font-size:8.5px!important}#selected .sx17-metric strong{font-size:clamp(17px,2vw,22px)!important}#selected .sx17-metric img{width:8px!important;height:17px!important}}
+@media(max-width:720px){
+ .sx-hero{padding-top:49px!important}.sx-hero h1{font-size:clamp(31px,8.2vw,45px)!important}.sx-hero .sx-availability{font-size:11px!important;margin-bottom:18px!important}
+ .sx-hero-art{height:180px!important}.sx-proof{padding:18px 0 50px!important}
+ #selected .sx17-page{grid-template-columns:1fr!important;gap:14px!important}#selected a.sx17-case{border-radius:22px!important}
+ #selected .sx17-body h3{font-size:clamp(18px,5vw,24px)!important}#selected .sx17-body>p{font-size:clamp(10.5px,3.1vw,13px)!important;margin-bottom:12px!important}
+ #selected .sx17-metric strong{font-size:clamp(17px,4.8vw,23px)!important}#selected .sx17-metric span{font-size:clamp(8px,2.2vw,10px)!important}
+ #selected .sx17-metrics{height:34px!important;min-height:34px!important}#selected .sx17-metric{height:34px!important}
+ #selected .sx17-tag{font-size:8px!important;padding:3px 5px!important}#selected .sx18-brand{width:20px!important;height:20px!important;flex-basis:20px!important}
+ .sx-manifest h2{font-size:clamp(27px,7.2vw,37px)!important}.sx-manifest{padding:68px 0!important}
+ #media .sx18-media-grid{grid-template-columns:1fr;gap:12px}#media .sx18-media-card{min-height:170px;padding:20px}#media .sx18-media-avatar{width:60px;height:60px;margin-bottom:14px}#media .sx18-media-card h4{font-size:23px;margin:0 0 8px}#media .sx18-media-card p{font-size:13px}
+ #experience .sx18-current{font-size:11px}#experience .sx-slide-controls.sx18-controls button{width:34px!important;height:34px!important;font-size:23px!important}
+}
+@media(max-width:360px){#selected .sx17-tag{font-size:7px!important;gap:2px!important;padding:3px 4px!important}#selected .sx17-tag img{width:9px!important;height:9px!important;flex-basis:9px!important}#selected .sx17-metric span{font-size:7.5px!important}}
+
+/* Late QA refinements: mobile artwork stays above the copy, no overflowing tags or stats. */
+.sx-hero p{max-width:920px!important;font-size:clamp(16px,1.47vw,19px)!important;line-height:1.5!important}
+#selected .sx17-tag[hidden]{display:none!important}
+@media(max-width:720px){
+ #selected a.sx17-case{aspect-ratio:auto!important;height:410px!important;min-height:410px!important}
+ #selected .sx17-bg{object-fit:cover!important;object-position:center top!important}
+ #selected .sx17-body{left:5%!important;right:5%!important;bottom:5%!important}
+ #selected .sx17-body h3{font-size:clamp(19px,5vw,23px)!important;margin-bottom:9px!important}
+ #selected .sx17-body>p{font-size:clamp(11px,3.1vw,13px)!important;margin-bottom:15px!important}
+ #selected .sx17-metrics{height:49px!important;min-height:49px!important;gap:8px!important}
+ #selected .sx17-metric{height:49px!important;display:grid!important;grid-template-columns:8px max-content 8px!important;grid-template-rows:25px 23px!important;column-gap:2px!important;align-content:center!important;align-items:center!important;justify-content:start!important}
+ #selected .sx17-metric img:first-child{grid-column:1;grid-row:1}
+ #selected .sx17-metric strong{grid-column:2;grid-row:1;font-size:clamp(18px,5vw,22px)!important}
+ #selected .sx17-metric img:nth-of-type(2){grid-column:3;grid-row:1}
+ #selected .sx17-metric span{grid-column:1 / -1!important;grid-row:2!important;font-size:clamp(9px,2.5vw,10px)!important;margin:0!important;min-height:22px!important;max-height:22px!important;line-height:1.1!important;-webkit-line-clamp:2!important}
+ #selected .sx17-top{top:4.2%!important;left:5%!important;right:5%!important;max-width:90%!important}
+}
+@media(max-width:370px){#selected a.sx17-case{height:390px!important;min-height:390px!important}#selected .sx17-metrics{gap:4px!important}#selected .sx17-metric span{font-size:8.5px!important}}

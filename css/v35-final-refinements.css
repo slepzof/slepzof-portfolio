@@ -1,0 +1,62 @@
+/* SLEPZOF v35: approved final refinements only.
+   #selected enters with staged motion; mobile Beyond UI intro is centered.
+   All layout, content, slider metrics, images and interaction remain unchanged. */
+@media (prefers-reduced-motion: no-preference) {
+  #selected.sx35-reveal-ready:not(.sx35-revealed) .sx25b3-section-head h2,
+  #selected.sx35-reveal-ready:not(.sx35-revealed) .sx25b3-section-head p,
+  #selected.sx35-reveal-ready:not(.sx35-revealed) .sx25b3-viewport,
+  #selected.sx35-reveal-ready:not(.sx35-revealed) .sx25b3-controls {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+  #selected.sx35-reveal-ready.sx35-revealed .sx25b3-section-head h2,
+  #selected.sx35-reveal-ready.sx35-revealed .sx25b3-section-head p,
+  #selected.sx35-reveal-ready.sx35-revealed .sx25b3-viewport,
+  #selected.sx35-reveal-ready.sx35-revealed .sx25b3-controls {
+    transition-property: opacity, transform;
+    transition-duration: .8s;
+    transition-timing-function: cubic-bezier(.22, 1, .36, 1);
+  }
+  #selected.sx35-reveal-ready.sx35-revealed .sx25b3-section-head h2 { transition-delay: 0s; }
+  #selected.sx35-reveal-ready.sx35-revealed .sx25b3-section-head p { transition-delay: .12s; }
+  #selected.sx35-reveal-ready.sx35-revealed .sx25b3-viewport { transition-delay: .26s; }
+  #selected.sx35-reveal-ready.sx35-revealed .sx25b3-controls { transition-delay: .4s; }
+}
+
+/* Beyond UI introduction, mobile only. Preserve copy, accents, vertical spacing.
+   Font scales with viewport to retain two intentional lines even on 320px. */
+@media (max-width: 800px) {
+  #beyond-ui.sx28-beyond .sx28-intro,
+  #beyond-ui.sx28-beyond .sx28-intro h2,
+  #beyond-ui.sx28-beyond .sx28-intro p {
+    text-align: center !important;
+  }
+  #beyond-ui.sx28-beyond .sx28-intro h2 {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: clamp(28px, 5.6vw, 36px) !important;
+  }
+  #beyond-ui.sx28-beyond .sx28-intro p {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 580px !important;
+  }
+}
+@media (max-width: 560px) {
+  #beyond-ui.sx28-beyond .sx28-intro h2 {
+    font-size: clamp(18px, 5.6vw, 28px) !important;
+    line-height: 1.16 !important;
+    letter-spacing: -.045em !important;
+    text-wrap: wrap !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #selected.sx35-reveal-ready .sx25b3-section-head h2,
+  #selected.sx35-reveal-ready .sx25b3-section-head p,
+  #selected.sx35-reveal-ready .sx25b3-viewport,
+  #selected.sx35-reveal-ready .sx25b3-controls {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,54 @@
+/* v17 | six user-provided original backdrops, live HTML overlay, 3 pages x 2 cards. */
+#selected .sx17-slider {position:relative;width:100%;min-width:0}
+#selected .sx17-carousel-head{display:flex;align-items:center;justify-content:space-between;margin:0 0 15px;gap:20px}
+#selected .sx17-counter{font-size:13px;color:#717782;letter-spacing:.11em;font-variant-numeric:tabular-nums}
+#selected .sx17-counter b{color:#181b23;font-weight:700}
+#selected .sx17-controls{display:flex;gap:10px}
+#selected .sx17-controls button{width:39px;height:39px;display:grid;place-items:center;background:#fff;color:#15161a;border:1px solid #dce0e7;border-radius:50%;cursor:pointer;font-size:26px;line-height:1;transition:background .2s}
+#selected .sx17-controls button:disabled{opacity:.28;cursor:default}
+#selected .sx17-controls button:not(:disabled):hover{background:#f1f4f8}
+#selected .sx17-track{display:flex;flex-wrap:nowrap;gap:0;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth;overscroll-behavior-x:contain;outline:none}
+#selected .sx17-track::-webkit-scrollbar{display:none}
+#selected .sx17-page{scroll-snap-align:start;scroll-snap-stop:always;flex:0 0 100%;width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+#selected a.sx17-case{position:relative;display:block;isolation:isolate;overflow:hidden;aspect-ratio:592 / 490;border:0;outline:0;border-radius:32px;min-width:0;max-width:none;min-height:0;padding:0;margin:0;text-decoration:none;color:#fff!important;background:#111018;box-shadow:none!important;transform:none!important;transition:filter .18s ease}
+#selected a.sx17-light{color:#19191d!important}
+#selected a.sx17-case:hover{filter:brightness(1.045)}
+#selected a.sx17-case:focus-visible{outline:3px solid #007aff;outline-offset:3px}
+#selected .sx17-bg{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:fill;z-index:-2;opacity:1;filter:none;max-width:none;pointer-events:none}
+/* Optional subtle shadow behind live text only, not another colored gradient on top of the supplied backgrounds. */
+#selected .sx17-top{position:absolute;top:5.4%;left:4.5%;right:3.5%;display:flex;align-items:center;gap:6px;min-width:0;max-width:94%;white-space:nowrap;overflow:hidden}
+#selected .sx17-brand{flex:0 0 21px;display:grid;place-items:center;width:21px;height:21px;border-radius:50%;border:1px solid currentColor;font-size:12px;font-weight:850;letter-spacing:-.06em;line-height:1;background:rgba(255,255,255,.08)}
+#selected .sx17-brand--hh{color:#f4cc1e!important;border-color:#f4cc1e}
+#selected .sx17-brand--online{color:#fff!important;background:#fff;border-color:#fff;font-size:19px;text-shadow:none;line-height:1;color:#26bfd0!important}
+#selected .sx17-brand--duck{color:#efd329!important;background:#15180e;border-color:#eed326}
+#selected .sx17-brand--sober{color:#7856ff!important;background:#fff;border-color:#fff}
+#selected .sx17-brand--apple{color:#fff!important;background:#000;border-color:#000}
+#selected .sx17-brand--pixel{color:#f3b400!important;background:#fff3b1;border-color:#f3b400}
+#selected .sx17-tags{display:flex;align-items:center;gap:6px;min-width:0;white-space:nowrap;overflow:hidden}
+#selected .sx17-tag{display:inline-flex;gap:4px;align-items:center;flex:none;white-space:nowrap;padding:4px 8px;border:1px solid rgba(255,255,255,.22);background:rgba(0,0,0,.17);border-radius:99px;font-weight:600;font-size:9px;letter-spacing:.022em;text-transform:uppercase;line-height:1}
+#selected .sx17-light .sx17-tag{background:rgba(255,255,255,.16);border-color:rgba(0,0,0,.11)}
+#selected .sx17-tag img{width:13px;height:13px;display:block;filter:none}
+#selected .sx17-light .sx17-tag img{filter:brightness(0)}
+#selected .sx17-body{position:absolute;left:4.5%;right:4.5%;bottom:5.4%;display:block;color:inherit;min-width:0}
+#selected .sx17-body h3{max-width:100%;font-size:clamp(20px,1.96vw,28px);line-height:1.105;letter-spacing:-.03em;font-weight:700;margin:0 0 10px;color:inherit}
+#selected .sx17-body>p{font-size:clamp(12px,1.13vw,16px);line-height:1.3;font-weight:400;letter-spacing:.002em;color:inherit;opacity:.88;margin:0 0 23px;max-width:100%;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#selected .sx17-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:8px;color:inherit}
+#selected .sx17-metric{display:flex;align-items:center;min-width:0;gap:2px;color:inherit}
+#selected .sx17-metric img{width:11px;height:21px;flex:none;object-fit:contain;opacity:.9}
+#selected .sx17-light .sx17-metric img{filter:brightness(0)}
+#selected .sx17-metric strong{font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.045em;line-height:1;font-size:clamp(20px,1.95vw,28px);white-space:nowrap;color:inherit}
+#selected .sx17-metric span{font-size:clamp(9px,.81vw,11px);font-weight:520;line-height:1.15;color:inherit;min-width:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-left:6px}
+#selected .sx17-dots{display:flex;justify-content:center;gap:8px;margin-top:17px}
+#selected .sx17-dot{height:7px;width:7px;border-radius:99px;padding:0;border:none;background:#ccd1d9;cursor:pointer;transition:width .2s,background .2s}
+#selected .sx17-dot.sx17-on{width:25px;background:#007aff}
+@media(min-width:1450px){#selected .sx17-body h3{font-size:28px}#selected .sx17-body>p{font-size:16px}#selected .sx17-tag{font-size:10px;padding:5px 9px}#selected .sx17-metric span{font-size:11px}}
+@media(max-width:1050px){#selected .sx17-page{gap:12px}#selected a.sx17-case{border-radius:23px}#selected .sx17-tag{font-size:8px;padding:3px 5px}#selected .sx17-tag img{width:11px;height:11px}#selected .sx17-top{gap:4px}#selected .sx17-brand{width:17px;height:17px;flex-basis:17px}#selected .sx17-body{bottom:4.5%}#selected .sx17-body h3{font-size:clamp(16px,2.05vw,22px);margin-bottom:6px}#selected .sx17-body>p{font-size:clamp(10px,1.18vw,13px);margin-bottom:13px}#selected .sx17-metric img{width:9px;height:18px}#selected .sx17-metric strong{font-size:clamp(17px,2.15vw,22px)}#selected .sx17-metric span{font-size:8px;margin-left:3px}}
+@media(max-width:720px){#selected .sx17-page{grid-template-columns:1fr;gap:12px}#selected a.sx17-case{border-radius:24px;aspect-ratio:592/490}#selected .sx17-tag{font-size:8px;padding:4px 7px}#selected .sx17-tag img{width:12px;height:12px}#selected .sx17-brand{width:19px;height:19px;flex-basis:19px}#selected .sx17-body h3{font-size:clamp(17px,5.1vw,24px);margin-bottom:6px}#selected .sx17-body>p{font-size:clamp(10px,3vw,13px);margin-bottom:12px}#selected .sx17-metric img{width:9px;height:18px}#selected .sx17-metric strong{font-size:clamp(18px,5vw,24px)}#selected .sx17-metric span{font-size:clamp(7.5px,2vw,10px);margin-left:3px}#selected .sx17-metrics{gap:3px}}
+@media(max-width:380px){#selected .sx17-tags{gap:3px}#selected .sx17-tag{font-size:7px;padding:3px 5px}#selected .sx17-tag img{width:10px;height:10px}#selected .sx17-body h3{font-size:17px}#selected .sx17-body>p{font-size:10px;margin-bottom:8px}}
+@media(prefers-reduced-motion:reduce){#selected .sx17-track{scroll-behavior:auto}#selected a.sx17-case{transition:none}}
+
+/* Use user-supplied original project brand marks (cropped from reference only for the tiny logo). */
+#selected .sx17-top{left:4.05%;top:4.9%}
+#selected .sx17-brand-logo{flex:0 0 25px;width:25px;height:25px;display:block;object-fit:fill;border:0;padding:0;margin:0;filter:none}
+@media(max-width:1050px){#selected .sx17-brand-logo{flex-basis:21px;width:21px;height:21px}}
+@media(max-width:720px){#selected .sx17-brand-logo{flex-basis:20px;width:20px;height:20px}}

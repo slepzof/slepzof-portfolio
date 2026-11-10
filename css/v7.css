@@ -1,0 +1,113 @@
+/* SLEPZOF / V7: visual system and page-specific cases */
+:root{--v7-text:#1d1d1f;--v7-blue:#0066cc;--v7-muted:#6e6e73;--v7-bg:#f5f5f7}
+body{overflow-x:clip}
+.v7-agency-page,.v7-transport-case{color:var(--v7-text)}
+.v7-agency-hero{padding:86px 0 95px;background:var(--v7-bg)}
+.v7-agency-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:7%;align-items:center;margin-top:14px}
+.v7-agency-hero h1{font-size:clamp(54px,7vw,100px);line-height:1;letter-spacing:-.068em;margin:0 0 23px;font-weight:670}
+.v7-agency-hero h2{font-size:clamp(26px,2.8vw,37px);letter-spacing:-.048em;line-height:1.14;margin:0 0 20px;font-weight:540}
+.v7-agency-hero p{font-size:18px;line-height:1.58;color:var(--v7-muted);max-width:580px;margin:0 0 24px}
+.v7-agency-hero small{color:#81818b;font-size:13px}
+.v7-agency-hero-img{border-radius:23px;overflow:hidden;aspect-ratio:5/4;background:#e9e9ed;min-width:0}
+.v7-agency-hero-img img{display:block;width:100%;height:100%;object-fit:cover}
+.v7-agency-list{padding:96px 0 116px;background:#fff}
+.v7-agency-list-heading{margin-bottom:38px}
+.v7-agency-list-heading h2{font-size:clamp(38px,5vw,62px);letter-spacing:-.054em;line-height:1.08;margin:14px 0}
+.v7-agency-list-heading p{font-size:18px;line-height:1.6;color:var(--v7-muted);max-width:680px;margin:0}
+.v7-agency-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.v7-agency-card{background:#f5f5f7;border-radius:24px;overflow:hidden;text-decoration:none;color:#1d1d1f;display:flex;flex-direction:column;transition:transform .2s ease}
+.v7-agency-card:hover{transform:translateY(-4px)}
+.v7-agency-cover{aspect-ratio:16/10;background:#edeef1;overflow:hidden}
+.v7-agency-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.v7-agency-card-body{padding:24px 27px 28px;display:flex;flex:1;flex-direction:column}
+.v7-card-top{display:flex;justify-content:space-between;color:#777781;font-size:12px;letter-spacing:.05em}
+.v7-agency-card h3{font-size:26px;font-weight:630;letter-spacing:-.035em;line-height:1.17;margin:13px 0 10px;color:#1d1d1f}
+.v7-agency-card p{font-size:15px;line-height:1.52;color:#66666d;max-width:480px;min-height:46px;margin:0 0 12px}
+.v7-card-metric{display:block;color:#1d1d1f;font-size:17px;line-height:1.3;padding:15px 0 0;margin:auto 0 0;border-top:1px solid #dddde1;font-weight:600}
+/* Agency background slots on homepage: an editable image, no fake vector patterns */
+.agency-employer .studio-summary.agency-brand-panel{background:#ececef!important;background-image:none!important;border-radius:23px!important;min-height:275px!important;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:end;padding:35px!important;isolation:isolate}
+.agency-employer .studio-summary.agency-brand-panel:before,.agency-employer .studio-summary.agency-brand-panel:after{display:none!important}
+.agency-employer .agency-wide-background{display:block;position:absolute;inset:0;height:100%;width:100%;object-fit:cover;z-index:-1;opacity:.18}
+.agency-employer .studio-summary.agency-brand-panel .agency-wide-copy{position:relative;max-width:700px}
+.agency-employer .agency-wide-copy h4{font-size:clamp(27px,3vw,42px);line-height:1.12;letter-spacing:-.045em}
+.agency-employer .agency-wide-copy p{font-size:16px;line-height:1.55;color:#65656d}
+.agency-employer .agency-wide-copy .minor-label{color:#76767f}
+.linked-employer a{color:inherit!important;text-decoration:none!important}
+.linked-employer a:hover{color:var(--v7-blue)!important}
+/* Specific case disciplines */
+.v7-discipline-panel{padding:78px 0;background:#fff}
+.v7-discipline-grid{display:grid;grid-template-columns:1.13fr .75fr;gap:9%;align-items:center}
+.v7-discipline-panel h2{font-size:clamp(33px,4.25vw,56px);font-weight:650;line-height:1.08;letter-spacing:-.05em;margin:17px 0 20px}
+.v7-discipline-panel p{font-size:18px;line-height:1.55;color:#6e6e73;max-width:670px}
+.v7-discipline-panel ol{padding:25px 0 0 25px;font-size:16px;color:#2e2e34;line-height:1.7}
+.v7-discipline-panel li{padding:6px 0 6px 8px}
+.v7-discipline-outcome{border-radius:22px;background:#f5f5f7;padding:35px;min-height:240px;display:flex;flex-direction:column;justify-content:flex-end}
+.v7-discipline-outcome>span,.v7-discipline-note{font-size:12px;letter-spacing:.08em;color:#76767f}
+.v7-discipline-outcome strong{font-size:clamp(52px,6vw,90px);letter-spacing:-.063em;line-height:1.05;margin:22px 0 10px}
+.v7-discipline-outcome p{color:#444449;font-size:17px;margin:0}
+.v7-discipline-note{font-size:16px;line-height:1.5;background:#f5f5f7;padding:35px;border-radius:22px}
+/* A lighter, more readable data block for Hash Hedge */
+.v7-results{background:#0b0b0d;color:#fff;padding:102px 0 115px}
+.v7-results-head{max-width:830px;margin-bottom:55px}
+.v7-results-head h2{font-size:clamp(39px,5vw,67px);letter-spacing:-.055em;line-height:1.08;margin:18px 0 22px;color:#fff;font-weight:630}
+.v7-results-head p{max-width:700px;color:#a9a9b1;font-size:18px;line-height:1.6}
+.v7-results-layout{display:grid;grid-template-columns:1.13fr 1fr;gap:18px}
+.v7-results-group{border:1px solid #303036;background:#171719;border-radius:24px;padding:36px;min-width:0}
+.v7-group-title{color:#adadb5;font-size:12px;letter-spacing:.12em}
+.v7-hero-stat{padding:43px 0 36px;display:flex;flex-direction:column;gap:9px}
+.v7-hero-stat strong{font-size:clamp(80px,9vw,126px);font-weight:580;letter-spacing:-.075em;line-height:1}
+.v7-hero-stat span{font-size:21px;color:#e1e1e5}
+.v7-stat-row{display:flex;align-items:baseline;gap:23px;border-top:1px solid #35353c;padding:24px 0;min-width:0}
+.v7-stat-row strong{font-size:clamp(29px,3.6vw,51px);font-weight:580;letter-spacing:-.052em;line-height:1.02;min-width:125px;white-space:nowrap}
+.v7-stat-row div{display:flex;flex-direction:column;gap:7px}
+.v7-stat-row b{font-size:17px;font-weight:520;color:#f3f3f5}
+.v7-stat-row small{font-size:14px;line-height:1.4;color:#aaaab3}
+/* galleries accept a folder of images and resize without per-screen HTML */
+.v7-gallery-section,.v7-general-gallery{padding:105px 0;background:#fff;color:#1d1d1f}
+.v7-gallery-section>.container>h2,.v7-general-gallery>.container>h2{font-size:clamp(39px,5.2vw,72px);letter-spacing:-.055em;line-height:1.08;font-weight:640;margin:15px 0 22px}
+.v7-gallery-lead{font-size:18px;color:#6e6e73;line-height:1.55;max-width:680px;margin:0 0 60px}
+.v7-gallery-group{padding:32px 0 67px;border-top:1px solid #e5e5ea}
+.v7-gallery-title{display:flex;align-items:end;justify-content:space-between;gap:24px;padding:16px 0 26px}
+.v7-gallery-title>div>span{font-size:11px;color:#8e8e94;letter-spacing:.12em}
+.v7-gallery-title h3{font-size:clamp(26px,3vw,41px);font-weight:610;letter-spacing:-.048em;margin:10px 0 5px}
+.v7-gallery-title p{font-size:16px;color:#6e6e73;line-height:1.5;margin:0}
+.v7-gallery-title>a{flex:none;font-size:15px;color:var(--v7-blue);text-decoration:none}
+.v7-autogallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;min-height:240px;margin-top:12px}
+.v7-gallery-placeholder{grid-column:1/-1;background:#f5f5f7;border-radius:20px;min-height:225px;display:flex;flex-direction:column;gap:9px;justify-content:center;align-items:center;text-align:center;padding:20px;color:#9a9aa2;font-size:14px}
+.v7-gallery-placeholder b{font-size:15px;color:#7b7b83;overflow-wrap:anywhere}
+.v7-gallery-placeholder small{font-size:12px;color:#aaaab2}
+.v7-gallery-photo{border:none;padding:0;background:#f5f5f7;border-radius:16px;overflow:hidden;cursor:zoom-in;display:block;min-width:0;aspect-ratio:4/5;transition:transform .2s ease}
+.v7-gallery-photo:hover{transform:translateY(-3px)}
+.v7-gallery-photo img{display:block;height:100%;width:100%;object-fit:contain}
+.v7-gallery-photo.landscape{grid-column:span 2;aspect-ratio:16/10}
+.v7-gallery-photo.square{aspect-ratio:1/1}
+.v7-gallery-dialog{position:fixed;inset:0;z-index:100000;background:rgba(4,4,5,.93);display:flex;align-items:center;justify-content:center;padding:52px 40px}
+.v7-gallery-dialog img{max-width:95vw;max-height:90vh;object-fit:contain}
+.v7-gallery-close{position:absolute;top:20px;right:20px;width:44px;height:44px;border:0;border-radius:50%;background:#333338;color:white;font-size:27px;cursor:pointer}
+/* Transport Tech, three clear interfaces */
+.v7-transport-hero{padding:93px 0;background:#f5f5f7}
+.v7-transport-intro{display:grid;grid-template-columns:1fr 1fr;gap:6%;align-items:center}
+.v7-transport-hero h1{font-size:clamp(55px,7vw,100px);line-height:1;letter-spacing:-.065em;margin:20px 0 25px}
+.v7-large-lede{font-size:clamp(20px,2.4vw,29px);line-height:1.32;color:#5c5c64;letter-spacing:-.015em}
+.v7-transport-hero img{width:100%;max-height:500px;object-fit:contain}
+.v7-transport-roles{padding:100px 0}
+.v7-section-heading h2{font-size:clamp(34px,4.5vw,61px);line-height:1.06;letter-spacing:-.055em;margin:16px 0 40px}
+.v7-role-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.v7-role-grid article{padding:24px;border-radius:19px;background:#f5f5f7;min-width:0}
+.v7-role-grid article>span{font-size:11px;color:#797980;letter-spacing:.07em}
+.v7-role-grid h3{font-size:26px;letter-spacing:-.035em;line-height:1.14;margin:18px 0 12px}
+.v7-role-grid p{color:#6e6e73;font-size:15px;line-height:1.55;min-height:103px}
+.v7-role-grid .v7-autogallery{display:block;min-height:155px}
+.v7-role-grid .v7-gallery-placeholder{min-height:155px;overflow-wrap:anywhere}
+.v7-work-note{padding:65px 0 85px;background:#101013;color:white}
+.v7-work-note h2{font-size:clamp(36px,4vw,55px);color:white;letter-spacing:-.045em;line-height:1.14}
+.v7-work-note p{font-size:18px;color:#b3b3bd;line-height:1.6;max-width:780px}
+@media(max-width:960px){.v7-agency-hero-grid,.v7-results-layout,.v7-discipline-grid,.v7-transport-intro{grid-template-columns:1fr}.v7-agency-hero-img{aspect-ratio:16/9}.v7-role-grid{grid-template-columns:1fr 1fr}.v7-autogallery{grid-template-columns:repeat(2,minmax(0,1fr))}.v7-gallery-photo.landscape{grid-column:span 1}}
+@media(max-width:640px){.v7-agency-hero,.v7-transport-hero{padding:53px 0 65px}.v7-agency-list,.v7-transport-roles{padding:65px 0 75px}.v7-agency-grid,.v7-role-grid,.v7-autogallery{grid-template-columns:1fr}.v7-gallery-section,.v7-general-gallery{padding:64px 0}.v7-gallery-title{flex-direction:column;align-items:start;gap:10px}.v7-gallery-group{padding:22px 0 55px}.v7-results{padding:70px 0 78px}.v7-results-group{padding:24px}.v7-stat-row{gap:14px}.v7-stat-row strong{min-width:105px;font-size:31px}.v7-stat-row b{font-size:15px}.v7-stat-row small{font-size:12px}.v7-hero-stat strong{font-size:86px}.v7-discipline-panel{padding:60px 0}.v7-discipline-outcome{min-height:180px}.v7-transport-hero h1{font-size:57px}.v7-gallery-photo.landscape{aspect-ratio:16/10}.v7-gallery-dialog{padding:58px 10px}}
+
+/* Linked evidence inside the five-part Sober Driver ecosystem */
+.sober-modules a.module-item{text-decoration:none;color:inherit;transition:transform .2s ease}
+.sober-modules a.module-item:hover{transform:translateY(-2px)}
+.sober-modules a.module-item small{color:#76767e!important;font-size:13px!important}
+
+.about-mini-media > div{display:flex;align-items:center;gap:12px;min-width:0;background:#f5f5f7;padding:12px;border-radius:14px;flex:1}.about-mini-media > div img{width:65px;height:65px;object-fit:cover;border-radius:11px}.about-mini-media > div b{font-size:17px;letter-spacing:-.03em}@media(max-width:560px){.about-mini-media > div{flex:1 1 140px;gap:5px;padding:7px}.about-mini-media > div img{width:48px;height:48px}}
