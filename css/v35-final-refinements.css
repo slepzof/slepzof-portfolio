@@ -64,20 +64,30 @@
 /* v36 mobile fixes: keep the artwork's original aspect ratio; prevent Safari
    compositing seams around the approved project covers. */
 @media (max-width:560px) {
+  /* Exact desktop cover size on iPhone: no compressed cover, no text overlap. */
   #selected a.sx25b3-card {
-    flex:0 0 clamp(234px,62vw,270px)!important;
-    width:clamp(234px,62vw,270px)!important;
-    min-width:clamp(234px,62vw,270px)!important;
-    max-width:clamp(234px,62vw,270px)!important;
+    flex:0 0 326px!important;
+    width:326px!important;
+    min-width:326px!important;
+    max-width:326px!important;
+    height:469px!important;
     aspect-ratio:1424 / 2048!important;
-    border-radius:32px!important;
-    -webkit-clip-path:inset(0 round 32px);
-    clip-path:inset(0 round 32px);
+    border-radius:30px!important;
+    -webkit-clip-path:inset(0 round 30px);
+    clip-path:inset(0 round 30px);
     transform:none!important;
   }
   #selected .sx25b3-art {
-    object-fit:cover!important;
-    border-radius:32px!important;
+    object-fit:contain!important;
+    border-radius:30px!important;
+  }
+  #selected .sx25b3-card h3 {
+    font-size:clamp(15px,4.85vw,18.7px)!important;
+    line-height:1.16!important;
+  }
+  #selected .sx25b3-card p {
+    font-size:clamp(9.5px,3vw,11px)!important;
+    line-height:1.28!important;
   }
   #selected .sx25b3-metric {
     min-height:36px;
@@ -101,12 +111,20 @@
   #selected [data-sx25b3-slug="vezu-edu"] .sx25b3-metric br.sx25b3-approved-break {
     display:none;
   }
-  #beyond-ui .sx28-card {
-    border-radius:29px!important;
-    -webkit-clip-path:inset(0 round 29px);
-    clip-path:inset(0 round 29px);
+  #beyond-ui a.sx28-card {
+    flex:0 0 270px!important;
+    width:270px!important;
+    min-width:270px!important;
+    max-width:270px!important;
+    height:388px!important;
+    aspect-ratio:1424 / 2048!important;
+    border-radius:27px!important;
+    -webkit-clip-path:inset(0 round 27px);
+    clip-path:inset(0 round 27px);
   }
-  #beyond-ui .sx28-card .sx25b3-art {object-fit:cover!important;}
+  #beyond-ui .sx28-card .sx25b3-art {object-fit:contain!important;}
+  #beyond-ui .sx28-card h3 {font-size:16.2px!important;line-height:1.17!important;}
+  #beyond-ui .sx28-card p {font-size:10px!important;line-height:1.26!important;}
 }
 /* Blend the hero's placeholder into the animation instead of an abrupt swap. */
 @media (max-width:800px) {
