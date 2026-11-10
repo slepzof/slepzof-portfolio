@@ -1,40 +1,51 @@
-# SLEPZOF — онлайн-предпросмотр без Work/Warp Mode
+# SLEPZOF: GitHub Pages на MacBook и iPhone
 
-## 1. Один раз загрузить текущую v35
+## 1. Загрузка сайта v35
 
-1. Возьми архив `SLEPZOF_Portfolio_v25_BeyondUI_v35_Final.zip`.
-2. Распакуй папку `slepzof-portfolio-v25`. Внутри неё должны быть `index.html`, `css/`, `js/`, `assets/` и другие каталоги.
-3. Открой репозиторий `slepzof/slepzof-portfolio` в GitHub Desktop (можно скачать на Mac).
-4. Склонируй репозиторий, скопируй **содержимое** папки `slepzof-portfolio-v25` в корень клона, не перезаписывая `README.md`, `DEPLOY.md`, `.gitignore` и `scripts/`.
-5. Переключись на ветку `dev`, создай коммит `Import SLEPZOF v35` и нажми Push origin.
-6. Проверь, что на GitHub в ветке dev появились `index.html`, `assets/`, `css/`, `js/`, `cms/data.json`.
+Репозиторий: https://github.com/slepzof/slepzof-portfolio
 
-**Не загружай локальные секреты, .env или пароли.** Репозиторий публичный.
+1. Открой GitHub Desktop на Mac и клонируй репозиторий.
+2. В GitHub Desktop выбери ветку `dev`.
+3. Распакуй `SLEPZOF_Portfolio_v25_BeyondUI_v35_Final.zip`. Скопируй **содержимое** папки `slepzof-portfolio-v25` в корень клонированного репозитория: должны появиться `index.html`, `css/`, `js/`, `assets/`, `cases/`, `cms/`.
+4. Не удаляй существующие `README.md`, `DEPLOY.md`, `.gitignore`, `scripts/`, `.github/`.
+5. Коммит `Import SLEPZOF v35` → `Push origin`.
 
-## 2. Подключить Cloudflare Pages
+**Важно:** репозиторий публичный. Перед загрузкой исключи секреты, `.env`, пароли и приватные файлы. В GitHub Pages публикуются только статические публичные файлы, но исходники публичного репозитория могут просматривать другие.
 
-1. Открой https://dash.cloudflare.com/ → **Workers & Pages**.
-2. **Create application** → **Pages** → **Connect to Git**.
-3. Подключи GitHub и выбери `slepzof/slepzof-portfolio`.
-4. Укажи production branch: **main**.
-5. Настройки сборки: Framework preset **None**, Build command `python3 scripts/build_static.py`, Build output directory `dist`.
-6. В Cloudflare: **Settings → Builds → Branch control** — разреши предпросмотры для ветки **dev**.
-7. Найди URL развёртывания ветки `dev` на вкладке Deployments. Сохрани его на MacBook и iPhone.
+## 2. Разрешить GitHub Pages
 
-Preview URL привязан к ветке и будет обновляться при новых коммитах в `dev`. Публичная главная ветка `main` не изменяется, пока правки не утверждены.
+Открой https://github.com/slepzof/slepzof-portfolio/settings/pages
 
-## 3. После каждой правки
+В секции **Build and deployment → Source** выбери **GitHub Actions** (не `Deploy from a branch`). Workflow `.github/workflows/pages.yml` публикует **только изменения из `dev`**.
 
-- ChatGPT изменяет файлы в GitHub в ветке `dev`.
-- Cloudflare автоматически запускает деплой после push.
-- Дождись в Deployments статуса **Success**, затем обнови один и тот же URL в Safari на MacBook или iPhone.
-- Для сброса кеша в Safari на MacBook: Option+Command+R; на телефоне можно открыть ссылку в новой вкладке либо добавить query `?v=36`.
+В разделе **Actions** после push появится запуск `Deploy SLEPZOF GitHub Pages`. Дождись **Success**.
 
-Это публикация **после коммита**, а не стриминг каждого нажатия клавиши.
+## 3. Сайт на MacBook и iPhone
 
-## Ограничения
+После первого успешного deploy открой:
 
-- Cloudflare Pages в этой конфигурации отдаёт только статические файлы. `server.py` и запись через `admin/` остаются локальными.
-- `cms/data.json` публикуется как часть сайта: не хранить там секреты или приватную информацию.
-- Если в исходной версии есть абсолютные ссылки (например `/assets/...`), Cloudflare Pages подходит, потому что сайт публикуется в корне домена.
-- Если репозиторий нужно скрыть от посторонних, переведи его в Private до загрузки исходников.
+https://slepzof.github.io/slepzof-portfolio/
+
+На MacBook: Safari → открой ссылку и обнови страницу после очередной публикации.
+
+На iPhone: Safari → та же ссылка, добавить на главный экран по желанию.
+
+Это постоянный URL. Новый код появляется только после коммита в `dev` и успешного деплоя (иногда публикация занимает несколько минут). Проверяй **Actions** и **Settings → Pages**, если обновление не появилось. При кешировании попробуй `?v=36` в конце URL.
+
+## 4. Как работаем дальше
+
+- ChatGPT читает актуальные файлы репозитория, меняет утверждённую часть проекта, коммитит в `dev`.
+- GitHub Actions автоматически собирает и публикует сайт.
+- Пользователь проверяет ссылку с MacBook и iPhone.
+- После согласования обновление можно перенести в `main`.
+
+## Почему именно Actions, а не обычная публикация ветки?
+
+У SLEPZOF есть абсолютные пути (`/assets/...`, `/cases/...`). GitHub Pages у проектного репозитория работает под подпапкой `/slepzof-portfolio/`. Скрипт `scripts/build_static.py` исправляет пути **только в сборке** `dist/`. Не изменяет оригинальные файлы, не публикует `server.py` и локальную панель `admin/`.
+
+## Диагностика
+
+- В `dev` пока нет `index.html` — публикация не начнётся: сперва загрузи исходники v35.
+- Запуск **Deploy SLEPZOF GitHub Pages** завершился ошибкой — открой Actions → failed job и посмотри лог.
+- Получаешь 404 — проверь, что выбран **GitHub Actions**, workflow прошёл успешно и открыта ссылка с `/slepzof-portfolio/`.
+- Админка `/admin/` и Python CMS недоступны онлайн: GitHub Pages отдаёт статические файлы, редактирование через локальный сервер остаётся локальным.
