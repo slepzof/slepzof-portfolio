@@ -19,7 +19,7 @@ PUBLIC_CMS = ("data.json", "pages.json", "chrome.json", "generated-pages.json")
 ROOT_URL = re.compile(r"(?<![A-Za-z0-9._/\\-])/(?:assets|css|js|cases|about|projects|work-with-me|design|marketing|management-training|cms|data)(?=/|[\"'\x60?#])")
 TEXT_SUFFIXES = {".html", ".css", ".js", ".json", ".svg"}
 DEPLOY_REV = os.environ.get("GITHUB_SHA", "").strip()[:10]
-ASSET_REF = re.compile(r'((?:src|href)=["\\\'])(('+re.escape(BASE)+r'/(?:css|js)/[^"\\\']+))(["\\\'])', re.I)
+ASSET_REF = re.compile(r"""((?:src|href)=["'])(""" + re.escape(BASE) + r"""/(?:css|js)/[^"']+)(["'])""", re.I)
 
 
 def main():
@@ -63,7 +63,7 @@ def main():
                 fixed = ASSET_REF.sub(lambda m: (
                     m.group(1) + m.group(2) +
                     ("&" if "?" in m.group(2) else "?") +
-                    "rev=" + DEPLOY_REV + m.group(4)
+                    "rev=" + DEPLOY_REV + m.group(3)
                 ), fixed)
         if path.as_posix().endswith("/cms/pages.json"):
             fixed = fixed.replace('"path": "/"', f'"path": "{BASE}/"')
