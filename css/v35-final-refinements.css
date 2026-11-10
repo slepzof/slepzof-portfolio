@@ -60,3 +60,77 @@
     transform: none !important;
   }
 }
+
+/* v36 mobile fixes: keep the artwork's original aspect ratio; prevent Safari
+   compositing seams around the approved project covers. */
+@media (max-width:560px) {
+  #selected a.sx25b3-card {
+    flex:0 0 clamp(234px,62vw,270px)!important;
+    width:clamp(234px,62vw,270px)!important;
+    min-width:clamp(234px,62vw,270px)!important;
+    max-width:clamp(234px,62vw,270px)!important;
+    aspect-ratio:1424 / 2048!important;
+    border-radius:32px!important;
+    -webkit-clip-path:inset(0 round 32px);
+    clip-path:inset(0 round 32px);
+    transform:none!important;
+  }
+  #selected .sx25b3-art {
+    object-fit:cover!important;
+    border-radius:32px!important;
+  }
+  #selected .sx25b3-metric {
+    min-height:36px;
+    padding-top:4px;
+    padding-bottom:4px;
+    border-radius:20px;
+  }
+  #selected .sx25b3-metric .sx25b3-laurel {
+    width:10px;
+    height:22px;
+    flex-basis:10px;
+  }
+  #selected .sx25b3-metric strong {font-size:21px;}
+  #selected .sx25b3-metric span {
+    font-size:9.6px;
+    line-height:1.15;
+    letter-spacing:-.01em;
+    text-wrap:balance;
+  }
+  /* Hide only this break on narrow screens, not a single word of the metric. */
+  #selected [data-sx25b3-slug="vezu-edu"] .sx25b3-metric br.sx25b3-approved-break {
+    display:none;
+  }
+  #beyond-ui .sx28-card {
+    border-radius:29px!important;
+    -webkit-clip-path:inset(0 round 29px);
+    clip-path:inset(0 round 29px);
+  }
+  #beyond-ui .sx28-card .sx25b3-art {object-fit:cover!important;}
+}
+/* Blend the hero's placeholder into the animation instead of an abrupt swap. */
+@media (max-width:800px) {
+  .sx26-block1 .sx25-animation-wrap .sx20-static-fallback {
+    display:block!important;
+    opacity:1;
+    transition:opacity .3s ease;
+  }
+  .sx26-block1 .sx25-animation-wrap .sx20-lottie.sx20-ready .sx20-static-fallback {
+    display:block!important;
+    opacity:0!important;
+    pointer-events:none;
+  }
+  .sx26-block1 .sx25-animation-wrap .sx20-lottie > canvas {
+    opacity:0;
+    transition:opacity .3s ease;
+  }
+  .sx26-block1 .sx25-animation-wrap .sx20-lottie.sx20-ready > canvas {
+    opacity:1;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .sx26-block1 .sx25-animation-wrap .sx20-static-fallback,
+  .sx26-block1 .sx25-animation-wrap .sx20-lottie > canvas {
+    transition:none!important;
+  }
+}
