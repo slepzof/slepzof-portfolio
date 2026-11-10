@@ -158,7 +158,9 @@ function mobileAtEnd(){
  const controls=panel.querySelector('.sx28-carousel-controls');
  const bottom=controls?controls.getBoundingClientRect().bottom:
    panel.getBoundingClientRect().bottom-(parseFloat(getComputedStyle(panel).paddingBottom)||0);
- return bottom<=innerHeight*.46;
+ // Leave 64px of extra black space past the project controls on the
+ // first seven skills before starting the existing mobile transition.
+ return bottom<=innerHeight*.46-(mobileIndex<7?64:0);
 }
 function inMobileChapter(){
  const r=story.getBoundingClientRect();
