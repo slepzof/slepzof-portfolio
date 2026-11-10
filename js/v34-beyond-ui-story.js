@@ -175,6 +175,8 @@ function switchMobile(next){
  const toY=Math.max(0,pageTop()-headerHeight()-6);
  const overlay=document.createElement('div');
  overlay.className='sx37-overlay';
+ // Keep the site's fixed navigation visible during the chapter animation.
+ overlay.style.setProperty('--sx38-nav-height',headerHeight()+'px');
  overlay.setAttribute('role','status');
  overlay.setAttribute('aria-label','Переход к следующему навыку');
  const stageView=document.createElement('div');
