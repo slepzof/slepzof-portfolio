@@ -7,19 +7,23 @@
   var url = el.getAttribute('data-animation');
   var instance = null;
   var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var compact = window.matchMedia && window.matchMedia('(max-width: 800px)').matches;
   function boot() {
     if (!window.lottie || !url) { el.classList.add('sx20-failed'); return; }
     try {
       instance = window.lottie.loadAnimation({
         container: el,
-        renderer: 'svg',
+        renderer: compact ? 'canvas' : 'svg',
         loop: !reducedMotion,
         autoplay: !reducedMotion,
         path: url,
-        rendererSettings: { preserveAspectRatio: 'xMidYMid meet', progressiveLoad: true, hideOnTransparent: true }
+        rendererSettings: compact
+          ? { preserveAspectRatio: 'xMidYMid meet', clearCanvas: true, dpr: Math.min(window.devicePixelRatio || 1, 1.5) }
+          : { preserveAspectRatio: 'xMidYMid meet', progressiveLoad: true, hideOnTransparent: true }
       });
       instance.addEventListener('DOMLoaded', function () {
         el.classList.add('sx20-ready');
+        if(compact && instance && typeof instance.setSubframe === 'function') instance.setSubframe(false);
         if (reducedMotion) instance.goToAndStop(0, true);
       });
       instance.addEventListener('data_failed', function () {
