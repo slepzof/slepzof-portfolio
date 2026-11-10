@@ -82,11 +82,11 @@
     border-radius:30px!important;
   }
   #selected .sx25b3-card h3 {
-    font-size:clamp(15px,4.85vw,18.7px)!important;
+    font-size:clamp(15.9px,5.14vw,19.8px)!important;
     line-height:1.16!important;
   }
   #selected .sx25b3-card p {
-    font-size:clamp(9.5px,3vw,11px)!important;
+    font-size:clamp(10.1px,3.18vw,11.7px)!important;
     line-height:1.28!important;
   }
   #selected .sx25b3-metric {
@@ -123,8 +123,8 @@
     clip-path:inset(0 round 27px);
   }
   #beyond-ui .sx28-card .sx25b3-art {object-fit:contain!important;}
-  #beyond-ui .sx28-card h3 {font-size:16.2px!important;line-height:1.17!important;}
-  #beyond-ui .sx28-card p {font-size:10px!important;line-height:1.26!important;}
+  #beyond-ui .sx28-card h3 {font-size:17.2px!important;line-height:1.17!important;}
+  #beyond-ui .sx28-card p {font-size:10.6px!important;line-height:1.26!important;}
 }
 /* Blend the hero's placeholder into the animation instead of an abrupt swap. */
 @media (max-width:800px) {
