@@ -14,9 +14,9 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "dist"
 BASE = "/" + os.environ.get("SITE_BASE_PATH", "/slepzof-portfolio").strip("/")
 BASE = BASE.rstrip("/")
-PUBLIC_DIRS = ("assets", "css", "js", "cases", "about", "projects", "work-with-me", "data")
+PUBLIC_DIRS = ("assets", "css", "js", "cases", "about", "projects", "work-with-me", "design", "marketing", "management-training", "data")
 PUBLIC_CMS = ("data.json", "pages.json", "chrome.json", "generated-pages.json")
-ROOT_URL = re.compile(r"(?<![A-Za-z0-9._/\\-])/(?:assets|css|js|cases|about|projects|work-with-me|cms|data)(?=/|[\"'\x60?#])")
+ROOT_URL = re.compile(r"(?<![A-Za-z0-9._/\\-])/(?:assets|css|js|cases|about|projects|work-with-me|design|marketing|management-training|cms|data)(?=/|[\"'\x60?#])")
 TEXT_SUFFIXES = {".html", ".css", ".js", ".json", ".svg"}
 
 
@@ -54,7 +54,9 @@ def main():
         fixed = ROOT_URL.sub(lambda match: BASE + match.group(0), raw)
         if path.suffix.lower() == ".html":
             fixed = fixed.replace('href="/"', f'href="{BASE}/"')
+            fixed = fixed.replace('href="/#', f'href="{BASE}/#')
             fixed = fixed.replace("href='/'", f"href='{BASE}/'")
+            fixed = fixed.replace("href='/#", f"href='{BASE}/#")
         if path.as_posix().endswith("/cms/pages.json"):
             fixed = fixed.replace('"path": "/"', f'"path": "{BASE}/"')
         if fixed != raw:
