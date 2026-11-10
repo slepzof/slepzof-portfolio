@@ -1,0 +1,22 @@
+name: Validate static site
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build static preview
+        run: python3 scripts/build_static.py
+      - name: Verify HTML and assets
+        run: |
+          test -s dist/index.html
+          test -d dist/assets
+          test -d dist/css
+          test -d dist/js
+      - name: Report
+        run: echo "Static site build is ready for Cloudflare Pages."
