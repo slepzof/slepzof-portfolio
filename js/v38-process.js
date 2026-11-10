@@ -50,8 +50,8 @@
           section.classList.add("sx38-visible");
           observer.disconnect();
         }
-      },{rootMargin:"0px 0px -8% 0px",threshold:0.1});
-      observer.observe(section.querySelector(".sx38-head"));
+      },{rootMargin:"0px 0px -8% 0px",threshold:0});
+      observer.observe(section);
     }else{
       section.classList.add("sx38-visible");
     }
