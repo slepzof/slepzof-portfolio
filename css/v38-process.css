@@ -1,0 +1,84 @@
+/* SLEPZOF / Block 04 — original "Сначала были факты" reference.
+   Scope deliberately limited to #process; other blocks remain unchanged. */
+#process.sx38-process{background:#000;color:#f5f5f7;padding:116px 0 104px;overflow:hidden;position:relative;isolation:isolate}
+#process .sx38-inner{width:min(100% - 48px,1230px);margin-inline:auto}
+#process .sx38-head{text-align:center;max-width:860px;margin:0 auto;position:relative;z-index:2}
+#process .sx38-head h2{font-size:clamp(38px,4.1vw,58px);line-height:1.1;letter-spacing:-.043em;font-weight:630;margin:0 0 26px;color:#fff}
+#process .sx38-head p{max-width:760px;margin:0 auto;font-size:clamp(16px,1.28vw,19px);line-height:1.38;letter-spacing:-.011em;color:#8b8b90}
+#process .sx38-head strong{color:#f5f5f7;font-weight:570}
+#process .sx38-portrait{width:min(100%,1000px);margin:44px auto 0;position:relative;pointer-events:none}
+#process .sx38-portrait img{display:block;width:100%;height:auto;object-fit:contain}
+#process .sx38-track-wrap{width:100%;position:relative;z-index:2;margin-top:-8px}
+#process .sx38-track{display:flex;align-items:flex-start;gap:18px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-left:max(24px,calc((100vw - 1230px)/2));scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:0 max(24px,calc((100vw - 1230px)/2)) 6px;touch-action:pan-x pan-y}
+#process .sx38-track::-webkit-scrollbar{display:none}
+#process .sx38-card{flex:0 0 clamp(325px,29vw,430px);scroll-snap-align:start;min-width:0}
+#process .sx38-card:nth-child(2){flex-basis:clamp(399px,35.6vw,527px)}
+#process .sx38-card:nth-child(3){flex-basis:clamp(259px,23.0vw,342px)}
+#process .sx38-card:nth-child(4){flex-basis:clamp(482px,43.1vw,638px)}
+#process .sx38-card picture{display:block}
+#process .sx38-card img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:23px;border:1px solid #2b2b2e;box-sizing:border-box;background:#080808;-webkit-backface-visibility:hidden}
+#process .sx38-card:nth-child(2) img{aspect-ratio:628/512}
+#process .sx38-card:nth-child(3) img{aspect-ratio:407/512}
+#process .sx38-card:nth-child(4) img{aspect-ratio:760/512}
+#process .sx38-card p{margin:17px 0 0;color:#929295;font-size:clamp(14px,1.05vw,16px);line-height:1.36;letter-spacing:-.008em}
+#process .sx38-card strong{font-weight:650;color:#fff}
+#process .sx38-controls{display:flex;align-items:center;justify-content:flex-end;gap:12px;margin:24px auto 0;width:min(100% - 48px,1230px)}
+#process .sx38-controls button{appearance:none;border:0;background:#2b2b2f;color:#e9e9eb;width:42px;height:42px;display:grid;place-items:center;border-radius:50%;padding:0;cursor:pointer;transition:background .2s,opacity .2s,transform .2s}
+#process .sx38-controls button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+#process .sx38-controls button:not(:disabled):hover{background:#44444b;transform:scale(1.065)}
+#process .sx38-controls button:disabled{opacity:.28;cursor:default}
+#process .sx38-controls button:focus-visible{outline:2px solid #0a84ff;outline-offset:4px}
+@media (max-width:900px){
+  #process.sx38-process{padding:90px 0 86px}
+  #process .sx38-portrait{margin-top:40px}
+  #process .sx38-card{flex-basis:clamp(300px,45vw,420px)}
+  #process .sx38-card:nth-child(2){flex-basis:clamp(368px,55.2vw,515px)}
+  #process .sx38-card:nth-child(3){flex-basis:clamp(239px,35.8vw,334px)}
+  #process .sx38-card:nth-child(4){flex-basis:clamp(445px,66.8vw,622px)}
+}
+@media (max-width:600px){
+  #process.sx38-process{padding:82px 0 72px}
+  #process .sx38-inner,#process .sx38-controls{width:calc(100% - 40px)}
+  #process .sx38-head h2{font-size:clamp(27px,7.1vw,34px);line-height:1.12;letter-spacing:-.043em;margin-bottom:22px}
+  #process .sx38-head p{font-size:15px;line-height:1.43;max-width:410px;letter-spacing:-.006em}
+  #process .sx38-portrait{width:calc(100% + 8px);margin:28px auto 0;left:-4px}
+  #process .sx38-track-wrap{margin-top:6px}
+  #process .sx38-track{gap:14px;padding-inline:20px;scroll-padding-left:20px;padding-bottom:6px}
+  #process .sx38-track .sx38-card{flex:0 0 min(78vw,380px)!important}
+  #process .sx38-card img{aspect-ratio:406/512!important}
+  #process .sx38-card:nth-child(3) img{aspect-ratio:407/512!important}
+  #process .sx38-card img{border-radius:20px}
+  #process .sx38-card p{font-size:14px;line-height:1.4;margin-top:13px}
+  #process .sx38-controls{margin-top:21px}
+  #process .sx38-controls button{width:39px;height:39px}
+}
+@media(prefers-reduced-motion:no-preference){
+  #process.sx38-js-ready .sx38-head h2,
+  #process.sx38-js-ready .sx38-head p,
+  #process.sx38-js-ready .sx38-portrait,
+  #process.sx38-js-ready .sx38-track-wrap,
+  #process.sx38-js-ready .sx38-controls{opacity:0;transform:translate3d(0,27px,0)}
+  #process.sx38-js-ready.sx38-visible .sx38-head h2,
+  #process.sx38-js-ready.sx38-visible .sx38-head p,
+  #process.sx38-js-ready.sx38-visible .sx38-portrait,
+  #process.sx38-js-ready.sx38-visible .sx38-track-wrap,
+  #process.sx38-js-ready.sx38-visible .sx38-controls{opacity:1;transform:translate3d(0,0,0);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+  #process.sx38-visible .sx38-head h2{transition-delay:0s!important}
+  #process.sx38-visible .sx38-head p{transition-delay:.12s!important}
+  #process.sx38-visible .sx38-portrait{transition-delay:.22s!important}
+  #process.sx38-visible .sx38-track-wrap{transition-delay:.37s!important}
+  #process.sx38-visible .sx38-controls{transition-delay:.46s!important}
+  #process .sx38-card img{transition:transform .7s cubic-bezier(.22,1,.36,1)}
+  #process.sx38-js-ready .sx38-card{opacity:0}
+  #process.sx38-js-ready.sx38-visible .sx38-card{opacity:1;transition:opacity .65s cubic-bezier(.22,1,.36,1)}
+  #process.sx38-visible .sx38-card:nth-child(1){transition-delay:.47s}
+  #process.sx38-visible .sx38-card:nth-child(2){transition-delay:.56s}
+  #process.sx38-visible .sx38-card:nth-child(3){transition-delay:.65s}
+  #process.sx38-visible .sx38-card:nth-child(4){transition-delay:.74s}
+}
+@media (hover:hover) and (pointer:fine){
+  #process .sx38-card:hover img{transform:scale(1.014)}
+}
+@media(prefers-reduced-motion:reduce){
+  #process .sx38-head h2,#process .sx38-head p,#process .sx38-portrait,#process .sx38-track-wrap,#process .sx38-controls,#process .sx38-card img{transition:none!important;transform:none!important;opacity:1!important}
+}

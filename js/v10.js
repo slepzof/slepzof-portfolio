@@ -56,3 +56,20 @@
   search?.addEventListener('input',filterCatalog);
   filters.forEach(b=>b.addEventListener('click',()=>{active=b.dataset.filter||'all';filters.forEach(x=>x.classList.toggle('is-active',x===b));filterCatalog()}));
 })();
+
+/* SLEPZOF v36: consistent navigation across the published project subpath. */
+(()=>{
+ const menu=document.getElementById('sx25-main-menu');
+ if(!menu)return;
+ const base=location.pathname.startsWith('/slepzof-portfolio/')?'/slepzof-portfolio':'';
+ const entries=[
+  ['Кейсы','projects/'],['Опыт работы','#experience'],['Обо мне','about/'],
+  ['Дизайн','design/'],['Маркетинг','marketing/'],
+  ['Управление и обучение','management-training/'],['Работа со мной','work-with-me/']
+ ];
+ [...menu.querySelectorAll('a')].slice(0,7).forEach((a,i)=>{
+  if(!entries[i])return;
+  a.textContent=entries[i][0];
+  a.setAttribute('href',base+'/'+entries[i][1]);
+ });
+})();

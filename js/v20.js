@@ -7,6 +7,7 @@
   var url = el.getAttribute('data-animation');
   var instance = null;
   var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var compact = window.matchMedia && window.matchMedia('(max-width: 800px)').matches;
   function boot() {
     if (!window.lottie || !url) { el.classList.add('sx20-failed'); return; }
     try {
@@ -20,6 +21,7 @@
       });
       instance.addEventListener('DOMLoaded', function () {
         el.classList.add('sx20-ready');
+        if(compact && instance && typeof instance.setSubframe === 'function') instance.setSubframe(false);
         if (reducedMotion) instance.goToAndStop(0, true);
       });
       instance.addEventListener('data_failed', function () {
