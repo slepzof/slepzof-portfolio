@@ -151,9 +151,14 @@ function mobileAtTop(){
  const r=story.getBoundingClientRect();return window.scrollY<=window.scrollY+r.top-headerHeight()+15;
 }
 function mobileAtEnd(){
- const r=panels[mobileIndex].getBoundingClientRect();
- // The final 120px is a generous reading buffer after the case arrows.
- return r.bottom<=innerHeight+54;
+ // Trigger only AFTER the reader has scrolled the case-slider arrows
+ // into the upper half of the screen. Works with native iOS momentum:
+ // no artificial second swipe or touchstart exactly at the last pixel.
+ const panel=panels[mobileIndex];
+ const controls=panel.querySelector('.sx28-carousel-controls');
+ const bottom=controls?controls.getBoundingClientRect().bottom:
+   panel.getBoundingClientRect().bottom-(parseFloat(getComputedStyle(panel).paddingBottom)||0);
+ return bottom<=innerHeight*.46;
 }
 function inMobileChapter(){
  const r=story.getBoundingClientRect();
@@ -203,11 +208,8 @@ function switchMobile(next){
    chartButtons.forEach((el,j)=>el.setAttribute('aria-pressed',String(j===oldIndex)));
    chartView.appendChild(chart);
  }
- const caption=document.createElement('div');
- caption.className='sx37-transition-caption';
- caption.textContent=newPanel.querySelector('.sx28-eyebrow')?.textContent?.trim()||'';
+ // The diagram already names all eight skills. No duplicate caption beneath it.
  stageView.appendChild(chartView);
- stageView.appendChild(caption);
  overlay.appendChild(stageView);
  document.body.appendChild(overlay);
  const tasks=[];
@@ -233,7 +235,7 @@ function switchMobile(next){
    overlay.remove();
    newPanel.classList.remove('sx37-enter-pending','sx37-enter-active');
    toggleInstantScroll(false);
-   mobileLockUntil=performance.now()+340;
+   mobileLockUntil=performance.now()+520;
    mobileBusy=false;
    mobileLastScrollY=window.scrollY;
  };
@@ -241,9 +243,8 @@ function switchMobile(next){
    setNew();cleanup();return;
  }
  requestAnimationFrame(()=>overlay.classList.add('sx37-visible'));
- later(300,setNew);
- later(350,()=>{
-   caption.classList.add('sx37-caption-in');
+ later(290,setNew);
+ later(420,()=>{
    const start=performance.now(),duration=610;
    const run=now=>{
      if(token!==mobileSwitchToken)return;
@@ -257,24 +258,30 @@ function switchMobile(next){
    };
    requestAnimationFrame(run);
  });
- later(1030,()=>{
-   // Start revealing the new skill only once the diagram takes focus.
+ // Remove the foreground diagram BEFORE exposing the real radar underneath.
+ // Otherwise both charts become visible during the fade on iPhone Safari.
+ later(1100,()=>overlay.classList.add('sx37-stage-out'));
+ later(1300,()=>{
    newPanel.classList.add('sx37-enter-active');
    newPanel.classList.remove('sx37-enter-pending');
    overlay.classList.add('sx37-fading');
    window.scrollTo(0,toY);
  });
- later(1380,()=>overlay.remove());
- later(1700,cleanup);
+ later(1680,()=>overlay.remove());
+ later(1800,cleanup);
 }
 function readMobile(){
- // Safari's momentum can complete the scroll after touchend, so monitor actual position.
+ // A scroll listener fires during iOS momentum scrolling as well as on finger drag.
+ // Crossing the end threshold opens EXACTLY one new chapter automatically.
  section.dataset.sx28Active=String(mobileIndex);
- const y=window.scrollY, dy=y-mobileLastScrollY;
+ const y=window.scrollY,dy=y-mobileLastScrollY;
  mobileLastScrollY=y;
  if(mobileBusy||performance.now()<mobileLockUntil||!inMobileChapter())return;
- // Do not advance on an inertial scroll. The *next intentional gesture*
- // after reaching the chapter end starts the new chapter transition.
+ if(dy>1&&mobileIndex<7&&mobileAtEnd()){
+   switchMobile(mobileIndex+1);
+ }else if(dy< -1&&mobileIndex>0&&mobileAtTop()){
+   switchMobile(mobileIndex-1);
+ }
 }
 function readPosition(){raf=0;if(navigating)return;if(desktopReady)readDesktop();else readMobile();}
 function schedule(){if(!raf)raf=requestAnimationFrame(readPosition);}
@@ -353,7 +360,7 @@ window.addEventListener('wheel',e=>{
 // During the black transition, prevent Safari momentum from moving the page
 // behind the curtain. Outside this interval all gestures remain native.
 window.addEventListener('touchmove',e=>{
- if(mobileBusy&&e.cancelable)e.preventDefault();
+ if((mobileBusy||performance.now()<mobileLockUntil)&&e.cancelable)e.preventDefault();
 },{passive:false,capture:true});
 window.addEventListener('touchstart',e=>{
  if(desktopReady||!e.touches.length)return;
@@ -362,13 +369,15 @@ window.addEventListener('touchstart',e=>{
  mobileTouchWasAtTop=inMobileChapter()&&mobileAtTop();
 },{passive:true});
 window.addEventListener('touchend',e=>{
- if(desktopReady||mobileBusy||performance.now()<mobileLockUntil||!inMobileChapter())return;
+ if(desktopReady||mobileBusy||performance.now()<mobileLockUntil)return;
  if(!e.changedTouches.length)return;
  const dy=touchStartY-e.changedTouches[0].clientY;
  const dx=touchStartX-e.changedTouches[0].clientX;
  if(Math.abs(dy)<45||Math.abs(dy)<Math.abs(dx)*1.5)return;
- if(dy>0&&mobileTouchWasAtEnd&&mobileAtEnd()&&mobileIndex<7)switchMobile(mobileIndex+1);
- else if(dy<0&&mobileTouchWasAtTop&&mobileAtTop()&&mobileIndex>0)switchMobile(mobileIndex-1);
+ // The scroll observer handles the ordinary forward path. These gestures
+ // are fallbacks for iOS elastic scrolling (no scroll event at the boundary).
+ if(dy>0&&inMobileChapter()&&mobileAtEnd()&&mobileIndex<7)switchMobile(mobileIndex+1);
+ else if(dy<0&&mobileTouchWasAtTop&&mobileIndex>0)switchMobile(mobileIndex-1);
 },{passive:true});
 // Pause physical scroll only for the requested 800ms after a new chapter.
 // Outside that brief gate Safari's native wheel/touch/keyboard scrolling remains untouched.
