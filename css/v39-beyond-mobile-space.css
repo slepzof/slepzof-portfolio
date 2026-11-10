@@ -1,0 +1,24 @@
+/* SLEPZOF v39: mobile-only handoff runway and Safari viewport containment.
+   Preserve all approved cards, copy, SVGs and desktop behavior. */
+@media (max-width:800px) {
+  /* Seven chapter transitions: original black bottom space +64px. */
+  #beyond-ui.sx33-mobile .sx28-panel[data-sx28-skill]:not([data-sx28-skill="7"]) {
+    padding-bottom:254px!important;
+  }
+  /* Leadership is the exit, not a ninth chapter; no extra runway. */
+  #beyond-ui.sx33-mobile .sx28-panel[data-sx28-skill="7"] {
+    padding-bottom:0!important;
+  }
+  #beyond-ui.sx33-mobile {
+    padding-bottom:0!important;
+  }
+  #process.sx38-process {
+    padding-top:72px!important;
+  }
+  /* Internal carousel rails can still scroll sideways; the full page cannot.
+     clip avoids adding an overflow scrolling ancestor to sticky elements. */
+  html, body {
+    max-width:100%;
+    overflow-x:clip;
+  }
+}
