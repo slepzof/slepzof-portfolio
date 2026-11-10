@@ -1,0 +1,20 @@
+# Generated build
+/dist/
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+*.log
+
+# Local secrets / IDE
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+
+# Local archive exports
+*.zip
+
+# Temporary test files
+*.tmp
