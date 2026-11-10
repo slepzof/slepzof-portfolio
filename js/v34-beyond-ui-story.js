@@ -27,7 +27,7 @@ let navigating=false,navigationToken=0,initialized=false;
 const counted=new WeakSet(),counterTimers=new WeakMap();
 const pendingReveal=new WeakSet();
 const pageTop=()=>window.scrollY+story.getBoundingClientRect().top;
-let mobileIndex=0,mobileBusy=false,mobileLockUntil=0,mobileSwitchToken=0,touchStartY=0,touchStartX=0;
+let mobileIndex=0,mobileBusy=false,mobileLockUntil=0,mobileSwitchToken=0,touchStartY=0,touchStartX=0,mobileLastScrollY=window.scrollY;
 const toggleInstantScroll=on=>document.documentElement.classList.toggle('sx33-controlled-scroll',on);
 const chapterTop=i=>Math.round(pageTop()-headerHeight()-10+i*chapterSpan);
 function spotlight(i){
@@ -206,9 +206,14 @@ function switchMobile(next){
  requestAnimationFrame(tick);
 }
 function readMobile(){
- // Only one skill is in the document flow. Both its radar and copy scroll away.
- // At the end the next wheel/touch gesture returns to the new radar above.
+ // Safari's momentum can complete the scroll after touchend, so monitor actual position.
  section.dataset.sx28Active=String(mobileIndex);
+ const y=window.scrollY, dy=y-mobileLastScrollY;
+ mobileLastScrollY=y;
+ if(mobileBusy||performance.now()<mobileLockUntil||!inMobileChapter())return;
+ if(dy>1.5&&mobileIndex<7&&mobileAtEnd()){
+  switchMobile(mobileIndex+1);
+ }
 }
 function readPosition(){raf=0;if(navigating)return;if(desktopReady)readDesktop();else readMobile();}
 function schedule(){if(!raf)raf=requestAnimationFrame(readPosition);}
@@ -239,7 +244,7 @@ function layout(){
   section.classList.remove('sx30-desktop','sx31-desktop','sx33-desktop');section.classList.add('sx33-mobile');
   story.style.removeProperty('--sx30-story-height');
   panels.forEach((p,j)=>{p.style.removeProperty('opacity');p.style.removeProperty('transform');p.style.removeProperty('visibility');p.style.removeProperty('width');p.dataset.sx30Interactive='true';p.hidden=j!==mobileIndex;p.inert=j!==mobileIndex;p.querySelector('.sx28-carousel')?.style.removeProperty('--sx31-bleed');p.querySelector('.sx28-carousel')?.style.removeProperty('--sx32-controls-width');});
-  section.dataset.sx28Active=String(mobileIndex);markActive(mobileIndex,true);
+  section.dataset.sx28Active=String(mobileIndex);mobileLastScrollY=window.scrollY;markActive(mobileIndex,true);
  }
  if(locked){locked=false;cancelAnimationFrame(lockFrame);toggleInstantScroll(false);}
  schedule();
@@ -284,10 +289,7 @@ window.addEventListener('wheel',e=>{
  if(e.deltaY>6&&mobileAtEnd()&&mobileIndex<7){if(e.cancelable)e.preventDefault();switchMobile(mobileIndex+1);}
  else if(e.deltaY<-6&&mobileAtTop()&&mobileIndex>0){if(e.cancelable)e.preventDefault();switchMobile(mobileIndex-1);}
 },{passive:false,capture:true});
-window.addEventListener('touchmove',e=>{
- if(desktopReady)return;
- if(mobileBusy||performance.now()<mobileLockUntil){if(e.cancelable)e.preventDefault();}
-},{passive:false,capture:true});
+// Native iOS touchmove is intentionally not cancelled.
 window.addEventListener('touchstart',e=>{
  if(desktopReady||!e.touches.length)return;
  touchStartY=e.touches[0].clientY;touchStartX=e.touches[0].clientX;
