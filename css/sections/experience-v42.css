@@ -321,3 +321,123 @@
   #experience.sx42-ready .sx42-review-portrait{height:34%!important}
   #experience.sx42-ready .sx42-role{font-size:12px!important}
 }
+
+
+/* sx48-experience-approved: use existing Featured Projects UI primitives.
+   Overrides only Experience, does NOT alter the approved Selected section. */
+@media(min-width:851px){
+  #experience.sx42-ready .sx-experience-head h2{
+    font-size:clamp(58px,4.25vw,78px)!important;
+    line-height:1.08!important;
+    font-weight:600!important;
+    letter-spacing:-.05em!important;
+    margin:0!important;
+  }
+  #experience.sx42-ready .sx-experience-head{
+    align-items:center!important;
+    margin-bottom:93px!important;
+  }
+}
+#experience.sx42-ready .sx-experience-head>a{
+  font-family:inherit!important;
+  font-size:clamp(17px,1.5vw,27px)!important;
+  font-weight:400!important;
+  line-height:1.25!important;
+  letter-spacing:-.012em!important;
+  color:#007aff!important;
+  text-decoration:none!important;
+  border:0!important;
+  white-space:nowrap;
+}
+#experience.sx42-ready .sx-experience-head>a:hover{
+  color:#0062d6!important;
+  text-decoration:none!important;
+}
+/* Actual uploaded 32px SF-symbol quote; never synthesize text glyphs. */
+#experience.sx42-ready .sx42-review .sx42-quote-icon{
+  display:block!important;
+  position:relative!important;
+  z-index:3!important;
+  width:32px!important;height:32px!important;
+  object-fit:contain!important;
+  margin:0 0 15px!important;
+  opacity:1!important;
+  pointer-events:none!important;
+}
+#experience.sx42-ready .sx42-review{
+  cursor:default!important;
+}
+#experience.sx42-ready .sx42-review:hover{
+  transform:none!important;
+  box-shadow:0 4px 25px rgba(0,0,0,.055)!important;
+}
+#experience.sx42-ready .sx42-review .sx42-review-lead{
+  margin-top:0!important;
+}
+/* Featured originals: sx25b3-card-foot / sx25b3-metric / laurel-l/r /
+   sx25b3-arrow / sx25b3-control are now shared, not recreated. */
+#experience.sx42-ready .sx25b3-card-foot{
+  z-index:5!important;
+}
+#experience.sx42-ready .sx25b3-metric{
+  box-shadow:none!important;border:0!important;
+  background:rgba(77,77,77,.78)!important;
+  color:#fff!important;
+  text-shadow:none!important;
+}
+#experience.sx42-ready .sx25b3-metric .sx25b3-laurel{
+  display:block!important;visibility:visible!important;
+  opacity:.92!important;
+}
+#experience.sx42-ready .sx25b3-arrow{
+  pointer-events:none!important;
+  box-shadow:none!important;
+  border:0!important;
+}
+#experience.sx42-ready .sx42-featured-controls{
+  position:relative!important;
+  z-index:8!important;
+  pointer-events:auto!important;
+}
+#experience.sx42-ready .sx42-featured-controls .sx25b3-control{
+  pointer-events:auto!important;
+  touch-action:manipulation!important;
+}
+#experience.sx42-ready .sx42-card-meta{font-weight:470!important;}
+#experience.sx42-ready .sx42-card-copy{
+  font-size:14px!important;
+  line-height:1.23!important;
+  letter-spacing:.003em!important;
+}
+/* No fabricated 01/09 count: the Featured reference only has two SVG arrows. */
+#experience.sx42-ready .sx42-progress,
+#experience.sx42-ready .sx42-controls,
+#experience.sx42-ready .sx42-prev,
+#experience.sx42-ready .sx42-next{display:none!important;}
+@media(max-width:850px){
+ #experience.sx42-ready .sx-experience-head h2{
+   font-size:40px!important;
+   line-height:1.1!important;
+   font-weight:600!important;
+   margin:0!important;
+ }
+ #experience.sx42-ready .sx-experience-head>a{
+   font-size:18px!important;
+ }
+}
+@media(max-width:560px){
+ #experience.sx42-ready .sx-experience-head h2{
+   font-size:34px!important;
+ }
+ #experience.sx42-ready .sx-experience-head>a{
+   font-size:16px!important;
+ }
+ #experience.sx42-ready .sx42-review .sx42-quote-icon{
+   width:32px!important;height:32px!important;
+   margin-bottom:10px!important;
+ }
+ #experience.sx42-ready .sx42-card-copy{
+   font-size:clamp(11px,3.5vw,13px)!important;
+   line-height:1.24!important;
+ }
+}
