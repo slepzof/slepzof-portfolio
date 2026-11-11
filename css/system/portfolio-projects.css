@@ -1,0 +1,249 @@
+/* SLEPZOF / One Figma Cases-Card.
+   Source: My Works Figma CSS (356 x 512; SF Pro 16/20, 28/32, 16/20).
+   Used by Featured, Beyond UI and Work Experience. Never style copies separately.
+   The scroll-driven Beyond UI fourth skill portal is NOT a project card. */
+:is(#selected,#beyond-ui,#experience) .ds-project-card{
+  --project-foreground:#fff;
+  --project-secondary:rgba(255,255,255,.8);
+  --project-poster:#151515;
+  font-family:var(--ds-font-family);
+  color:var(--project-foreground);
+  background:var(--project-poster);
+  box-sizing:border-box;
+  display:block;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  border:0;
+  border-radius:var(--ds-project-radius);
+  aspect-ratio:356 / 512;
+  padding:0;
+  text-decoration:none;
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card--light{
+  --project-foreground:#111;
+  --project-secondary:rgba(17,17,17,.8);
+  --project-poster:#f5f5f7;
+}
+:is(#selected,#experience) .ds-project-card {
+  flex:0 0 var(--ds-project-width);
+  width:var(--ds-project-width);
+  min-width:var(--ds-project-width);
+  max-width:var(--ds-project-width);
+  height:auto;
+  min-height:0;
+  scroll-snap-align:start;
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-art{
+  display:block;position:absolute;inset:0;
+  z-index:0;width:100%;height:100%;
+  border-radius:inherit;
+  background:var(--project-poster);
+  object-fit:fill;
+  user-select:none;pointer-events:none;
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-card-copy{
+  display:block;position:absolute;z-index:1;
+  top:var(--ds-project-inset);
+  left:var(--ds-project-inset);
+  right:var(--ds-project-inset);
+  width:auto;height:auto;max-width:none;
+  pointer-events:none;
+  color:var(--project-foreground);
+  text-shadow:none;
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-meta{
+  display:flex;flex-flow:row nowrap;align-items:center;
+  gap:8px;max-width:100%;min-width:0;
+  color:var(--project-foreground);
+  font-size:var(--ds-project-metadata-size);
+  font-weight:510;line-height:var(--ds-project-metadata-line);
+  letter-spacing:0;text-transform:uppercase;
+  white-space:nowrap;
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-meta span{
+  min-width:0;flex:0 1 auto;
+  overflow:hidden;text-overflow:ellipsis;
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-meta span:last-child{
+  opacity:.8;flex:0 0 auto;font-weight:400;
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-meta i{
+  width:1px;height:12px;min-width:1px;
+  display:block;flex:none;background:currentColor;opacity:.35;
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card :is(h3,h4){
+  color:var(--project-foreground);
+  font-family:var(--ds-font-family);
+  font-weight:510;font-size:var(--ds-project-title-size);
+  line-height:var(--ds-project-title-line);
+  letter-spacing:0;text-wrap:initial;overflow-wrap:normal;
+  margin:12px 0 8px;
+  padding:0;max-width:none;
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-card-copy > p{
+  font-family:var(--ds-font-family);
+  font-size:var(--ds-project-description-size);
+  font-weight:400;line-height:var(--ds-project-description-line);
+  letter-spacing:0;
+  color:var(--project-secondary);
+  opacity:1;
+  margin:0;padding:0;max-width:none;
+  display:block;overflow:visible;
+  -webkit-line-clamp:unset;
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-card-foot{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  position:absolute;z-index:5;
+  inset:auto 12px 12px;
+  gap:12px;pointer-events:none;
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-metric{
+  display:inline-flex;align-items:center;flex:0 1 auto;
+  min-width:0;max-width:calc(100% - 52px);
+  height:auto;min-height:40px;
+  padding:8px 16px 8px 4px;
+  border-radius:32px;
+  gap:2px;
+  background:rgba(0,0,0,.4);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  color:#fff;border:0;box-shadow:none;text-shadow:none;
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-metric strong{
+  font-family:var(--ds-font-family);font-weight:590;
+  font-size:var(--ds-project-metric-size);
+  line-height:var(--ds-project-metric-line);
+  letter-spacing:0;font-variant-numeric:tabular-nums;
+  color:#fff;white-space:nowrap;flex:none;
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-laurel{
+  flex:0 0 12px;width:12px;height:29px;
+  display:block;object-fit:contain;opacity:.55;
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-metric span{
+  display:block;min-width:0;max-width:160px;
+  font-family:var(--ds-font-family);
+  font-weight:590;
+  font-size:var(--ds-project-metric-caption-size);
+  line-height:var(--ds-project-metric-caption-line);
+  letter-spacing:0;
+  color:#fff;margin-left:4px;white-space:normal;
+  overflow-wrap:normal;word-break:normal;
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-arrow{
+  display:grid;place-items:center;
+  flex:0 0 40px;width:40px;height:40px;
+  border:0;border-radius:32px;
+  background:rgba(0,0,0,.4);
+  box-shadow:none;outline:0;
+  pointer-events:none;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-arrow img{
+  display:block;width:21px;height:21px;object-fit:contain;
+}
+:is(#selected,#beyond-ui,#experience) .ds-project-card:focus-visible{
+  outline:3px solid var(--ds-color-primary);
+  outline-offset:3px;
+}
+@media(hover:hover) and (pointer:fine){
+ :is(#selected,#experience) .ds-project-card:hover {
+   transform:scale(1.015);
+   z-index:2;
+   box-shadow:0 12px 32px rgba(0,0,0,.12);
+ }
+}
+
+/* Work testimonials are intentionally separate from clickable project cards. */
+#experience.sx42-ready .ds-review-card{
+  position:relative;display:block;
+  flex:0 0 var(--ds-project-width);
+  width:var(--ds-project-width);
+  min-width:var(--ds-project-width);
+  max-width:var(--ds-project-width);
+  aspect-ratio:356 / 512;
+  border:1px solid #ececef;
+  border-radius:var(--ds-project-radius);
+  padding:32px 32px 0;
+  overflow:hidden;isolation:isolate;
+  scroll-snap-align:start;
+  background:#fff;color:#111;
+  box-shadow:0 4px 25px rgba(0,0,0,.055);
+  font-family:var(--ds-font-family);
+  transform:none;
+}
+#experience.sx42-ready .ds-review-card__quote{
+  display:block;position:relative;z-index:2;
+  width:32px;height:32px;object-fit:contain;
+  margin:0 0 12px;
+}
+#experience.sx42-ready .ds-review-card__lead{
+  position:relative;z-index:2;
+  margin:0 0 8px;color:#111;
+  font:510 20px/24px var(--ds-font-family);
+}
+#experience.sx42-ready .ds-review-card__body{
+  position:relative;z-index:2;
+  margin:0;color:#262626;
+  font:400 16px/20px var(--ds-font-family);
+}
+#experience.sx42-ready .ds-review-card__portrait{
+  display:block;position:absolute;z-index:1;
+  inset:auto 0 0 0;
+  width:100%;height:175px;
+  object-fit:contain;object-position:left bottom;
+  pointer-events:none;
+}
+#experience.sx42-ready .ds-review-card__author{
+  position:absolute;width:1px;height:1px;
+  padding:0;margin:-1px;overflow:hidden;
+  clip-path:inset(50%);white-space:nowrap;
+}
+#experience.sx42-ready .ds-review-card:hover{transform:none}
+
+/* Project-card sizes only: preserve approved Beyond UI sticky/portal mechanics. */
+@media(max-width:850px){
+ :is(#selected,#experience) .ds-project-card,
+ #experience.sx42-ready .ds-review-card{
+   flex-basis:315px;width:315px;min-width:315px;max-width:315px;
+ }
+}
+@media(max-width:767px){
+ :is(#selected,#experience) .ds-project-card,
+ #experience.sx42-ready .ds-review-card{
+   flex-basis:var(--ds-project-width);
+   width:var(--ds-project-width);
+   min-width:var(--ds-project-width);
+   max-width:var(--ds-project-width);
+ }
+ :is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-meta{gap:5px}
+ :is(#selected,#beyond-ui,#experience) .ds-project-card :is(h3,h4){margin:10px 0 6px}
+ :is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-card-foot{
+   inset:auto 8px 8px;gap:6px;
+ }
+ :is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-metric{
+   max-width:calc(100% - 44px);min-height:36px;
+   padding:4px 8px 4px 3px;gap:1px;
+ }
+ :is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-laurel{
+   flex-basis:11px;width:11px;height:25px;
+ }
+ :is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-arrow{
+   flex-basis:36px;width:36px;height:36px;
+ }
+ :is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-arrow img{
+   width:19px;height:19px;
+ }
+ #experience.sx42-ready .ds-review-card{padding:22px 20px 0}
+ #experience.sx42-ready .ds-review-card__lead{
+   font-size:clamp(15px,4.3vw,18px);line-height:1.25;
+ }
+ #experience.sx42-ready .ds-review-card__body{
+   font-size:clamp(12px,3.5vw,14px);line-height:1.3;
+ }
+ #experience.sx42-ready .ds-review-card__portrait{height:34%}
+}
+@media(prefers-reduced-motion:reduce){
+ :is(#selected,#experience) .ds-project-card{transition:none}
+ :is(#selected,#experience) .ds-project-card:hover{transform:none}
+}
