@@ -37,7 +37,13 @@
     card.setAttribute("aria-label","Открыть кейс "+(data.name||data.title||data.slug));
     setTone(card,toneFor(data.slug,data.tone));
     const art=el("img","sx25b3-art ds-project-card__art");
-    art.src=data.cover;art.alt="";art.loading="lazy";art.decoding="async";
+    const responsive=root.SlepzofWorkMedia?.[data.slug];
+    art.src=responsive?.src||data.cover;
+    if(responsive?.srcset){
+      art.srcset=responsive.srcset;
+      art.sizes="(max-width:560px) 65vw, (max-width:850px) 315px, 356px";
+    }
+    art.alt="";art.loading="lazy";art.decoding="async";
     art.width=1424;art.height=2048;
     card.append(art);
     const copy=el("div","sx25b3-card-copy ds-project-card__content");
