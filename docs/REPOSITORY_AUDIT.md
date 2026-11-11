@@ -29,3 +29,11 @@
 Каждая сборка GitHub Pages дополнительно запускает `scripts/audit_dependencies.py` и публикует актуальную таблицу используемых CSS/JS и кандидатов на удаление в **Actions → последний workflow → Summary**. Это только отчёт: скрипт не удаляет файлы и не является разрешением удалять найденные кандидаты без визуальной проверки.
 
 Локально: `python3 scripts/audit_dependencies.py --markdown docs/DEPENDENCY_REPORT.md`. Сгенерированный отчёт можно открыть как Markdown и проанализировать, прежде чем убирать старые файлы.
+
+## Дополнительная безопасная очистка (2026-11-11)
+
+Аудит **158 публичных HTML-страниц** и действующих CSS, JS, JSON, Python выявил 17 версионных файлов без HTML-подключений, CSS imports и текстовых ссылок в коде. Все 17 удалены из текущей ветки `dev` после двойной проверки. Содержимое можно восстановить через Git history.
+
+Удалены: `css/v12.css`, `css/v16.css`, `css/v25-block3-slider-v2.css`, `css/v25-block3-slider-v3.css`, `css/v25-block3-slider-v4.css`, `css/v25-block3.css`, `js/v12.js`, `js/v15-pre.js`, `js/v16.js`, `js/v25-block3-slider-v2.js`, `js/v25-block3.js`, `js/v28-beyond-ui.js`, `js/v29-beyond-ui-refined.js`, `js/v30-beyond-ui-story.js`, `js/v31-beyond-ui-story.js`, `js/v32-beyond-ui-story.js`, `js/v33-beyond-ui-story.js`.
+
+Запрещено удалять остальные legacy CSS/JS только потому, что они названы `v*.css`: аудит показывает десятки используемых файлов (в частности, базу кейсов). Проверка GitHub Actions после удаления должна сохранять **0 отсутствующих CSS/JS ссылок**.
