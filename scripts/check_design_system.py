@@ -145,8 +145,22 @@ loader_css = (ROOT / "css/sections/home-entrance.css").read_text("utf-8")
 loader_js = (ROOT / "js/sections/home-entrance.js").read_text("utf-8")
 expect("animation:sx-home-fill 1.05s" in loader_css,
        "Universal S fill should remain clearly visible on mobile and desktop")
-expect("1400-(performance.now()-started)" in loader_js,
-       "Loader must have an intentional, bounded display time")
+expect("MIN_DWELL=1200,MAX_WAIT=2800" in loader_js and
+       "fallback.decode()" in loader_js and
+       "sx:hero-revealed" in loader_js,
+       "Loader must wait for decoded hero poster, then release with a hard timeout")
+hero_lottie = (ROOT / "js/v20.js").read_text("utf-8")
+expect("requestIdleCallback" in hero_lottie and
+       "sx:hero-revealed" in hero_lottie and
+       "goToAndStop(0,true)" in hero_lottie,
+       "Heavy Lottie must load after first paint and fade in only after first SVG frame")
+expect("background-color:#141414!important" in loader_css,
+       "Project cover text must be legible while images are loading")
+expect('fetchpriority="high" loading="eager"' in html and
+       'rel="preload" as="image" href="/assets/animations/hero-fallback.webp"' in html,
+       "Hero fallback must be high priority instead of blocking on 9MB Lottie")
+expect("optimize_media(OUT, BASE)" in (ROOT / "scripts/build_static.py").read_text("utf-8"),
+       "GitHub Pages build must create responsive media without altering originals")
 expect("slide=clamp((t-.16)/.56" in markets_js,
        "Desktop markets must scroll only after both rows enter the viewport")
 expect("padding-left:var(--sx41-content-pad)" in markets_css,
