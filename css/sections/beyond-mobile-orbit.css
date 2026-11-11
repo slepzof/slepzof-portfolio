@@ -66,6 +66,10 @@
     width:100%!important;height:100%!important;
     background:none!important;align-items:center!important;
     justify-content:center!important;overflow:visible!important;
+    /* Fit all eight labels inside the initial panoramic state, without
+       reducing the drama of the zoomed detail state. */
+    transform:scale(calc(.93 + .07 * var(--sx40-zoom,0)));
+    transform-origin:center center;
   }
   #beyond-ui.sx40-mobile-continuous .sx40-scene .sx28-radar{
     display:block;position:relative!important;

@@ -59,6 +59,10 @@ orbit = (ROOT / "js/sections/beyond-mobile-orbit.js").read_text("utf-8")
 controller = (ROOT / "js/v34-beyond-ui-story.js").read_text("utf-8")
 expect("scene.append(first,meta)" in orbit, "Mobile must reuse the original radar, not clone it")
 expect("orbit+=reduced.matches" in orbit, "Orbit must follow native scroll")
+expect("window.scrollTo(" not in orbit, "Orbit must never forcibly scroll the page")
+expect("touchmove" not in orbit, "Orbit must not intercept native touch scrolling")
+expect("height:min(96vw,420px)" in (ROOT / "css/sections/beyond-mobile-orbit.css").read_text("utf-8"),
+       "Mobile orbit sticky radar frame missing")
 expect("continuousMobile()" in controller, "Legacy forced chapter transitions must be disabled in orbit mode")
 expect("sx41-mobile-scroll" in html and "sx41-mobile-viewport" in html,
        "Missing mobile markets scroll shell")
