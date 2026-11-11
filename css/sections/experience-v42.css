@@ -198,3 +198,126 @@
     overscroll-behavior-inline:contain;
   }
 }
+
+
+/* v44 — match My Works Figma, not a fabricated facts catalogue.
+   Every achievement lives in the bottom-left pill of its related cover. */
+#experience.sx42-ready .sx42-card-foot {
+  position:absolute!important;inset:auto 8px 8px 8px!important;
+  display:flex!important;align-items:flex-end!important;
+  justify-content:space-between!important;gap:7px!important;
+  pointer-events:none!important;z-index:6!important;
+}
+#experience.sx42-ready .sx42-card:not(.sx42-review) .sx42-card-arrow {
+  position:absolute!important;right:0!important;bottom:0!important;
+  width:37px;height:37px;display:grid;place-items:center!important;
+  background:rgba(52,52,52,.68)!important;color:#fff!important;
+  border-radius:50%!important;
+}
+#experience.sx42-ready .sx42-card .sx42-card-metric {
+  max-width:calc(100% - 50px)!important;
+  display:flex;align-items:center;gap:7px;
+  padding:6px 12px!important;min-height:38px;
+  border-radius:99px!important;
+  background:rgba(58,58,58,.65)!important;color:#fff!important;
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);
+  text-shadow:none!important;
+}
+#experience.sx42-ready .sx42-card-metric strong{
+  font-size:23px!important;line-height:1!important;letter-spacing:-.05em;
+}
+#experience.sx42-ready .sx42-card-metric span{
+  font-size:10px!important;line-height:1.12!important;max-width:160px;
+}
+#experience.sx42-ready .sx42-fact{display:none!important}
+#experience.sx42-ready .sx42-card-content{z-index:2}
+#experience.sx42-ready .sx42-card-meta{
+  display:flex!important;align-items:flex-start;gap:8px;
+  font-size:12px;line-height:1.2;
+}
+#experience.sx42-ready .sx42-card-meta span:first-child{
+  min-width:0;flex:1 1 auto;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+#experience.sx42-ready .sx42-card-meta span:last-child{flex:0 0 auto}
+#experience.sx42-ready .sx42-card-art{
+  width:100%!important;height:100%!important;object-fit:cover!important;
+}
+#experience.sx42-ready .sx42-role{
+  margin:13px 0 0!important;
+  font-size:14px!important;color:#777!important;
+  font-weight:450!important;
+}
+#experience.sx42-ready .sx42-description strong{
+  color:#181818!important;font-weight:650!important;
+}
+#experience.sx42-ready .sx42-review{
+  position:relative!important;display:block!important;
+  background:#fff!important;color:#151515!important;
+  border:1px solid #ececef!important;
+  box-shadow:0 4px 25px rgba(0,0,0,.055)!important;
+  padding:30px 26px 0!important;isolation:isolate;
+}
+#experience.sx42-ready .sx42-review>.sx42-quote-mark{
+  display:block!important;color:#7d7d7d!important;
+  font-size:59px!important;line-height:.7!important;
+  height:28px;margin:2px 0 13px!important;
+}
+#experience.sx42-ready .sx42-review-lead{
+  margin:0 0 8px!important;color:#171717!important;
+  font-size:17px!important;line-height:1.24!important;
+  font-weight:650!important;letter-spacing:-.02em;
+  display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;
+  overflow:hidden;position:relative;z-index:2;
+}
+#experience.sx42-ready .sx42-review-body{
+  margin:0!important;color:#262626!important;
+  font-size:13.5px!important;line-height:1.34!important;
+  font-weight:400!important;letter-spacing:-.003em;
+  display:-webkit-box;-webkit-line-clamp:9;-webkit-box-orient:vertical;
+  overflow:hidden;position:relative;z-index:2;
+}
+#experience.sx42-ready .sx42-review-portrait{
+  display:block!important;position:absolute!important;
+  inset:auto 0 0 0!important;z-index:1!important;
+  margin:0!important;padding:0!important;
+  width:100%!important;height:36%!important;
+  max-width:none!important;object-fit:contain!important;
+  object-position:bottom left!important;pointer-events:none;
+}
+#experience.sx42-ready .sx42-review-author{
+  position:absolute!important;width:1px!important;height:1px!important;
+  padding:0!important;margin:-1px!important;overflow:hidden!important;
+  clip-path:inset(50%)!important;white-space:nowrap!important;
+}
+#experience.sx42-ready .sx42-review>.sx42-card-arrow{
+  position:absolute!important;bottom:8px!important;right:8px!important;
+  width:37px;height:37px;z-index:7!important;
+}
+@media(max-width:560px){
+  #experience.sx42-ready .sx42-card-meta{font-size:10px!important}
+  #experience.sx42-ready .sx42-card:not(.sx42-review) .sx42-card-arrow,
+  #experience.sx42-ready .sx42-review>.sx42-card-arrow {
+    width:33px;height:33px;font-size:20px;
+  }
+  #experience.sx42-ready .sx42-card .sx42-card-metric{
+    min-height:34px;padding:5px 8px!important;
+    max-width:calc(100% - 42px)!important;
+  }
+  #experience.sx42-ready .sx42-card-metric strong{font-size:19px!important}
+  #experience.sx42-ready .sx42-card-metric span{font-size:9px!important}
+  #experience.sx42-ready .sx42-review{padding:24px 18px 0!important}
+  #experience.sx42-ready .sx42-review>.sx42-quote-mark{
+    font-size:52px!important;height:26px;margin-bottom:8px!important;
+  }
+  #experience.sx42-ready .sx42-review-lead{
+    font-size:clamp(14px,4.3vw,17px)!important;line-height:1.24!important;
+    -webkit-line-clamp:5;
+  }
+  #experience.sx42-ready .sx42-review-body{
+    font-size:clamp(11px,3.15vw,13px)!important;line-height:1.3!important;
+    -webkit-line-clamp:8;
+  }
+  #experience.sx42-ready .sx42-review-portrait{height:34%!important}
+  #experience.sx42-ready .sx42-role{font-size:12px!important}
+}
