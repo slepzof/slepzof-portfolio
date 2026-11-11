@@ -90,8 +90,10 @@ expect("--sx43-radar-shift" in morph_css, "Safari-safe radar transform must rema
 expect("gap:24px!important" in morph_css, "Mobile case cards need a 24px normal-flow gap")
 expect("-webkit-mask-image:none!important" in morph_css,
        "Legacy horizontal slider gradient must be disabled in mobile deck")
-expect("font-size:clamp(21px,6.2vw,24px)!important" in morph_css,
-       "Mobile cases must use Featured Projects typographic scale")
+expect("--ds-project-title-size: clamp(19px,5vw,24px)" in tokens and
+       ":is(#selected,#beyond-ui,#experience) .ds-project-card" in
+       (ROOT / "css/system/portfolio-projects.css").read_text("utf-8"),
+       "Mobile cases must use the same Figma ProjectCard typography")
 expect("const heroHeight=270;" in morph and
        "const stickyTop=stackedTop+(nav+10-stackedTop)*expand;" in morph,
        "Approved card keeps headline at 270px and expands vertically toward header")
@@ -103,9 +105,10 @@ expect("rotate('+(45*(portal.i+turn))" in morph and
 expect("details.append(stats,tools)" in morph and "content.append(head,stats,tools)" in morph and
        "portal.marker.remove()" in morph and "portal.runway.remove()" in morph,
        "Approved content must remain intact and temporary mobile nodes restore on desktop")
-expect("font-size:clamp(11px,3.35vw,13px)!important" in morph_css and
-       "font-size:clamp(13px,3.6vw,14px)!important" in morph_css,
-       "Case metadata and description must reach the approved desktop type scale")
+expect("--ds-project-metadata-size: 16px" in tokens and
+       "--ds-project-description-size: 16px" in tokens and
+       "--ds-project-description-line: 20px" in tokens,
+       "Shared Figma card metadata and description scale must be defined once")
 expect("height:var(--sx44-hero-height,505px)" in morph_css,
        "Next-skill card hero height must animate, not leave a blank fixed area")
 expect("position:sticky!important" in morph_css and "--sx43-stack-peek" in morph_css
