@@ -52,15 +52,7 @@
  const fallbackUsed=new Set();
  // Short excerpts from the supplied My Works source. Portraits are inserted
  // only after the actual files are pushed to the universal GitHub inbox.
- const reviews={
-  "auto-2026":{author:"Отзыв заказчика",text:"Мне понравился твой подход. Ты относишься к проекту как к собственному. Спасибо тебе за работу и мой первый отпуск за шесть лет."},
-  "summer-2026":{author:"Отзыв заказчика · Времена года",text:"Времена года — моё чадо, которое начало работать благодаря тебе. После тебя одного смогли заменить только три дизайнера."},
-  "hash":{author:"David T. · CPO Hash Hedge",portrait:"david-t-hash-hedge",text:"Богдан, спасибо тебе за всё. Забавно, конечно: начинали с утки, а в итоге столько всего сделали в Hash Hedge. С тобой реально было приятно работать."},
-  "private-2025":{author:"Vlad B. · Заказчик",portrait:"vlad-b",text:"Приятный человек и классный дизайнер. Поработав вместе с тобой над проектом, я понял, почему тебя рекомендовали к нам."},
-  "nutaku":{author:"Отзыв заказчика",text:"Solid guy, honest as hell and knows his stuff even on complex projects."},
-  "duck":{author:"David T. · CPO DuckMaster",portrait:"david-t-duckmaster",text:"Рады были поработать с тобой на проекте. Не ожидали, что за сутки ты пересоберёшь проект или его визуальное исполнение."},
-  "media":{author:"Elena S. · CEO RESTAR & Mom Slepzof :)",portrait:"elena-s",text:"Богдан с детства такой: если ему что-то действительно интересно, он может сутками сидеть и разбираться, пока не получится."}
- };
+ const reviews={"auto-2026":[{"id":"felix-g","name":"Felix G.","role":"NDA CEO","lead":"...мне понравился твой подход. Ты относишься к проекту, как к собственному.","body":"Спасибо тебе за работу и мой первый отпуск за 6 лет. Я не верил, что ты сможешь превысить KPI в 4 раза и взять ответственность за свои слова. Жалко с тобой прощаться, но надеюсь скрипты для менеджеров будут работать и без твоего надзора за ребятами.","before":"izi-crm","href":"/cases/automotive/"}],"summer-2026":[{"id":"alexey-rsk","name":"Alexey D.","role":"CEO RSK, ВРЕМЕНА ГОДА","lead":"...Времена года это мое чадо, которое начало работать, благодаря тебе!!","body":"Богдан хороший спец, после него пробовали другие ребята в найме, по итогу его одного смогли заменить только три дизайнера. Полиграфия, баннеры, сайты, реклама, CRM, всё настроил и сделал.","before":"vremena-goda","href":"/cases/vremena-goda/"},{"id":"victor-s","name":"Victor S.","role":"CEO EXOCURE","lead":"Хорошо выносит мозг и отрезвляет, когда глаз становится замыленным.","body":"С этим человеком быстрые звонки могут быть, только если вы не заинтересованы в своём продукте. 5 часов и 31 минуту мы обсуждали тупо один слайд презентации. Круто было поработать с дизайнером, а не очередным сотрудником.","after":"exocure","href":"/cases/exocure/"}],"hash":[{"id":"david-t-hash-hedge","name":"David T.","role":"CPO Hash Hedge","lead":"Богдан, спасибо тебе за всё. Забавно конечно начинали с утки, а в итоге столько всего сделали в Hash Hedge.","body":"С тобой реально было приятно работать, можно спокойно доверить задачу и не переживать за итог. Правда со сроками ты меня иногда подставлял ахах) За неделю делал месячный бэклог, а мне потом на тебя другие отделы жаловались.","after":"wsct","href":"/cases/hash-hedge/"}],"private-2025":[{"id":"vlad-b","name":"Vlad B.","role":"Founder","lead":"Приятный человек и классный дизайнер.","body":"Поработав вместе с тобой на проекте, понял, почему тебя рекомендовали к нам. Работу сделали супер быстро и отставание дизайна на полтора месяца догнали за неделю.","after":"vlad-bykov","href":"/cases/vlad-bykov/"}],"nutaku":[{"id":"alex","name":"Alex","role":"CPO Filth Fruits","lead":"Solid guy, honest as hell and knows his stuff even on complex projects.","body":"Bogdan was billing us hourly and let's be real, people love padding their hours lol. Not this guy tho. He'd actually cut his own time saying the job was too easy. Never had to question a single invoice. Mad respect for that.","after":"my-ai-slut","href":"/projects/"}],"duck":[{"id":"david-t-duckmaster","name":"David T.","role":"CPO DuckMaster","lead":"Рады были поработать с тобой на проекте. Не ожидал, что за сутки ты пересоберёшь проект или его визуальное исполнение.","body":"Когда смотрели твоё портфолио, были не уверены, что ты приживёшься у нас. В итоге за месяц мы изменили с тобой проект до какого-то неузнаваемого уровня. Надеюсь ещё поработать с тобой в будущем!","before":"duckmaster","href":"/cases/duckmaster/"}],"bonape":[{"id":"denis-k","name":"Denis K.","role":"Клиент BONAPE","lead":"Команда Bonape удивила меня своей любовью к делу.","body":"","after":"bonape-training","href":"/cases/bonape-training/"},{"id":"alexander-b","name":"Alexander B.","role":"Founder Apple Bar","lead":"Бизнес рос, но медленно.","body":"За три недели сделали сайт-каталог в нужном стиле, а после запустили рекламу. Более 500 заказов за месяц работы. Спасибо вам!","after":"apple-bar","href":"/cases/apple-bar/"},{"id":"sardal-r","name":"Sardal R.","role":"Director Slab Service","lead":"Спасибо за совместную работу над проектом.","body":"","after":"slab-service","href":"/cases/slab-service/"}],"onlinesklad":[{"id":"almira-m","name":"Almira M.","role":"CPO Onlinesklad","lead":"...думала, что он слишком усложняет, но потом поняла, что именно благодаря этому мы половину интерфейса не переделывали.","body":"Богдану нельзя сказать, что нам нужен каталог товаров, он сразу начнёт спрашивать: а что если у товара пять поставщиков, разные цены, остатки? А если возврат? И так до бесконечности)","after":"onlinesklad","href":"/cases/onlinesklad/"},{"id":"sergey-j","name":"Sergey J.","role":"Founder Onlinesklad","lead":"Богдан показал себя как грамотный и ответственный специалист.","body":"Хорошо разобрался в специфике нашего продукта, самостоятельно находил проблемы и предлагал решения. Работа выполнена качественно, в согласованные сроки. Результатом доволен.","after":"almira-m","href":"/cases/onlinesklad/"}],"sober":[{"id":"evgenii-y","name":"Evgenii Y.","role":"Founder Sober Driver","lead":"Добротную работу делает, помог найти нам подрядчиков на разные задачи.","body":"Пришёл с командой, остался один на проекте и вытащил его из идеи до готового продукта. Справился с 176-страничным документом правок от новых подрядчиков, спасибо за работу, ещё позовём.","after":"sober-driver","href":"/cases/sober-driver/"}],"media":[{"id":"elena-s","name":"Elena S.","role":"CEO RESTAR & Mom Slepzof :)","lead":"Ответственный парень, который любит свою работу.","body":"Богдан с детства такой, если ему что-то действительно интересно, он может сутками сидеть, разбираться, пока не получится. Ответственный и исполнительный. Но иногда бывает ужасно ленивым, особенно если не видит смысла в том, что делает. Зато когда появляется цель, его уже не остановить.","after":"restar","href":"/cases/restar/"}]};
  for(let pi=0;pi<total;pi++){
    const d=periods[pi],stage=el("section","sx42-period"),heading=el("div","sx42-period-heading");
    stage.id=d.id;stage.dataset.period=d.id;
@@ -130,33 +122,27 @@
      // Each card always has a distinct case arrow, including NDA artworks.
      rail.append(card);
    }
-   // A text review shares the approved tall card size; real author portrait
-   // is never guessed, fabricated or sourced from another person.
-   if(reviews[d.id]&&rail.children.length){
-     const review=reviews[d.id];
-     const destination={
-       "auto-2026":"automotive","summer-2026":"vremena-goda",
-       "hash":"hash-hedge","private-2025":"vlad-bykov",
-       "nutaku":"my-ai-slut","duck":"duckmaster","media":"restar"
-     }[d.id];
-     const source=originalCards.get(destination);
-     const extraSource=extraProjects[destination];
-     if(source||extraSource){
-       const card=el("a","sx42-card sx42-review");
-       card.href=source?source.getAttribute("href"):extraSource[3];
-       if(review.portrait){
-         const portrait=el("img","sx42-review-portrait");
-         portrait.src="/assets/reviews/"+review.portrait+".png";
-         portrait.alt="";portrait.loading="lazy";portrait.decoding="async";
-         card.append(portrait);
-       }
-       card.append(el("span","sx42-quote-mark","“"),el("p","sx42-review-text",review.text));
-       card.append(el("div","sx42-review-author",review.author));
-       const arrow=el("span","sx42-card-arrow","↗");
-       arrow.setAttribute("aria-hidden","true");
-       card.append(arrow);
-       rail.insertBefore(card,rail.children[Math.min(1,rail.children.length)]||null);
-     }
+   // Reviews are positioned exactly between the matching source projects,
+   // instead of being inserted mechanically as the second slide.
+   for(const review of reviews[d.id]||[]){
+     const card=el("a","sx42-card sx42-review");
+     card.href=review.href||"/projects/";
+     card.dataset.reviewId=review.id;
+     card.setAttribute("aria-label","Отзыв "+review.name+", "+review.role);
+     card.append(el("span","sx42-quote-mark","“"));
+     card.append(el("p","sx42-review-lead",review.lead));
+     if(review.body)card.append(el("p","sx42-review-body",review.body));
+     const portrait=el("img","sx42-review-portrait");
+     portrait.src="/assets/reviews/"+review.id+".png";
+     portrait.alt=review.name;portrait.loading="lazy";portrait.decoding="async";
+     card.append(portrait);
+     card.append(el("div","sx42-review-author",review.name+" · "+review.role));
+     const arrow=el("span","sx42-card-arrow","↗");
+     arrow.setAttribute("aria-hidden","true");
+     card.append(arrow);
+     const before=review.before?rail.querySelector('[data-slug="'+review.before+'"],[data-review-id="'+review.before+'"]'):null;
+     const after=review.after?rail.querySelector('[data-slug="'+review.after+'"],[data-review-id="'+review.after+'"]'):null;
+     rail.insertBefore(card,before||after?.nextSibling||null);
    }
    if(rail.children.length){
      railWrap.append(rail);
