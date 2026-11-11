@@ -16,6 +16,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 import re
 import sys
+import posixpath
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -50,8 +51,8 @@ def page_files():
 
 def source_ref(page, value):
     if value.startswith("/"):
-        return value.lstrip("/")
-    return (page.parent / value).relative_to(ROOT).as_posix()
+        return posixpath.normpath(value.lstrip("/"))
+    return posixpath.normpath((page.parent / value).relative_to(ROOT).as_posix())
 
 def inspect():
     refs = defaultdict(set)
@@ -74,8 +75,10 @@ def inspect():
         for item in IMPORT_RE.findall(contents):
             if item.startswith(("http:", "https:")):
                 continue
-            dep = (item.lstrip("/") if item.startswith("/")
-                   else (css.parent / item).relative_to(ROOT).as_posix())
+            dep = posixpath.normpath(
+                item.lstrip("/") if item.startswith("/")
+                else (css.parent / item).relative_to(ROOT).as_posix()
+            )
             refs[dep].add(css.relative_to(ROOT).as_posix())
             if not (ROOT / dep).is_file():
                 missing[dep].add(css.relative_to(ROOT).as_posix())
