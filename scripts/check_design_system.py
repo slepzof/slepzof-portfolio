@@ -74,6 +74,13 @@ expect("function attachStack(panel)" in morph and "sx43-scroll-stack" in morph,
        "Mobile cards must form a vertical scroll-driven stack")
 expect("touchstart" not in morph and "touchend" not in morph,
        "Mobile case cards must not intercept touch events")
+expect("const measurements=portals.map" in morph and
+       "for(const {portal,y,railWidth} of measurements)" in morph,
+       "Read geometry before updating portal styles to prevent Safari layout thrashing")
+expect("originalRailAttrs" in morph and
+       "rail.removeAttribute('tabindex')" in morph and
+       "if(c.classList.contains('sx43-scroll-stack'))return;" in controller,
+       "Vertical stack must not keep horizontal keyboard navigation")
 morph_css = (ROOT / "css/sections/beyond-mobile-morph.css").read_text("utf-8")
 expect("--sx43-radar-shift" in morph_css, "Safari-safe radar transform must remain explicit")
 expect("gap:24px!important" in morph_css, "Mobile case cards need a 24px normal-flow gap")

@@ -271,7 +271,12 @@ section.querySelectorAll('.sx28-carousel').forEach(c=>{
   if(nextIndex===cards.length-1)next.disabled=true;
  };
  prev.addEventListener('click',()=>move(-1));next.addEventListener('click',()=>move(1));
- rail.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();move(e.key==='ArrowRight'?1:-1);}});
+ rail.addEventListener('keydown',e=>{
+  if(c.classList.contains('sx43-scroll-stack'))return;
+  if(e.key==='ArrowLeft'||e.key==='ArrowRight'){
+   e.preventDefault();move(e.key==='ArrowRight'?1:-1);
+  }
+ });
  rail.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update,{passive:true});
  // Mobile has one visible skill at a time. Recalculate the controls when a
  // previously hidden chapter becomes visible (its scrollWidth was zero).

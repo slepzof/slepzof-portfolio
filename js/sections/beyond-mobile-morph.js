@@ -24,6 +24,7 @@ const points=(r,vals)=>Array.from({length:8},(_,i)=>{
 }).join(' ');
 const nodes=()=>[...source.querySelectorAll('.sx28-node[data-sx28-jump]')];
 let morph=null,stage=null,portals=[],stacks=[],raf=0;
+const originalRailAttrs=new WeakMap();
 let active=-1;
 /* The fourth card is the ACTUAL next chapter introduction, not a clone.
    The original heading/body live inside it until switching back to desktop. */
@@ -128,6 +129,12 @@ function attachStack(panel){
  const cards=[...carousel?.querySelectorAll('a.sx28-card')||[]];
  if(!carousel||!rail||cards.length!==3)return null;
  carousel.classList.add('sx43-scroll-stack');
+ originalRailAttrs.set(carousel,{
+  label:rail.getAttribute('aria-label'),
+  tabindex:rail.getAttribute('tabindex')
+ });
+ rail.setAttribute('aria-label','Кейсы навыка. Прокручивайте страницу вниз');
+ rail.removeAttribute('tabindex');
  rail.scrollLeft=0;
  for(const card of cards){
   card.classList.remove('sx43-active','sx43-off');
@@ -137,13 +144,30 @@ function attachStack(panel){
  }
  return carousel;
 }
-function detachStack(carousel){carousel.classList.remove('sx43-scroll-stack');}
+function detachStack(carousel){
+ carousel.classList.remove('sx43-scroll-stack');
+ const rail=carousel.querySelector('.sx28-carousel-rail');
+ const old=originalRailAttrs.get(carousel);
+ if(!rail||!old)return;
+ for(const [name,value] of [['aria-label',old.label],['tabindex',old.tabindex]]){
+  if(value===null)rail.removeAttribute(name);
+  else rail.setAttribute(name,value);
+ }
+ originalRailAttrs.delete(carousel);
+}
 function draw(){
  raf=0;
  if(!mobile.matches||!morph)return;
  const height=innerHeight;
  const nav=innerWidth<=560?56:60;
+ // Read all geometry before changing card width and hero height. This
+ // avoids per-card forced reflow during scroll in Safari.
  const top=morph.getBoundingClientRect().top;
+ const measurements=portals.map(portal=>({
+  portal,
+  y:portal.wrapper.getBoundingClientRect().top,
+  railWidth:portal.rail.clientWidth||Math.max(280,innerWidth-40)
+ }));
  const t=reduced.matches?1:ease((nav+8-top)/220);
  stage.style.setProperty('--sx43-morph',t.toFixed(4));
  stage.style.setProperty('--sx43-radar-shift',(-66*t).toFixed(2)+'px');
@@ -154,8 +178,7 @@ function draw(){
  // After turning 45°, its icon and a fragment of real copy appear.
  // Expansion is later; the original headline/paragraphs live in this card.
  let visible=0;
- for(const portal of portals){
-  const y=portal.wrapper.getBoundingClientRect().top;
+ for(const {portal,y,railWidth} of measurements){
   if(y<height*.6)visible=portal.i+1;
   if(y>height*1.35||y< -height*1.6)continue;
   const turnStart=height*.96,turnEnd=height*.73;
@@ -167,7 +190,6 @@ function draw(){
   const identity=ease((turn-.64)/.36);
   const teaser=identity*(1-ease((expand-.11)/.32));
   const real=reduced.matches?1:ease((expand-.23)/.56);
-  const railWidth=portal.rail.clientWidth||Math.max(280,innerWidth-40);
   const portalWidth=railWidth+(innerWidth-railWidth)*expand;
   // At entry the portal equals a fourth full-height case cover.
   // As it becomes the next skill, the hero SHRINKS and its real text rises.
