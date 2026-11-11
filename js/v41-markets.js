@@ -88,7 +88,9 @@
       ));
       if(mobile.matches){
         deckStep=clamp(Math.round(window.innerHeight*.34),245,320);
-        runway=deckStep*(deck.length-1)+200;
+        // End the sticky deck shortly after card 16, not 200px later.
+        // The footer follows in the normal flow with its own spacing tokens.
+        runway=deckStep*(deck.length-1)+32;
         section.style.height="auto";
         mobileRunway.style.height=Math.ceil(runway)+"px";
       }else{

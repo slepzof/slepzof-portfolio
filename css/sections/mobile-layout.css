@@ -36,28 +36,31 @@
     max-width:25ch;width:100%;margin:0;
   }
   #markets .sx41-head p{
-    margin:24px 0 0;max-width:40ch;width:100%;
+    margin:16px 0 0;max-width:40ch;width:100%;
     font-size:var(--ds-font-lead-xl)!important;
     line-height:var(--ds-line-lead-xl)!important;
     font-weight:500;
   }
   #markets .sx41-mobile-scroll{
-    display:block;position:relative;margin-top:48px;
+    --sx41-mobile-card-size:min(340px,calc(100vw - 2 * var(--ds-gutter) - 24px));
+    display:block;position:relative;margin-top:24px;
     background:#010000;
   }
   #markets .sx41-mobile-viewport{
     position:sticky;top:calc(var(--sx41-nav-height,56px) + 12px);
     z-index:3;
-    height:min(560px,calc(100svh - var(--sx41-nav-height,56px) - 24px));
-    min-height:400px;
+    /* Exactly one card + its 24px gap + 20px progress.
+       Do not center the deck inside an oversized empty 560px viewport. */
+    height:calc(var(--sx41-mobile-card-size) + 44px);
+    min-height:0;
     display:flex;flex-direction:column;
-    align-items:center;justify-content:center;gap:24px;
+    align-items:center;justify-content:flex-start;gap:24px;
     background:#010000;
   }
   #markets .sx41-deck{
     display:block;position:relative;top:auto;left:auto;right:auto;
-    width:min(340px,calc(100vw - 2 * var(--ds-gutter) - 24px));
-    height:auto;aspect-ratio:1;
+    width:var(--sx41-mobile-card-size);
+    height:var(--sx41-mobile-card-size);aspect-ratio:1;
     flex:0 0 auto;transform:none;isolation:isolate;perspective:1000px;
   }
   #markets .sx41-deck-card{
@@ -71,18 +74,28 @@
     position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   }
   #markets .sx41-deck-card .sx41-copy{
-    font-size:var(--ds-font-body-sm);
-    line-height:var(--ds-line-body-sm);
+    font-size:var(--ds-font-card,14px);
+    line-height:var(--ds-line-card,20px);
+    font-weight:400;color:#98989d;
     bottom:18px;left:15px;right:15px;
   }
   #markets .sx41-deck-card .sx41-copy--top{top:18px;bottom:auto}
-  #markets .sx41-deck-card.sx41-card--metric .sx41-metric-title{font-size:15px}
+  /* One typography recipe for EVERY card, irrespective of artwork/metric. */
+  #markets .sx41-deck-card .sx41-copy strong,
+  #markets .sx41-deck-card.sx41-card--metric .sx41-metric-title{
+    font-size:var(--ds-font-card,14px);line-height:var(--ds-line-card,20px);
+    font-weight:600;color:#fff;
+  }
   #markets .sx41-deck-card.sx41-card--metric .sx41-metric-main{font-size:clamp(34px,10vw,47px)}
-  #markets .sx41-deck-card.sx41-card--metric .sx41-metric-sub{font-size:14px}
+  #markets .sx41-deck-card.sx41-card--metric .sx41-metric-sub{
+    font-size:var(--ds-font-card,14px);line-height:var(--ds-line-card,20px);
+    font-weight:400;color:#98989d;
+    max-width:calc(100% - 30px);
+  }
   #markets .sx41-deck-progress{
     display:flex;position:relative;top:auto;bottom:auto;left:auto;right:auto;
     transform:none;z-index:4;align-items:center;justify-content:space-between;
-    width:min(340px,calc(100vw - 2 * var(--ds-gutter) - 24px));
+    width:var(--sx41-mobile-card-size);
     height:20px;gap:24px;
     font-size:var(--ds-font-body-sm);line-height:var(--ds-line-body-sm);
     color:#98989d;font-variant-numeric:tabular-nums;
@@ -99,7 +112,7 @@
   #markets .sx41-mobile-runway{height:var(--sx41-fallback-runway,4400px);pointer-events:none}
   #markets .sx41-footer{
     position:relative;top:auto;right:auto;left:auto;bottom:auto;z-index:2;
-    width:100%;margin:0 auto;padding:64px var(--ds-gutter) 64px;
+    width:100%;margin:0 auto;padding:48px var(--ds-gutter) 96px;
     text-align:center;transform:none;
   }
   #markets .sx41-footer b{
@@ -124,7 +137,7 @@
 }
 @media(max-width:360px){
   #markets .sx41-mobile-viewport{min-height:355px}
-  #markets .sx41-mobile-scroll{margin-top:40px}
+  #markets .sx41-mobile-scroll{margin-top:24px}
 }
 @media(prefers-reduced-motion:reduce){
   #markets .sx41-progress-fill{transition:none!important}

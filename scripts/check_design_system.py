@@ -57,6 +57,15 @@ expect("sx41-mobile-scroll" in html and "sx41-mobile-viewport" in html,
        "Missing mobile markets scroll shell")
 expect("const mobileConsumed=" in markets_js,
        "Mobile markets must track scroll against the dedicated sticky shell")
+mobile_layout = (ROOT / "css/sections/mobile-layout.css").read_text("utf-8")
+expect("height:calc(var(--sx41-mobile-card-size) + 44px)" in mobile_layout,
+       "Deck viewport must match its contents without blank vertical centering")
+expect("runway=deckStep*(deck.length-1)+32" in markets_js,
+       "Final card must release without the previous 200px blank hold")
+expect("font-size:var(--ds-font-card,14px)" in mobile_layout,
+       "Both metric and image descriptions must share the card typography token")
+expect("padding:48px var(--ds-gutter) 96px" in mobile_layout,
+       "Markets footer needs balanced entrance and a full exit spacing")
 expect("/css/sections/home-entrance.css" in html, "Missing desktop loader stylesheet")
 expect("/js/sections/home-entrance.js" in html, "Missing desktop loader script")
 expect("sx-home-loading" in html, "Missing universal early loader state")
