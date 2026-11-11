@@ -585,3 +585,108 @@
     font-size:14.5px!important;
   }
 }
+
+
+/* sx46-depth-sequence: exact three-phase reference, MOBILE ONLY.
+   1. Deep neutral radar + the ORIGINAL title/body inside the fourth card.
+   2. CLOCKWISE 45 degree rotation with the radar moving behind the text.
+   3. Only then show the skill identity and release original metrics/tools.
+   All data, project cards and desktop composition remain untouched. */
+@media (max-width:800px) {
+  /* The first chapter's radar must be behind, not in front of, its copy. */
+  #beyond-ui.sx43-morph .sx43-morph-stage .sx28-radar-svg {
+    opacity:.82;
+  }
+  #beyond-ui.sx43-morph .sx43-morph-stage::after {
+    background:linear-gradient(to bottom,
+      transparent 0%,rgba(0,0,0,.12) 24%,rgba(0,0,0,.7) 68%,#000 100%);
+  }
+
+  /* The fourth cover is still the same card, not a second fullscreen page. */
+  #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-carousel-rail > .sx44-portal {
+    background:#000!important;
+    isolation:isolate!important;overflow:hidden!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-hero {
+    position:relative;z-index:1;
+    background:transparent!important;
+    overflow:visible!important; /* Let the radar fade behind the real title. */
+    height:var(--sx44-hero-height,505px)!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-chart {
+    top:var(--sx44-chart-top,305px)!important;
+    bottom:auto!important;left:0!important;right:0!important;
+    height:215px!important;
+    z-index:0!important;
+    overflow:visible!important;
+    opacity:var(--sx44-wheel-alpha,.84)!important;
+    pointer-events:none!important;
+    -webkit-mask-image:linear-gradient(to bottom,
+      transparent 0%,#000 16%,#000 54%,rgba(0,0,0,.7) 79%,transparent 100%)!important;
+    mask-image:linear-gradient(to bottom,
+      transparent 0%,#000 16%,#000 54%,rgba(0,0,0,.7) 79%,transparent 100%)!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-chart svg {
+    top:0!important;left:50%!important;
+    width:min(100vw,440px)!important;
+    height:160px!important;
+    transform:translateX(-50%)!important;
+    overflow:visible!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-identity {
+    z-index:3!important;
+    top:37px!important;
+    opacity:var(--sx44-identity-alpha,0)!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-counter {
+    z-index:4!important;
+  }
+  /* The previous duplicated title was only a visual stand-in. It caused
+     the reference text to disappear and reappear at a different position. */
+  #beyond-ui.sx43-morph .sx44-portal-preview {
+    display:none!important;
+  }
+
+  /* Genuine source title + both source paragraphs remain mounted and visible
+     from the FIRST fourth-card frame. The hero shrinks as the wheel turns,
+     making the copy rise in one continuous motion (no content replacement). */
+  #beyond-ui.sx43-morph .sx44-portal-content {
+    position:relative!important;z-index:2!important;
+    width:100%!important;
+    background:transparent!important;
+    opacity:1!important;visibility:visible!important;
+    max-height:none!important;overflow:visible!important;
+    padding:0 var(--sx43-gap) 18px!important;
+    pointer-events:none;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-content .sx28-skill-head {
+    position:relative!important;z-index:2!important;
+    opacity:1!important;visibility:visible!important;
+    width:100%!important;max-width:540px!important;
+    margin:0 auto!important;
+    text-align:center!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-content .sx28-body {
+    position:relative;z-index:2;
+  }
+  /* Only the lower metrics/tools are held back until the skill has
+     actually emerged. Content stays original and is never recreated. */
+  #beyond-ui.sx43-morph .sx44-portal-details {
+    display:block;position:relative;z-index:2;
+    width:100%;max-width:540px;
+    margin:0 auto;
+    max-height:var(--sx44-details-height,0px);
+    opacity:var(--sx44-details-alpha,0);
+    overflow:hidden;pointer-events:none;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-details .sx28-stats {
+    margin-top:0!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-details .sx28-tools {
+    margin-bottom:0!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal[data-sx44-skill] {
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+  }
+}
