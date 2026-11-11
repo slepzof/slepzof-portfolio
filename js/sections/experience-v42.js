@@ -42,6 +42,16 @@
  if(target){const p=target.querySelector("p");if(p)p.textContent="От первых проектов до продуктовых экосистем. Каждый период: история, результаты, отзывы и реальные проекты.";}
  const total=periods.length;
  const fallbackUsed=new Set();
+ // Short excerpts from the supplied My Works source. Portraits are inserted
+ // only after the actual files are pushed to the universal GitHub inbox.
+ const reviews={
+  "auto-2026":{author:"Отзыв заказчика",text:"Мне понравился твой подход. Ты относишься к проекту как к собственному. Спасибо тебе за работу и мой первый отпуск за шесть лет."},
+  "summer-2026":{author:"Отзыв заказчика · Времена года",text:"Времена года — моё чадо, которое начало работать благодаря тебе. После тебя одного смогли заменить только три дизайнера."},
+  "hash":{author:"David T. · CPO Hash Hedge",text:"Богдан, спасибо тебе за всё. Забавно, конечно: начинали с утки, а в итоге столько всего сделали в Hash Hedge. С тобой реально было приятно работать."},
+  "private-2025":{author:"Отзыв заказчика",text:"Приятный человек и классный дизайнер. Поработав вместе с тобой над проектом, я понял, почему тебя рекомендовали к нам."},
+  "nutaku":{author:"Отзыв заказчика",text:"Solid guy, honest as hell and knows his stuff even on complex projects."},
+  "duck":{author:"Отзыв заказчика · DuckMaster",text:"Рады были поработать с тобой на проекте. Не ожидали, что за сутки ты пересоберёшь проект или его визуальное исполнение."}
+ };
  for(let pi=0;pi<total;pi++){
    const d=periods[pi],stage=el("section","sx42-period"),heading=el("div","sx42-period-heading");
    stage.id=d.id;stage.dataset.period=d.id;
@@ -110,6 +120,18 @@
      const arrow=el("span","sx42-card-arrow","↗");arrow.setAttribute("aria-hidden","true");
      card.append(arrow);rail.append(card);
    });
+   // A text review shares the approved tall card size; real author portrait
+   // is never guessed, fabricated or sourced from another person.
+   if(reviews[d.id]){
+     const review=reviews[d.id];
+     const card=el("article","sx42-card sx42-review");
+     card.append(el("span","sx42-quote-mark","“"),el("p","sx42-review-text",review.text));
+     const footer=el("div","sx42-review-author",review.author);
+     card.append(footer);
+     // Reviews are testimonials, not links, and therefore have no false
+     // "open case" arrow. Every actual project and achievement link does.
+     rail.insertBefore(card,rail.children[Math.min(1,rail.children.length)]||null);
+   }
    if(rail.children.length){
      railWrap.append(rail);
      const controls=el("div","sx42-controls");
