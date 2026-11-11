@@ -56,7 +56,8 @@
   "hash":{author:"David T. · CPO Hash Hedge",portrait:"david-t-hash-hedge",text:"Богдан, спасибо тебе за всё. Забавно, конечно: начинали с утки, а в итоге столько всего сделали в Hash Hedge. С тобой реально было приятно работать."},
   "private-2025":{author:"Vlad B. · Заказчик",portrait:"vlad-b",text:"Приятный человек и классный дизайнер. Поработав вместе с тобой над проектом, я понял, почему тебя рекомендовали к нам."},
   "nutaku":{author:"Отзыв заказчика",text:"Solid guy, honest as hell and knows his stuff even on complex projects."},
-  "duck":{author:"David T. · CPO DuckMaster",portrait:"david-t-duckmaster",text:"Рады были поработать с тобой на проекте. Не ожидали, что за сутки ты пересоберёшь проект или его визуальное исполнение."}
+  "duck":{author:"David T. · CPO DuckMaster",portrait:"david-t-duckmaster",text:"Рады были поработать с тобой на проекте. Не ожидали, что за сутки ты пересоберёшь проект или его визуальное исполнение."},
+  "media":{author:"Elena S. · CEO RESTAR & Mom Slepzof :)",portrait:"elena-s",text:"Богдан с детства такой: если ему что-то действительно интересно, он может сутками сидеть и разбираться, пока не получится."}
  };
  for(let pi=0;pi<total;pi++){
    const d=periods[pi],stage=el("section","sx42-period"),heading=el("div","sx42-period-heading");
@@ -156,7 +157,7 @@
      const destination={
        "auto-2026":"automotive","summer-2026":"vremena-goda",
        "hash":"hash-hedge","private-2025":"vlad-bykov",
-       "nutaku":"my-ai-slut","duck":"duckmaster"
+       "nutaku":"my-ai-slut","duck":"duckmaster","media":"restar"
      }[d.id];
      const source=originalCards.get(destination);
      const extraSource=extraProjects[destination];
