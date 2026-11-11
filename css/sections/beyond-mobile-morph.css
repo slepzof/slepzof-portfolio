@@ -553,7 +553,7 @@
     max-height:var(--sx44-content-limit,0px)!important;
     overflow:hidden!important;
     padding:0 var(--sx43-gap)
-      calc(20px * var(--sx44-expand,0))!important;
+      var(--sx44-content-padding,0px)!important;
     opacity:var(--sx44-content-alpha,0)!important;
     pointer-events:none;
   }
