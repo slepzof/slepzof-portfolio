@@ -389,3 +389,199 @@
  #beyond-ui.sx43-morph .sx43-scroll-stack a.sx28-card{transition:none!important}
  #beyond-ui.sx43-morph .sx44-portal-chart svg{will-change:auto}
 }
+
+
+/* Mobile Beyond UI reference alignment: compact chart + real fourth-card morph.
+   Scoped to the existing mobile state. Desktop and all project copy untouched. */
+@media (max-width:800px) {
+  #beyond-ui.sx43-morph { --sx43-stack-peek:clamp(43px,7svh,65px); }
+
+  /* A complete original radar on entry; its focused vertex stays in the same
+     SVG as it zooms. 100px of sticky travel completes the zoom, rather than
+     leaving a 400px graphic above the first paragraph. */
+  #beyond-ui.sx43-morph .sx43-morph-track {
+    height:420px!important;margin-bottom:0!important;
+  }
+  #beyond-ui.sx43-morph .sx43-morph-stage {
+    height:320px!important;overflow:hidden!important;
+  }
+  #beyond-ui.sx43-morph .sx43-morph-radar .sx28-radar {
+    width:min(calc(100vw - 88px),340px)!important;
+    transform:translate3d(0,var(--sx43-radar-shift,0px),0)
+      scale(var(--sx43-radar-scale,1))!important;
+    transform-origin:50% 15%!important;
+  }
+  #beyond-ui.sx43-morph .sx43-morph-radar .sx28-node {
+    opacity:var(--sx43-nodes-alpha,1);
+    transition:none!important;
+  }
+  #beyond-ui.sx43-morph .sx43-morph-stage::after {
+    content:"";position:absolute;inset:170px 0 0;z-index:3;
+    background:linear-gradient(to bottom,transparent 0%,#000 98%);
+    opacity:var(--sx43-morph,0);pointer-events:none;
+  }
+  #beyond-ui.sx43-morph .sx43-first-identity {
+    display:flex;flex-direction:column;align-items:center;
+    justify-content:center;position:absolute;
+    z-index:5;top:5px;left:12px;right:12px;gap:5px;
+    color:#f7f7f7;text-align:center;
+    opacity:var(--sx43-identity-alpha,0);
+    pointer-events:none;
+  }
+  #beyond-ui.sx43-morph .sx43-first-identity .sx43-card-title,
+  #beyond-ui.sx43-morph .sx44-portal-identity .sx43-card-title {
+    font-size:20px!important;line-height:24px!important;
+    font-weight:600!important;letter-spacing:-.025em!important;
+  }
+  #beyond-ui.sx43-morph .sx43-first-identity .sx43-card-score,
+  #beyond-ui.sx43-morph .sx44-portal-identity .sx43-card-score {
+    font-size:25px!important;line-height:29px!important;
+    font-weight:600!important;
+  }
+  #beyond-ui.sx43-morph .sx43-first-identity .sx43-card-icon,
+  #beyond-ui.sx43-morph .sx44-portal-identity .sx43-card-icon {
+    width:36px!important;height:36px!important;
+  }
+  #beyond-ui.sx43-morph .sx43-first-identity .sx43-card-icon svg,
+  #beyond-ui.sx43-morph .sx44-portal-identity .sx43-card-icon svg {
+    width:34px!important;height:34px!important;
+    filter:brightness(0) saturate(100%) invert(54%) sepia(100%)
+      saturate(2323%) hue-rotate(158deg) brightness(105%) contrast(104%);
+  }
+  #beyond-ui.sx43-morph .sx43-morph-stage.sx43-morphed .sx43-morph-radar {
+    pointer-events:none!important;
+  }
+
+  /* One compact, centered skill chapter, not an extra screen per ingredient. */
+  #beyond-ui.sx43-morph.sx33-mobile .sx28-panel-column >
+  .sx28-panel[data-sx28-skill] {
+    padding:0 var(--sx43-gap) 22px!important;
+  }
+  #beyond-ui.sx43-morph.sx33-mobile .sx28-panel-column >
+  .sx28-panel[data-sx28-skill="0"] {
+    margin-top:-50px!important;padding-top:0!important;
+  }
+  #beyond-ui.sx43-morph .sx28-panel .sx28-skill-head h3,
+  #beyond-ui.sx43-morph .sx44-portal-content .sx28-skill-head h3 {
+    max-width:calc(100vw - 42px)!important;
+    font-size:clamp(22px,5.85vw,24px)!important;
+    line-height:1.18!important;letter-spacing:-.035em!important;
+    margin:0 auto 17px!important;
+  }
+  #beyond-ui.sx43-morph .sx28-panel .sx28-body,
+  #beyond-ui.sx43-morph .sx44-portal-content .sx28-body {
+    max-width:40ch!important;margin:0 auto 23px!important;
+  }
+  #beyond-ui.sx43-morph .sx28-panel .sx28-body p,
+  #beyond-ui.sx43-morph .sx44-portal-content .sx28-body p {
+    font-size:15px!important;line-height:1.36!important;
+    margin:0 auto 18px!important;color:#99999c!important;
+  }
+  #beyond-ui.sx43-morph .sx28-panel .sx28-body p:last-child,
+  #beyond-ui.sx43-morph .sx44-portal-content .sx28-body p:last-child {
+    margin-bottom:0!important;
+  }
+  #beyond-ui.sx43-morph .sx28-panel .sx28-stats,
+  #beyond-ui.sx43-morph .sx44-portal-content .sx28-stats {
+    padding:15px 0 14px!important;margin:0 auto 15px!important;
+    gap:4px!important;
+  }
+  #beyond-ui.sx43-morph .sx28-panel .sx28-stat {
+    gap:5px!important;
+  }
+  #beyond-ui.sx43-morph .sx28-panel .sx28-stat strong {
+    font-size:clamp(30px,8.1vw,35px)!important;
+  }
+  #beyond-ui.sx43-morph .sx28-panel .sx28-stat span {
+    font-size:clamp(10px,2.65vw,11.5px)!important;
+    line-height:1.23!important;
+  }
+  #beyond-ui.sx43-morph .sx28-panel .sx28-tools,
+  #beyond-ui.sx43-morph .sx44-portal-content .sx28-tools {
+    gap:8px!important;margin:0 auto 26px!important;
+  }
+  #beyond-ui.sx43-morph .sx28-panel .sx28-tools-label {
+    font-size:12px!important;line-height:18px!important;
+  }
+  #beyond-ui.sx43-morph .sx28-panel .sx28-tools-row {
+    gap:8px 7px!important;
+  }
+  #beyond-ui.sx43-morph .sx28-panel .sx28-tool {
+    font-size:12.5px!important;line-height:17px!important;
+    padding:6px 10px!important;background:#000!important;
+  }
+  #beyond-ui.sx43-morph .sx28-panel .sx30-tool-icon {
+    width:16px!important;height:16px!important;
+  }
+
+  /* The three cards retain their original 1424:2048 composition and rounded
+     covers. Reusable project markup/artwork remains untouched. */
+  #beyond-ui.sx43-morph .sx43-scroll-stack a.sx28-card {
+    aspect-ratio:1424 / 2048!important;
+    box-shadow:none!important;backface-visibility:hidden;
+  }
+  #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-art {
+    object-fit:contain!important;
+  }
+
+  /* Fourth card centered as it bleeds to the full viewport. Hidden content
+     has zero reserved height: no massive black void before the next chapter. */
+  #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-carousel-rail > .sx44-portal {
+    left:50%!important;right:auto!important;
+    transform:translateX(-50%)!important;
+    overflow:hidden!important;
+    overflow-anchor:none!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-hero {
+    height:var(--sx44-hero-height,505px)!important;
+    overflow:hidden!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-identity {
+    top:37px!important;gap:6px!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-chart {
+    top:145px!important;bottom:auto!important;
+    height:180px!important;
+    -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 67%,transparent 100%);
+    mask-image:linear-gradient(to bottom,#000 0%,#000 67%,transparent 100%);
+  }
+  #beyond-ui.sx43-morph .sx44-portal-preview {
+    top:270px!important;bottom:auto!important;left:20px!important;
+    right:20px!important;font-size:21px!important;line-height:1.17!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-content {
+    max-height:var(--sx44-content-limit,0px)!important;
+    overflow:hidden!important;
+    padding:0 var(--sx43-gap)
+      calc(20px * var(--sx44-expand,0))!important;
+    opacity:var(--sx44-content-alpha,0)!important;
+    pointer-events:none;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-content .sx28-skill-head {
+    margin:0 auto!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-content .sx28-stats {
+    width:100%!important;
+  }
+  #beyond-ui.sx43-morph.sx33-mobile .sx28-panel-column >
+  .sx28-panel.sx45-cases-only {
+    padding-top:16px!important;padding-bottom:14px!important;
+  }
+  #beyond-ui.sx43-morph.sx33-mobile .sx28-panel-column >
+  .sx28-panel.sx45-has-portal {
+    padding-bottom:0!important;
+  }
+  #beyond-ui.sx43-morph.sx33-mobile .sx28-panel-column >
+  .sx28-panel[data-sx28-skill="7"] {
+    padding-bottom:72px!important;
+  }
+}
+@media (max-width:360px) {
+  #beyond-ui.sx43-morph .sx43-morph-radar .sx28-radar {
+    width:calc(100vw - 62px)!important;
+  }
+  #beyond-ui.sx43-morph .sx28-panel .sx28-body p,
+  #beyond-ui.sx43-morph .sx44-portal-content .sx28-body p {
+    font-size:14.5px!important;
+  }
+}
