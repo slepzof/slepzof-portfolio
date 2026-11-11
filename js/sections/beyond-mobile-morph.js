@@ -196,7 +196,7 @@ function draw(){
   // At entry the portal equals a fourth full-height case cover.
   // As it becomes the next skill, the hero SHRINKS and its real text rises.
   const coverHeight=railWidth*2048/1424;
-  const heroHeight=coverHeight+(242-coverHeight)*expand;
+  const heroHeight=coverHeight+(270-coverHeight)*expand;
   const style=portal.wrapper.style;
   style.setProperty('--sx44-width',portalWidth.toFixed(2)+'px');
   style.setProperty('--sx44-radius',(27*(1-expand)).toFixed(2)+'px');
@@ -207,6 +207,7 @@ function draw(){
   style.setProperty('--sx44-preview-alpha',teaser.toFixed(3));
   style.setProperty('--sx44-content-alpha',real.toFixed(3));
   style.setProperty('--sx44-content-limit',(1200*real).toFixed(2)+'px');
+  style.setProperty('--sx44-content-padding',(20*expand).toFixed(2)+'px');
   style.setProperty('--sx44-expand',expand.toFixed(4));
   style.setProperty('--sx44-wheel-alpha',(1-.12*ease((expand-.32)/.54)).toFixed(3));
   portal.content.style.pointerEvents=real>.7?'auto':'none';
