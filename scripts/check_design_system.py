@@ -52,6 +52,13 @@ for asset in sorted(parser.urls):
 expect(len(parser.urls) == 21, f"Unexpected asset references: {len(parser.urls)} (expected 21 = 9 + 12)")
 expect("/assets/process-v38/" not in html, "Outdated process image URL")
 expect("/assets/markets/" not in html, "Outdated market image URL")
+expect("/css/sections/home-entrance.css" in html, "Missing desktop loader stylesheet")
+expect("/js/sections/home-entrance.js" in html, "Missing desktop loader script")
+expect("sx-home-loading" in html, "Missing desktop early loader state")
+expect("const slide=clamp((t-.16)/.56" in markets_js,
+       "Desktop markets must scroll only after both rows enter the viewport")
+expect("padding-left:var(--sx41-content-pad)" in markets_css,
+       "Markets must clip on the left panel edge")
 if errors:
     print("Design system check FAILED:")
     for error in errors:
