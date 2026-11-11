@@ -1,0 +1,36 @@
+/* SLEPZOF v40: approved mobile readability and Beyond UI chapter runway.
+   Keep desktop, card dimensions, approved text, artwork and transitions unchanged. */
+@media (max-width:800px) {
+  /* Both project carousels use the same readable mobile description size. */
+  #selected .sx25b3-card p,
+  #beyond-ui .sx28-card p {
+    font-size:15px!important;
+    line-height:1.35!important;
+  }
+
+  /* Skills 1–7: black runway prevents the next section from showing before
+     the existing scroll-triggered handoff to the next skill. */
+  #beyond-ui.sx33-mobile .sx28-panel[data-sx28-skill]:not([data-sx28-skill="7"]) {
+    padding-bottom:800px!important;
+  }
+
+  /* The eighth skill is the exit, not another chapter transition. */
+  #beyond-ui.sx33-mobile .sx28-panel[data-sx28-skill="7"] {
+    padding-bottom:64px!important;
+  }
+  #beyond-ui.sx33-mobile {
+    padding-bottom:0!important;
+  }
+  /* Give the process heading its own breathing room after the Beyond UI
+     section boundary; preserve the Leadership exit spacing above it. */
+  #process.sx38-process {
+    padding-top:64px!important;
+  }
+
+  /* Keep Safari from creating an unintended horizontal page scroller.
+     Inner project rails remain independently scrollable. */
+  html, body {
+    max-width:100%;
+    overflow-x:clip;
+  }
+}
