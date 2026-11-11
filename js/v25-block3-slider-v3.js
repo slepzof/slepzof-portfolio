@@ -1,14 +1,11 @@
 /* SLEPZOF Featured projects: reliable arrows, native scroll and Safari fallback. */
 (()=>{
  "use strict";
- function init(){
-  const section=document.querySelector("#selected.sx25b3-slider");
-  const rail=section?.querySelector("#sx25b3-rail");
-  const prev=section?.querySelector(".sx25b3-prev");
-  const next=section?.querySelector(".sx25b3-next");
-  if(!rail||!prev||!next||section.dataset.sxSelectedControls)return;
-  section.dataset.sxSelectedControls="1";
-  const cards=[...rail.querySelectorAll(".sx25b3-card")];
+ function bindRail(rail,prev,next,cards){
+  if(!rail||!prev||!next||!cards.length||rail.dataset.sxFeaturedBound)return;
+  rail.dataset.sxFeaturedBound="1";
+  // Shared, byte-for-byte Featured carousel movement algorithm: same Safari
+  // fallback, scroll positions, disabled states and arrow button behavior.
   const reduced=matchMedia("(prefers-reduced-motion: reduce)");
   const desktop=matchMedia("(min-width:801px)");
   const clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
@@ -65,6 +62,24 @@
   },{passive:true});
   window.addEventListener("resize",()=>{committed=null;update()},{passive:true});
   update();
+ }
+ function init(){
+  const section=document.querySelector("#selected.sx25b3-slider");
+  if(section){
+   bindRail(section.querySelector("#sx25b3-rail"),
+    section.querySelector(".sx25b3-prev"),
+    section.querySelector(".sx25b3-next"),
+    [...section.querySelectorAll(".sx25b3-card")]);
+  }
+  // The work timeline uses the exact same controls & algorithm, rather than
+  // separately maintaining divergent carousel movement and disabled states.
+  for(const period of document.querySelectorAll("#experience.sx42-ready .sx42-period")){
+   const rail=period.querySelector(".sx42-rail");
+   bindRail(rail,
+    period.querySelector(".sx42-featured-controls .sx25b3-prev"),
+    period.querySelector(".sx42-featured-controls .sx25b3-next"),
+    [...(rail?.querySelectorAll(".sx42-card")||[])]);
+  }
  }
  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});
  else init();
