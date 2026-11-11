@@ -22,10 +22,10 @@
    html.classList.add("sx-home-entering");
    html.classList.remove("sx-home-loading");
    announce();
-   window.setTimeout(()=>{
-     html.classList.remove("sx-home-entering");
-     document.querySelector(".sx-home-loader")?.remove();
-   },380);
+   // Remove the overlay after its 320ms fade, but keep the hero text
+   // entrance class until all of its original staggered transitions finish.
+   window.setTimeout(()=>document.querySelector(".sx-home-loader")?.remove(),380);
+   window.setTimeout(()=>html.classList.remove("sx-home-entering"),1250);
  };
  const revealWhenReady=()=>{
    if(!decoded||completed)return;
