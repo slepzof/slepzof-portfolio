@@ -54,20 +54,8 @@
 #beyond-ui .sx28-carousel-rail:focus-visible{outline:2px solid var(--sx28-blue);outline-offset:-2px}
 /* Exact Onlinesklad approved card: copy/data, cover art, complete metric, laurels and arrow are preserved. */
 #beyond-ui a.sx28-card{display:block;flex:0 0 var(--sx28-card-width);width:var(--sx28-card-width);min-width:var(--sx28-card-width);max-width:var(--sx28-card-width);height:auto;aspect-ratio:1424/2048;position:relative;isolation:isolate;overflow:hidden;margin:0;padding:0;text-decoration:none;color:#fff;border:0;border-radius:27px;background:#24c9ce;scroll-snap-align:start;transform:translateZ(0);transition:transform .48s cubic-bezier(.2,.7,.3,1),box-shadow .48s ease}
-#beyond-ui .sx28-card .sx25b3-art{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:fill;border-radius:inherit;z-index:0;pointer-events:none}
-#beyond-ui .sx28-card .sx25b3-card-copy{position:absolute;top:6%;left:7.5%;right:6%;z-index:1;pointer-events:none}
-#beyond-ui .sx28-card .sx25b3-meta{display:flex;align-items:center;gap:5px;white-space:nowrap;font-size:10.3px;font-weight:490;line-height:1.2;letter-spacing:0;color:#fff}
-#beyond-ui .sx28-card .sx25b3-meta i{display:block;height:10px;width:1px;background:currentColor;opacity:.65;flex:none}
-#beyond-ui .sx28-card .sx25b3-meta span:not(:first-child){opacity:.81}
-#beyond-ui .sx28-card h3{font-size:20px;font-weight:590;line-height:1.14;letter-spacing:-.037em;color:#fff;margin:11px 0 9px}
-#beyond-ui .sx28-card p{font-size:11.8px;line-height:1.24;color:#fff;opacity:.81;margin:0}
-#beyond-ui .sx28-card .sx25b3-card-foot{position:absolute;z-index:2;bottom:8px;left:7px;right:7px;display:flex;align-items:flex-end;justify-content:space-between;gap:5px;pointer-events:none}
-#beyond-ui .sx28-card .sx25b3-metric{display:flex;align-items:center;gap:1px;min-width:0;max-width:calc(100% - 36px);min-height:34px;height:auto;padding:4px 8px 4px 4px;background:rgba(88,88,88,.78);border:0;border-radius:19px;color:#fff;-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px)}
-#beyond-ui .sx28-card .sx25b3-metric strong{white-space:nowrap;font-size:21px;line-height:1;font-weight:700;letter-spacing:-.05em;color:#fff;font-variant-numeric:tabular-nums}
-#beyond-ui .sx28-card .sx25b3-laurel{display:block;flex:0 0 9px;width:9px;height:21px;object-fit:contain;opacity:.9}
-#beyond-ui .sx28-card .sx25b3-metric span{display:block;max-width:120px;min-width:0;margin-left:3px;font-size:9.7px;line-height:1.13;font-weight:470;color:#fff;white-space:normal;word-break:normal;overflow-wrap:normal}
-#beyond-ui .sx28-card .sx25b3-arrow{display:grid;place-items:center;flex:0 0 32px;width:32px;height:32px;border:0;border-radius:50%;background:rgba(79,79,79,.68);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-#beyond-ui .sx28-card .sx25b3-arrow img{display:block;width:19px;height:19px}
+/* ProjectCard contents (cover, typography, laurels, link arrow) are now
+   fully defined once in css/system/portfolio-projects.css. */
 #beyond-ui a.sx28-card:focus-visible{outline:2px solid #00bafa;outline-offset:3px}
 @media (hover:hover) and (pointer:fine){#beyond-ui a.sx28-card:hover{transform:scale(1.012);z-index:2;box-shadow:0 12px 25px rgba(0,0,0,.3)}}
 #beyond-ui .sx28-carousel-controls{display:flex;align-items:center;justify-content:flex-end;gap:10px;padding-right:5px;margin-top:14px}
