@@ -1,38 +1,35 @@
 # SLEPZOF Portfolio
 
-Портфолио SLEPZOF. Исходная рабочая версия для первого импорта: **v35**.
+Исходная рабочая ветка: **dev**. Ветка `main` — стабильная резервная версия. GitHub Pages автоматически публикует `dev`.
 
-## Ветки
+- [Портфолио](https://slepzof.github.io/slepzof-portfolio/)
+- [Живой Style Guide (Light / Dark)](https://slepzof.github.io/slepzof-portfolio/design/style-guide/)
+- [Дизайн-система](docs/STYLE_GUIDE.md)
+- [Карта медиа и замена изображений](docs/ASSET_MAP.md)
+- [Архитектура и план миграции](docs/ARCHITECTURE.md)
+- [Аудит текущего репозитория](docs/REPOSITORY_AUDIT.md)
+- [Модель кейсов, SEO и CMS](docs/CONTENT_MODEL.md)
+- [Деплой](DEPLOY.md)
 
-- `main` — стабильная версия исходников.
-- `dev` — работа над очередной версией, **автоматически публикуется через GitHub Pages**.
-- После согласования правок их можно перенести из `dev` в `main`.
+## Быстро найти нужный файл
 
-## Онлайн-предпросмотр
+| Что редактировать | Путь |
+| --- | --- |
+| Палитра Light / Dark, типографические и layout-токены | `css/system/tokens.css` |
+| Шрифты H1–H6 и тексты | `css/system/typography.css` |
+| Контейнеры и сетка 1116 px | `css/system/layout.css` |
+| Кнопки Primary / Secondary / Tertiary | `css/system/components.css` |
+| «Сначала были факты» | `css/v38-process.css`, `js/v38-process.js`, `assets/home/process/` |
+| «Каждый рынок» | `css/v41-markets.css`, `js/v41-markets.js`, `assets/home/markets/` |
+| Изображения проектов | `assets/cases/<slug>/` |
 
-GitHub Pages публикует ветку `dev` по адресу (после первого успешного развёртывания):
+**Внимание:** старые `css/v*.css` и `js/v*.js` ещё используются разными страницами. Их нельзя удалять без проверки всех зависимостей. Архив README и старых QA-снимков находится в `docs/archive/`.
 
-https://slepzof.github.io/slepzof-portfolio/
-
-Ссылка одинаковая для Safari на MacBook и iPhone. Изменения появляются **после коммита и успешного GitHub Actions deploy**, не во время набора кода.
-
-Первоначально необходимо загрузить содержимое архива `SLEPZOF_Portfolio_v25_BeyondUI_v35_Final.zip` в ветку `dev` и в **Settings → Pages → Build and deployment → Source** выбрать **GitHub Actions**.
-
-Подробности: [DEPLOY.md](DEPLOY.md).
-
-## Локальный статический предпросмотр
+## Сборка
 
 ```bash
 SITE_BASE_PATH=/slepzof-portfolio python3 scripts/build_static.py
+python3 scripts/check_design_system.py
 ```
 
-Сборка в `dist/` автоматически адаптирует абсолютные пути к подпапке GitHub Pages, не изменяя оригинальные файлы. Python-сервер `server.py` и интерфейс `admin/` не публикуются.
-
-## Правила работы
-
-- Не менять без согласования бренд, типографику, композицию, тексты, метрики и изображения.
-- Каждая отдельная правка — отдельный коммит в `dev`.
-- Проверка на MacBook и iPhone перед переносом в `main`.
-- Не коммитить секреты или токены доступа.
-
-**Репозиторий публичный.** Публикуемые данные должны быть предназначены для открытого доступа.
+Исходники публичные. Не коммитить пароли, токены или NDA. Админка на базе локального Python-сервера не публикуется GitHub Pages.

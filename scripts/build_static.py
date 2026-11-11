@@ -38,12 +38,6 @@ def main():
         if source.is_dir():
             copytree(source, OUT / folder)
 
-    # The Block 04 source images were uploaded under process-v38/ at repo root.
-    # Publish them at the canonical paths already used by the approved markup.
-    process_images = ROOT / "process-v38"
-    if process_images.is_dir():
-        copytree(process_images, OUT / "assets" / "process-v38", dirs_exist_ok=True)
-
     for name in PUBLIC_CMS:
         source = ROOT / "cms" / name
         if source.is_file():
