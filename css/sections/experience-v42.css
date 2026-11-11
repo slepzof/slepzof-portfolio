@@ -98,3 +98,103 @@
  #experience.sx42-ready .sx42-review-text{font-size:17px!important;line-height:1.35!important}
  #experience.sx42-ready .sx42-review-author{font-size:11px}
 }
+
+
+/* v43: Figma My Works — staggered entrance, never hide a live panel while
+   scrolling. Card shape/spacing remain the previously approved Featured values. */
+@media(prefers-reduced-motion:no-preference){
+  #experience.sx42-ready .sx42-period {
+    opacity:1!important;transform:none!important;transition:none!important;
+  }
+  #experience.sx42-ready .sx42-period-heading{
+    opacity:0;transform:translate3d(0,22px,0);
+    transition:opacity .72s cubic-bezier(.22,1,.36,1),
+               transform .72s cubic-bezier(.22,1,.36,1);
+  }
+  #experience.sx42-ready .sx42-carousel{
+    opacity:0;transform:translate3d(0,20px,0);
+    transition:opacity .78s cubic-bezier(.22,1,.36,1) .15s,
+               transform .78s cubic-bezier(.22,1,.36,1) .15s;
+  }
+  #experience.sx42-ready .sx42-period.sx42-visible .sx42-period-heading,
+  #experience.sx42-ready .sx42-period.sx42-visible .sx42-carousel{
+    opacity:1;transform:translate3d(0,0,0);
+  }
+  #experience.sx42-ready .sx42-period .sx42-card:nth-child(-n+3){
+    opacity:0;translate:0 14px;
+    transition:opacity .62s cubic-bezier(.22,1,.36,1),
+               translate .7s cubic-bezier(.22,1,.36,1),
+               transform .5s cubic-bezier(.2,.75,.25,1),
+               box-shadow .5s cubic-bezier(.2,.75,.25,1);
+  }
+  #experience.sx42-ready .sx42-period.sx42-visible .sx42-card:nth-child(-n+3){
+    opacity:1;translate:0 0;
+  }
+  #experience.sx42-ready .sx42-period.sx42-visible .sx42-card:nth-child(1){transition-delay:.22s}
+  #experience.sx42-ready .sx42-period.sx42-visible .sx42-card:nth-child(2){transition-delay:.31s}
+  #experience.sx42-ready .sx42-period.sx42-visible .sx42-card:nth-child(3){transition-delay:.40s}
+}
+@media(prefers-reduced-motion:reduce){
+  #experience.sx42-ready .sx42-period-heading,
+  #experience.sx42-ready .sx42-carousel,
+  #experience.sx42-ready .sx42-card{
+    opacity:1!important;transform:none!important;translate:none!important;
+    transition:none!important;
+  }
+}
+
+/* Every card, including a purely numerical achievement or a review, owns
+   exactly one always-visible destination arrow. */
+#experience.sx42-ready .sx42-card .sx42-card-arrow{
+  visibility:visible!important;opacity:1!important;
+  z-index:5;flex:0 0 auto;pointer-events:none;
+}
+#experience.sx42-ready .sx42-fact>.sx42-card-arrow,
+#experience.sx42-ready .sx42-review>.sx42-card-arrow{
+  position:absolute!important;bottom:9px!important;right:9px!important;
+}
+#experience.sx42-ready .sx42-card-art {
+  object-fit:fill!important;
+  background:#171717; /* neutral fallback before art is decoded */
+}
+
+/* Review author images are user-supplied; dark silhouettes have to be visible,
+   so they sit on a quiet light-grey card rather than a black tile. */
+#experience.sx42-ready .sx42-review {
+  background:#f4f4f5!important;
+  color:#151515!important;
+  overflow:hidden;
+}
+#experience.sx42-ready .sx42-review-portrait{
+  display:block;object-fit:contain;object-position:left bottom;
+  width:108px;height:120px;max-width:45%;
+  margin:0 0 14px!important;position:relative;z-index:1;
+}
+#experience.sx42-ready .sx42-review .sx42-quote-mark {
+  color:#181818!important;margin:0 0 15px!important;
+}
+#experience.sx42-ready .sx42-review .sx42-review-text {
+  color:#181818!important;line-height:1.32!important;
+  -webkit-line-clamp:9;
+}
+#experience.sx42-ready .sx42-review .sx42-review-author{
+  color:#666!important;
+}
+#experience.sx42-ready .sx42-review>.sx42-card-arrow{
+  background:rgba(94,94,94,.80)!important;
+  color:#fff!important;
+}
+@media(max-width:560px){
+  #experience.sx42-ready .sx42-review-portrait {
+    width:82px;height:92px;max-width:45%;margin-bottom:7px!important;
+  }
+  #experience.sx42-ready .sx42-review .sx42-review-text{
+    font-size:clamp(15px,4vw,17px)!important;
+    -webkit-line-clamp:10;
+  }
+  #experience.sx42-ready .sx42-period-heading{margin-bottom:25px}
+  #experience.sx42-ready .sx42-rail{
+    scroll-snap-type:x mandatory;
+    overscroll-behavior-inline:contain;
+  }
+}
