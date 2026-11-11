@@ -108,12 +108,15 @@ def optimize_media(out: Path, base: str) -> dict:
                 return tag
             images, width, height = built
             srcset = ", ".join(f"{url} {w}w" for url, w in images)
+            in_beyond = (
+                html.name == "index.html" and
+                text.rfind('id="beyond-ui"', 0, match.start()) >
+                text.rfind('id="selected"', 0, match.start())
+            )
             sizes = (
-                "(max-width:800px) calc(100vw - 40px), 326px"
-                if cover and "/beyond-" in html.as_posix()
+                "(max-width:800px) calc(100vw - 40px), 270px" if cover and in_beyond
                 else "(max-width:560px) 65vw, (max-width:850px) 315px, 326px"
-                if cover
-                else "(max-width:800px) 100vw, 1116px"
+                if cover else "(max-width:800px) 100vw, 1116px"
             )
             add = f' srcset="{srcset}" sizes="{sizes}"'
             if "decoding=" not in tag:
