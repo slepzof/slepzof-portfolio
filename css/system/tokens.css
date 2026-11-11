@@ -3,7 +3,7 @@
 :root,
 [data-theme="light"] {
   color-scheme: light;
-  --ds-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --ds-font-family: "SF Pro", -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
   --ds-container-max: 1116px;
   --ds-container-narrow: 760px;
   --ds-container-wide: 1440px;
@@ -23,6 +23,24 @@
   --ds-section-gap: 96px;
   --ds-heading-gap: 64px;
   --ds-panel-padding: 64px;
+  /* Figma My Works / Cases-Card: one system across Featured, Beyond UI, Experience. */
+  --ds-project-width: 356px;
+  --ds-project-height: 512px;
+  --ds-project-gap: 24px;
+  --ds-project-radius: 32px;
+  --ds-project-inset: 32px;
+  --ds-project-metadata-size: 16px;
+  --ds-project-metadata-line: 20px;
+  --ds-project-title-size: 28px;
+  --ds-project-title-line: 32px;
+  --ds-project-description-size: 16px;
+  --ds-project-description-line: 20px;
+  --ds-project-metric-size: 24px;
+  --ds-project-metric-line: 29px;
+  --ds-project-metric-caption-size: 10px;
+  --ds-project-metric-caption-line: 12px;
+  --ds-project-ink: #111111;
+  --ds-project-muted: #727272;
   --ds-radius-sm: 8px;
   --ds-radius-md: 12px;
   --ds-radius-lg: 16px;
@@ -105,6 +123,22 @@
   }
 }
 @media(max-width:767px){
+  :root,[data-theme="light"],[data-theme="dark"] {
+    --ds-project-width: clamp(244px,65vw,310px);
+    --ds-project-gap: 16px;
+    --ds-project-inset: 7.5%;
+    --ds-project-metadata-size: clamp(10px,2.8vw,12px);
+    --ds-project-metadata-line: 1.2;
+    --ds-project-title-size: clamp(19px,5vw,24px);
+    --ds-project-title-line: 1.16;
+    --ds-project-description-size: clamp(13px,3.7vw,15px);
+    --ds-project-description-line: 1.28;
+    --ds-project-metric-size: 22px;
+    --ds-project-metric-line: 26px;
+    --ds-project-metric-caption-size: 10px;
+    --ds-project-metric-caption-line: 12px;
+  }
+
   :root,[data-theme="light"],[data-theme="dark"] {
     --ds-gutter:24px;--ds-grid-columns:4;--ds-grid-gap:16px;
     --ds-section-gap:64px;--ds-heading-gap:32px;--ds-panel-padding:24px;
