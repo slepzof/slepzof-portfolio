@@ -245,15 +245,15 @@ section.querySelectorAll('.sx28-carousel').forEach(c=>{
    Math.abs(p-x)<Math.abs(positions[best]-x)?i:best,0);
  let committedIndex=null, committedAt=0;
  const update=()=>{
-  if(c.classList.contains('sx43-mobile-deck'))return;
+  if(c.classList.contains('sx43-scroll-stack'))return;
   const here=rail.scrollLeft, positions=snapPositions(), lo=positions[0], hi=positions[positions.length-1];
   rail.classList.toggle('sx33-has-leading',here>lo+7);
   prev.disabled=here<=lo+7;
   next.disabled=here>=hi-7;
  };
  const move=dir=>{
-  // The mobile stack owns its own navigation; retain native desktop rail only.
-  if(c.classList.contains('sx43-mobile-deck'))return;
+  // A mobile vertical stack has no horizontal carousel navigation.
+  if(c.classList.contains('sx43-scroll-stack'))return;
   const positions=snapPositions(), here=rail.scrollLeft;
   // Consecutive fast clicks advance independently of an ongoing smooth scroll.
   const index=(committedIndex!==null&&performance.now()-committedAt<500)

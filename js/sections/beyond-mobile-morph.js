@@ -22,7 +22,7 @@ const points=(r,vals)=>Array.from({length:8},(_,i)=>{
  const [x,y]=polar(i,r*(vals?vals[i]/10:1));return x.toFixed(2)+','+y.toFixed(2);
 }).join(' ');
 const nodes=()=>[...source.querySelectorAll('.sx28-node[data-sx28-jump]')];
-let morph=null,stage=null,focus=null,transitions=[],decks=[],raf=0;
+let morph=null,stage=null,focus=null,transitions=[],stacks=[],raf=0;
 let active=-1;
 function cardFor(i,cls){
  const sourceNode=nodes()[i];
@@ -72,76 +72,24 @@ function restoreContent(){
    'sx37-enter-pending','sx37-enter-active'])p.classList.remove(cls);
  });
 }
-function attachDeck(panel){
+// A native vertical, 24px-spaced list becomes a stepped sticky stack.
+// Do not intercept touch events or change the actual case cover contents.
+function attachStack(panel){
  const carousel=panel.querySelector('.sx28-carousel');
  const rail=carousel?.querySelector('.sx28-carousel-rail');
  const cards=[...carousel?.querySelectorAll('a.sx28-card')||[]];
- const controls=carousel?.querySelector('.sx28-carousel-controls');
- const prev=controls?.querySelector('.sx28-prev');
- const next=controls?.querySelector('.sx28-next');
- if(!rail||cards.length!==3||!prev||!next)return null;
- const count=make('span','sx43-deck-count');
- controls.prepend(count);
- carousel.classList.add('sx43-mobile-deck');
- let index=0,start=null,suppressUntil=0;
- const render=()=>{
-  count.textContent=String(index+1).padStart(2,'0')+' / 03';
-  cards.forEach((card,i)=>{
-   const depth=i-index;
-   const visible=depth>=0&&depth<3;
-   card.classList.toggle('sx43-active',depth===0);
-   card.classList.toggle('sx43-off',!visible);
-   card.style.setProperty('--sx43-depth',String(clamp(depth,0,2)));
-   card.style.setProperty('--sx43-card-offset',(40-18*clamp(depth,0,2))+'px');
-   card.style.setProperty('--sx43-card-scale',String(1-.04*clamp(depth,0,2)));
-   card.style.setProperty('--sx43-card-layer',String(5-clamp(depth,0,2)));
-   card.tabIndex=depth===0?0:-1;
-   if(depth===0)card.removeAttribute('aria-hidden');
-   else card.setAttribute('aria-hidden','true');
-  });
-  prev.disabled=index===0;next.disabled=index===cards.length-1;
- };
- const step=d=>{index=clamp(index+d,0,cards.length-1);render();};
- // Existing desktop listeners short-circuit while the deck class is present.
- prev.addEventListener('click',()=>step(-1));
- next.addEventListener('click',()=>step(1));
- rail.addEventListener('touchstart',e=>{
-  if(e.touches.length!==1)return;
-  start={x:e.touches[0].clientX,y:e.touches[0].clientY};
- },{passive:true});
- rail.addEventListener('touchend',e=>{
-  if(!start||!e.changedTouches.length)return;
-  const dx=e.changedTouches[0].clientX-start.x;
-  const dy=e.changedTouches[0].clientY-start.y;
-  start=null;
-  if(Math.abs(dx)>44&&Math.abs(dx)>Math.abs(dy)*1.25){
-   step(dx<0?1:-1);suppressUntil=Date.now()+450;
-  }
- },{passive:true});
- rail.addEventListener('touchcancel',()=>{start=null},{passive:true});
- rail.addEventListener('click',e=>{
-  if(Date.now()<suppressUntil){e.preventDefault();e.stopImmediatePropagation();}
- },true);
- rail.addEventListener('keydown',e=>{
-  if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight')return;
-  e.preventDefault();e.stopImmediatePropagation();step(e.key==='ArrowRight'?1:-1);
- },true);
- render();
- return {carousel,cards,count,prev,next,render};
-}
-function detachDeck(d){
- const {carousel,cards,count}=d;
- carousel.classList.remove('sx43-mobile-deck');
- count.remove();
- cards.forEach(card=>{
+ if(!carousel||!rail||cards.length!==3)return null;
+ carousel.classList.add('sx43-scroll-stack');
+ rail.scrollLeft=0;
+ for(const card of cards){
   card.classList.remove('sx43-active','sx43-off');
-  card.style.removeProperty('--sx43-depth');
-  card.style.removeProperty('--sx43-card-offset');
-  card.style.removeProperty('--sx43-card-scale');
-  card.style.removeProperty('--sx43-card-layer');
   card.removeAttribute('aria-hidden');card.removeAttribute('tabindex');
- });
+  for(const prop of ['--sx43-depth','--sx43-card-offset',
+    '--sx43-card-scale','--sx43-card-layer'])card.style.removeProperty(prop);
+ }
+ return carousel;
 }
+function detachStack(carousel){carousel.classList.remove('sx43-scroll-stack');}
 function draw(){
  raf=0;
  if(!mobile.matches||!morph)return;
@@ -194,7 +142,7 @@ function enable(){
  section.classList.add('sx43-morph');
  document.documentElement.classList.remove('sx33-controlled-scroll');
  restoreContent();
- decks=panels.map(attachDeck).filter(Boolean);
+ stacks=panels.map(attachStack).filter(Boolean);
  active=-1;schedule();requestAnimationFrame(schedule);
 }
 function disable(){
@@ -204,7 +152,7 @@ function disable(){
  source.classList.remove('sx43-morph-radar');
  focus.remove();morph.remove();
  transitions.forEach(ch=>ch.wrap.remove());transitions=[];
- decks.forEach(detachDeck);decks=[];
+ stacks.forEach(detachStack);stacks=[];
  section.classList.remove('sx43-morph');morph=null;stage=null;focus=null;active=-1;
 }
 function updateMode(){

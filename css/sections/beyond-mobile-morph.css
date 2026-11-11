@@ -1,11 +1,12 @@
 /* SLEPZOF Beyond UI / Radar Morph / MOBILE ONLY.
-   Full original radar -> one compact skill card, centered reading, swipeable
-   project deck and small clock turns. No overlay above page content. */
+   Full original radar -> one compact skill card, centered reading,
+   vertical scroll-stacked project covers and small clock turns. */
 @media(max-width:800px){
  #beyond-ui.sx43-morph{
   --sx43-gap:var(--ds-gutter,20px);
   --sx43-card-w:min(100%,360px);
-  --sx43-card-h:clamp(360px,126vw,505px);
+  --sx43-stack-peek:clamp(44px,8svh,72px);
+  --sx43-stack-top:calc(var(--sx28-nav,56px) + 12px);
   --sx43-blue:#00b7ff;
   background:#000!important;overflow:clip!important;padding-bottom:72px!important;
  }
@@ -185,69 +186,63 @@
  #beyond-ui.sx43-morph .sx28-panel .sx30-tool-icon{
   width:18px!important;height:18px!important;flex:none;
  }
- /* All three APPROVED covers become one stacked, vertically compact deck. */
+ /* Three original case covers in document flow, 24px natural spacing.
+    Each later cover sticks BELOW the previous one by a visible header strip.
+    Vertical scrolling pulls card two OVER one, then three OVER two.
+    The stack releases automatically at the end of its own rail. */
  #beyond-ui.sx43-morph .sx28-panel .sx28-carousel{
-  display:block!important;width:100%!important;max-width:540px!important;
-  margin:0 auto!important;padding:0!important;overflow:visible!important;
- }
- #beyond-ui.sx43-morph .sx28-carousel.sx43-mobile-deck .sx28-carousel-rail{
   position:relative!important;display:block!important;
-  width:var(--sx43-card-w)!important;max-width:360px!important;
-  height:calc(var(--sx43-card-h) + 45px)!important;
+  width:100%!important;max-width:540px!important;
   margin:0 auto!important;padding:0!important;
-  overflow:visible!important;scroll-behavior:auto!important;
-  scroll-snap-type:none!important;touch-action:pan-y;
-  isolation:isolate;
+  overflow:visible!important;contain:none!important;
  }
- #beyond-ui.sx43-morph .sx28-carousel.sx43-mobile-deck .sx28-carousel-rail::after{
+ #beyond-ui.sx43-morph .sx28-carousel.sx43-scroll-stack .sx28-carousel-rail{
+  position:relative!important;display:flex!important;
+  flex-direction:column!important;align-items:center!important;
+  width:var(--sx43-card-w)!important;max-width:360px!important;
+  height:auto!important;min-height:0!important;
+  margin:0 auto!important;padding:0!important;
+  gap:24px!important;overflow:visible!important;
+  scroll-behavior:auto!important;scroll-snap-type:none!important;
+  touch-action:pan-y!important;overscroll-behavior-y:auto!important;
+  contain:none!important;isolation:isolate!important;
+ }
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-carousel-rail::after{
   content:none!important;display:none!important;
  }
- #beyond-ui.sx43-morph a.sx28-card{
-  position:absolute!important;display:block!important;flex:none!important;
-  left:0!important;top:0!important;right:0!important;
+ #beyond-ui.sx43-morph .sx43-scroll-stack a.sx28-card{
+  position:sticky!important;display:block!important;
+  flex:0 0 auto!important;align-self:center!important;
+  left:auto!important;right:auto!important;bottom:auto!important;
   width:100%!important;min-width:0!important;max-width:100%!important;
-  height:var(--sx43-card-h)!important;aspect-ratio:1424/2048!important;
+  height:auto!important;min-height:0!important;max-height:none!important;
+  aspect-ratio:1424 / 2048!important;
   border-radius:27px!important;overflow:hidden!important;
-  transform:translate3d(0,var(--sx43-card-offset,40px),0)
-    scale(var(--sx43-card-scale,1))!important;
-  transform-origin:50% 100%!important;
-  z-index:var(--sx43-card-layer,3)!important;
+  -webkit-clip-path:inset(0 round 27px)!important;
+  clip-path:inset(0 round 27px)!important;
+  transform:none!important;transition:none!important;
   opacity:1!important;visibility:visible!important;
-  box-shadow:0 14px 38px rgba(0,0,0,.38);
-  transition:transform .38s cubic-bezier(.22,1,.36,1),
-    opacity .25s ease,visibility .25s ease!important;
-  pointer-events:none!important;
- }
- #beyond-ui.sx43-morph a.sx28-card.sx43-active{
   pointer-events:auto!important;
+  box-shadow:0 12px 32px rgba(0,0,0,.4)!important;
+  will-change:auto!important;
  }
- #beyond-ui.sx43-morph a.sx28-card.sx43-off{
-  opacity:0!important;visibility:hidden!important;
-  pointer-events:none!important;
+ #beyond-ui.sx43-morph .sx43-scroll-stack a.sx28-card:nth-child(1){
+  top:var(--sx43-stack-top)!important;z-index:1!important;
  }
- #beyond-ui.sx43-morph .sx28-card .sx25b3-art{
-  object-fit:cover!important;inset:0!important;width:100%!important;
-  height:100%!important;
+ #beyond-ui.sx43-morph .sx43-scroll-stack a.sx28-card:nth-child(2){
+  top:calc(var(--sx43-stack-top) + var(--sx43-stack-peek))!important;
+  z-index:2!important;
  }
- #beyond-ui.sx43-morph .sx28-carousel.sx43-mobile-deck .sx28-carousel-controls{
-  display:flex!important;position:relative!important;
-  align-items:center!important;justify-content:flex-end!important;
-  width:var(--sx43-card-w)!important;max-width:360px!important;
-  margin:18px auto 0!important;padding:0!important;
-  gap:10px!important;z-index:2;
+ #beyond-ui.sx43-morph .sx43-scroll-stack a.sx28-card:nth-child(3){
+  top:calc(var(--sx43-stack-top) + var(--sx43-stack-peek) + var(--sx43-stack-peek))!important;
+  z-index:3!important;
  }
- #beyond-ui.sx43-morph .sx43-deck-count{
-  display:block;margin-right:auto!important;
-  color:#98989d;font:500 14px/20px var(--ds-font-family,-apple-system,sans-serif);
-  font-variant-numeric:tabular-nums;letter-spacing:.02em;
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-art{
+  width:100%!important;height:100%!important;object-fit:cover!important;
  }
- #beyond-ui.sx43-morph .sx28-carousel.sx43-mobile-deck .sx28-carousel-controls button{
-  display:grid;place-items:center;width:40px!important;height:40px!important;
-  min-width:40px!important;flex:0 0 40px!important;border-radius:50%!important;
-  background:#242427!important;color:#f5f5f7!important;
- }
- #beyond-ui.sx43-morph .sx28-carousel.sx43-mobile-deck .sx28-carousel-controls button:disabled{
-  opacity:.32!important;cursor:default!important;
+ /* The scroll is the control: no horizontal carousel arrows or counter. */
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-carousel-controls{
+  display:none!important;
  }
  /* Short, self-contained next-skill morph. Never covers a reading section. */
  #beyond-ui.sx43-morph .sx43-transition{
@@ -283,12 +278,12 @@
  }
 }
 @media(max-width:360px){
- #beyond-ui.sx43-morph{--sx43-card-h:clamp(360px,126vw,453px)}
+ #beyond-ui.sx43-morph{--sx43-stack-peek:clamp(40px,7svh,58px)}
  #beyond-ui.sx43-morph .sx28-panel .sx28-body p{font-size:16px!important;line-height:1.43!important}
  #beyond-ui.sx43-morph .sx28-panel .sx28-skill-head h3{font-size:26px!important}
  #beyond-ui.sx43-morph .sx43-morph-track{height:calc(360px + 200px)}
 }
 @media(prefers-reduced-motion:reduce){
- #beyond-ui.sx43-morph a.sx28-card{transition:none!important}
+ #beyond-ui.sx43-morph .sx43-scroll-stack a.sx28-card{transition:none!important}
  #beyond-ui.sx43-morph .sx43-transition-wheel .sx43-turn-group{will-change:auto}
 }
