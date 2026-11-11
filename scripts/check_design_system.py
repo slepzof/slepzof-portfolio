@@ -228,13 +228,17 @@ if review_data:
                    f"Missing testimonial portrait: {review['id']}")
             expect(review.get("href", "").startswith("/"),
                    f"Missing destination for testimonial: {review['id']}")
-    expect(len(used_portraits) >= 11,
-           "Figma reference requires source portrait cards across work history")
+    expect(len(used_portraits) == 15 and len(set(used_portraits)) == 15,
+           "All fifteen original authors must have unique review cards")
     expect("felix-g" in used_portraits and "alexey-rsk" in used_portraits
            and "david-t-hash-hedge" in used_portraits,
            "First periods must include real client reviews rather than text placeholders")
-expect('sx42-fact' not in experience_js,
+expect('sx42-fact' not in experience_js and
+       'const customMetric=coverMetrics[slug]' in experience_js,
        "Achievement-only black slides must not be rendered; metrics belong on covers")
+expect('const before=review.before?' in experience_js and
+       'const after=review.after?' in experience_js,
+       "Figma testimonial ordering must use before/after project anchors")
 
 if errors:
     print("Design system check FAILED:")
