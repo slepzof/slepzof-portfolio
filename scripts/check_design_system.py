@@ -57,14 +57,15 @@ expect("/css/sections/beyond-mobile-orbit.css" in html, "Missing mobile orbit st
 expect("/js/sections/beyond-mobile-orbit.js" in html, "Missing mobile orbit script")
 orbit = (ROOT / "js/sections/beyond-mobile-orbit.js").read_text("utf-8")
 controller = (ROOT / "js/v34-beyond-ui-story.js").read_text("utf-8")
-expect("scene.append(first,meta)" in orbit, "Mobile must reuse the original radar, not clone it")
-expect("slots=[makeSlot('current'),makeSlot('next')]" in orbit,
+expect("elems.overview.append(source)" in orbit and "elems.reading.append(elems.stage,column)" in orbit,
+       "Mobile instrument must separate full radar and confined sticky reading stage")
+expect("tiles=[makeLabel('current'),makeLabel('next')]" in orbit,
        "Skill icon/name transitions must crossfade during diagram rotation")
-expect("orbit+=reduced.matches" in orbit, "Orbit must follow native scroll")
+expect("orbit+=reduce.matches" in orbit, "Orbit must follow native scroll")
 expect("window.scrollTo(" not in orbit, "Orbit must never forcibly scroll the page")
 expect("touchmove" not in orbit, "Orbit must not intercept native touch scrolling")
-expect("height:min(96vw,420px)" in (ROOT / "css/sections/beyond-mobile-orbit.css").read_text("utf-8"),
-       "Mobile orbit sticky radar frame missing")
+expect("z-index:20;height:190px;min-height:190px" in (ROOT / "css/sections/beyond-mobile-orbit.css").read_text("utf-8"),
+       "Compact opaque sticky instrument must be scoped to mobile reading section")
 expect("continuousMobile()" in controller, "Legacy forced chapter transitions must be disabled in orbit mode")
 expect("sx41-mobile-scroll" in html and "sx41-mobile-viewport" in html,
        "Missing mobile markets scroll shell")

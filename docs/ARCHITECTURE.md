@@ -62,3 +62,7 @@ The `css/sections/home-entrance.css` and `js/sections/home-entrance.js` sequence
 `js/v34-beyond-ui-story.js` preserves existing desktop behaviour, while its legacy mobile switching/gesture handlers explicitly short-circuit when `.sx40-mobile-continuous` is present. Mobile radar point clicks still scroll directly to the appropriate content. On device-width changes the original radar returns to its source panel, so the desktop layout remains unchanged. Reduced-motion preference produces immediate, non-scrubbed states.
 
 This is a deliberate transition away from `sx37-overlay` on mobile. Do not re-enable 800px chapter padding or mobile `scrollTo` chapter resets.
+
+
+## Radar Instrument v2: full → compact (2026-11-11)
+Replaced the overlapping full-screen mobile orbit with an introductory full-size original radar (`.sx40-overview`) and a single compact 190px opaque sticky instrument (`.sx40-reading > .sx40-instrument`). The original radar retains clickable labels; the compact graphic is a one-time clone of its SVG with renamed gradient/mask IDs to prevent collisions. Native scrolling continuously zooms/fades the introduction and rotates the compact graph 45 degrees as new skill panels enter view. The compact instrument is a child of the reading wrapper, so its sticky behavior stops naturally after Leadership and never appears in the next section. No touch interception or automatic scrollTo during normal reading.

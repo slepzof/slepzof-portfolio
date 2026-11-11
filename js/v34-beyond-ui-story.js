@@ -329,7 +329,7 @@ function visit(i){
  if(!desktopReady){
   if(continuousMobile()){
    const rect=panels[i].getBoundingClientRect();
-   const sceneHeight=section.querySelector('.sx40-scene')?.offsetHeight||260;
+   const sceneHeight=section.querySelector('.sx40-instrument')?.offsetHeight||190;
    const offset=headerHeight()+Math.min(sceneHeight,innerHeight*.43)+14;
    window.scrollTo({top:Math.max(0,window.scrollY+rect.top-offset),behavior:reduced.matches?'auto':'smooth'});
    return;
