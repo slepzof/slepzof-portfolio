@@ -1,0 +1,21 @@
+/* Design-system components (explicit opt-in, no broad legacy selectors). */
+.ds-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 22px;box-sizing:border-box;border:1px solid transparent;border-radius:var(--ds-radius-pill);font:500 var(--ds-font-button)/var(--ds-line-button) var(--ds-font-family);text-decoration:none;white-space:nowrap;cursor:pointer;transition:background-color .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
+.ds-button:hover{transform:translateY(-1px)}
+.ds-button:active{transform:translateY(0)}
+.ds-button:focus-visible,.ds-input:focus-visible,.ds-select:focus-visible{outline:0;box-shadow:var(--ds-focus-ring)}
+.ds-button:disabled,.ds-button[aria-disabled="true"]{opacity:.42;pointer-events:none;cursor:not-allowed;transform:none}
+.ds-button--primary{background:var(--ds-color-primary);color:var(--ds-color-on-primary);border-color:var(--ds-color-primary)}
+.ds-button--primary:hover{background:var(--ds-color-primary-hover);border-color:var(--ds-color-primary-hover);color:var(--ds-color-on-primary)}
+.ds-button--secondary{background:transparent;color:var(--ds-color-primary);border-color:var(--ds-color-primary)}
+.ds-button--secondary:hover{background:color-mix(in srgb,var(--ds-color-primary) 8%,transparent);color:var(--ds-color-primary)}
+.ds-button--tertiary{background:transparent;color:var(--ds-color-primary);padding-inline:4px}
+.ds-button--tertiary:hover{background:color-mix(in srgb,var(--ds-color-primary) 6%,transparent);color:var(--ds-color-primary)}
+.ds-button--sm{min-height:36px;padding:8px 14px;font-size:var(--ds-font-body-sm)}
+.ds-button--lg{min-height:56px;padding:16px 28px}
+.ds-card{background:var(--ds-color-surface);border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-xl);overflow:hidden}
+.ds-card--elevated{background:var(--ds-color-elevated)}
+.ds-badge{display:inline-flex;align-items:center;border-radius:var(--ds-radius-pill);background:var(--ds-color-surface);border:1px solid var(--ds-color-border);color:var(--ds-color-text-secondary);font:500 var(--ds-font-caption)/var(--ds-line-caption) var(--ds-font-family);padding:6px 10px}
+.ds-input,.ds-select{box-sizing:border-box;display:block;width:100%;min-height:48px;padding:11px 14px;border:1px solid var(--ds-color-border);border-radius:var(--ds-radius-md);background:var(--ds-color-elevated);color:var(--ds-color-ink);font:400 var(--ds-font-body)/var(--ds-line-body) var(--ds-font-family)}
+.ds-input::placeholder{color:var(--ds-color-text-tertiary)}
+.ds-metric{font:600 clamp(36px,4vw,48px)/1.05 var(--ds-font-family);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}

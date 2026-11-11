@@ -1,0 +1,20 @@
+/* SLEPZOF semantic typography. Strict token sizes, independent of HTML semantics. */
+:where(.ds-system){font-family:var(--ds-font-family);-webkit-font-smoothing:antialiased;color:var(--ds-color-ink)}
+.ds-h1,.ds-h2,.ds-h3,.ds-h4,.ds-h5,.ds-h6{font-family:var(--ds-font-family);margin:0;color:inherit;text-wrap:balance}
+.ds-h1{font-size:var(--ds-font-h1);line-height:var(--ds-line-h1);font-weight:600;letter-spacing:-.04em}
+.ds-h2{font-size:var(--ds-font-h2);line-height:var(--ds-line-h2);font-weight:600;letter-spacing:-.04em}
+.ds-h3{font-size:var(--ds-font-h3);line-height:var(--ds-line-h3);font-weight:600;letter-spacing:-.035em}
+.ds-h4{font-size:var(--ds-font-h4);line-height:var(--ds-line-h4);font-weight:600;letter-spacing:-.025em}
+.ds-h5{font-size:var(--ds-font-h5);line-height:var(--ds-line-h5);font-weight:600;letter-spacing:-.015em}
+.ds-h6{font-size:var(--ds-font-h6);line-height:var(--ds-line-h6);font-weight:500;letter-spacing:-.015em}
+.ds-lead-xl{font:500 var(--ds-font-lead-xl)/var(--ds-line-lead-xl) var(--ds-font-family);letter-spacing:-.01em}
+.ds-lead{font:400 var(--ds-font-lead)/var(--ds-line-lead) var(--ds-font-family)}
+.ds-body-lg{font:400 var(--ds-font-body-lg)/var(--ds-line-body-lg) var(--ds-font-family)}
+.ds-body{font:400 var(--ds-font-body)/var(--ds-line-body) var(--ds-font-family)}
+.ds-body-sm{font:400 var(--ds-font-body-sm)/var(--ds-line-body-sm) var(--ds-font-family)}
+.ds-caption{font:400 var(--ds-font-caption)/var(--ds-line-caption) var(--ds-font-family)}
+.ds-eyebrow{font:600 var(--ds-font-eyebrow)/var(--ds-line-eyebrow) var(--ds-font-family);letter-spacing:.07em}
+.ds-text-primary{color:var(--ds-color-ink)}
+.ds-text-secondary{color:var(--ds-color-text-secondary)}
+.ds-text-tertiary{color:var(--ds-color-text-tertiary)}
+.ds-text-accent{color:var(--ds-color-primary)}

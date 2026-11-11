@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>SLEPZOF · Design System v1.0</title>
+<link rel="stylesheet" href="/css/system/tokens.css">
+<link rel="stylesheet" href="/css/system/typography.css">
+<link rel="stylesheet" href="/css/system/layout.css">
+<link rel="stylesheet" href="/css/system/components.css">
+<style>
+*{box-sizing:border-box}html{font-family:var(--ds-font-family);background:var(--ds-color-bg);color:var(--ds-color-ink)}body{margin:0;background:var(--ds-color-bg);color:var(--ds-color-ink);transition:background .2s,color .2s}a{color:inherit}.sg-top{position:sticky;top:0;z-index:4;background:var(--ds-color-elevated);border-bottom:1px solid var(--ds-color-border);padding:14px 0}.sg-bar{display:flex;align-items:center;justify-content:space-between;gap:16px}.sg-toggles{display:flex;gap:8px}.sg-toggle{border:1px solid var(--ds-color-border);background:var(--ds-color-surface);color:var(--ds-color-ink);border-radius:99px;padding:8px 14px;font:500 14px/20px var(--ds-font-family);cursor:pointer}.sg-toggle[aria-pressed=true]{border-color:var(--ds-color-primary);color:var(--ds-color-primary)}.sg-intro{padding-top:72px}.sg-section{padding:55px 0;border-top:1px solid var(--ds-color-border)}.sg-row{display:flex;align-items:baseline;gap:24px;padding:22px 0;border-bottom:1px solid var(--ds-color-border)}.sg-label{min-width:100px;font:500 13px/20px var(--ds-font-family);color:var(--ds-color-text-secondary)}.sg-copy{margin:0;min-width:0}.sg-swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}.sg-swatch{border:1px solid var(--ds-color-border);border-radius:16px;overflow:hidden}.sg-swatch-color{height:72px}.sg-swatch-text{padding:10px;font:500 13px/18px var(--ds-font-family)}.sg-columns{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--ds-grid-gap);margin-block:20px}.sg-columns span{height:90px;border-radius:4px;background:color-mix(in srgb,var(--ds-color-primary) 30%,transparent)}.sg-muted{color:var(--ds-color-text-secondary)}.sg-card{background:var(--ds-color-surface);padding:24px;border-radius:var(--ds-radius-xl)}.sg-wrap{display:flex;flex-wrap:wrap;gap:12px}.sg-kv{font-size:14px;color:var(--ds-color-text-secondary)}@media(max-width:767px){.sg-bar{flex-wrap:wrap}.sg-columns{grid-template-columns:repeat(4,1fr)}.sg-row{display:block}.sg-label{display:block;margin-bottom:12px}.sg-intro{padding-top:48px}.sg-section{padding:40px 0}}
+</style></head>
+<body class="ds-system">
+<header class="sg-top"><div class="ds-container sg-bar"><strong>SLEPZOF / Design System</strong><div class="sg-toggles"><button class="sg-toggle" id="light" aria-pressed="true" type="button">Light</button><button class="sg-toggle" id="dark" aria-pressed="false" type="button">Dark</button></div></div></header>
+<main class="ds-container">
+  <section class="sg-intro"><p class="ds-eyebrow ds-text-accent">v1.0 / Living style guide</p><h1 class="ds-h1">Одна система.<br>Весь SLEPZOF.</h1><p class="ds-lead ds-text-secondary">Шкала типографики, палитра, сетка, кнопки и повторно используемые компоненты. Проверяй светлую и тёмную темы, а также размеры от 320 px до широкоформатных экранов.</p></section>
+  <section class="sg-section"><h2 class="ds-h3">01 / Типографика</h2>
+    <div class="sg-row"><span class="sg-label">H1 / 56</span><h1 class="ds-h1 sg-copy">Главный заголовок</h1></div>
+    <div class="sg-row"><span class="sg-label">H2 / 48</span><h2 class="ds-h2 sg-copy">Заголовок секции</h2></div>
+    <div class="sg-row"><span class="sg-label">H3 / 40</span><h3 class="ds-h3 sg-copy">Заголовок блока</h3></div>
+    <div class="sg-row"><span class="sg-label">H4 / 32</span><h4 class="ds-h4 sg-copy">Заголовок карточки</h4></div>
+    <div class="sg-row"><span class="sg-label">H5 / 24</span><h5 class="ds-h5 sg-copy">Название элемента</h5></div>
+    <div class="sg-row"><span class="sg-label">H6 / 20</span><h6 class="ds-h6 sg-copy">Малый заголовок</h6></div>
+    <div class="sg-row"><span class="sg-label">Lead XL</span><p class="ds-lead-xl sg-copy">От платформ для финансов до игровых продуктов. Моя суперсила — комбинация удачных решений из разных сфер.</p></div>
+    <div class="sg-row"><span class="sg-label">Body</span><p class="ds-body sg-copy">Текст описания продукта. Читается с одинаковой иерархией на десктопе, планшете и телефоне.</p></div>
+    <div class="sg-row"><span class="sg-label">Caption</span><p class="ds-caption sg-copy">Подпись к изображению и второстепенная информация.</p></div>
+  </section>
+  <section class="sg-section"><h2 class="ds-h3">02 / Сетка</h2><p class="ds-body sg-muted">1116 px / 12 колонок / 24 px gap на ПК. При 1440 px боковые поля равны 162 px.</p><div class="sg-columns" aria-label="Сетка из 12 колонок"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><p class="ds-caption sg-muted">На планшете 8 колонок, на мобильном 4.</p></section>
+  <section class="sg-section"><h2 class="ds-h3">03 / Цвет и темы</h2><div class="sg-swatches">
+   <div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--ds-color-bg)"></div><div class="sg-swatch-text">Background</div></div>
+   <div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--ds-color-surface)"></div><div class="sg-swatch-text">Surface</div></div>
+   <div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--ds-color-elevated)"></div><div class="sg-swatch-text">Elevated</div></div>
+   <div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--ds-color-primary)"></div><div class="sg-swatch-text">Accent</div></div>
+   <div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--ds-color-positive)"></div><div class="sg-swatch-text">Positive</div></div>
+   <div class="sg-swatch"><div class="sg-swatch-color" style="background:var(--ds-color-negative)"></div><div class="sg-swatch-text">Negative</div></div>
+   </div></section>
+  <section class="sg-section"><h2 class="ds-h3">04 / Кнопки и поля</h2><div class="sg-wrap" style="margin:28px 0 30px">
+   <button class="ds-button ds-button--primary">Primary ↗</button>
+   <button class="ds-button ds-button--secondary">Secondary</button>
+   <button class="ds-button ds-button--tertiary">Tertiary →</button>
+   <button class="ds-button ds-button--primary ds-button--sm">Small</button>
+   <button class="ds-button ds-button--primary ds-button--lg">Large</button>
+   <button class="ds-button ds-button--primary" disabled>Disabled</button>
+   </div><div class="sg-wrap"><input class="ds-input" style="max-width:300px" placeholder="Текстовое поле" aria-label="Текстовое поле"><span class="ds-badge">Статус / Badge</span></div></section>
+  <section class="sg-section"><h2 class="ds-h3">05 / Компоненты</h2><div class="sg-card" style="max-width:420px"><span class="ds-eyebrow ds-text-secondary">CASE STUDY</span><h3 class="ds-h5" style="margin-top:12px">Карточка проекта</h3><p class="ds-body ds-text-secondary">Типографика, поверхность, отступы и кнопки берутся из общих токенов.</p><a href="../../" class="ds-button ds-button--tertiary">На сайт →</a></div></section>
+</main>
+<script>
+(function(){
+ var root=document.documentElement,light=document.getElementById("light"),dark=document.getElementById("dark");
+ function setTheme(theme){root.setAttribute("data-theme",theme);light.setAttribute("aria-pressed",String(theme==="light"));dark.setAttribute("aria-pressed",String(theme==="dark"));}
+ light.addEventListener("click",function(){setTheme("light")});
+ dark.addEventListener("click",function(){setTheme("dark")});
+})();
+</script></body></html>

@@ -1,0 +1,15 @@
+/* SLEPZOF unified Bootstrap-like grid: 1116px at 1440 => 162px side margins. */
+.ds-container{box-sizing:border-box;width:min(calc(100% - var(--ds-gutter) - var(--ds-gutter)),var(--ds-container-max));margin-inline:auto}
+.ds-container-narrow{box-sizing:border-box;width:min(calc(100% - var(--ds-gutter) - var(--ds-gutter)),var(--ds-container-narrow));margin-inline:auto}
+.ds-container-wide{box-sizing:border-box;width:min(calc(100% - var(--ds-gutter) - var(--ds-gutter)),var(--ds-container-wide));margin-inline:auto}
+.ds-container-fluid{width:100%;margin-inline:auto}
+.ds-grid{display:grid;grid-template-columns:repeat(var(--ds-grid-columns),minmax(0,1fr));gap:var(--ds-grid-gap)}
+.ds-col-full{grid-column:1 / -1}
+.ds-section{padding-block:var(--ds-section-gap)}
+.ds-section-heading{margin-bottom:var(--ds-heading-gap)}
+.ds-panel{padding:var(--ds-panel-padding);border-radius:var(--ds-radius-panel)}
+.ds-breakout-right{margin-right:calc(-1 * max(var(--ds-gutter),((100vw - var(--ds-container-max))/2)))}
+.ds-breakout-left{margin-left:calc(-1 * max(var(--ds-gutter),((100vw - var(--ds-container-max))/2)))}
+.ds-stack{display:flex;flex-direction:column;gap:var(--ds-space-6)}
+.ds-row{display:flex;align-items:center;gap:var(--ds-space-4)}
+@media(max-width:767px){.ds-breakout-right{margin-right:calc(-1 * var(--ds-gutter))}.ds-breakout-left{margin-left:calc(-1 * var(--ds-gutter))}}
