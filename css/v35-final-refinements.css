@@ -61,70 +61,10 @@
   }
 }
 
-/* v36 mobile fixes: keep the artwork's original aspect ratio; prevent Safari
-   compositing seams around the approved project covers. */
-@media (max-width:560px) {
-  /* Exact desktop cover size on iPhone: no compressed cover, no text overlap. */
-  #selected a.sx25b3-card {
-    flex:0 0 326px!important;
-    width:326px!important;
-    min-width:326px!important;
-    max-width:326px!important;
-    height:469px!important;
-    aspect-ratio:1424 / 2048!important;
-    border-radius:30px!important;
-    -webkit-clip-path:inset(0 round 30px);
-    clip-path:inset(0 round 30px);
-    transform:none!important;
-  }
-  #selected .sx25b3-art {
-    object-fit:contain!important;
-    border-radius:30px!important;
-  }
-  #selected .sx25b3-card h3 {
-    font-size:clamp(15.9px,5.14vw,19.8px)!important;
-    line-height:1.16!important;
-  }
-  #selected .sx25b3-card p {
-    font-size:clamp(11.1px,3.5vw,12.9px)!important;
-    line-height:1.28!important;
-  }
-  #selected .sx25b3-metric {
-    min-height:36px;
-    padding-top:4px;
-    padding-bottom:4px;
-    border-radius:20px;
-  }
-  #selected .sx25b3-metric .sx25b3-laurel {
-    width:10px;
-    height:22px;
-    flex-basis:10px;
-  }
-  #selected .sx25b3-metric strong {font-size:21px;}
-  #selected .sx25b3-metric span {
-    font-size:9.6px;
-    line-height:1.15;
-    letter-spacing:-.01em;
-    text-wrap:balance;
-  }
-  /* Hide only this break on narrow screens, not a single word of the metric. */
-  #selected [data-sx25b3-slug="vezu-edu"] .sx25b3-metric br.sx25b3-approved-break {
-    display:none;
-  }
-  #beyond-ui a.sx28-card {
-    flex:0 0 270px!important;
-    width:270px!important;
-    min-width:270px!important;
-    max-width:270px!important;
-    height:388px!important;
-    aspect-ratio:1424 / 2048!important;
-    border-radius:27px!important;
-    -webkit-clip-path:inset(0 round 27px);
-    clip-path:inset(0 round 27px);
-  }
-  #beyond-ui .sx28-card .sx25b3-art {object-fit:contain!important;}
-  #beyond-ui .sx28-card h3 {font-size:17.2px!important;line-height:1.17!important;}
-  #beyond-ui .sx28-card p {font-size:11.7px!important;line-height:1.26!important;}
+/* Mobile project-card typography and geometry now belong exclusively
+   to css/system/portfolio-projects.css. Keep this approved manual break. */
+@media(max-width:560px){
+ #selected [data-sx25b3-slug="vezu-edu"] .sx25b3-metric br.sx25b3-approved-break{display:none}
 }
 /* Blend the hero's placeholder into the animation instead of an abrupt swap. */
 @media (max-width:800px) {
