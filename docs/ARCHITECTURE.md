@@ -50,3 +50,7 @@ JS секций должен управлять только поведение�
 
 ## Mobile markets layout (11 November 2026)
 The mobile market gallery now uses normal-flow header/footer and a dedicated sticky `.sx41-mobile-scroll` with its own gallery viewport and scroll runway. The gallery remains driven by native vertical scrolling, but no longer shares an absolute-positioning plane with the description or footer. Its progress fill is block-level and exposes `aria-valuenow`. Mobile layout and the Beyond UI mobile type overrides are maintained in `css/sections/mobile-layout.css` rather than another versioned stylesheet.
+
+
+## Universal entry loader (11 November 2026)
+The `css/sections/home-entrance.css` and `js/sections/home-entrance.js` sequence is shared by desktop and mobile: neutral S for 150ms, blue fill for 1050ms, filled hold for 200ms, and 320ms fade-out. Hero copy reveals with staggered motion; existing Lottie fallback crossfades after the real SVG/canvas is ready. Reduced-motion users skip this decorative sequence, Safari BFCache restores skip it, and a 2400ms inline watchdog removes the loading class if JavaScript fails.

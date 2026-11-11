@@ -59,7 +59,13 @@ expect("const mobileConsumed=" in markets_js,
        "Mobile markets must track scroll against the dedicated sticky shell")
 expect("/css/sections/home-entrance.css" in html, "Missing desktop loader stylesheet")
 expect("/js/sections/home-entrance.js" in html, "Missing desktop loader script")
-expect("sx-home-loading" in html, "Missing desktop early loader state")
+expect("sx-home-loading" in html, "Missing universal early loader state")
+loader_css = (ROOT / "css/sections/home-entrance.css").read_text("utf-8")
+loader_js = (ROOT / "js/sections/home-entrance.js").read_text("utf-8")
+expect("animation:sx-home-fill 1.05s" in loader_css,
+       "Universal S fill should remain clearly visible on mobile and desktop")
+expect("1400-(performance.now()-started)" in loader_js,
+       "Loader must have an intentional, bounded display time")
 expect("slide=clamp((t-.16)/.56" in markets_js,
        "Desktop markets must scroll only after both rows enter the viewport")
 expect("padding-left:var(--sx41-content-pad)" in markets_css,

@@ -1,36 +1,35 @@
-/* SLEPZOF homepage desktop entrance.
-   Bounded duration: short minimum, never wait indefinitely for Lottie CDN. */
+/* Universal S loader: the visible fill lasts 1.05s on both mobile and desktop.
+   Release is time-bound and does not wait for Lottie/CDNs. */
 (()=>{
  "use strict";
  const html=document.documentElement;
  if(!html.classList.contains("sx-home-loading"))return;
  const started=window.__sxHomeStarted??performance.now();
- const reduced=matchMedia("(prefers-reduced-motion: reduce)");
- if(reduced.matches){html.classList.remove("sx-home-loading");return;}
- const lottie=document.getElementById("sx20-hero-lottie");
- let completed=false,observer;
- const finish=()=>{
+ if(matchMedia("(prefers-reduced-motion: reduce)").matches){
+   html.classList.remove("sx-home-loading");
+   document.querySelector(".sx-home-loader")?.remove();
+   return;
+ }
+ let completed=false;
+ let timer;
+ function reveal(){
   if(completed)return;
   completed=true;
-  observer?.disconnect();
-  setTimeout(()=>{
-   html.classList.add("sx-home-entering");
-   html.classList.remove("sx-home-loading");
-   setTimeout(()=>{
-    html.classList.remove("sx-home-entering");
-    document.querySelector(".sx-home-loader")?.remove();
-   },1050);
-  },Math.max(0,560-(performance.now()-started)));
- };
- if(lottie&&(lottie.classList.contains("sx20-ready")||lottie.classList.contains("sx20-failed")))finish();
- else if(lottie&&"MutationObserver" in window){
-  observer=new MutationObserver(()=>{
-   if(lottie.classList.contains("sx20-ready")||lottie.classList.contains("sx20-failed"))finish();
-  });
-  observer.observe(lottie,{attributes:true,attributeFilter:["class"]});
+  html.classList.add("sx-home-entering");
+  html.classList.remove("sx-home-loading");
+  window.setTimeout(()=>{
+   html.classList.remove("sx-home-entering");
+   document.querySelector(".sx-home-loader")?.remove();
+  },1250);
  }
- setTimeout(finish,Math.max(0,1300-(performance.now()-started)));
- window.addEventListener("pageshow",event=>{
-  if(event.persisted){html.classList.remove("sx-home-loading");finish();}
- },{once:true});
+ // Neutral 150ms + fill 1050ms + 200ms filled state = 1400ms.
+ timer=window.setTimeout(reveal,Math.max(0,1400-(performance.now()-started)));
+ window.addEventListener("pageshow",e=>{
+  if(e.persisted){
+   window.clearTimeout(timer);
+   completed=true;
+   html.classList.remove("sx-home-loading","sx-home-entering");
+   document.querySelector(".sx-home-loader")?.remove();
+  }
+ });
 })();

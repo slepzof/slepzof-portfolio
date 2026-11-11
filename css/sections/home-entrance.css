@@ -1,35 +1,70 @@
-/* SLEPZOF / Homepage desktop entrance.
-   Quick S fill and gently staggered hero copy; mobile remains unchanged. */
-.sx-home-loader{display:none}
-@media(min-width:801px){
- .sx-home-loader{position:fixed;inset:0;z-index:10000;background:#fff;display:grid;place-items:center;
-  visibility:hidden;opacity:0;pointer-events:none;
-  transition:opacity .36s cubic-bezier(.22,1,.36,1),visibility 0s linear .36s}
- html.sx-home-loading .sx-home-loader{visibility:visible;opacity:1;pointer-events:auto;transition:none}
- html.sx-home-entering .sx-home-loader{visibility:visible;opacity:0;pointer-events:none;transition:opacity .36s ease}
- .sx-home-loader-mark{position:relative;display:block;width:112px;height:112px;
-  font:700 94px/1 var(--ds-font-family,-apple-system,BlinkMacSystemFont,sans-serif);
-  letter-spacing:-.085em;user-select:none}
- .sx-home-loader-mark::before,.sx-home-loader-mark::after{
-  content:"S";position:absolute;inset:0;display:grid;place-items:center;padding-right:8px}
- .sx-home-loader-mark::before{color:#dee1e7}
- .sx-home-loader-mark::after{color:var(--ds-color-primary,#007aff);clip-path:inset(100% 0 0 0);
-  animation:sx-home-fill .62s cubic-bezier(.2,.75,.25,1) both}
- @keyframes sx-home-fill{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
- html.sx-home-loading #top .sx25-hero-intro>*{opacity:0!important;transform:translate3d(0,16px,0)}
- html.sx-home-entering #top .sx25-hero-intro>*{opacity:1;transform:translate3d(0,0,0);
-  transition:opacity .72s cubic-bezier(.22,1,.36,1),transform .72s cubic-bezier(.22,1,.36,1)}
- html.sx-home-entering #top .sx25-hero-intro>*:nth-child(2){transition-delay:.09s}
- html.sx-home-entering #top .sx25-hero-intro>*:nth-child(3){transition-delay:.17s}
- html.sx-home-entering #top .sx25-hero-intro>*:nth-child(4){transition-delay:.25s}
- /* Smooth transition from built-in static image to loaded Lottie SVG. */
- #top .sx20-lottie .sx20-static-fallback{display:block!important;opacity:1;
-  transition:opacity .38s ease}
- #top .sx20-lottie.sx20-ready .sx20-static-fallback{opacity:0!important;pointer-events:none}
- #top .sx20-lottie > svg,#top .sx20-lottie > canvas{opacity:0;transition:opacity .38s ease}
- #top .sx20-lottie.sx20-ready > svg,#top .sx20-lottie.sx20-ready > canvas{opacity:1}
+/* SLEPZOF / universal entrance for iOS, tablets and desktops.
+   150ms neutral mark → 1050ms blue fill → 200ms hold → 320ms fade.
+   Animation is decorative; the page never waits for remote Lottie resources. */
+.sx-home-loader{
+ position:fixed;inset:0;z-index:10000;background:#fff;
+ display:grid;place-items:center;
+ visibility:hidden;opacity:0;pointer-events:none;
+ transition:opacity .32s cubic-bezier(.22,1,.36,1),visibility 0s linear .32s;
+}
+html.sx-home-loading .sx-home-loader{
+ visibility:visible;opacity:1;pointer-events:auto;transition:none;
+}
+html.sx-home-entering .sx-home-loader{
+ visibility:visible;opacity:0;pointer-events:none;
+ transition:opacity .32s cubic-bezier(.22,1,.36,1);
+}
+.sx-home-loader-mark{
+ display:block;position:relative;width:114px;height:114px;
+ font:700 96px/1 var(--ds-font-family,-apple-system,BlinkMacSystemFont,sans-serif);
+ letter-spacing:-.085em;user-select:none;
+}
+.sx-home-loader-mark::before,.sx-home-loader-mark::after{
+ content:"S";position:absolute;inset:0;display:grid;place-items:center;padding-right:8px;
+}
+.sx-home-loader-mark::before{color:#dfe2e8}
+.sx-home-loader-mark::after{
+ color:var(--ds-color-primary,#007aff);
+ clip-path:inset(100% 0 0 0);
+ animation:sx-home-fill 1.05s linear .15s both;
+}
+@keyframes sx-home-fill{
+ 0%{clip-path:inset(100% 0 0 0)}
+ 100%{clip-path:inset(0 0 0 0)}
+}
+/* Keep the opening text hidden during loading, then reveal its real elements. */
+html.sx-home-loading #top .sx25-hero-intro>*{
+ opacity:0!important;transform:translate3d(0,16px,0);
+}
+html.sx-home-entering #top .sx25-hero-intro>*{
+ opacity:1;transform:translate3d(0,0,0);
+ transition:opacity .72s cubic-bezier(.22,1,.36,1),
+            transform .72s cubic-bezier(.22,1,.36,1);
+}
+html.sx-home-entering #top .sx25-hero-intro>*:nth-child(2){transition-delay:.09s}
+html.sx-home-entering #top .sx25-hero-intro>*:nth-child(3){transition-delay:.17s}
+html.sx-home-entering #top .sx25-hero-intro>*:nth-child(4){transition-delay:.25s}
+/* Lottie: fade out existing still frame only after real SVG/canvas is ready. */
+#top .sx20-lottie .sx20-static-fallback{
+ display:block!important;opacity:1;transition:opacity .4s ease;
+}
+#top .sx20-lottie.sx20-ready .sx20-static-fallback{
+ opacity:0!important;pointer-events:none;
+}
+#top .sx20-lottie > svg,#top .sx20-lottie > canvas{
+ opacity:0;transition:opacity .4s ease;
+}
+#top .sx20-lottie.sx20-ready > svg,
+#top .sx20-lottie.sx20-ready > canvas{opacity:1}
+/* Hide status/loading layer when no entry was requested. */
+@media(max-width:360px){
+ .sx-home-loader-mark{width:104px;height:104px;font-size:88px}
 }
 @media(prefers-reduced-motion:reduce){
  .sx-home-loader{display:none!important}
- #top .sx25-hero-intro>*{opacity:1!important;transform:none!important;transition:none!important}
+ #top .sx25-hero-intro>*{
+  opacity:1!important;transform:none!important;transition:none!important;
+ }
+ #top .sx20-lottie .sx20-static-fallback,
+ #top .sx20-lottie > svg,#top .sx20-lottie > canvas{transition:none!important}
 }
