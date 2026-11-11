@@ -68,3 +68,16 @@ html.sx-home-entering #top .sx25-hero-intro>*:nth-child(4){transition-delay:.25s
  #top .sx20-lottie .sx20-static-fallback,
  #top .sx20-lottie > svg,#top .sx20-lottie > canvas{transition:none!important}
 }
+
+
+/* Image-safe defaults. On slow connections all approved white card lettering
+   remains readable BEFORE the source cover arrives. Fully opaque art remains
+   pixel-identical once loaded. Keep originally light cards light. */
+#selected a.sx25b3-card:not(.sx25b3-card-light),
+#beyond-ui a.sx28-card:not(.sx25b3-card-light){
+ background-color:#141414!important;
+}
+/* First fold reserves its art box even if network image fails. No layout jump. */
+#top .sx20-lottie .sx20-static-fallback{
+ height:100%;width:100%;object-fit:contain;
+}
