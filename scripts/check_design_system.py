@@ -64,6 +64,10 @@ expect("content.append(head,stats,tools)" in morph and
        "portal.panel.insertBefore(el,before)" in morph,
        "The original title, description, metrics and tools must live in one chapter")
 expect("focus=cardFor" not in morph, "Full radar must not turn into a detached tile")
+expect("sx45OwnerSkill" in morph and "sx45OwnerSkill" in controller,
+       "Moved skill metrics must retain the correct counter owner")
+expect("previousLabelled" in morph and "panel.setAttribute('aria-labelledby',portal.previousLabelled)" in morph,
+       "Mobile-only section labels must restore on desktop")
 expect("--sx44-hero-height" in morph,
        "Next-skill portal hero must shrink to release its original content")
 expect("function attachStack(panel)" in morph and "sx43-scroll-stack" in morph,

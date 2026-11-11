@@ -1,6 +1,7 @@
-/* SLEPZOF Beyond UI / Radar Morph, mobile only.
-   Original radar => focus card, centered content, 3-card swipe deck,
-   scroll-scrubbed 45° next-skill transition. No global scroll hijack. */
+/* SLEPZOF Beyond UI / Continuous Mobile Chapters.
+   The original interactive radar leads into centered skill content.
+   Every fourth scroll-stacked case card turns 45° and expands to reveal the
+   NEXT chapter's original heading, stats, tools; no page-scroll hijack. */
 (()=>{
 'use strict';
 const section=document.querySelector('#beyond-ui.sx28-beyond');
@@ -33,6 +34,11 @@ function makePortal(i){
  const tools=panel.querySelector(':scope > .sx28-tools');
  if(!head||!stats||!tools||!rail)return null;
  const node=nodes()[i+1],label=node?.querySelector('span')?.textContent||'';
+ // Stats remain observed by v34 even after entering the previous chapter.
+ stats.dataset.sx45OwnerSkill=String(i+1);
+ const previousLabelled=panel.getAttribute('aria-labelledby');
+ panel.removeAttribute('aria-labelledby');
+ panel.setAttribute('aria-label','Проекты навыка '+label);
  const wrapper=make('div','sx44-portal');
  wrapper.dataset.sx44Skill=String(i+1);
  wrapper.id='sx44-skill-'+(i+1);
@@ -103,7 +109,8 @@ function makePortal(i){
  rail.append(wrapper); // Fourth card is in the SAME scroll stack.
  panels[i].classList.add('sx45-has-portal');
  panel.classList.add('sx45-cases-only');
- return {wrapper,head,stats,tools,panel,owner:panels[i],rail,hero,content,wheel,currentDot,nextDot,i};
+ return {wrapper,head,stats,tools,panel,previousLabelled,
+   owner:panels[i],rail,hero,content,wheel,currentDot,nextDot,i};
 }
 function restoreContent(){
  panels.forEach(p=>{
@@ -217,8 +224,12 @@ function disable(){
   const before=portal.panel.querySelector(':scope > .sx28-carousel');
   for(const el of [portal.head,portal.stats,portal.tools])
     portal.panel.insertBefore(el,before);
+  delete portal.stats.dataset.sx45OwnerSkill;
   portal.owner.classList.remove('sx45-has-portal');
   portal.panel.classList.remove('sx45-cases-only');
+  portal.panel.removeAttribute('aria-label');
+  if(portal.previousLabelled)
+    portal.panel.setAttribute('aria-labelledby',portal.previousLabelled);
   portal.wrapper.remove();
  }
  portals=[];

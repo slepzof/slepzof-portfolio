@@ -214,7 +214,11 @@ function visit(i){
 if('IntersectionObserver' in window){
  const mobileCounters=new IntersectionObserver(entries=>{
   if(desktopReady)return;
-  entries.forEach(e=>{if(e.isIntersecting)scheduleCount(e.target.closest('.sx28-panel'));});
+  entries.forEach(e=>{
+   if(!e.isIntersecting)return;
+   const owner=e.target.dataset.sx45OwnerSkill;
+   scheduleCount(owner!==undefined?panels[Number(owner)]:e.target.closest('.sx28-panel'));
+  });
  },{threshold:.3,rootMargin:'0px 0px -4% 0px'});
  panels.forEach(p=>{const stats=p.querySelector('.sx28-stats');if(stats)mobileCounters.observe(stats);});
 }

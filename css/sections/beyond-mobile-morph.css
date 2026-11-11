@@ -1,6 +1,6 @@
 /* SLEPZOF Beyond UI / Radar Morph / MOBILE ONLY.
-   Full original radar -> one compact skill card, centered reading,
-   vertical scroll-stacked project covers and small clock turns. */
+   Original radar zoom -> centered reading -> 24px vertical case stack ->
+   fourth cover turns 45 degrees and opens the next complete chapter. */
 @media(max-width:800px){
  #beyond-ui.sx43-morph{
   --sx43-gap:var(--ds-gutter,20px);
@@ -282,6 +282,7 @@
   min-width:0!important;margin:0!important;padding:0!important;
   background:#000!important;border:1px solid var(--sx44-border,#25262a)!important;
   border-radius:var(--sx44-radius,27px)!important;overflow:visible!important;
+  overflow-anchor:none!important;
   isolation:isolate!important;z-index:4!important;
   transform:none!important;transition:none!important;
   box-shadow:0 18px 46px rgba(0,0,0,var(--sx44-shadow,.48));
