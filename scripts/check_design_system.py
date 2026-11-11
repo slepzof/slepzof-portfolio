@@ -181,9 +181,10 @@ expect('const periods=[' in experience_js and
 expect('const arrow=el("span","sx42-card-arrow","↗")' in experience_js and
        'foot.append(arrow);card.append(foot)' in experience_js,
        "Every featured work case must keep its round arrow")
-expect('card.href=link?link.getAttribute("href"):extra[3]' in experience_js and
-       'card.href=source?source.getAttribute("href"):extraSource[3]' in experience_js,
-       "Achievement and testimonial cards must have functional destinations")
+expect('const coverMetrics=' in experience_js and
+       'const customMetric=coverMetrics[slug]' in experience_js and
+       'card.href=review.href||"/projects/"' in experience_js,
+       "Achievements must live inside their matching project covers and reviews must link")
 expect('width:min(1116px' in experience_css and
        'aspect-ratio:1424/2048!important' in experience_css,
        "Experience carousel cards must follow the approved Featured sizing")
@@ -215,9 +216,25 @@ if match:
                f"Missing source cover for work experience: {slug}")
 else:
     expect(False, "Cannot read work-experience source image manifest")
-for portrait in re.findall(r'portrait:"([^"]+)"', experience_js):
-    expect((ROOT / "assets" / "reviews" / (portrait + ".png")).is_file(),
-           f"Missing testimonial portrait: {portrait}")
+review_data = re.search(r' const reviews=(\{[^\n]+\});\n for\(let pi=', experience_js)
+expect(review_data is not None, "Missing source-matched testimonials")
+if review_data:
+    parsed_reviews = json.loads(review_data.group(1))
+    used_portraits = []
+    for period, entries in parsed_reviews.items():
+        for review in entries:
+            used_portraits.append(review["id"])
+            expect((ROOT / "assets" / "reviews" / (review["id"] + ".png")).is_file(),
+                   f"Missing testimonial portrait: {review['id']}")
+            expect(review.get("href", "").startswith("/"),
+                   f"Missing destination for testimonial: {review['id']}")
+    expect(len(used_portraits) >= 11,
+           "Figma reference requires source portrait cards across work history")
+    expect("felix-g" in used_portraits and "alexey-rsk" in used_portraits
+           and "david-t-hash-hedge" in used_portraits,
+           "First periods must include real client reviews rather than text placeholders")
+expect('sx42-fact' not in experience_js,
+       "Achievement-only black slides must not be rendered; metrics belong on covers")
 
 if errors:
     print("Design system check FAILED:")
