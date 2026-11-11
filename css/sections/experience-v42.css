@@ -84,3 +84,17 @@
  #experience.sx42-ready .sx42-card:hover{transform:none!important}
  #experience.sx42-ready .sx42-rail{scroll-behavior:auto!important}
 }
+
+
+/* Testimonials use the same 1424:2048 rhythm as project covers; no fake portraits. */
+#experience.sx42-ready .sx42-review{background:#0e0e0e!important;padding:28px 26px!important;display:flex!important;flex-direction:column;align-items:flex-start}
+#experience.sx42-ready .sx42-quote-mark{font-size:67px;line-height:.75;letter-spacing:-.075em;font-weight:600;color:#bbb;margin:5px 0 17px}
+#experience.sx42-ready .sx42-review-text{font-size:20px!important;font-weight:450;line-height:1.37!important;letter-spacing:-.02em;margin:0!important;color:#f5f5f5!important;overflow:hidden;display:-webkit-box;-webkit-line-clamp:11;-webkit-box-orient:vertical}
+#experience.sx42-ready .sx42-review-author{font-size:13px;line-height:1.4;color:#acacac;margin-top:auto;padding:20px 50px 3px 0}
+#experience.sx42-ready .sx42-review>.sx42-card-arrow{position:absolute;bottom:9px;right:9px}
+@media(max-width:560px){
+ #experience.sx42-ready .sx42-review{padding:24px 20px!important}
+ #experience.sx42-ready .sx42-quote-mark{font-size:55px;margin-bottom:12px}
+ #experience.sx42-ready .sx42-review-text{font-size:17px!important;line-height:1.35!important}
+ #experience.sx42-ready .sx42-review-author{font-size:11px}
+}
