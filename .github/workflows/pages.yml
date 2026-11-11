@@ -22,10 +22,27 @@ jobs:
         uses: actions/checkout@v4
       - name: Set up Pages
         uses: actions/configure-pages@v5
+      - name: Setup Python for responsive media
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Restore optimized image cache
+        uses: actions/cache@v4
+        with:
+          path: .media-cache
+          key: ${{ runner.os }}-slepzof-media-${{ hashFiles('assets/**') }}
+          restore-keys: |
+            ${{ runner.os }}-slepzof-media-
+      - name: Install image optimizer
+        run: python3 -m pip install --disable-pip-version-check "Pillow>=11,<13"
       - name: Build static site
         env:
           SITE_BASE_PATH: /slepzof-portfolio
         run: python3 scripts/build_static.py
+      - name: Check generated responsive images
+        run: |
+          test -d dist/assets/featured-v25-block3/optimized
+          grep -q 'srcset=' dist/index.html
       - name: Validate desktop interaction JavaScript syntax
         run: |
           node --check js/v25-block3-slider-v3.js
