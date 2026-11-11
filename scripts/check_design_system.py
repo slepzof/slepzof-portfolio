@@ -178,13 +178,30 @@ expect('const periods=[' in experience_js and
        'name:"BONAPE · SALUTE · ARTSAVUR"' in experience_js and
        'name:"Nutaku Projects · Аутсорс-дизайн"' in experience_js,
        "Work history must include consolidated employers and Nutaku")
-expect('const arrow=el("span","sx42-card-arrow","↗")' in experience_js and
+expect('const arrow=el("span","sx25b3-arrow")' in experience_js and
+       'arrowIcon.src="/assets/featured-v25-block3/arrow.svg"' in experience_js and
        'foot.append(arrow);card.append(foot)' in experience_js,
-       "Every featured work case must keep its round arrow")
+       "All work project arrows must reuse Featured Projects original SVG markup")
 expect('const coverMetrics=' in experience_js and
        'const customMetric=coverMetrics[slug]' in experience_js and
-       'card.href=review.href||"/projects/"' in experience_js,
-       "Achievements must live inside their matching project covers and reviews must link")
+       'metric=el("div","sx25b3-metric")' in experience_js and
+       'laurel-l.svg' in experience_js and 'laurel-r.svg' in experience_js,
+       "Work achievements must reuse original Featured metric laurels and markup")
+expect('const card=el("article","sx42-card sx42-review")' in experience_js and
+       'quote.src="/assets/icons/experience/quote.svg"' in experience_js and
+       'card.append(arrow);' not in experience_js,
+       "Testimonials must use the supplied quote icon without fake links/arrows")
+expect('const sourceControls=document.querySelector("#selected .sx25b3-controls")' in experience_js and
+       'cloneNode(true)' in experience_js and
+       'const status=el(' not in experience_js,
+       "Work slider must clone Featured SVG controls, without invented pagination")
+featured_engine = (ROOT / "js/v25-block3-slider-v3.js").read_text("utf-8")
+featured_style = (ROOT / "css/v25-block3-slider-v5.css").read_text("utf-8")
+expect("function bindRail(" in featured_engine and
+       'document.querySelectorAll("#experience.sx42-ready .sx42-period")' in featured_engine and
+       ':is(#selected,#experience) .sx25b3-metric' in featured_style and
+       ':is(#selected,#experience) .sx25b3-control' in featured_style,
+       "Selected and Experience must use the SAME carousel algorithm and UI primitives")
 expect('width:min(1116px' in experience_css and
        'aspect-ratio:1424/2048!important' in experience_css,
        "Experience carousel cards must follow the approved Featured sizing")
@@ -195,6 +212,8 @@ expect('IntersectionObserver' in experience_js and
 # Work Experience v43 source-integrity and responsive design checks.
 expect(experience_js.count('{id:"') == 12,
        "All twelve approved work history periods must exist in one timeline")
+expect((ROOT / "assets/icons/experience/quote.svg").is_file(),
+       "Exact user-supplied testimonial quote SVG must be deployed")
 expect("uploadedCovers=new Set(" in experience_js and
        'img.src=workSrc;' in experience_js and
        "extraProjects" in experience_js,
