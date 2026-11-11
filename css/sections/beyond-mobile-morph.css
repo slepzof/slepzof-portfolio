@@ -210,7 +210,7 @@
   width:100%!important;min-width:0!important;max-width:100%!important;
   height:auto!important;min-height:0!important;max-height:none!important;
   aspect-ratio:1424 / 2048!important;
-  border-radius:27px!important;overflow:hidden!important;
+  border-radius:var(--ds-project-radius,32px)!important;overflow:hidden!important;
   -webkit-clip-path:none!important;clip-path:none!important;
   transform:none!important;transition:none!important;
   opacity:1!important;visibility:visible!important;
@@ -229,46 +229,8 @@
   top:calc(var(--sx43-stack-top) + var(--sx43-stack-peek) + var(--sx43-stack-peek))!important;
   z-index:3!important;
  }
- /* Use the approved Featured Projects card scale on the wider mobile case. */
- #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-art{
-  width:100%!important;height:100%!important;object-fit:fill!important;
-  border-radius:inherit!important;
- }
- #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-card-copy{
-  top:6%!important;left:7.5%!important;right:6%!important;
- }
- #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-meta{
-  font-size:clamp(11px,3.35vw,13px)!important;gap:6px!important;
-  font-weight:470!important;line-height:1.2!important;
- }
- #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card h3{
-  font-size:clamp(21px,6.2vw,24px)!important;line-height:1.14!important;
-  font-weight:580!important;letter-spacing:-.045em!important;
-  margin:12px 0 8px!important;
- }
- #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card p{
-  font-size:clamp(13px,3.6vw,14px)!important;line-height:1.23!important;
-  font-weight:420!important;opacity:.76!important;
- }
- #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-metric{
-  min-height:40px!important;padding:5px 24px 5px 5px!important;
-  gap:2px!important;border-radius:24px!important;
- }
- #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-metric strong{
-  font-size:25px!important;font-weight:700!important;
- }
- #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-laurel{
-  width:12px!important;height:25px!important;flex-basis:12px!important;
- }
- #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-metric span{
-  font-size:11.5px!important;line-height:1.14!important;max-width:155px!important;
- }
- #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-arrow{
-  width:36px!important;height:36px!important;flex-basis:36px!important;
- }
- #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-arrow img{
-  width:21px!important;height:21px!important;
- }
+ /* Project artwork, text, metrics and arrows inherit the same
+    Figma ProjectCard as Featured and Work Experience. */
  /* The scroll is the control: no horizontal carousel arrows or counter. */
  #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-carousel-controls{
   display:none!important;
@@ -519,9 +481,6 @@
   #beyond-ui.sx43-morph .sx43-scroll-stack a.sx28-card {
     aspect-ratio:1424 / 2048!important;
     box-shadow:none!important;backface-visibility:hidden;
-  }
-  #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-art {
-    object-fit:contain!important;
   }
 
   /* Fourth card centered as it bleeds to the full viewport. Hidden content
