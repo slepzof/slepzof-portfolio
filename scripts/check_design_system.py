@@ -58,8 +58,9 @@ expect("/js/sections/beyond-mobile-morph.js" in html, "Missing mobile morph JS")
 morph = (ROOT / "js/sections/beyond-mobile-morph.js").read_text("utf-8")
 controller = (ROOT / "js/v34-beyond-ui-story.js").read_text("utf-8")
 expect("story.insertBefore(morph,column)" in morph, "Single original radar must enter morph stage")
-expect("rail.append(wrapper)" in morph and "for(let i=0;i<7;i++)" in morph,
-       "Seven portals must be fourth cards of their project stacks")
+expect("rail.append(wrapper)" in morph and "for(let i=0;i<7;i++)" in morph and
+       "rail.insertBefore(marker,wrapper)" in morph and "rail.append(runway)" in morph,
+       "Seven fourth-card portals must have stable scroll anchors and runway")
 expect("content.append(head,stats,tools)" in morph and
        "portal.panel.insertBefore(el,before)" in morph,
        "The original title, description, metrics and tools must live in one chapter")
@@ -75,8 +76,9 @@ expect("function attachStack(panel)" in morph and "sx43-scroll-stack" in morph,
 expect("touchstart" not in morph and "touchend" not in morph,
        "Mobile case cards must not intercept touch events")
 expect("const measurements=portals.map" in morph and
+       "y:portal.marker.getBoundingClientRect().top" in morph and
        "for(const {portal,y,railWidth} of measurements)" in morph,
-       "Read geometry before updating portal styles to prevent Safari layout thrashing")
+       "Read stable marker geometry before changing card width to avoid Safari feedback loops")
 expect("originalRailAttrs" in morph and
        "rail.removeAttribute('tabindex')" in morph and
        "if(c.classList.contains('sx43-scroll-stack'))return;" in controller,
@@ -88,14 +90,17 @@ expect("-webkit-mask-image:none!important" in morph_css,
        "Legacy horizontal slider gradient must be disabled in mobile deck")
 expect("font-size:clamp(21px,6.2vw,24px)!important" in morph_css,
        "Mobile cases must use Featured Projects typographic scale")
-expect("const heroHeight=coverHeight+(270-coverHeight)*ease((turn-.18)/.82);" in morph,
-       "Fourth-card headline must rise with the turning radar before expansion")
+expect("const heroHeight=270;" in morph and
+       "const stickyTop=stackedTop+(nav+10-stackedTop)*expand;" in morph,
+       "Approved card keeps headline at 270px and expands vertically toward header")
 expect("(.84-.06*ease((expand-.32)/.54))" in morph,
        "Expanded chapter must retain a low-opacity connected radar behind the title")
-expect("rotate('+(45*(portal.i+turn))" in morph,
-       "Fourth-card radar must rotate CLOCKWISE to reveal the next skill")
-expect("details.append(stats,tools)" in morph and "content.append(head,stats,tools)" in morph,
-       "Approved title/body must remain visible while metrics and tools reveal after rotation")
+expect("rotate('+(45*(portal.i+turn))" in morph and
+       "ease((distance-45)/210)" in morph and "ease((distance-300)/255)" in morph,
+       "Fourth-card radar must rotate CLOCKWISE BEFORE centered expansion")
+expect("details.append(stats,tools)" in morph and "content.append(head,stats,tools)" in morph and
+       "portal.marker.remove()" in morph and "portal.runway.remove()" in morph,
+       "Approved content must remain intact and temporary mobile nodes restore on desktop")
 expect("font-size:clamp(11px,3.35vw,13px)!important" in morph_css and
        "font-size:clamp(13px,3.6vw,14px)!important" in morph_css,
        "Case metadata and description must reach the approved desktop type scale")
@@ -103,6 +108,14 @@ expect("height:var(--sx44-hero-height,505px)" in morph_css,
        "Next-skill card hero height must animate, not leave a blank fixed area")
 expect("position:sticky!important" in morph_css and "--sx43-stack-peek" in morph_css
        and "z-index:3!important" in morph_css, "Three cases must overlap in order")
+expect("border:4px solid var(--sx44-border" in morph_css,
+       "Fourth skill card must have the approved 4px outline")
+expect("transform:none!important" in morph_css and
+       "top:var(--sx44-sticky-top" in morph_css,
+       "Fourth card must stay centered and animate by native sticky positioning")
+expect("sx44-portal-counter" not in morph and
+       "counter.textContent" not in morph,
+       "Unapproved 01 → 02 / 08 indicator must not be rendered")
 expect(" * var(--sx43" not in morph_css,
        "Avoid unsupported CSS calc multiplication on older iOS Safari")
 expect("window.scrollTo(" not in morph and "preventDefault()" not in morph.split("function draw(){")[1].split("const schedule=")[0],
