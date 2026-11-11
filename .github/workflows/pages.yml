@@ -26,6 +26,11 @@ jobs:
         env:
           SITE_BASE_PATH: /slepzof-portfolio
         run: python3 scripts/build_static.py
+      - name: Validate desktop interaction JavaScript syntax
+        run: |
+          node --check js/v25-block3-slider-v3.js
+          node --check js/v41-markets.js
+          node --check js/sections/home-entrance.js
       - name: Validate design-system tokens and homepage assets
         run: python3 scripts/check_design_system.py
       - name: Report CSS/JS dependencies (read-only)

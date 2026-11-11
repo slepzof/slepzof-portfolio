@@ -34,3 +34,12 @@ python3 scripts/check_design_system.py
 ```
 
 Исходники публичные. Не коммитить пароли, токены или NDA. Админка на базе локального Python-сервера не публикуется GitHub Pages.
+
+## Десктопные анимации и интерактивность
+
+- Лоадер S и плавное появление текста: `css/sections/home-entrance.css`, `js/sections/home-entrance.js`.
+- Избранные проекты: `css/v25-block3-slider-v5.css`, `js/v25-block3-slider-v3.js`.
+- Карточки процесса: `css/v38-process.css`.
+- Горизонтальный скролл рынков: `css/v41-markets.css`, `js/v41-markets.js`.
+
+GitHub Actions проверяет синтаксис JavaScript и целостность ссылок. Живое взаимодействие проверяется в Safari, включая прямую и обратную прокрутку.
