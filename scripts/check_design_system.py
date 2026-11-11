@@ -258,6 +258,20 @@ expect('sx42-fact' not in experience_js and
 expect('const before=review.before?' in experience_js and
        'const after=review.after?' in experience_js,
        "Figma testimonial ordering must use before/after project anchors")
+private_period = re.search(r'\{id:"private-2025",[^\n]+?slugs:(\[[^\]]+\]),facts:', experience_js)
+expect(private_period is not None, "Missing approved private-practice project sequence")
+if private_period:
+    private_slugs = json.loads(private_period.group(1))
+    expect(private_slugs[:4] == ["vlad-bykov", "echo-app", "chatus", "propuska"],
+           "Private-practice slider must start with Vlad Bykov, ECHO, Chatus, Propuska")
+if review_data:
+    private_reviews = parsed_reviews.get("private-2025", [])
+    expect(any(x["id"] == "vlad-b" and x.get("after") == "vlad-bykov" for x in private_reviews)
+           and any(x["id"] == "denis-k" and x.get("after") == "echo-app" for x in private_reviews),
+           "Vlad and Denis reviews must sit immediately after their source projects")
+expect('sx42-progress","01 / "' not in experience_js and
+       'const status=el(' not in experience_js,
+       "Work slider must not invent numeric pagination absent from Featured")
 
 if errors:
     print("Design system check FAILED:")
