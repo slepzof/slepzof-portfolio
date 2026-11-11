@@ -32,7 +32,7 @@ jobs:
           node --check js/v41-markets.js
           node --check js/sections/home-entrance.js
           node --check js/v34-beyond-ui-story.js
-          node --check js/sections/beyond-mobile-orbit.js
+          node --check js/sections/beyond-mobile-chapters.js
       - name: Validate design-system tokens and homepage assets
         run: python3 scripts/check_design_system.py
       - name: Report CSS/JS dependencies (read-only)
