@@ -60,8 +60,12 @@ controller = (ROOT / "js/v34-beyond-ui-story.js").read_text("utf-8")
 expect("story.insertBefore(morph,column)" in morph, "Single original radar must enter morph stage")
 expect("rail.append(wrapper)" in morph and "for(let i=0;i<7;i++)" in morph,
        "Seven portals must be fourth cards of their project stacks")
-expect("content.append(head)" in morph and "portal.panel.insertBefore(portal.head,before)" in morph,
-       "The real approved heading must morph inside the card and restore on desktop")
+expect("content.append(head,stats,tools)" in morph and
+       "portal.panel.insertBefore(el,before)" in morph,
+       "The original title, description, metrics and tools must live in one chapter")
+expect("focus=cardFor" not in morph, "Full radar must not turn into a detached tile")
+expect("--sx44-hero-height" in morph,
+       "Next-skill portal hero must shrink to release its original content")
 expect("function attachStack(panel)" in morph and "sx43-scroll-stack" in morph,
        "Mobile cards must form a vertical scroll-driven stack")
 expect("touchstart" not in morph and "touchend" not in morph,
@@ -69,6 +73,12 @@ expect("touchstart" not in morph and "touchend" not in morph,
 morph_css = (ROOT / "css/sections/beyond-mobile-morph.css").read_text("utf-8")
 expect("--sx43-radar-shift" in morph_css, "Safari-safe radar transform must remain explicit")
 expect("gap:24px!important" in morph_css, "Mobile case cards need a 24px normal-flow gap")
+expect("-webkit-mask-image:none!important" in morph_css,
+       "Legacy horizontal slider gradient must be disabled in mobile deck")
+expect("font-size:clamp(21px,5.65vw,24px)!important" in morph_css,
+       "Mobile cases must use Featured Projects typographic scale")
+expect("height:var(--sx44-hero-height,505px)" in morph_css,
+       "Next-skill card hero height must animate, not leave a blank fixed area")
 expect("position:sticky!important" in morph_css and "--sx43-stack-peek" in morph_css
        and "z-index:3!important" in morph_css, "Three cases must overlap in order")
 expect(" * var(--sx43" not in morph_css,

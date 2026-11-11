@@ -4,7 +4,7 @@
 @media(max-width:800px){
  #beyond-ui.sx43-morph{
   --sx43-gap:var(--ds-gutter,20px);
-  --sx43-card-w:min(100%,360px);
+  --sx43-card-w:100%;
   --sx43-stack-peek:clamp(44px,8svh,72px);
   --sx43-stack-top:calc(var(--sx28-nav,56px) + 12px);
   --sx43-blue:#00b7ff;
@@ -24,12 +24,12 @@
  }
  /* Only the 220px animation runway is sticky. No panel underneath it. */
  #beyond-ui.sx43-morph .sx43-morph-track{
-  position:relative;width:100%;height:calc(clamp(355px,108vw,455px) + 220px);
+  position:relative;width:100%;height:calc(clamp(355px,103vw,440px) + 108px);
   margin:0 0 20px;padding:0;background:#000;isolation:isolate;
  }
  #beyond-ui.sx43-morph .sx43-morph-stage{
   position:sticky;top:calc(var(--sx28-nav,56px) + 8px);
-  width:100%;height:clamp(355px,108vw,455px);
+  width:100%;height:clamp(355px,103vw,440px);
   display:grid;place-items:center;overflow:hidden;background:#000;
   isolation:isolate;contain:paint;
  }
@@ -37,7 +37,7 @@
   display:grid!important;place-items:center!important;
   position:absolute!important;inset:0!important;width:100%!important;
   height:100%!important;margin:0!important;padding:0!important;
-  opacity:calc(1 - var(--sx43-morph,0));
+  opacity:var(--sx43-radar-alpha,1);
   pointer-events:auto;overflow:visible!important;
  }
  #beyond-ui.sx43-morph .sx43-morph-radar .sx28-radar-shade{
@@ -62,21 +62,7 @@
  #beyond-ui.sx43-morph .sx43-morph-stage.sx43-morphed .sx43-morph-radar{
   pointer-events:none!important;
  }
- #beyond-ui.sx43-morph .sx43-focus-card,
- #beyond-ui.sx43-morph .sx43-next-card{
-  width:132px;min-height:150px;padding:18px 12px 14px;
-  background:#101012;border:1px solid #1c1c20;border-radius:23px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:8px;color:#f5f5f7;text-align:center;
-  box-shadow:0 14px 38px rgba(0,0,0,.24);
-  font-family:var(--ds-font-family,-apple-system,sans-serif);
- }
- #beyond-ui.sx43-morph .sx43-focus-card{
-  position:absolute;top:50%;left:50%;z-index:2;pointer-events:none;
-  opacity:var(--sx43-focus-alpha,0);
-  transform:translate3d(-50%,calc(-50% + var(--sx43-focus-y,25px)),0)
-    scale(var(--sx43-focus-scale,.8));
- }
+ /* The radar itself remains the skill identity; no detached tile. */
  #beyond-ui.sx43-morph .sx43-card-icon{
   width:36px;height:36px;display:flex;align-items:center;justify-content:center;
   color:var(--sx43-blue);flex:none;
@@ -97,16 +83,16 @@
   justify-content:flex-start!important;
   top:auto!important;left:auto!important;right:auto!important;
   width:100%!important;height:auto!important;min-height:0!important;
-  padding:24px var(--sx43-gap) 48px!important;margin:0!important;
+  padding:24px var(--sx43-gap) 38px!important;margin:0!important;
   opacity:1!important;visibility:visible!important;transform:none!important;
   transition:none!important;contain:none!important;
   overflow:visible!important;pointer-events:auto!important;
   scroll-margin-top:calc(var(--sx28-nav,56px) + 28px)!important;
  }
  #beyond-ui.sx43-morph.sx33-mobile .sx28-panel-column >
- .sx28-panel[data-sx28-skill="0"]{padding-top:10px!important}
+ .sx28-panel[data-sx28-skill="0"]{padding-top:12px!important;margin-top:-40px!important}
  #beyond-ui.sx43-morph.sx33-mobile .sx28-panel-column >
- .sx28-panel[data-sx28-skill="7"]{padding-bottom:42px!important}
+ .sx28-panel[data-sx28-skill="7"]{padding-bottom:72px!important}
  #beyond-ui.sx43-morph .sx28-panel .sx32-mobile-radar{display:none!important}
  #beyond-ui.sx43-morph .sx28-panel .sx28-skill-head,
  #beyond-ui.sx43-morph .sx28-panel .sx28-body,
@@ -199,16 +185,23 @@
  #beyond-ui.sx43-morph .sx28-carousel.sx43-scroll-stack .sx28-carousel-rail{
   position:relative!important;display:flex!important;
   flex-direction:column!important;align-items:center!important;
-  width:var(--sx43-card-w)!important;max-width:360px!important;
+  width:var(--sx43-card-w)!important;max-width:540px!important;
   height:auto!important;min-height:0!important;
   margin:0 auto!important;padding:0!important;
   gap:24px!important;overflow:visible!important;
+  -webkit-mask-image:none!important;mask-image:none!important;background:none!important;
   scroll-behavior:auto!important;scroll-snap-type:none!important;
   touch-action:pan-y!important;overscroll-behavior-y:auto!important;
   contain:none!important;isolation:isolate!important;
  }
- #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-carousel-rail::after{
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-carousel-rail::after,
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-carousel-rail::before,
+ #beyond-ui.sx43-morph .sx43-scroll-stack::after,
+ #beyond-ui.sx43-morph .sx43-scroll-stack::before{
   content:none!important;display:none!important;
+ }
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-carousel-rail.sx33-has-leading{
+  -webkit-mask-image:none!important;mask-image:none!important;
  }
  #beyond-ui.sx43-morph .sx43-scroll-stack a.sx28-card{
   position:sticky!important;display:block!important;
@@ -218,8 +211,7 @@
   height:auto!important;min-height:0!important;max-height:none!important;
   aspect-ratio:1424 / 2048!important;
   border-radius:27px!important;overflow:hidden!important;
-  -webkit-clip-path:inset(0 round 27px)!important;
-  clip-path:inset(0 round 27px)!important;
+  -webkit-clip-path:none!important;clip-path:none!important;
   transform:none!important;transition:none!important;
   opacity:1!important;visibility:visible!important;
   pointer-events:auto!important;
@@ -237,54 +229,92 @@
   top:calc(var(--sx43-stack-top) + var(--sx43-stack-peek) + var(--sx43-stack-peek))!important;
   z-index:3!important;
  }
+ /* Use the approved Featured Projects card scale on the wider mobile case. */
  #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-art{
-  width:100%!important;height:100%!important;object-fit:cover!important;
+  width:100%!important;height:100%!important;object-fit:fill!important;
+  border-radius:inherit!important;
+ }
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-card-copy{
+  top:6%!important;left:7.5%!important;right:6%!important;
+ }
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-meta{
+  font-size:clamp(11px,3.05vw,13px)!important;gap:6px!important;
+  font-weight:470!important;line-height:1.2!important;
+ }
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card h3{
+  font-size:clamp(21px,5.65vw,24px)!important;line-height:1.14!important;
+  font-weight:580!important;letter-spacing:-.045em!important;
+  margin:12px 0 8px!important;
+ }
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card p{
+  font-size:clamp(13px,3.55vw,14px)!important;line-height:1.23!important;
+  font-weight:420!important;opacity:.76!important;
+ }
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-metric{
+  min-height:40px!important;padding:5px 24px 5px 5px!important;
+  gap:2px!important;border-radius:24px!important;
+ }
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-metric strong{
+  font-size:25px!important;font-weight:700!important;
+ }
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-laurel{
+  width:12px!important;height:25px!important;flex-basis:12px!important;
+ }
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-metric span{
+  font-size:11.5px!important;line-height:1.14!important;max-width:155px!important;
+ }
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-arrow{
+  width:36px!important;height:36px!important;flex-basis:36px!important;
+ }
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-card .sx25b3-arrow img{
+  width:21px!important;height:21px!important;
  }
  /* The scroll is the control: no horizontal carousel arrows or counter. */
  #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-carousel-controls{
   display:none!important;
  }
- /* Real fourth card: turn -> preview -> expansion, no duplicate chapter. */
+ /* Fourth card transforms into the next chapter. Original copy,
+    stats and tools remain INSIDE that same surface. */
  #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-carousel-rail > .sx44-portal{
-  position:relative!important;display:block!important;
-  align-self:center!important;flex:0 0 auto!important;
+  position:relative!important;display:block!important;align-self:center!important;
+  flex:0 0 auto!important;top:auto!important;left:auto!important;right:auto!important;
   width:var(--sx44-width,100%)!important;max-width:none!important;
-  min-width:0!important;top:auto!important;
-  margin:0!important;padding:0!important;
-  background:#08090b;border:1px solid #25262a;
-  border-radius:var(--sx44-radius,27px);
-  overflow:hidden!important;isolation:isolate!important;z-index:4!important;
+  min-width:0!important;margin:0!important;padding:0!important;
+  background:#000!important;border:1px solid var(--sx44-border,#25262a)!important;
+  border-radius:var(--sx44-radius,27px)!important;overflow:visible!important;
+  isolation:isolate!important;z-index:4!important;
   transform:none!important;transition:none!important;
-  box-shadow:0 18px 46px rgba(0,0,0,.48);
+  box-shadow:0 18px 46px rgba(0,0,0,var(--sx44-shadow,.48));
   color:#f5f5f7;
   font-family:var(--ds-font-family,-apple-system,BlinkMacSystemFont,sans-serif);
  }
  #beyond-ui.sx43-morph .sx44-portal-hero{
-  position:relative;height:clamp(250px,67vw,302px);
-  width:100%;background:#08090b;overflow:hidden;
+  position:relative;width:100%;height:var(--sx44-hero-height,505px);
+  background:#000;overflow:hidden!important;
+  border-radius:inherit;isolation:isolate;
  }
  #beyond-ui.sx43-morph .sx44-portal-counter{
-  position:absolute;top:13px;left:0;right:0;z-index:3;
-  text-align:center;color:#777780;font-size:11px;line-height:16px;
-  font-weight:500;letter-spacing:.06em;
+  position:absolute;top:16px;left:0;right:0;z-index:3;
+  text-align:center;color:#777780;font-size:12px;line-height:16px;
+  font-weight:500;letter-spacing:.07em;
  }
  #beyond-ui.sx43-morph .sx44-portal-chart{
-  position:absolute;left:0;right:0;bottom:0;height:158px;
+  position:absolute;left:0;right:0;bottom:0;height:165px;
   overflow:hidden;opacity:var(--sx44-wheel-alpha,1);
-  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 72%,transparent);
-  mask-image:linear-gradient(to bottom,#000 0%,#000 72%,transparent);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 72%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 72%,transparent 100%);
   pointer-events:none;
  }
  #beyond-ui.sx43-morph .sx44-portal-chart svg{
   position:absolute;top:0;left:50%;display:block;
-  width:min(100vw,440px);height:158px;overflow:hidden;
+  width:min(100vw,440px);height:160px;overflow:hidden;
   transform:translateX(-50%);
  }
  #beyond-ui.sx43-morph .sx44-portal-identity{
-  position:absolute;top:32px;left:14px;right:14px;z-index:2;
+  position:absolute;top:38px;left:16px;right:16px;z-index:2;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:7px;text-align:center;opacity:var(--sx44-identity-alpha,0);
-  transform:translate3d(0,0,0);pointer-events:none;
+  transform:none;pointer-events:none;
  }
  #beyond-ui.sx43-morph .sx44-portal-identity .sx43-card-title{
   font-size:19px;line-height:23px;font-weight:600;letter-spacing:-.025em;
@@ -293,53 +323,66 @@
   font-size:29px;line-height:32px;
  }
  #beyond-ui.sx43-morph .sx44-portal-preview{
-  position:absolute;bottom:17px;left:26px;right:26px;z-index:3;
-  text-align:center;font-size:17px;line-height:1.27;font-weight:600;
+  position:absolute;bottom:22px;left:26px;right:26px;z-index:3;
+  text-align:center;font-size:18px;line-height:1.27;font-weight:600;
   letter-spacing:-.025em;color:#f5f5f7;
-  opacity:var(--sx44-preview-alpha,0);
-  pointer-events:none;
+  opacity:var(--sx44-preview-alpha,0);pointer-events:none;
  }
  #beyond-ui.sx43-morph .sx44-portal-content{
-  position:relative;padding:0 var(--sx43-gap) 28px;
-  text-align:center;background:#08090b;
-  opacity:var(--sx44-content-alpha,0);
+  position:relative;display:flex;flex-direction:column;align-items:center;
+  width:100%;padding:4px var(--sx43-gap) 28px;
+  text-align:center;background:#000;opacity:var(--sx44-content-alpha,0);
   transform:none;
  }
  #beyond-ui.sx43-morph .sx44-portal-content .sx28-skill-head{
-  width:100%;max-width:540px;margin:0 auto;text-align:center;
+  width:100%!important;max-width:540px!important;margin:0 auto 30px!important;
+  text-align:center!important;
  }
- #beyond-ui.sx43-morph .sx44-portal-content .sx28-eyebrow{
-  display:none!important;
- }
+ #beyond-ui.sx43-morph .sx44-portal-content .sx28-eyebrow{display:none!important}
  #beyond-ui.sx43-morph .sx44-portal-content .sx28-skill-head h3{
-  width:100%;max-width:18ch;margin:0 auto 20px;
-  font-size:clamp(26px,7.2vw,31px)!important;
-  line-height:1.13!important;font-weight:600!important;
-  letter-spacing:-.038em!important;text-align:center;text-wrap:balance;
+  width:100%!important;max-width:18ch!important;
+  margin:0 auto 20px!important;
+  font-size:clamp(26px,7.2vw,31px)!important;line-height:1.13!important;
+  font-weight:600!important;letter-spacing:-.038em!important;
+  text-align:center!important;text-wrap:balance;
  }
  #beyond-ui.sx43-morph .sx44-portal-content .sx28-body{
-  width:100%;max-width:36ch;margin:0 auto;text-align:center;
+  width:100%!important;max-width:36ch!important;
+  margin:0 auto!important;text-align:center!important;
  }
  #beyond-ui.sx43-morph .sx44-portal-content .sx28-body p{
-  margin:0 auto 22px;font-size:17px!important;line-height:1.45!important;
-  color:#98989d;font-weight:400;text-align:center;text-wrap:pretty;
+  margin:0 auto 22px!important;font-size:17px!important;line-height:1.45!important;
+  font-weight:400!important;color:#98989d!important;
+  text-align:center!important;text-wrap:pretty;
  }
  #beyond-ui.sx43-morph .sx44-portal-content .sx28-body p:last-child{
-  margin-bottom:0;
+  margin-bottom:0!important;
  }
- /* The new chapter's heading is inside the fourth card; its original
-    stats/tools/cases continue immediately after that same card. */
+ #beyond-ui.sx43-morph .sx44-portal-content .sx28-stats,
+ #beyond-ui.sx43-morph .sx44-portal-content .sx28-tools{
+  width:100%!important;max-width:540px!important;
+ }
+ #beyond-ui.sx43-morph .sx44-portal-content .sx28-stats{
+  margin:0 auto 28px!important;
+ }
+ #beyond-ui.sx43-morph .sx44-portal-content .sx28-tools{
+  margin:0 auto!important;
+ }
  #beyond-ui.sx43-morph.sx33-mobile .sx28-panel-column >
- .sx28-panel[data-sx28-skill]:not([data-sx28-skill="0"]){
-  padding-top:8px!important;
+ .sx28-panel.sx45-has-portal{padding-bottom:0!important}
+ #beyond-ui.sx43-morph.sx33-mobile .sx28-panel-column >
+ .sx28-panel.sx45-cases-only{
+  padding-top:42px!important;padding-bottom:16px!important;
  }
+ #beyond-ui.sx43-morph.sx33-mobile .sx28-panel-column >
+ .sx28-panel.sx45-cases-only:last-child{padding-bottom:72px!important}
 
 }
 @media(max-width:360px){
  #beyond-ui.sx43-morph{--sx43-stack-peek:clamp(40px,7svh,58px)}
  #beyond-ui.sx43-morph .sx28-panel .sx28-body p{font-size:16px!important;line-height:1.43!important}
  #beyond-ui.sx43-morph .sx28-panel .sx28-skill-head h3{font-size:26px!important}
- #beyond-ui.sx43-morph .sx43-morph-track{height:calc(360px + 200px)}
+ #beyond-ui.sx43-morph .sx43-morph-track{height:calc(355px + 96px)}
 }
 @media(prefers-reduced-motion:reduce){
  #beyond-ui.sx43-morph .sx43-scroll-stack a.sx28-card{transition:none!important}
