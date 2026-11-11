@@ -11,6 +11,7 @@ generated on GitHub Actions, with an optional persistent cache per variant.
 from __future__ import annotations
 
 import hashlib
+import json
 import re
 import shutil
 from pathlib import Path
@@ -107,7 +108,7 @@ def optimize_media(out: Path, base: str) -> dict:
             if not built:
                 return tag
             images, width, height = built
-            srcset = ", ".join(f"{url} {w}w" for url, w in images)
+            srcset = ", ".join(f"{variant_url} {w}w" for variant_url, w in images)
             in_beyond = (
                 html.name == "index.html" and
                 text.rfind('id="beyond-ui"', 0, match.start()) >
@@ -115,7 +116,7 @@ def optimize_media(out: Path, base: str) -> dict:
             )
             sizes = (
                 "(max-width:800px) calc(100vw - 40px), 270px" if cover and in_beyond
-                else "(max-width:560px) 65vw, (max-width:850px) 315px, 326px"
+                else "(max-width:560px) 65vw, (max-width:850px) 315px, 356px"
                 if cover else "(max-width:800px) 100vw, 1116px"
             )
             add = f' srcset="{srcset}" sizes="{sizes}"'
@@ -138,11 +139,40 @@ def optimize_media(out: Path, base: str) -> dict:
             html.write_text(rendered, "utf-8")
             rewritten_pages += 1
 
+    # Dynamic Work Experience covers are not in source HTML. Pre-generate
+    # their responsive derivatives and a small manifest for the JS Card factory.
+    cover_manifest = {}
+    source_dir = out / "assets" / "cases"
+    if source_dir.is_dir():
+        for file in sorted(source_dir.glob("*/cover-work.png")):
+            slug = file.parent.name
+            asset_path = file.relative_to(out).as_posix()
+            built = prepare(asset_path, True)
+            if not built:
+                continue
+            images, width, height = built
+            cover_manifest[slug] = {
+                "src": images[-1][0],
+                "srcset": ", ".join(f"{url} {w}w" for url, w in images),
+                "width": width,
+                "height": height,
+            }
+    manifest_path = out / "js" / "data" / "work-media.js"
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text(
+        "/* Build-only responsive case media; source PNGs remain unchanged. */\\n"
+        "window.SlepzofWorkMedia=Object.freeze("
+        + json.dumps(cover_manifest, ensure_ascii=False, separators=(",", ":"))
+        + ");\\n",
+        encoding="utf-8",
+    )
+
     report = {
         "sources": len(originals),
         "variants": variant_count,
         "variant_mb": round(optimized_bytes / 1_000_000, 2),
         "html_pages": rewritten_pages,
+        "dynamic_covers": len(cover_manifest),
     }
     print("Responsive media:", report)
     return report
