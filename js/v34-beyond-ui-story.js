@@ -27,9 +27,9 @@ let navigating=false,navigationToken=0,initialized=false;
 const counted=new WeakSet(),counterTimers=new WeakMap();
 const pendingReveal=new WeakSet();
 const pageTop=()=>window.scrollY+story.getBoundingClientRect().top;
-let mobileIndex=0,mobileBusy=false,mobileLockUntil=0,mobileSwitchToken=0,touchStartY=0,touchStartX=0,mobileTouchWasAtEnd=false,mobileTouchWasAtTop=false,mobileLastScrollY=window.scrollY;
+// Mobile chapters are managed by the cinematic module.
 const toggleInstantScroll=on=>document.documentElement.classList.toggle('sx33-controlled-scroll',on);
-const continuousMobile=()=>section.classList.contains('sx40-mobile-continuous');
+const continuousMobile=()=>section.classList.contains('sx42-cinematic');
 const chapterTop=i=>Math.round(pageTop()-headerHeight()-10+i*chapterSpan);
 function spotlight(i){
  const goal=anchors[i];if(!goal)return;
@@ -148,148 +148,8 @@ function readDesktop(){
  const frac=clamp(position-currentChapter,0,1);
  drawChapter(currentChapter,frac,visible);
 }
-function mobileAtTop(){
- const r=story.getBoundingClientRect();return window.scrollY<=window.scrollY+r.top-headerHeight()+15;
-}
-function mobileAtEnd(){
- // Trigger only AFTER the reader has scrolled the case-slider arrows
- // into the upper half of the screen. Works with native iOS momentum:
- // no artificial second swipe or touchstart exactly at the last pixel.
- const panel=panels[mobileIndex];
- const controls=panel.querySelector('.sx28-carousel-controls');
- const bottom=controls?controls.getBoundingClientRect().bottom:
-   panel.getBoundingClientRect().bottom-(parseFloat(getComputedStyle(panel).paddingBottom)||0);
- // Leave 64px of extra black space past the project controls on the
- // first seven skills before starting the existing mobile transition.
- return bottom<=innerHeight*.46-(mobileIndex<7?64:0);
-}
-function inMobileChapter(){
- const r=story.getBoundingClientRect();
- return r.top<=headerHeight()+100&&r.bottom>headerHeight()+20;
-}
-function switchMobile(next){
- if(continuousMobile())return;
- next=clamp(next,0,7);
- if(desktopReady||mobileBusy||next===mobileIndex)return;
- mobileBusy=true;
- toggleInstantScroll(true);
- const token=++mobileSwitchToken;
- const oldIndex=mobileIndex,oldPanel=panels[oldIndex],newPanel=panels[next];
- const from=anchors[oldIndex],to=anchors[next];
- const toY=Math.max(0,pageTop()-headerHeight()-6);
- const overlay=document.createElement('div');
- overlay.className='sx37-overlay';
- // Keep the site's fixed navigation visible during the chapter animation.
- overlay.style.setProperty('--sx38-nav-height',headerHeight()+'px');
- overlay.setAttribute('role','status');
- overlay.setAttribute('aria-label','Переход к следующему навыку');
- const stageView=document.createElement('div');
- stageView.className='sx37-transition-stage';
- const chartView=document.createElement('div');
- chartView.className='sx37-transition-chart';
- const originalRadar=newPanel.querySelector('.sx32-mobile-radar .sx28-radar');
- const chart=originalRadar?originalRadar.cloneNode(true):null;
- let spotlightCircle=null,chartButtons=[];
- if(chart){
-   // Cloned SVG masks must have independent ids or Safari resolves the wrong mask.
-   const mapping=new Map();
-   chart.querySelectorAll('[id]').forEach(el=>{
-     const old=el.id,newId='sx37-'+token+'-'+old;
-     mapping.set(old,newId);el.id=newId;
-   });
-   chart.querySelectorAll('*').forEach(el=>{
-     for(const attr of Array.from(el.attributes)){
-       if(attr.name==='id'||(!attr.value.includes('url(#')&&!attr.value.startsWith('#')))continue;
-       const value=attr.value.replace(/url\(#([^)]+)\)/g,(whole,id)=>mapping.has(id)?'url(#'+mapping.get(id)+')':whole)
-         .replace(/^#(.+)$/, (whole,id)=>mapping.has(id)?'#'+mapping.get(id):whole);
-       if(value!==attr.value)el.setAttribute(attr.name,value);
-     }
-   });
-   spotlightCircle=chart.querySelector('[id*="sx29-flash-circle"]');
-   if(spotlightCircle){
-     spotlightCircle.setAttribute('cx',String(from[0]));
-     spotlightCircle.setAttribute('cy',String(from[1]));
-   }
-   chartButtons=Array.from(chart.querySelectorAll('.sx28-node[data-sx28-jump]'));
-   chartButtons.forEach((el,j)=>el.setAttribute('aria-pressed',String(j===oldIndex)));
-   chartView.appendChild(chart);
- }
- // The diagram already names all eight skills. No duplicate caption beneath it.
- stageView.appendChild(chartView);
- overlay.appendChild(stageView);
- document.body.appendChild(overlay);
- const tasks=[];
- const later=(ms,fn)=>tasks.push(setTimeout(()=>{if(token===mobileSwitchToken)fn();},ms));
- const setNew=()=>{
-   if(token!==mobileSwitchToken||mobileIndex===next)return;
-   oldPanel.hidden=true;
-   oldPanel.inert=true;
-   oldPanel.classList.remove('sx33-leaving','sx33-entering','sx33-entered','sx37-enter-active','sx37-enter-pending');
-   mobileIndex=next;
-   newPanel.hidden=false;newPanel.inert=false;
-   newPanel.classList.remove('sx33-leaving','sx33-entering','sx33-entered','sx37-enter-active');
-   newPanel.classList.add('sx37-enter-pending');
-   section.dataset.sx28Active=String(next);
-   markActive(next,true);
-   // The actual jump is invisible beneath the opaque black transition.
-   window.scrollTo(0,toY);
-   requestAnimationFrame(()=>window.scrollTo(0,toY));
-   mobileLastScrollY=toY;
- };
- const cleanup=()=>{
-   if(token!==mobileSwitchToken)return;
-   overlay.remove();
-   newPanel.classList.remove('sx37-enter-pending','sx37-enter-active');
-   toggleInstantScroll(false);
-   mobileLockUntil=performance.now()+520;
-   mobileBusy=false;
-   mobileLastScrollY=window.scrollY;
- };
- if(reduced.matches){
-   setNew();cleanup();return;
- }
- requestAnimationFrame(()=>overlay.classList.add('sx37-visible'));
- later(290,setNew);
- later(420,()=>{
-   const start=performance.now(),duration=610;
-   const run=now=>{
-     if(token!==mobileSwitchToken)return;
-     const t=ease(clamp((now-start)/duration,0,1));
-     if(spotlightCircle){
-       spotlightCircle.setAttribute('cx',String(from[0]+(to[0]-from[0])*t));
-       spotlightCircle.setAttribute('cy',String(from[1]+(to[1]-from[1])*t));
-     }
-     if(t>=.65)chartButtons.forEach((el,j)=>el.setAttribute('aria-pressed',String(j===next)));
-     if(t<1)requestAnimationFrame(run);
-   };
-   requestAnimationFrame(run);
- });
- // Remove the foreground diagram BEFORE exposing the real radar underneath.
- // Otherwise both charts become visible during the fade on iPhone Safari.
- later(1100,()=>overlay.classList.add('sx37-stage-out'));
- later(1300,()=>{
-   newPanel.classList.add('sx37-enter-active');
-   newPanel.classList.remove('sx37-enter-pending');
-   overlay.classList.add('sx37-fading');
-   window.scrollTo(0,toY);
- });
- later(1680,()=>overlay.remove());
- later(1800,cleanup);
-}
-function readMobile(){
- if(continuousMobile())return;
- // A scroll listener fires during iOS momentum scrolling as well as on finger drag.
- // Crossing the end threshold opens EXACTLY one new chapter automatically.
- section.dataset.sx28Active=String(mobileIndex);
- const y=window.scrollY,dy=y-mobileLastScrollY;
- mobileLastScrollY=y;
- if(mobileBusy||performance.now()<mobileLockUntil||!inMobileChapter())return;
- if(dy>1&&mobileIndex<7&&mobileAtEnd()){
-   switchMobile(mobileIndex+1);
- }else if(dy< -1&&mobileIndex>0&&mobileAtTop()){
-   switchMobile(mobileIndex-1);
- }
-}
+// Mobile uses normal document flow; only explicit point clicks scroll to a skill.
+function readMobile(){ /* No fullscreen mobile transitions. */ }
 function readPosition(){raf=0;if(navigating)return;if(desktopReady)readDesktop();else readMobile();}
 function schedule(){if(!raf)raf=requestAnimationFrame(readPosition);}
 function bleedCarousels(){
@@ -318,8 +178,8 @@ function layout(){
  }else{
   section.classList.remove('sx30-desktop','sx31-desktop','sx33-desktop');section.classList.add('sx33-mobile');
   story.style.removeProperty('--sx30-story-height');
-  panels.forEach((p,j)=>{p.style.removeProperty('opacity');p.style.removeProperty('transform');p.style.removeProperty('visibility');p.style.removeProperty('width');p.dataset.sx30Interactive='true';p.hidden=!continuousMobile()&&j!==mobileIndex;p.inert=!continuousMobile()&&j!==mobileIndex;p.querySelector('.sx28-carousel')?.style.removeProperty('--sx31-bleed');p.querySelector('.sx28-carousel')?.style.removeProperty('--sx32-controls-width');});
-  section.dataset.sx28Active=String(mobileIndex);mobileLastScrollY=window.scrollY;if(!continuousMobile())markActive(mobileIndex,true);
+  panels.forEach(p=>{p.style.removeProperty('opacity');p.style.removeProperty('transform');p.style.removeProperty('visibility');p.style.removeProperty('width');p.dataset.sx30Interactive='true';p.hidden=false;p.inert=false;p.querySelector('.sx28-carousel')?.style.removeProperty('--sx31-bleed');p.querySelector('.sx28-carousel')?.style.removeProperty('--sx32-controls-width');});
+  section.dataset.sx28Active=section.dataset.sx28Active||'0';
  }
  if(locked){locked=false;cancelAnimationFrame(lockFrame);toggleInstantScroll(false);}
  schedule();
@@ -327,15 +187,10 @@ function layout(){
 function visit(i){
  if(i<0||i>=8)return;
  if(!desktopReady){
-  if(continuousMobile()){
-   const rect=panels[i].getBoundingClientRect();
-   const sceneHeight=section.querySelector('.sx40-instrument')?.offsetHeight||190;
-   const offset=headerHeight()+Math.min(sceneHeight,innerHeight*.43)+14;
-   window.scrollTo({top:Math.max(0,window.scrollY+rect.top-offset),behavior:reduced.matches?'auto':'smooth'});
-   return;
-  }
-  if(i!==mobileIndex)switchMobile(i);
-  else window.scrollTo({top:Math.max(0,pageTop()-headerHeight()-6),behavior:reduced.matches?'auto':'smooth'});
+  // Only deliberate taps on a radar point may scroll to another chapter.
+  const rect=panels[i].getBoundingClientRect();
+  window.scrollTo({top:Math.max(0,window.scrollY+rect.top-headerHeight()-22),
+    behavior:reduced.matches?'auto':'smooth'});
   return;
  }
  locked=false;cancelAnimationFrame(lockFrame);
@@ -363,36 +218,7 @@ if('IntersectionObserver' in window){
  panels.forEach(p=>{const stats=p.querySelector('.sx28-stats');if(stats)mobileCounters.observe(stats);});
 }
 
-// Mobile: the following intentional gesture after the end opens one new skill.
-// Inertial events while travelling back to the radar are absorbed.
-window.addEventListener('wheel',e=>{
- if(desktopReady||continuousMobile()||!inMobileChapter())return;
- if(mobileBusy||performance.now()<mobileLockUntil){if(e.cancelable)e.preventDefault();return;}
- if(e.deltaY>6&&mobileAtEnd()&&mobileIndex<7){if(e.cancelable)e.preventDefault();switchMobile(mobileIndex+1);}
- else if(e.deltaY<-6&&mobileAtTop()&&mobileIndex>0){if(e.cancelable)e.preventDefault();switchMobile(mobileIndex-1);}
-},{passive:false,capture:true});
-// During the black transition, prevent Safari momentum from moving the page
-// behind the curtain. Outside this interval all gestures remain native.
-window.addEventListener('touchmove',e=>{
- if(!continuousMobile()&&(mobileBusy||performance.now()<mobileLockUntil)&&e.cancelable)e.preventDefault();
-},{passive:false,capture:true});
-window.addEventListener('touchstart',e=>{
- if(desktopReady||continuousMobile()||!e.touches.length)return;
- touchStartY=e.touches[0].clientY;touchStartX=e.touches[0].clientX;
- mobileTouchWasAtEnd=inMobileChapter()&&mobileAtEnd();
- mobileTouchWasAtTop=inMobileChapter()&&mobileAtTop();
-},{passive:true});
-window.addEventListener('touchend',e=>{
- if(desktopReady||continuousMobile()||mobileBusy||performance.now()<mobileLockUntil)return;
- if(!e.changedTouches.length)return;
- const dy=touchStartY-e.changedTouches[0].clientY;
- const dx=touchStartX-e.changedTouches[0].clientX;
- if(Math.abs(dy)<45||Math.abs(dy)<Math.abs(dx)*1.5)return;
- // The scroll observer handles the ordinary forward path. These gestures
- // are fallbacks for iOS elastic scrolling (no scroll event at the boundary).
- if(dy>0&&inMobileChapter()&&mobileAtEnd()&&mobileIndex<7)switchMobile(mobileIndex+1);
- else if(dy<0&&mobileTouchWasAtTop&&mobileIndex>0)switchMobile(mobileIndex-1);
-},{passive:true});
+// Native mobile wheel and touch events are never intercepted.
 // Pause physical scroll only for the requested 800ms after a new chapter.
 // Outside that brief gate Safari's native wheel/touch/keyboard scrolling remains untouched.
 function stopDuringLock(e){if(!locked||!desktopReady)return;if(e.cancelable)e.preventDefault();}

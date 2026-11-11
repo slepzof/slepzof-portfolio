@@ -53,20 +53,22 @@ expect(len(parser.urls) == 21, f"Unexpected asset references: {len(parser.urls)}
 expect("/assets/process-v38/" not in html, "Outdated process image URL")
 expect("/assets/markets/" not in html, "Outdated market image URL")
 expect("/css/sections/mobile-layout.css" in html, "Missing mobile layout stylesheet")
-expect("/css/sections/beyond-mobile-orbit.css" in html, "Missing mobile orbit stylesheet")
-expect("/js/sections/beyond-mobile-orbit.js" in html, "Missing mobile orbit script")
-orbit = (ROOT / "js/sections/beyond-mobile-orbit.js").read_text("utf-8")
+expect("/css/sections/beyond-mobile-chapters.css" in html, "Missing mobile cinematic CSS")
+expect("/js/sections/beyond-mobile-chapters.js" in html, "Missing mobile cinematic JS")
+cinematic = (ROOT / "js/sections/beyond-mobile-chapters.js").read_text("utf-8")
 controller = (ROOT / "js/v34-beyond-ui-story.js").read_text("utf-8")
-expect("elems.overview.append(source)" in orbit and "elems.reading.append(elems.stage,column)" in orbit,
-       "Mobile instrument must separate full radar and confined sticky reading stage")
-expect("tiles=[makeLabel('current'),makeLabel('next')]" in orbit,
-       "Skill icon/name transitions must crossfade during diagram rotation")
-expect("orbit+=reduce.matches" in orbit, "Orbit must follow native scroll")
-expect("window.scrollTo(" not in orbit, "Orbit must never forcibly scroll the page")
-expect("touchmove" not in orbit, "Orbit must not intercept native touch scrolling")
-expect("z-index:20;height:190px;min-height:190px" in (ROOT / "css/sections/beyond-mobile-orbit.css").read_text("utf-8"),
-       "Compact opaque sticky instrument must be scoped to mobile reading section")
-expect("continuousMobile()" in controller, "Legacy forced chapter transitions must be disabled in orbit mode")
+expect("story.insertBefore(overview,column)" in cinematic,
+       "Mobile overview must preserve the original full radar")
+expect("column.insertBefore(ch.element,panels[i+1])" in cinematic,
+       "Lightweight chapter graphics must be in normal document flow")
+expect("ch.wheel.setAttribute('transform'" in cinematic,
+       "Clock rotation must derive from native scroll")
+expect("window.scrollTo(" not in cinematic and "touchmove" not in cinematic,
+       "Mobile animation must not intercept or reset scrolling")
+expect("sx37-overlay" not in controller and "switchMobile(" not in controller,
+       "Fullscreen mobile chapter mechanism must be removed")
+expect("position:sticky" not in (ROOT / "css/sections/beyond-mobile-chapters.css").read_text("utf-8"),
+       "No sticky mobile radar must remain")
 expect("sx41-mobile-scroll" in html and "sx41-mobile-viewport" in html,
        "Missing mobile markets scroll shell")
 expect("const mobileConsumed=" in markets_js,
