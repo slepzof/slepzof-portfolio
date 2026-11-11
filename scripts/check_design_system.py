@@ -167,115 +167,108 @@ expect("slide=clamp((t-.16)/.56" in markets_js,
        "Desktop markets must scroll only after both rows enter the viewport")
 expect("padding-left:var(--sx41-content-pad)" in markets_css,
        "Markets must clip on the left panel edge")
-# Work Experience v42: keep approved 1116px grid and case navigation, including
-# achievement cards. No rewrite of desktop card images is allowed.
-experience_js = (ROOT / "js/sections/experience-v42.js").read_text("utf-8")
-experience_css = (ROOT / "css/sections/experience-v42.css").read_text("utf-8")
-expect('/css/sections/experience-v42.css' in html and
-       '/js/sections/experience-v42.js' in html,
-       "New work-experience section must load only after existing project content")
-expect('const periods=[' in experience_js and
-       'name:"BONAPE · SALUTE · ARTSAVUR"' in experience_js and
-       'name:"Nutaku Projects · Аутсорс-дизайн"' in experience_js,
-       "Work history must include consolidated employers and Nutaku")
-expect('const arrow=el("span","sx25b3-arrow")' in experience_js and
-       'arrowIcon.src="/assets/featured-v25-block3/arrow.svg"' in experience_js and
-       'foot.append(arrow);card.append(foot)' in experience_js,
-       "All work project arrows must reuse Featured Projects original SVG markup")
-expect('const coverMetrics=' in experience_js and
-       'const customMetric=coverMetrics[slug]' in experience_js and
-       'metric=el("div","sx25b3-metric")' in experience_js and
-       'laurel-l.svg' in experience_js and 'laurel-r.svg' in experience_js,
-       "Work achievements must reuse original Featured metric laurels and markup")
-expect('const card=el("article","sx42-card sx42-review")' in experience_js and
-       'quote.src="/assets/icons/experience/quote.svg"' in experience_js and
-       'card.append(arrow);' not in experience_js,
-       "Testimonials must use the supplied quote icon without fake links/arrows")
-expect('const sourceControls=document.querySelector("#selected .sx25b3-controls")' in experience_js and
-       'cloneNode(true)' in experience_js and
-       'const status=el(' not in experience_js,
-       "Work slider must clone Featured SVG controls, without invented pagination")
+# One Figma project-card system: 3 sections, 2 component types, 1 slider engine.
+work_data = (ROOT / "js/data/work-experience.js").read_text("utf-8")
+work_render = (ROOT / "js/sections/experience-v42.js").read_text("utf-8")
+cards_js = (ROOT / "js/system/portfolio-cards.js").read_text("utf-8")
+cards_css = (ROOT / "css/system/portfolio-projects.css").read_text("utf-8")
+work_css = (ROOT / "css/sections/experience-v42.css").read_text("utf-8")
+featured_css = (ROOT / "css/v25-block3-slider-v5.css").read_text("utf-8")
+beyond_css = (ROOT / "css/sections/beyond-mobile-morph.css").read_text("utf-8")
 featured_engine = (ROOT / "js/v25-block3-slider-v3.js").read_text("utf-8")
-featured_style = (ROOT / "css/v25-block3-slider-v5.css").read_text("utf-8")
+expect("css/system/portfolio-projects.css?v=" in html and
+       "js/system/portfolio-cards.js?v=" in html and
+       "js/data/work-experience.js?v=" in html,
+       "Portfolio components and single work data source must load on homepage")
+expect(html.index("js/system/portfolio-cards.js?v=") <
+       html.index("js/data/work-experience.js?v=") <
+       html.index("js/sections/experience-v42.js?v="),
+       "Shared components and data must be initialized before work rendering")
+for name, value in {
+    "--ds-project-width: 356px": "card width",
+    "--ds-project-height: 512px": "card height",
+    "--ds-project-radius: 32px": "radius",
+    "--ds-project-title-size: 28px": "title",
+    "--ds-project-title-line: 32px": "title leading",
+    "--ds-project-description-size: 16px": "description",
+    "--ds-project-description-line: 20px": "description leading",
+}.items():
+    expect(name in tokens, "Figma card token missing: " + value)
+expect("SF Pro" in tokens, "Figma SF Pro family must be first in typography tokens")
+expect(':is(#selected,#beyond-ui,#experience) .ds-project-card' in cards_css,
+       "Every section must consume the same ProjectCard styles")
+expect("function createProject(" in cards_js and "function createReview(" in cards_js
+       and "function hydrate(" in cards_js,
+       "Shared project and testimonial component factories must exist")
+expect("components.createProject(project)" in work_render and
+       "components.createReview(review)" in work_render and
+       "data.periods" in work_render,
+       "Work history must render from data using shared components")
 expect("function bindRail(" in featured_engine and
        'document.querySelectorAll("#experience.sx42-ready .sx42-period")' in featured_engine and
-       ':is(#selected,#experience) .sx25b3-metric' in featured_style and
-       ':is(#selected,#experience) .sx25b3-control' in featured_style,
-       "Selected and Experience must use the SAME carousel algorithm and UI primitives")
-expect('width:min(1116px' in experience_css and
-       'aspect-ratio:1424/2048!important' in experience_css,
-       "Experience carousel cards must follow the approved Featured sizing")
-expect('IntersectionObserver' in experience_js and
-       'prefers-reduced-motion:reduce' in experience_css,
-       "Work experience scroll reveal must honor reduced motion")
-
-# Work Experience v43 source-integrity and responsive design checks.
-expect(experience_js.count('{id:"') == 12,
-       "All twelve approved work history periods must exist in one timeline")
+       "controls.hidden=max<=2" in featured_engine,
+       "Featured and Experience must use one overflow-aware carousel engine")
+expect("sx42-fact" not in work_render and
+       "sx42-progress" not in work_render,
+       "Separate achievement slides and custom pagination must not return")
+expect("ds-review-card" in cards_js and
+       'createElement("a","sx42-card sx42-review")' not in cards_js and
+       "sx25b3-arrow" not in cards_js.split("function createReview(")[1].split("function hydrate(")[0],
+       "Testimonials have no destination arrow and are not links")
 expect((ROOT / "assets/icons/experience/quote.svg").is_file(),
-       "Exact user-supplied testimonial quote SVG must be deployed")
-expect("uploadedCovers=new Set(" in experience_js and
-       'img.src=workSrc;' in experience_js and
-       "extraProjects" in experience_js,
-       "New original project covers must replace old artwork in work history")
-expect("sx42-review-portrait" in experience_css and
-       "portrait.src=" in experience_js,
-       "Confirmed uploaded testimonial portraits must render in source cards")
-expect("sx42-period.sx42-visible .sx42-carousel" in experience_css and
-       "sx42-card:nth-child(-n+3)" in experience_css,
-       "Work experience sections and first three covers must reveal on scroll")
-expect('width:calc(100% - 32px)' in experience_css and
-       'flex-basis:clamp(244px,65vw,310px)' in experience_css,
-       "Mobile work experience needs native 1.45-card swipe layout")
-match = re.search(r"uploadedCovers=new Set\((\[[^\n]*\])\)", experience_js)
+       "Original quote SVG must exist for testimonials")
+expect("font:510 20px/24px" in work_css and
+       "font:510 40px/48px" in work_css and
+       "font:510 16px/20px" in work_css,
+       "Work dates, headings and descriptions must match Figma typography")
+expect("!important" not in work_css and
+       "sx42-card-metric" not in work_css and
+       "sx42-fact" not in work_css,
+       "Work layout stylesheet must not duplicate ProjectCard styling")
+expect('sx44-portal' in beyond_css and
+       "sx43-scroll-stack" in beyond_css,
+       "Beyond UI scroll morph must remain intact")
+expect("sx25b3-card-foot" in cards_css and
+       "sx25b3-laurel" in cards_css and
+       "sx25b3-arrow" in cards_css,
+       "Metric and SVG arrow primitives must be shared")
+work_periods = re.findall(r'\{id:"([^"]+)",date:"', work_data)
+expect(len(work_periods) == 12 and len(set(work_periods)) == 12,
+       "All twelve distinct approved employment periods must be retained")
+match = re.search(r"uploadedCovers=new Set\((\[[^\n]*\])\)", work_data)
 if match:
-    covers = json.loads(match.group(1))
-    for slug in covers:
+    imported = json.loads(match.group(1))
+    for slug in imported:
         expect((ROOT / "assets" / "cases" / slug / "cover-work.png").is_file(),
-               f"Missing source cover for work experience: {slug}")
+               f"Missing source artwork: {slug}")
 else:
-    expect(False, "Cannot read work-experience source image manifest")
-review_data = re.search(r' const reviews=(\{[^\n]+\});\n for\(let pi=', experience_js)
-expect(review_data is not None, "Missing source-matched testimonials")
-if review_data:
-    parsed_reviews = json.loads(review_data.group(1))
-    used_portraits = []
-    for period, entries in parsed_reviews.items():
-        for review in entries:
-            used_portraits.append(review["id"])
-            expect((ROOT / "assets" / "reviews" / (review["id"] + ".png")).is_file(),
-                   f"Missing testimonial portrait: {review['id']}")
-            expect(review.get("href", "").startswith("/"),
-                   f"Missing destination for testimonial: {review['id']}")
-    expect(len(used_portraits) == 15 and len(set(used_portraits)) == 15,
-           "All fifteen original authors must have unique review cards")
-    expect("felix-g" in used_portraits and "alexey-rsk" in used_portraits
-           and "david-t-hash-hedge" in used_portraits,
-           "First periods must include real client reviews rather than text placeholders")
-expect('sx42-fact' not in experience_js and
-       'const customMetric=coverMetrics[slug]' in experience_js,
-       "Achievement-only black slides must not be rendered; metrics belong on covers")
-expect('const before=review.before?' in experience_js and
-       'const after=review.after?' in experience_js,
-       "Figma testimonial ordering must use before/after project anchors")
-private_period = re.search(r'\{id:"private-2025",[^\n]+?slugs:(\[[^\]]+\]),facts:', experience_js)
-expect(private_period is not None, "Missing approved private-practice project sequence")
-if private_period:
-    private_slugs = json.loads(private_period.group(1))
-    expect(private_slugs[:4] == ["vlad-bykov", "echo-app", "chatus", "propuska"],
-           "Private-practice slider must start with Vlad Bykov, ECHO, Chatus, Propuska")
-if review_data:
-    private_reviews = parsed_reviews.get("private-2025", [])
-    expect(any(x["id"] == "vlad-b" and x.get("after") == "vlad-bykov" for x in private_reviews)
-           and any(x["id"] == "denis-k" and x.get("after") == "echo-app" for x in private_reviews),
-           "Vlad and Denis reviews must sit immediately after their source projects")
-expect('sx42-progress","01 / "' not in experience_js and
-       'const status=el(' not in experience_js,
-       "Work slider must not invent numeric pagination absent from Featured")
-
+    expect(False, "Work cover manifest not found")
+review_match = re.search(r' const reviews=(\{[^\n]+\});', work_data)
+if review_match:
+    reviews = json.loads(review_match.group(1))
+    authors = [review["id"] for group in reviews.values() for review in group]
+    expect(len(authors) == 15 and len(set(authors)) == 15,
+           "All fifteen signed client reviews must remain unique")
+    for author in authors:
+        expect((ROOT / "assets" / "reviews" / (author+".png")).is_file(),
+               f"Review portrait missing: {author}")
+    private = reviews.get("private-2025", [])
+    expect(any(r["id"] == "vlad-b" and r.get("after") == "vlad-bykov" for r in private),
+           "Vlad B. review must follow Vlad Bykov")
+    expect(any(r["id"] == "denis-k" and r.get("after") == "echo-app" for r in private),
+           "Denis K. review must follow ECHO")
+else:
+    expect(False, "Work review manifest not found")
+private_match = re.search(r'\{id:"private-2025",[^\n]+?slugs:(\[[^\]]+\]),facts:', work_data)
+if private_match:
+    private_slugs = json.loads(private_match.group(1))
+    expect(private_slugs[:4] == ["vlad-bykov","echo-app","chatus","propuska"],
+           "Private practice projects must keep Figma source order")
+else:
+    expect(False, "Private practice card sequence missing")
 if errors:
     print("Design system check FAILED:")
     for error in errors:
         print(" -", error)
     sys.exit(1)
-print(f"Design system check passed. {len(parser.urls)} core media checks, work-history sources and design tokens verified.")
+print(f"Design system checks passed. {len(parser.urls)} existing media refs, 12 periods, 15 reviews, one ProjectCard.")
