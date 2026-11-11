@@ -108,18 +108,18 @@ def build_report(pages, refs, missing, unreferenced):
     ]
     if missing:
         for filename, consumers in sorted(missing.items()):
-            lines.append(f"- \`{filename}\` (from {', '.join(sorted(consumers)[:3])})")
+            lines.append(f"- `{filename}` (from {', '.join(sorted(consumers)[:3])})")
     else:
         lines.append("No missing CSS or JavaScript paths found.")
     lines += ["", "## Unreferenced candidates", ""]
     if unreferenced:
-        lines += [f"- \`{filename}\`" for filename in unreferenced]
+        lines += [f"- `{filename}`" for filename in unreferenced]
     else:
         lines.append("No obvious unreferenced CSS/JS files.")
     lines += ["", "## Most widely used styles/scripts", "",
               "| File | Referenced from |", "| --- | ---: |"]
     for filename, consumers in sorted(refs.items(), key=lambda x: (-len(x[1]), x[0]))[:35]:
-        lines.append(f"| \`{filename}\` | {len(consumers)} |")
+        lines.append(f"| `{filename}` | {len(consumers)} |")
     lines += ["", "## Before deleting any candidate", "",
               "Check CSS @imports, inline JS strings, dynamic scripts, CMS dependencies and non-HTML consumers. Then remove only in a dedicated test commit and visually compare the published pages."]
     return "\n".join(lines) + "\n"

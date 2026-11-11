@@ -29,7 +29,7 @@ jobs:
       - name: Validate design-system tokens and homepage assets
         run: python3 scripts/check_design_system.py
       - name: Report CSS/JS dependencies (read-only)
-        run: python3 scripts/audit_dependencies.py >> "$GITHUB_STEP_SUMMARY"
+        run: python3 scripts/audit_dependencies.py | tee "$GITHUB_STEP_SUMMARY"
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
