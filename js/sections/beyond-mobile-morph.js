@@ -23,7 +23,7 @@ const points=(r,vals)=>Array.from({length:8},(_,i)=>{
  const [x,y]=polar(i,r*(vals?vals[i]/10:1));return x.toFixed(2)+','+y.toFixed(2);
 }).join(' ');
 const nodes=()=>[...source.querySelectorAll('.sx28-node[data-sx28-jump]')];
-let morph=null,stage=null,portals=[],stacks=[],raf=0;
+let morph=null,stage=null,firstIdentity=null,portals=[],stacks=[],raf=0;
 const originalRailAttrs=new WeakMap();
 let active=-1;
 /* The fourth card is the ACTUAL next chapter introduction, not a clone.
@@ -168,11 +168,13 @@ function draw(){
   y:portal.wrapper.getBoundingClientRect().top,
   railWidth:portal.rail.clientWidth||Math.max(280,innerWidth-40)
  }));
- const t=reduced.matches?1:ease((nav+8-top)/220);
+ const t=reduced.matches?1:ease((nav+8-top)/100);
  stage.style.setProperty('--sx43-morph',t.toFixed(4));
- stage.style.setProperty('--sx43-radar-shift',(-66*t).toFixed(2)+'px');
- stage.style.setProperty('--sx43-radar-scale',(1+.32*t).toFixed(4));
- stage.style.setProperty('--sx43-radar-alpha',(1-.10*t).toFixed(3));
+ stage.style.setProperty('--sx43-radar-shift',(98*t).toFixed(2)+'px');
+ stage.style.setProperty('--sx43-radar-scale',(1+.30*t).toFixed(4));
+ stage.style.setProperty('--sx43-radar-alpha','1');
+ stage.style.setProperty('--sx43-identity-alpha',ease((t-.18)/.55).toFixed(3));
+ stage.style.setProperty('--sx43-nodes-alpha',(1-ease((t-.08)/.58)).toFixed(3));
  stage.classList.toggle('sx43-morphed',t>.83);
  // Rotation begins on the first appearance of card four.
  // After turning 45°, its icon and a fragment of real copy appear.
@@ -181,20 +183,20 @@ function draw(){
  for(const {portal,y,railWidth} of measurements){
   if(y<height*.6)visible=portal.i+1;
   if(y>height*1.35||y< -height*1.6)continue;
-  const turnStart=height*.96,turnEnd=height*.73;
+  const turnStart=height*1.02,turnEnd=height*.73;
   const turn=reduced.matches?(y<turnEnd?1:0):
    ease((turnStart-y)/(turnStart-turnEnd));
-  const expandStart=height*.69,expandEnd=nav+30;
+  const expandStart=height*.81,expandEnd=nav+24;
   const expand=reduced.matches?(y<expandEnd?1:0):
    ease((expandStart-y)/Math.max(220,expandStart-expandEnd));
-  const identity=ease((turn-.64)/.36);
-  const teaser=identity*(1-ease((expand-.11)/.32));
-  const real=reduced.matches?1:ease((expand-.23)/.56);
+  const identity=ease((turn-.14)/.65);
+  const teaser=identity*(1-ease((expand-.18)/.38));
+  const real=reduced.matches?1:ease((expand-.08)/.63);
   const portalWidth=railWidth+(innerWidth-railWidth)*expand;
   // At entry the portal equals a fourth full-height case cover.
   // As it becomes the next skill, the hero SHRINKS and its real text rises.
   const coverHeight=railWidth*2048/1424;
-  const heroHeight=coverHeight+(270-coverHeight)*expand;
+  const heroHeight=coverHeight+(242-coverHeight)*expand;
   const style=portal.wrapper.style;
   style.setProperty('--sx44-width',portalWidth.toFixed(2)+'px');
   style.setProperty('--sx44-radius',(27*(1-expand)).toFixed(2)+'px');
@@ -204,6 +206,8 @@ function draw(){
   style.setProperty('--sx44-identity-alpha',identity.toFixed(3));
   style.setProperty('--sx44-preview-alpha',teaser.toFixed(3));
   style.setProperty('--sx44-content-alpha',real.toFixed(3));
+  style.setProperty('--sx44-content-limit',(1200*real).toFixed(2)+'px');
+  style.setProperty('--sx44-expand',expand.toFixed(4));
   style.setProperty('--sx44-wheel-alpha',(1-.12*ease((expand-.32)/.54)).toFixed(3));
   portal.content.style.pointerEvents=real>.7?'auto':'none';
   portal.wheel.setAttribute('transform',
@@ -222,7 +226,21 @@ function enable(){
  morph=make('div','sx43-morph-track');
  stage=make('div','sx43-morph-stage');
  source.classList.add('sx43-morph-radar');
- stage.append(source);morph.append(stage);
+ stage.append(source);
+ // The first skill uses the same icon, name and score as the existing radar.
+ // Nothing is rewritten or added to the approved case data.
+ const firstNode=nodes()[0];
+ firstIdentity=make('div','sx43-first-identity');
+ const firstIcon=make('span','sx43-card-icon');
+ const firstSvg=firstNode?.querySelector('svg')?.cloneNode(true);
+ if(firstSvg){firstSvg.setAttribute('aria-hidden','true');firstIcon.append(firstSvg);}
+ const firstLabel=make('span','sx43-card-title');
+ firstLabel.textContent=firstNode?.querySelector('span')?.textContent||'';
+ const firstScore=make('span','sx43-card-score');
+ firstScore.textContent=firstNode?.querySelector('b')?.textContent||'';
+ firstIdentity.append(firstIcon,firstLabel,firstScore);
+ stage.append(firstIdentity);
+ morph.append(stage);
  story.insertBefore(morph,column);
  section.classList.add('sx43-morph');
  portals=[];
@@ -240,6 +258,7 @@ function disable(){
  if(raf){cancelAnimationFrame(raf);raf=0;}
  panels[0].insertBefore(source,panels[0].firstChild);
  source.classList.remove('sx43-morph-radar');
+ firstIdentity?.remove();firstIdentity=null;
  morph.remove();
  for(const portal of portals){
   // Return the approved source nodes in their original order on desktop.
