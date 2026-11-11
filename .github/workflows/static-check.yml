@@ -39,6 +39,7 @@ jobs:
           node --check js/v25-block3-slider-v3.js
           node --check js/v41-markets.js
           node --check js/sections/home-entrance.js
+          node --check js/sections/experience-v42.js
           node --check js/v34-beyond-ui-story.js
           node --check js/sections/beyond-mobile-morph.js
       - name: Validate design-system tokens and homepage assets
