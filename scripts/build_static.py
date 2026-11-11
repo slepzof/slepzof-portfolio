@@ -9,6 +9,7 @@ import os
 import re
 from pathlib import Path
 from shutil import copy2, copytree, rmtree
+from optimize_media import optimize_media
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "dist"
@@ -70,6 +71,9 @@ def main():
         if fixed != raw:
             path.write_text(fixed, encoding="utf-8")
             rewritten += 1
+
+    # Responsive derivatives are built into dist only. Original Figma art is never changed.
+    optimize_media(OUT, BASE)
 
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
     print(f"GitHub Pages build ready: {OUT}, base={BASE}/, modified_text_files={rewritten}")
