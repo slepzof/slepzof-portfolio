@@ -53,8 +53,6 @@ function makePortal(i){
  wrapper.setAttribute('role','region');
  wrapper.setAttribute('aria-label','Следующий навык: '+label);
  const hero=make('div','sx44-portal-hero');
- const counter=make('span','sx44-portal-counter');
- counter.textContent=String(i+1).padStart(2,'0')+' → '+String(i+2).padStart(2,'0')+' / 08';
  const art=make('div','sx44-portal-chart');
  const diagram=svg('svg',{viewBox:'0 0 400 160','aria-hidden':'true',focusable:'false'});
  const wheel=svg('g',{transform:'translate(200 261) rotate('+(45*i)+')'});
@@ -107,9 +105,6 @@ function makePortal(i){
  const rating=make('span','sx43-card-score');
  rating.textContent=node?.querySelector('b')?.textContent||'';
  identity.append(icon,name,rating);
- const preview=make('div','sx44-portal-preview');
- preview.setAttribute('aria-hidden','true'); // Decorative teaser, not duplicate reading content.
- preview.textContent=head.querySelector('h3')?.textContent?.replace(/\s+/g,' ').trim()||'';
  const content=make('div','sx44-portal-content');
  content.append(head,stats,tools); // Full approved chapter inside one card.
  // The genuine existing title/body remain visible in the fourth card FROM
@@ -117,13 +112,21 @@ function makePortal(i){
  const details=make('div','sx44-portal-details');
  details.append(stats,tools);
  content.append(details);
- hero.append(counter,art,identity,preview);
+ hero.append(art,identity);
  wrapper.append(hero,content);
+ // This independent zero-height anchor does not stick or resize. Its y-position
+ // controls the animation even while the real card expands and the DOM reflows.
+ const marker=make('span','sx44-portal-marker');
+ marker.setAttribute('aria-hidden','true');
+ const runway=make('span','sx44-portal-runway');
+ runway.setAttribute('aria-hidden','true');
  rail.append(wrapper); // Fourth card is in the SAME scroll stack.
+ rail.insertBefore(marker,wrapper);
+ rail.append(runway);
  panels[i].classList.add('sx45-has-portal');
  panel.classList.add('sx45-cases-only');
  return {wrapper,head,stats,tools,panel,previousLabelled,
-   owner:panels[i],rail,hero,content,details,wheel,currentDot,nextDot,i};
+   owner:panels[i],rail,marker,runway,hero,content,details,wheel,currentDot,nextDot,i};
 }
 function restoreContent(){
  panels.forEach(p=>{
@@ -177,13 +180,13 @@ function draw(){
  const top=morph.getBoundingClientRect().top;
  const measurements=portals.map(portal=>({
   portal,
-  y:portal.wrapper.getBoundingClientRect().top,
+  y:portal.marker.getBoundingClientRect().top,
   railWidth:portal.rail.clientWidth||Math.max(280,innerWidth-40)
  }));
  const t=reduced.matches?1:ease((nav+8-top)/100);
  stage.style.setProperty('--sx43-morph',t.toFixed(4));
- stage.style.setProperty('--sx43-radar-shift',(98*t).toFixed(2)+'px');
- stage.style.setProperty('--sx43-radar-scale',(1+.30*t).toFixed(4));
+ stage.style.setProperty('--sx43-radar-shift',(90*t).toFixed(2)+'px');
+ stage.style.setProperty('--sx43-radar-scale',(1+.80*t).toFixed(4));
  stage.style.setProperty('--sx43-radar-alpha','1');
  stage.style.setProperty('--sx43-identity-alpha',ease((t-.18)/.55).toFixed(3));
  stage.style.setProperty('--sx43-nodes-alpha',(1-ease((t-.08)/.58)).toFixed(3));
@@ -192,31 +195,33 @@ function draw(){
  // After turning 45°, its icon and a fragment of real copy appear.
  // Expansion is later; the original headline/paragraphs live in this card.
  let visible=0;
+ const peek=clamp(height*.07,43,65);
+ const stackedTop=nav+12+3*peek;
  for(const {portal,y,railWidth} of measurements){
-  if(y<height*.6)visible=portal.i+1;
-  if(y>height*1.35||y< -height*1.6)continue;
-  const turnStart=height*.98,turnEnd=height*.69;
-  const turn=reduced.matches?(y<turnEnd?1:0):
-   ease((turnStart-y)/(turnStart-turnEnd));
-  const expandStart=height*.69,expandEnd=nav+24;
-  const expand=reduced.matches?(y<expandEnd?1:0):
-   ease((expandStart-y)/Math.max(220,expandStart-expandEnd));
-  const identity=ease((turn-.77)/.23);
-  const teaser=0; // Headline is the actual source node, not a duplicated preview.
-  const real=reduced.matches?1:ease((expand-.3)/.63);
+  // Arrival: the complete fourth card is visible with a neutral radar.
+  // Scrubbing starts only AFTER it reaches the previous three-card stack.
+  const distance=Math.max(0,stackedTop-y);
+  const turn=reduced.matches?(distance>45?1:0):
+   ease((distance-45)/210);
+  // Turn by 45 degrees CLOCKWISE before any width expansion.
+  const expand=reduced.matches?(distance>300?1:0):
+   ease((distance-300)/255);
+  const identity=ease((turn-.76)/.24);
+  const real=reduced.matches?1:ease((expand-.45)/.55);
+  if(distance>255&&y<height)visible=portal.i+1;
   const portalWidth=railWidth+(innerWidth-railWidth)*expand;
-  // At entry the portal equals a fourth full-height case cover.
-  // As it becomes the next skill, the hero SHRINKS and its real text rises.
-  const coverHeight=railWidth*2048/1424;
-  const heroHeight=coverHeight+(270-coverHeight)*ease((turn-.18)/.82);
+  // Figma: 270px upper area in both neutral and rotated states.
+  // Original headline and paragraphs never leave this same surface.
+  const heroHeight=270;
+  const stickyTop=stackedTop+(nav+10-stackedTop)*expand;
   const style=portal.wrapper.style;
   style.setProperty('--sx44-width',portalWidth.toFixed(2)+'px');
+  style.setProperty('--sx44-sticky-top',stickyTop.toFixed(2)+'px');
   style.setProperty('--sx44-radius',(27*(1-expand)).toFixed(2)+'px');
   style.setProperty('--sx44-border','rgba(37,38,42,'+(1-expand).toFixed(3)+')');
   style.setProperty('--sx44-shadow',(.48*(1-expand)).toFixed(3));
   style.setProperty('--sx44-hero-height',heroHeight.toFixed(2)+'px');
   style.setProperty('--sx44-identity-alpha',identity.toFixed(3));
-  style.setProperty('--sx44-preview-alpha',teaser.toFixed(3));
   style.setProperty('--sx44-content-alpha',real.toFixed(3));
   style.setProperty('--sx44-content-limit','none');
   style.setProperty('--sx44-details-height',(600*real).toFixed(2)+'px');
@@ -287,6 +292,8 @@ function disable(){
   portal.panel.removeAttribute('aria-label');
   if(portal.previousLabelled)
     portal.panel.setAttribute('aria-labelledby',portal.previousLabelled);
+  portal.marker.remove();
+  portal.runway.remove();
   portal.wrapper.remove();
  }
  portals=[];
