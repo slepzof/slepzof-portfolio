@@ -86,8 +86,15 @@ expect("--sx43-radar-shift" in morph_css, "Safari-safe radar transform must rema
 expect("gap:24px!important" in morph_css, "Mobile case cards need a 24px normal-flow gap")
 expect("-webkit-mask-image:none!important" in morph_css,
        "Legacy horizontal slider gradient must be disabled in mobile deck")
-expect("font-size:clamp(21px,5.65vw,24px)!important" in morph_css,
+expect("font-size:clamp(21px,6.2vw,24px)!important" in morph_css,
        "Mobile cases must use Featured Projects typographic scale")
+expect("const heroHeight=coverHeight+(270-coverHeight)*expand;" in morph,
+       "Expanded chapter must retain space for the active radar beneath its title")
+expect("1-.12*ease((expand-.32)/.54)" in morph,
+       "Expanded chapter must keep its radar visibly connected to previous chapter")
+expect("font-size:clamp(11px,3.35vw,13px)!important" in morph_css and
+       "font-size:clamp(13px,3.6vw,14px)!important" in morph_css,
+       "Case metadata and description must reach the approved desktop type scale")
 expect("height:var(--sx44-hero-height,505px)" in morph_css,
        "Next-skill card hero height must animate, not leave a blank fixed area")
 expect("position:sticky!important" in morph_css and "--sx43-stack-peek" in morph_css
