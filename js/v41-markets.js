@@ -5,12 +5,13 @@
     const section=document.getElementById("markets");
     if(!section||section.dataset.sx41Init)return;
     const stage=section.querySelector(".sx41-stage");
+    const scene=section.querySelector(".sx41-scene");
     const windowEl=section.querySelector(".sx41-window");
     const track=section.querySelector(".sx41-track");
     const deck=[...section.querySelectorAll(".sx41-deck-card")];
     const progressText=section.querySelector(".sx41-progress-text");
     const progressFill=section.querySelector(".sx41-progress-fill");
-    if(!stage||!windowEl||!track||!deck.length)return;
+    if(!stage||!scene||!windowEl||!track||!deck.length)return;
     section.dataset.sx41Init="1";
     section.classList.add("sx41-ready");
     const mobile=window.matchMedia("(max-width: 800px)");
@@ -73,21 +74,15 @@
       navHeight=nav?Math.round(nav.getBoundingClientRect().height):64;
       section.style.setProperty("--sx41-nav-height",navHeight+"px");
       stageHeight=stage.getBoundingClientRect().height;
-      desktopDistance=Math.max(0,track.scrollWidth-windowEl.clientWidth+20);
-      // The Figma canvas is taller than a laptop viewport. Reveal its footer
-      // gradually as the two rows travel horizontally, without compressing it.
-      const footer=section.querySelector(".sx41-footer");
-      const visibleHeight=Math.max(1,window.innerHeight-navHeight);
-      const footerBottom=footer ? footer.offsetTop+footer.offsetHeight : stageHeight;
-      verticalDistance=Math.max(0,Math.min(
-        stageHeight-visibleHeight,
-        footerBottom+28-visibleHeight
-      ));
+      desktopDistance=Math.max(0,track.scrollWidth-windowEl.clientWidth);
+      // Pin only the viewport, not the taller Figma scene. This prevents
+      // the empty screen after the last horizontally scrolled market.
+      verticalDistance=Math.max(0,scene.offsetHeight-stageHeight);
       if(mobile.matches){
         deckStep=clamp(Math.round(window.innerHeight*.34),245,320);
         runway=deckStep*(deck.length-1)+260;
       }else{
-        runway=Math.max(1720,desktopDistance*2.0);
+        runway=Math.max(1000,desktopDistance*1.55);
       }
       section.style.height=Math.ceil(stageHeight+runway)+"px";
       if(lastIsMobile!==mobile.matches){
@@ -104,13 +99,13 @@
       const consumed=clamp(navHeight-top,0,runway);
       if(mobile.matches){
         // Mobile deck keeps its original full-viewport layout.
-        stage.style.transform="";
+        scene.style.transform="";
         const value=clamp(consumed/deckStep,0,deck.length-1);
         renderDeck(value);
       }else{
         const progress=clamp(consumed/runway,0,1);
         track.style.transform="translate3d("+(-desktopDistance*progress)+"px,0,0)";
-        stage.style.transform="translate3d(0,"+(-verticalDistance*progress)+"px,0)";
+        scene.style.transform="translate3d(0,"+(-verticalDistance*progress)+"px,0)";
       }
     }
     function schedule(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;update();});}

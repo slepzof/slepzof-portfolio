@@ -1,10 +1,10 @@
 /* SLEPZOF / Block 04 — original "Сначала были факты" reference.
    Scope deliberately limited to #process; other blocks remain unchanged. */
-#process.sx38-process{background:#000;color:#f5f5f7;padding:116px 0 104px;overflow:hidden;position:relative;isolation:isolate}
-#process .sx38-inner{width:min(100% - 48px,1230px);margin-inline:auto}
+#process.sx38-process{background:#000;color:#f5f5f7;padding:var(--ds-section-gap,96px) 0;overflow:hidden;position:relative;isolation:isolate}
+#process .sx38-inner{width:min(calc(100% - var(--ds-gutter,40px) - var(--ds-gutter,40px)),var(--ds-container-max,1116px));margin-inline:auto}
 #process .sx38-head{text-align:center;max-width:860px;margin:0 auto;position:relative;z-index:2}
-#process .sx38-head h2{font-size:clamp(38px,4.1vw,58px);line-height:1.1;letter-spacing:-.043em;font-weight:630;margin:0 0 26px;color:#fff}
-#process .sx38-head p{max-width:760px;margin:0 auto;font-size:clamp(16px,1.28vw,19px);line-height:1.38;letter-spacing:-.011em;color:#8b8b90}
+#process .sx38-head h2{font-size:var(--ds-font-h2,48px);line-height:var(--ds-line-h2,52px);letter-spacing:-.04em;font-weight:630;margin:0 0 26px;color:#fff}
+#process .sx38-head p{max-width:760px;margin:0 auto;font-size:var(--ds-font-body-lg,18px);line-height:var(--ds-line-body-lg,26px);letter-spacing:-.011em;color:#8b8b90}
 #process .sx38-head strong{color:#f5f5f7;font-weight:570}
 #process .sx38-portrait{width:min(100%,1000px);margin:44px auto 0;position:relative;pointer-events:none}
 #process .sx38-portrait img{display:block;width:100%;height:auto;object-fit:contain}
@@ -22,7 +22,7 @@
 #process .sx38-card:nth-child(4) img{aspect-ratio:760/512}
 #process .sx38-card p{margin:17px 0 0;color:#929295;font-size:clamp(14px,1.05vw,16px);line-height:1.36;letter-spacing:-.008em}
 #process .sx38-card strong{font-weight:650;color:#fff}
-#process .sx38-controls{display:flex;align-items:center;justify-content:flex-end;gap:12px;margin:24px auto 0;width:min(100% - 48px,1230px)}
+#process .sx38-controls{display:flex;align-items:center;justify-content:flex-end;gap:12px;margin:24px auto 0;width:min(calc(100% - var(--ds-gutter,40px) - var(--ds-gutter,40px)),var(--ds-container-max,1116px))}
 #process .sx38-controls button{appearance:none;border:0;background:#2b2b2f;color:#e9e9eb;width:42px;height:42px;display:grid;place-items:center;border-radius:50%;padding:0;cursor:pointer;transition:background .2s,opacity .2s,transform .2s}
 #process .sx38-controls button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
 #process .sx38-controls button:not(:disabled):hover{background:#44444b;transform:scale(1.065)}
@@ -39,7 +39,7 @@
 @media (max-width:600px){
   #process.sx38-process{padding:82px 0 72px}
   #process .sx38-inner,#process .sx38-controls{width:calc(100% - 40px)}
-  #process .sx38-head h2{font-size:clamp(27px,7.1vw,34px);line-height:1.12;letter-spacing:-.043em;margin-bottom:22px}
+  #process .sx38-head h2{font-size:var(--ds-font-h2,32px);line-height:var(--ds-line-h2,36px);letter-spacing:-.043em;margin-bottom:22px}
   #process .sx38-head p{font-size:15px;line-height:1.43;max-width:410px;letter-spacing:-.006em}
   #process .sx38-portrait{width:calc(100% + 8px);margin:28px auto 0;left:-4px}
   #process .sx38-track-wrap{margin-top:6px}
