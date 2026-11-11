@@ -20,6 +20,7 @@
     let runway=2100;
     let deckStep=270;
     let desktopDistance=0;
+    let verticalDistance=0;
     let lastIsMobile=null;
     let raf=0;
     let lastVisible=new Set();
@@ -73,6 +74,15 @@
       section.style.setProperty("--sx41-nav-height",navHeight+"px");
       stageHeight=stage.getBoundingClientRect().height;
       desktopDistance=Math.max(0,track.scrollWidth-windowEl.clientWidth+20);
+      // The Figma canvas is taller than a laptop viewport. Reveal its footer
+      // gradually as the two rows travel horizontally, without compressing it.
+      const footer=section.querySelector(".sx41-footer");
+      const visibleHeight=Math.max(1,window.innerHeight-navHeight);
+      const footerBottom=footer ? footer.offsetTop+footer.offsetHeight : stageHeight;
+      verticalDistance=Math.max(0,Math.min(
+        stageHeight-visibleHeight,
+        footerBottom+28-visibleHeight
+      ));
       if(mobile.matches){
         deckStep=clamp(Math.round(window.innerHeight*.34),245,320);
         runway=deckStep*(deck.length-1)+260;
@@ -93,11 +103,14 @@
       const top=section.getBoundingClientRect().top;
       const consumed=clamp(navHeight-top,0,runway);
       if(mobile.matches){
+        // Mobile deck keeps its original full-viewport layout.
+        stage.style.transform="";
         const value=clamp(consumed/deckStep,0,deck.length-1);
         renderDeck(value);
       }else{
         const progress=clamp(consumed/runway,0,1);
         track.style.transform="translate3d("+(-desktopDistance*progress)+"px,0,0)";
+        stage.style.transform="translate3d(0,"+(-verticalDistance*progress)+"px,0)";
       }
     }
     function schedule(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;update();});}
@@ -105,7 +118,9 @@
     window.addEventListener("resize",()=>{
       // Ignore iOS Safari toolbar fluctuations that don't change the layout width.
       const width=document.documentElement.clientWidth;
-      if(width!==section._sx41Width){section._sx41Width=width;measure();}
+      if(width!==section._sx41Width || (!mobile.matches&&Math.abs(window.innerHeight-section._sx41Height)>2)){
+        section._sx41Width=width;section._sx41Height=window.innerHeight;measure();
+      }
       else schedule();
     },{passive:true});
     if("ResizeObserver" in window){
@@ -116,6 +131,7 @@
       }).observe(windowEl);
     }
     section._sx41Width=document.documentElement.clientWidth;
+    section._sx41Height=window.innerHeight;
     loadDeckImage(0);loadDeckImage(1);loadDeckImage(2);
     if("IntersectionObserver" in window){
       const reveal=new IntersectionObserver(entries=>{
