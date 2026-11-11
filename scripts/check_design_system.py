@@ -6,6 +6,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 html = (ROOT / "index.html").read_text("utf-8")
+legacy_entry = (ROOT / "css/v10.css").read_text("utf-8")
 tokens = (ROOT / "css/system/tokens.css").read_text("utf-8")
 markets_css = (ROOT / "css/v41-markets.css").read_text("utf-8")
 markets_js = (ROOT / "js/v41-markets.js").read_text("utf-8")
@@ -16,7 +17,9 @@ def expect(ok, why):
         errors.append(why)
 
 for name in ("tokens", "typography", "layout", "components"):
-    expect(f'/css/system/{name}.css' in html, f"Design-system stylesheet missing: {name}")
+    expect(f'@import url("system/{name}.css")' in legacy_entry,
+           f"Global design-system import missing in v10.css: {name}")
+expect('/css/v10.css' in html, "Homepage must load the shared CSS entrypoint")
 for token in ("--ds-container-max: 1116px", "--ds-font-h1: 56px",
               "--ds-font-h2: 48px", "--ds-font-h3: 40px",
               "--ds-font-lead-xl: 24px", "--ds-line-lead-xl: 32px"):

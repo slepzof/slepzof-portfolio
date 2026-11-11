@@ -16,6 +16,7 @@
 | Что редактировать | Путь |
 | --- | --- |
 | Палитра Light / Dark, типографические и layout-токены | `css/system/tokens.css` |
+| Общее подключение системы для старых страниц | `css/v10.css` (импорты `css/system/`) |
 | Шрифты H1–H6 и тексты | `css/system/typography.css` |
 | Контейнеры и сетка 1116 px | `css/system/layout.css` |
 | Кнопки Primary / Secondary / Tertiary | `css/system/components.css` |

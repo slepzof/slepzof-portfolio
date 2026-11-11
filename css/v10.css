@@ -1,4 +1,9 @@
-/* SLEPZOF V10 - design system: accessible, responsive and lightweight */
+/* SLEPZOF legacy V10 entrypoint. All active legacy pages load the v1 design tokens here.
+   Only opt-in .ds-* selectors are introduced; previous page visuals stay unchanged. */
+@import url("system/tokens.css");
+@import url("system/typography.css");
+@import url("system/layout.css");
+@import url("system/components.css");
 :root{--sx-text:#1d1d1f;--sx-muted:#66686f;--sx-bg:#fff;--sx-soft:#f5f5f7;--sx-line:#e7e7eb;--sx-blue:#0071e3;--sx-rad:22px}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
