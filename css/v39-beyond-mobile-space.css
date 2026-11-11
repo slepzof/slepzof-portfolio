@@ -2,9 +2,7 @@
    Keep desktop, card dimensions, approved text, artwork and transitions unchanged. */
 @media (max-width:800px) {
   /* Both project carousels use the same readable mobile description size. */
-  #selected .sx25b3-card p,
-  /* Project copy is governed by the shared Figma component. */
-
+  /* Card copy belongs to the shared Figma ProjectCard; never include it in runway selectors. */
   /* Skills 1–7: black runway prevents the next section from showing before
      the existing scroll-triggered handoff to the next skill. */
   #beyond-ui.sx33-mobile .sx28-panel[data-sx28-skill]:not([data-sx28-skill="7"]) {
