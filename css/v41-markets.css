@@ -1,62 +1,68 @@
-/* SLEPZOF / Markets — desktop geometry matched to the supplied Block 5 SVG.
-   Desktop: 1040px inset panel, 60px content inset, 242px cards, 24px gaps;
-   the right edge of the gallery is clipped by the panel, not the viewport.
-   Responsive vertical compression is based on available viewport height.
-   Mobile deck styles and scroll implementation remain unchanged. */
-#markets.sx41-markets{position:relative;background:#000;color:#f5f5f7;isolation:isolate}
+/* Markets / Block 05. Coordinates from the supplied 1440 × 1240 Figma SVG:
+   panel (162,80) 1116 × 1080, radius 48; inner x=226;
+   cards (226,336) 262 × 256, pitch 286 × 280;
+   footer follows the second card row (ends y=872).
+   Do not shrink the whole composition to the Safari viewport height.
+   Scroll pans the complete canvas vertically while the two-row track moves horizontally.
+*/
+#markets.sx41-markets{position:relative;background:#010000;color:#f5f5f7;isolation:isolate}
 #markets,#markets *{box-sizing:border-box}
 #markets .sx41-stage{
- --sx41-panel-x:max(24px,calc((100% - 1140px)/2));
- --sx41-panel-w:min(1040px,calc(100% - var(--sx41-panel-x) - 24px));
- --sx41-pad:clamp(34px,4.17vw,60px);
- --sx41-panel-top:clamp(18px,calc(12vh - 74px),74px);
- --sx41-panel-bottom:clamp(18px,calc(25vh - 200px),96px);
- --sx41-head-top:clamp(47px,calc(22vh - 118px),154px);
- --sx41-grid-top:clamp(149px,calc(42vh - 208px),312px);
- --sx41-footer-gap:clamp(14px,calc(12vh - 80px),70px);
- --sx41-card-size:clamp(208px,min(16.81vw,calc((100svh - var(--sx41-nav-height,64px) - 315px)/2)),242px);
+ --sx41-panel-width:min(1116px,77.5%);
+ --sx41-panel-left:calc((100% - var(--sx41-panel-width))/2);
+ --sx41-frame-pad:clamp(50px,5.5556vw,80px);
+ --sx41-content-pad:clamp(38px,4.4444vw,64px);
+ --sx41-gallery-top:clamp(240px,23.3333vw,336px);
+ --sx41-footer-top:clamp(680px,65.9722vw,950px);
+ --sx41-card-width:clamp(174px,18.1944vw,262px);
+ --sx41-card-height:clamp(168px,17.7778vw,256px);
+ --sx41-card-gap:clamp(17px,1.6667vw,24px);
  position:sticky;top:var(--sx41-nav-height,64px);
- height:calc(100svh - var(--sx41-nav-height,64px));
- min-height:710px;background:#000;overflow:clip;isolation:isolate;
+ width:100%;height:clamp(900px,86.1111vw,1240px);
+ min-height:900px;background:#010000;overflow:clip;isolation:isolate;
 }
 #markets .sx41-panel{
- position:absolute;top:var(--sx41-panel-top);bottom:var(--sx41-panel-bottom);
- left:var(--sx41-panel-x);width:var(--sx41-panel-w);
- border-radius:42px;background:#141414;pointer-events:none;
+ position:absolute;top:var(--sx41-frame-pad);bottom:var(--sx41-frame-pad);
+ left:var(--sx41-panel-left);width:var(--sx41-panel-width);
+ border-radius:clamp(34px,3.3333vw,48px);
+ background:#111;pointer-events:none;
 }
 #markets .sx41-head{
- position:absolute;top:var(--sx41-head-top);
- left:calc(var(--sx41-panel-x) + var(--sx41-pad));
- width:calc(var(--sx41-panel-w) - var(--sx41-pad) - var(--sx41-pad));
- display:grid;grid-template-columns:1fr .75fr;column-gap:70px;align-items:start;z-index:2;
+ position:absolute;top:clamp(110px,9.9306vw,143px);
+ left:calc(var(--sx41-panel-left) + var(--sx41-content-pad));
+ width:calc(var(--sx41-panel-width) - 2 * var(--sx41-content-pad));
+ display:grid;grid-template-columns:minmax(0,560fr) minmax(0,386fr);
+ column-gap:clamp(25px,2.9167vw,42px);align-items:start;z-index:2;
 }
 #markets .sx41-head h2{
- font-size:clamp(32px,3.55vh,44px);font-weight:650;letter-spacing:-.044em;
- line-height:1.12;margin:0;max-width:440px;
+ font-size:clamp(35px,3.8889vw,56px);font-weight:650;letter-spacing:-.044em;
+ line-height:1;max-width:560px;margin:clamp(10px,1.0417vw,15px) 0 0;
 }
 #markets .sx41-head p{
- font-size:clamp(15px,1.7vh,21px);line-height:1.38;color:#737378;
- letter-spacing:-.01em;max-width:400px;margin:0;
+ font-size:clamp(16px,1.6667vw,24px);line-height:1.33333;
+ color:#737378;letter-spacing:-.01em;max-width:386px;margin:0;
 }
 #markets .sx41-head strong{font-weight:600;color:#f5f5f7}
 #markets .sx41-window{
- --sx41-w:var(--sx41-card-size);--sx41-gap:24px;
- position:absolute;z-index:3;top:var(--sx41-grid-top);
- left:calc(var(--sx41-panel-x) + var(--sx41-pad));
- width:calc(var(--sx41-panel-w) - var(--sx41-pad));
- right:auto;overflow:clip;
- height:calc(var(--sx41-w)*2 + var(--sx41-gap) + 2px);
+ --sx41-w:var(--sx41-card-width);--sx41-h:var(--sx41-card-height);
+ --sx41-gap:var(--sx41-card-gap);
+ position:absolute;z-index:3;top:var(--sx41-gallery-top);
+ left:calc(var(--sx41-panel-left) + var(--sx41-content-pad));
+ right:auto;width:calc(var(--sx41-panel-width) - var(--sx41-content-pad));
+ height:calc(2 * var(--sx41-h) + var(--sx41-gap));
+ overflow:clip;
 }
 #markets .sx41-track{
- display:grid;grid-template-rows:repeat(2,var(--sx41-w));grid-auto-flow:column;
- grid-auto-columns:var(--sx41-w);gap:var(--sx41-gap);width:max-content;
+ display:grid;grid-template-rows:repeat(2,var(--sx41-h));
+ grid-auto-flow:column;grid-auto-columns:var(--sx41-w);
+ gap:var(--sx41-gap);width:max-content;
  transform:translate3d(0,0,0);will-change:transform;
 }
 #markets .sx41-card{
- position:relative;display:block;width:var(--sx41-w);height:var(--sx41-w);
- border:1px solid #29292b;border-radius:24px;overflow:hidden;
- background:#030303;color:#fff;isolation:isolate;transform:translateZ(0);
- -webkit-backface-visibility:hidden;
+ position:relative;display:block;width:var(--sx41-w);height:var(--sx41-h);
+ border:1px solid #29292b;border-radius:clamp(22px,2.2222vw,32px);
+ overflow:hidden;background:#010000;color:#fff;isolation:isolate;
+ transform:translateZ(0);-webkit-backface-visibility:hidden;
 }
 #markets .sx41-card-art{
  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
@@ -68,51 +74,59 @@
  pointer-events:none;
 }
 #markets .sx41-copy{
- position:absolute;z-index:1;left:12px;right:12px;bottom:16px;
- text-align:center;font-size:clamp(12px,1vw,15px);line-height:1.25;
- letter-spacing:-.008em;color:#969699;
+ position:absolute;z-index:1;left:14px;right:14px;bottom:18px;
+ text-align:center;font-size:clamp(12px,1.1111vw,16px);
+ line-height:1.25;letter-spacing:-.008em;color:#969699;
 }
-#markets .sx41-copy--top{top:18px;bottom:auto}
+#markets .sx41-copy--top{top:21px;bottom:auto}
 #markets .sx41-copy strong{color:#fff;font-weight:650}
 #markets .sx41-card--metric{
  display:flex;flex-direction:column;align-items:center;justify-content:center;
- text-align:center;padding:17px;
+ text-align:center;padding:16px;
 }
-#markets .sx41-card--metric .sx41-metric-title{font-size:14px;color:#fff;font-weight:650;line-height:1.22}
+#markets .sx41-card--metric .sx41-metric-title{
+ font-size:clamp(12px,1.1111vw,16px);color:#fff;font-weight:650;line-height:1.22;
+}
 #markets .sx41-card--metric .sx41-metric-main{
- font-size:clamp(32px,2.8vw,42px);font-weight:720;letter-spacing:-.04em;
- line-height:1.15;margin:7px 0 8px;white-space:nowrap;
+ font-size:clamp(32px,3.3333vw,48px);font-weight:720;letter-spacing:-.04em;
+ line-height:1.15;margin:8px 0 9px;white-space:nowrap;
 }
 #markets .sx41-card--metric .sx41-metric-sub{
- font-size:clamp(12px,1.03vw,15px);line-height:1.28;
- font-weight:500;color:#87878d;max-width:192px;
+ font-size:clamp(12px,1.1111vw,16px);line-height:1.25;
+ font-weight:500;color:#87878d;max-width:216px;
 }
 #markets .sx41-card--metric .sx41-metric-icon{
  font-size:30px;display:inline-flex;vertical-align:middle;line-height:1;margin-left:4px;
 }
-#markets .sx41-card--metric .sx41-metric-visual{height:35px;margin-bottom:9px;font-size:30px;line-height:1}
+#markets .sx41-card--metric .sx41-metric-visual{
+ height:38px;margin-bottom:9px;font-size:32px;line-height:1;
+}
 #markets .sx41-footer{
- position:absolute;z-index:2;
- top:calc(var(--sx41-grid-top) + var(--sx41-card-size) + var(--sx41-card-size) + 24px + var(--sx41-footer-gap));
- bottom:auto;left:calc(var(--sx41-panel-x) + var(--sx41-pad));
- width:calc(var(--sx41-panel-w) - var(--sx41-pad) - var(--sx41-pad));
+ position:absolute;z-index:2;top:var(--sx41-footer-top);bottom:auto;
+ left:calc(var(--sx41-panel-left) + var(--sx41-content-pad));
+ width:calc(var(--sx41-panel-width) - 2 * var(--sx41-content-pad));
  text-align:center;
 }
 #markets .sx41-footer b{
- display:block;font-size:clamp(23px,2.6vh,32px);font-weight:760;letter-spacing:-.045em;
+ display:block;font-size:clamp(26px,2.3611vw,34px);
+ font-weight:760;letter-spacing:-.045em;line-height:1.1;
 }
 #markets .sx41-footer p{
- max-width:750px;margin:11px auto 7px;
- font-size:clamp(13px,1.4vh,17px);line-height:1.38;color:#8e8e94;
+ max-width:840px;margin:clamp(16px,1.3889vw,20px) auto 10px;
+ font-size:clamp(14px,1.25vw,18px);line-height:1.35;color:#8e8e94;
 }
 #markets .sx41-footer a{
- color:#0a9bff;font-size:clamp(13px,1.48vh,18px);
+ display:inline-block;color:#0a9bff;font-size:clamp(14px,1.25vw,18px);
  font-weight:600;text-decoration:none;
 }
 #markets .sx41-footer a:hover{text-decoration:underline}
 #markets .sx41-deck,#markets .sx41-deck-progress{display:none}
 @media(min-width:801px) and (max-width:1080px){
- #markets .sx41-head{grid-template-columns:1fr 1fr;column-gap:30px}
+ #markets .sx41-head{column-gap:20px}
+ #markets .sx41-head h2{font-size:clamp(32px,3.8889vw,42px)}
+ #markets .sx41-head p{font-size:clamp(15px,1.6667vw,18px)}
+ #markets .sx41-copy{font-size:clamp(11px,1.1111vw,13px)}
+ #markets .sx41-metric-sub{font-size:12px}
 }
 
 @media(max-width:800px){
