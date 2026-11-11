@@ -160,10 +160,10 @@ def optimize_media(out: Path, base: str) -> dict:
     manifest_path = out / "js" / "data" / "work-media.js"
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
     manifest_path.write_text(
-        "/* Build-only responsive case media; source PNGs remain unchanged. */\\n"
+        "/* Build-only responsive case media; source PNGs remain unchanged. */\n"
         "window.SlepzofWorkMedia=Object.freeze("
         + json.dumps(cover_manifest, ensure_ascii=False, separators=(",", ":"))
-        + ");\\n",
+        + ");\n",
         encoding="utf-8",
     )
 
