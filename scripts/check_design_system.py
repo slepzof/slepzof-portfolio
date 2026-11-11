@@ -52,6 +52,11 @@ for asset in sorted(parser.urls):
 expect(len(parser.urls) == 21, f"Unexpected asset references: {len(parser.urls)} (expected 21 = 9 + 12)")
 expect("/assets/process-v38/" not in html, "Outdated process image URL")
 expect("/assets/markets/" not in html, "Outdated market image URL")
+expect("/css/sections/mobile-layout.css" in html, "Missing mobile layout stylesheet")
+expect("sx41-mobile-scroll" in html and "sx41-mobile-viewport" in html,
+       "Missing mobile markets scroll shell")
+expect("const mobileConsumed=" in markets_js,
+       "Mobile markets must track scroll against the dedicated sticky shell")
 expect("/css/sections/home-entrance.css" in html, "Missing desktop loader stylesheet")
 expect("/js/sections/home-entrance.js" in html, "Missing desktop loader script")
 expect("sx-home-loading" in html, "Missing desktop early loader state")

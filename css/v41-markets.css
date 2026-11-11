@@ -135,35 +135,7 @@
  #markets .sx41-metric-sub{font-size:12px}
 }
 
-@media(max-width:800px){
- #markets .sx41-stage{top:var(--sx41-nav-height,56px);height:calc(100svh - var(--sx41-nav-height,56px));min-height:585px}
- #markets .sx41-scene{display:contents}
- #markets .sx41-panel,#markets .sx41-window{display:none}
- #markets .sx41-head{left:20px;right:20px;width:auto;top:clamp(18px,3vh,34px);display:block;text-align:left}
- #markets .sx41-head h2{font-size:var(--ds-font-h2,32px);line-height:var(--ds-line-h2,36px);letter-spacing:-.04em;max-width:320px}
- #markets .sx41-head p{font-size:var(--ds-font-lead-xl,18px);max-width:355px;line-height:var(--ds-line-lead-xl,26px);margin-top:12px}
- #markets .sx41-deck{display:block;position:absolute;z-index:3;width:min(79vw,340px);height:min(79vw,340px);top:48%;left:50%;transform:translate(-50%,-50%);isolation:isolate;perspective:1000px}
- #markets .sx41-deck-card{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;border-radius:25px;border:1px solid #2b2b2d;background:#080808;opacity:0;visibility:hidden;transform-origin:center 80%;backface-visibility:hidden;-webkit-backface-visibility:hidden;pointer-events:none;contain:layout paint style}
- #markets .sx41-deck-card .sx41-card-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
- #markets .sx41-deck-card .sx41-copy{font-size:clamp(12px,3.1vw,14px);bottom:18px;left:15px;right:15px}
- #markets .sx41-deck-card .sx41-copy--top{top:18px;bottom:auto}
- #markets .sx41-deck-card.sx41-card--metric .sx41-metric-title{font-size:15px}
- #markets .sx41-deck-card.sx41-card--metric .sx41-metric-main{font-size:clamp(34px,10vw,47px)}
- #markets .sx41-deck-card.sx41-card--metric .sx41-metric-sub{font-size:14px}
- #markets .sx41-deck-progress{display:flex;position:absolute;z-index:4;top:calc(48% + min(39.5vw,170px) + 24px);left:50%;transform:translateX(-50%);width:min(79vw,340px);justify-content:space-between;align-items:center;font-size:12px;line-height:1;color:#8a8a90;font-variant-numeric:tabular-nums}
- #markets .sx41-deck-progress .sx41-progress-bar{width:68%;height:3px;background:#2b2b2c;border-radius:9px;overflow:hidden}
- #markets .sx41-deck-progress .sx41-progress-fill{height:100%;width:0;background:#00b6ff;transition:width .13s linear}
- #markets .sx41-footer{top:auto;left:20px;right:20px;width:auto;bottom:clamp(14px,3vh,26px)}
- #markets .sx41-footer b{font-size:21px}
- #markets .sx41-footer p{font-size:11.5px;line-height:1.3;margin:6px auto 5px;max-width:350px}
- #markets .sx41-footer a{font-size:12px}
-}
-@media(max-width:370px){
- #markets .sx41-deck{top:49%;width:77vw;height:77vw}
- #markets .sx41-deck-progress{top:calc(49% + 38.5vw + 19px);width:77vw}
- #markets .sx41-head h2{font-size:26px}
- #markets .sx41-head p{font-size:12.5px}
-}
+/* Mobile structure and typography live in css/sections/mobile-layout.css. */
 @media(prefers-reduced-motion:no-preference){
  #markets.sx41-ready .sx41-head>*,
  #markets.sx41-ready .sx41-footer{opacity:0;transform:translate3d(0,22px,0)}

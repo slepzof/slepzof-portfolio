@@ -9,9 +9,12 @@
     const windowEl=section.querySelector(".sx41-window");
     const track=section.querySelector(".sx41-track");
     const deck=[...section.querySelectorAll(".sx41-deck-card")];
+    const mobileScroll=section.querySelector(".sx41-mobile-scroll");
+    const mobileRunway=section.querySelector(".sx41-mobile-runway");
+    const progressBar=section.querySelector(".sx41-progress-bar");
     const progressText=section.querySelector(".sx41-progress-text");
     const progressFill=section.querySelector(".sx41-progress-fill");
-    if(!stage||!scene||!windowEl||!track||!deck.length)return;
+    if(!stage||!scene||!windowEl||!track||!deck.length||!mobileScroll||!mobileRunway)return;
     section.dataset.sx41Init="1";
     section.classList.add("sx41-ready");
     const mobile=window.matchMedia("(max-width: 800px)");
@@ -57,18 +60,19 @@
           el.style.opacity=String(reduced.matches?1:clamp(1-phase*1.75,0,1));
           el.style.transform=reduced.matches
             ?"translate3d(0,0,0) scale(1)"
-            :"translate3d("+(-12*phase)+"px,"+(-95*phase)+"px,0) rotate("+(-9*phase)+"deg) scale("+(1-.045*phase)+")";
+            :"translate3d(0,"+(-24*phase)+"px,0) scale("+(1-.03*phase)+")";
         }else if(delta===1){
           el.style.opacity="1";
-          el.style.transform="translate3d("+(8*(1-phase))+"px,"+(12*(1-phase))+"px,0) scale("+(0.95+.05*phase)+")";
+          el.style.transform="translate3d(0,"+(12*(1-phase))+"px,0) scale("+(0.96+.04*phase)+")";
         }else{
-          el.style.opacity=".96";
-          el.style.transform="translate3d(13px,23px,0) scale(.89)";
+          el.style.opacity=".75";
+          el.style.transform="translate3d(0,20px,0) scale(.92)";
         }
       }
       lastVisible=visible;
       if(progressText)progressText.textContent=String(index+1).padStart(2,"0")+" / "+String(deck.length).padStart(2,"0");
       if(progressFill)progressFill.style.width=((indexFloat+1)/deck.length*100)+"%";
+      if(progressBar)progressBar.setAttribute("aria-valuenow",String(index+1));
     }
     function measure(){
       const nav=document.querySelector(".sx25-nav")||document.querySelector(".sx-nav");
@@ -84,16 +88,21 @@
       ));
       if(mobile.matches){
         deckStep=clamp(Math.round(window.innerHeight*.34),245,320);
-        runway=deckStep*(deck.length-1)+260;
+        runway=deckStep*(deck.length-1)+200;
+        section.style.height="auto";
+        mobileRunway.style.height=Math.ceil(runway)+"px";
       }else{
         runway=Math.max(1000,desktopDistance*1.55);
+        section.style.height=Math.ceil(stageHeight+runway)+"px";
+        mobileRunway.style.height="";
       }
-      section.style.height=Math.ceil(stageHeight+runway)+"px";
       if(lastIsMobile!==mobile.matches){
         lastIsMobile=mobile.matches;
         if(!mobile.matches){
           for(const i of lastVisible)resetDeckCard(deck[i]);
           lastVisible.clear();
+        }else{
+          track.style.transform="";
         }
       }
       update();
@@ -102,9 +111,11 @@
       const top=section.getBoundingClientRect().top;
       const consumed=clamp(navHeight-top,0,runway);
       if(mobile.matches){
-        // Mobile deck keeps its original full-viewport layout.
+        // Mobile copy and footer are normal-flow content. Only the deck sticks.
         scene.style.transform="";
-        const value=clamp(consumed/deckStep,0,deck.length-1);
+        const scrollTop=mobileScroll.getBoundingClientRect().top;
+        const mobileConsumed=clamp(navHeight+12-scrollTop,0,runway);
+        const value=clamp(mobileConsumed/deckStep,0,deck.length-1);
         renderDeck(value);
       }else{
         // Intro: 0–16%; gallery: 16–72%; final cards hold: 72–86%.

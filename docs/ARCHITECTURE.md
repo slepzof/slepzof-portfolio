@@ -46,3 +46,7 @@ JS секций должен управлять только поведение�
 - `css/sections/home-entrance.css` + `js/sections/home-entrance.js`: краткий лоадер с заполнением S синим и последующее плавное появление текста главного экрана. Только desktop ≥801px, с ограничением загрузки по времени; на мобильных версиях ничего не блокирует.
 
 Утверждённые тексты, фотографии, порядок карточек и принципы мобильной колоды не менялись. Для визуальной проверки нужны реальные скриншоты Safari на 1440/1024/1920, потому что статический CI проверяет только сборку, ссылки и синтаксис.
+
+
+## Mobile markets layout (11 November 2026)
+The mobile market gallery now uses normal-flow header/footer and a dedicated sticky `.sx41-mobile-scroll` with its own gallery viewport and scroll runway. The gallery remains driven by native vertical scrolling, but no longer shares an absolute-positioning plane with the description or footer. Its progress fill is block-level and exposes `aria-valuenow`. Mobile layout and the Beyond UI mobile type overrides are maintained in `css/sections/mobile-layout.css` rather than another versioned stylesheet.
