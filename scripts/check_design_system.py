@@ -171,3 +171,28 @@ if errors:
         print(" -", error)
     sys.exit(1)
 print(f"Design system check passed. {len(parser.urls)} media files, required tokens and scene verified.")
+
+
+# Work Experience v42: keep approved 1116px grid and case navigation, including
+# achievement cards. No rewrite of desktop card images is allowed.
+experience_js = (ROOT / "js/sections/experience-v42.js").read_text("utf-8")
+experience_css = (ROOT / "css/sections/experience-v42.css").read_text("utf-8")
+expect('/css/sections/experience-v42.css' in html and
+       '/js/sections/experience-v42.js' in html,
+       "New work-experience section must load only after existing project content")
+expect('const periods=[' in experience_js and
+       'name:"BONAPE · SALUTE · ARTSAVUR"' in experience_js and
+       'name:"Nutaku Projects · Аутсорс-дизайн"' in experience_js,
+       "Work history must include consolidated employers and Nutaku")
+expect('const arrow=el("span","sx42-card-arrow","↗")' in experience_js and
+       'foot.append(arrow);card.append(foot)' in experience_js,
+       "Every featured work case must keep its round arrow")
+expect('card.href=link.getAttribute("href")' in experience_js and
+       'card.href=source.getAttribute("href")' in experience_js,
+       "Achievement and testimonial cards must navigate to real cases")
+expect('width:min(1116px' in experience_css and
+       'aspect-ratio:1424/2048!important' in experience_css,
+       "Experience carousel cards must follow the approved Featured sizing")
+expect('IntersectionObserver' in experience_js and
+       'prefers-reduced-motion:reduce' in experience_css,
+       "Work experience scroll reveal must honor reduced motion")
