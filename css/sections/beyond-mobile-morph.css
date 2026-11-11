@@ -244,38 +244,96 @@
  #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-carousel-controls{
   display:none!important;
  }
- /* Short, self-contained next-skill morph. Never covers a reading section. */
- #beyond-ui.sx43-morph .sx43-transition{
-  display:grid;place-items:center;position:relative;
-  width:100%;height:258px;isolation:isolate;overflow:hidden;
-  padding:0;margin:0 auto;background:#000;
-  --sx43-turn:0;
+ /* Real fourth card: turn -> preview -> expansion, no duplicate chapter. */
+ #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-carousel-rail > .sx44-portal{
+  position:relative!important;display:block!important;
+  align-self:center!important;flex:0 0 auto!important;
+  width:var(--sx44-width,100%)!important;max-width:none!important;
+  min-width:0!important;top:auto!important;
+  margin:0!important;padding:0!important;
+  background:#08090b;border:1px solid #25262a;
+  border-radius:var(--sx44-radius,27px);
+  overflow:hidden!important;isolation:isolate!important;z-index:4!important;
+  transform:none!important;transition:none!important;
+  box-shadow:0 18px 46px rgba(0,0,0,.48);
+  color:#f5f5f7;
+  font-family:var(--ds-font-family,-apple-system,BlinkMacSystemFont,sans-serif);
  }
- #beyond-ui.sx43-morph .sx43-transition-wheel{
-  position:absolute;inset:0;width:100%;height:150px;
-  overflow:hidden;pointer-events:none;
-  opacity:calc(1 - var(--sx43-turn,0));
+ #beyond-ui.sx43-morph .sx44-portal-hero{
+  position:relative;height:clamp(250px,67vw,302px);
+  width:100%;background:#08090b;overflow:hidden;
  }
- #beyond-ui.sx43-morph .sx43-transition-wheel svg{
-  display:block;position:absolute;top:0;left:50%;
-  width:min(100vw,440px);height:150px;
+ #beyond-ui.sx43-morph .sx44-portal-counter{
+  position:absolute;top:13px;left:0;right:0;z-index:3;
+  text-align:center;color:#777780;font-size:11px;line-height:16px;
+  font-weight:500;letter-spacing:.06em;
+ }
+ #beyond-ui.sx43-morph .sx44-portal-chart{
+  position:absolute;left:0;right:0;bottom:0;height:158px;
+  overflow:hidden;opacity:var(--sx44-wheel-alpha,1);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 72%,transparent);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 72%,transparent);
+  pointer-events:none;
+ }
+ #beyond-ui.sx43-morph .sx44-portal-chart svg{
+  position:absolute;top:0;left:50%;display:block;
+  width:min(100vw,440px);height:158px;overflow:hidden;
   transform:translateX(-50%);
  }
- #beyond-ui.sx43-morph .sx43-turn-group{
-  transform-origin:center center;will-change:transform;
+ #beyond-ui.sx43-morph .sx44-portal-identity{
+  position:absolute;top:32px;left:14px;right:14px;z-index:2;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:7px;text-align:center;opacity:var(--sx44-identity-alpha,0);
+  transform:translate3d(0,0,0);pointer-events:none;
  }
- #beyond-ui.sx43-morph .sx43-next-card{
-  position:absolute;left:50%;top:50%;
-  transform:translate3d(-50%,-30%,0)
-    scale(var(--sx43-next-scale,.84));
-  opacity:var(--sx43-turn,0);pointer-events:none;z-index:1;
+ #beyond-ui.sx43-morph .sx44-portal-identity .sx43-card-title{
+  font-size:19px;line-height:23px;font-weight:600;letter-spacing:-.025em;
  }
- #beyond-ui.sx43-morph .sx43-transition-counter{
-  position:absolute;left:0;right:0;top:0;text-align:center;
-  font:500 11px/16px var(--ds-font-family,-apple-system,sans-serif);
-  color:#77777d;letter-spacing:.08em;
-  opacity:calc(1 - var(--sx43-turn,0));
+ #beyond-ui.sx43-morph .sx44-portal-identity .sx43-card-score{
+  font-size:29px;line-height:32px;
  }
+ #beyond-ui.sx43-morph .sx44-portal-preview{
+  position:absolute;bottom:17px;left:26px;right:26px;z-index:3;
+  text-align:center;font-size:17px;line-height:1.27;font-weight:600;
+  letter-spacing:-.025em;color:#f5f5f7;
+  opacity:var(--sx44-preview-alpha,0);
+  pointer-events:none;
+ }
+ #beyond-ui.sx43-morph .sx44-portal-content{
+  position:relative;padding:0 var(--sx43-gap) 28px;
+  text-align:center;background:#08090b;
+  opacity:var(--sx44-content-alpha,0);
+  transform:none;
+ }
+ #beyond-ui.sx43-morph .sx44-portal-content .sx28-skill-head{
+  width:100%;max-width:540px;margin:0 auto;text-align:center;
+ }
+ #beyond-ui.sx43-morph .sx44-portal-content .sx28-eyebrow{
+  display:none!important;
+ }
+ #beyond-ui.sx43-morph .sx44-portal-content .sx28-skill-head h3{
+  width:100%;max-width:18ch;margin:0 auto 20px;
+  font-size:clamp(26px,7.2vw,31px)!important;
+  line-height:1.13!important;font-weight:600!important;
+  letter-spacing:-.038em!important;text-align:center;text-wrap:balance;
+ }
+ #beyond-ui.sx43-morph .sx44-portal-content .sx28-body{
+  width:100%;max-width:36ch;margin:0 auto;text-align:center;
+ }
+ #beyond-ui.sx43-morph .sx44-portal-content .sx28-body p{
+  margin:0 auto 22px;font-size:17px!important;line-height:1.45!important;
+  color:#98989d;font-weight:400;text-align:center;text-wrap:pretty;
+ }
+ #beyond-ui.sx43-morph .sx44-portal-content .sx28-body p:last-child{
+  margin-bottom:0;
+ }
+ /* The new chapter's heading is inside the fourth card; its original
+    stats/tools/cases continue immediately after that same card. */
+ #beyond-ui.sx43-morph.sx33-mobile .sx28-panel-column >
+ .sx28-panel[data-sx28-skill]:not([data-sx28-skill="0"]){
+  padding-top:8px!important;
+ }
+
 }
 @media(max-width:360px){
  #beyond-ui.sx43-morph{--sx43-stack-peek:clamp(40px,7svh,58px)}
@@ -285,5 +343,5 @@
 }
 @media(prefers-reduced-motion:reduce){
  #beyond-ui.sx43-morph .sx43-scroll-stack a.sx28-card{transition:none!important}
- #beyond-ui.sx43-morph .sx43-transition-wheel .sx43-turn-group{will-change:auto}
+ #beyond-ui.sx43-morph .sx44-portal-chart svg{will-change:auto}
 }

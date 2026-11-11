@@ -58,7 +58,10 @@ expect("/js/sections/beyond-mobile-morph.js" in html, "Missing mobile morph JS")
 morph = (ROOT / "js/sections/beyond-mobile-morph.js").read_text("utf-8")
 controller = (ROOT / "js/v34-beyond-ui-story.js").read_text("utf-8")
 expect("story.insertBefore(morph,column)" in morph, "Single original radar must enter morph stage")
-expect("column.insertBefore(ch.wrap,panels[i+1])" in morph, "Seven small turns must be in natural flow")
+expect("rail.append(wrapper)" in morph and "for(let i=0;i<7;i++)" in morph,
+       "Seven portals must be fourth cards of their project stacks")
+expect("content.append(head)" in morph and "portal.panel.insertBefore(portal.head,before)" in morph,
+       "The real approved heading must morph inside the card and restore on desktop")
 expect("function attachStack(panel)" in morph and "sx43-scroll-stack" in morph,
        "Mobile cards must form a vertical scroll-driven stack")
 expect("touchstart" not in morph and "touchend" not in morph,
@@ -70,9 +73,12 @@ expect("position:sticky!important" in morph_css and "--sx43-stack-peek" in morph
        and "z-index:3!important" in morph_css, "Three cases must overlap in order")
 expect(" * var(--sx43" not in morph_css,
        "Avoid unsupported CSS calc multiplication on older iOS Safari")
-expect("window.scrollTo(" not in morph and "preventDefault()" not in morph.split("function draw(){")[1].split("function enable(){")[0], "Scroll-bound animations may not hijack scrolling")
-expect("sx43-scroll-stack" in controller,
-       "Shared carousel must ignore the mobile vertical case stack")
+expect("window.scrollTo(" not in morph and "preventDefault()" not in morph.split("function draw(){")[1].split("const schedule=")[0],
+       "Scroll-bound portal morph may not hijack native scrolling")
+expect("sx44-portal-chart" in morph_css and "sx44-portal-content" in morph_css,
+       "Portal card must contain both its rotating diagram and real copy")
+expect("sx43-scroll-stack" in controller and "sx44-portal" in controller,
+       "Shared carousel and radar taps must support the mobile portal")
 expect("position:sticky;top:calc(var(--sx28-nav" in (ROOT / "css/sections/beyond-mobile-morph.css").read_text("utf-8"), "Morph sticky must be limited to the short runway")
 expect("sx41-mobile-scroll" in html and "sx41-mobile-viewport" in html,
        "Missing mobile markets scroll shell")

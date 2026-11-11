@@ -188,7 +188,8 @@ function visit(i){
  if(i<0||i>=8)return;
  if(!desktopReady){
   // Only deliberate taps on a radar point may scroll to another chapter.
-  const rect=panels[i].getBoundingClientRect();
+  const target=section.querySelector('.sx44-portal[data-sx44-skill="'+i+'"]')||panels[i];
+  const rect=target.getBoundingClientRect();
   window.scrollTo({top:Math.max(0,window.scrollY+rect.top-headerHeight()-22),
     behavior:reduced.matches?'auto':'smooth'});
   return;
