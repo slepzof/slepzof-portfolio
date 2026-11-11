@@ -24,20 +24,20 @@
 #selected .sx25b3-card h3{font-size:24px;font-weight:580;line-height:1.14;letter-spacing:-.045em;max-width:100%;text-wrap:pretty;color:inherit;margin:12px 0 8px}
 #selected .sx25b3-card p{font-size:14px;font-weight:420;line-height:1.23;letter-spacing:.003em;color:inherit;opacity:.76;max-width:100%;margin:0}
 #selected .sx25b3-card-light p{opacity:.85}
-#selected .sx25b3-card-foot{position:absolute;z-index:2;bottom:8px;left:8px;right:8px;display:flex;align-items:flex-end;justify-content:space-between;gap:7px;pointer-events:none}
+:is(#selected,#experience) .sx25b3-card-foot{position:absolute;z-index:2;bottom:8px;left:8px;right:8px;display:flex;align-items:flex-end;justify-content:space-between;gap:7px;pointer-events:none}
 /* Original full metric labels and laurel SVGs: never truncate or rewrite. */
-#selected .sx25b3-metric{display:flex;align-items:center;flex:0 1 auto;min-width:0;max-width:calc(100% - 41px);min-height:40px;height:auto;padding:5px 8px 5px 5px;gap:2px;border-radius:24px;background:rgba(77,77,77,.78);color:#fff;-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px)}
-#selected .sx25b3-metric strong{font-size:25px;font-weight:700;line-height:1;letter-spacing:-.05em;color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums;flex:none}
-#selected .sx25b3-metric .sx25b3-laurel{flex:0 0 12px;display:block;width:12px;height:25px;object-fit:contain;opacity:.92}
-#selected .sx25b3-metric span{display:block;flex:0 1 auto;min-width:0;max-width:155px;margin-left:4px;white-space:normal;overflow-wrap:normal;word-break:normal;font-size:11.5px;line-height:1.14;font-weight:480;letter-spacing:0;color:#fff}
-#selected .sx25b3-arrow{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;background:rgba(85,85,85,.67);border:0;outline:0;box-shadow:none;border-radius:50%;color:#fff;font-size:25px;font-weight:340;line-height:1;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-#selected .sx25b3-arrow img{width:21px;height:21px;display:block}
-#selected .sx25b3-controls{width:min(1120px,calc(100% - 52px));margin:20px auto 0;display:flex;justify-content:flex-end;align-items:center;gap:12px}
-#selected .sx25b3-control{appearance:none;display:grid;place-items:center;width:34px;height:34px;border:0;border-radius:50%;background:#dfdfe3;color:#5c5c61;cursor:pointer;transition:background .22s ease,transform .22s ease,opacity .22s ease}
-#selected .sx25b3-control svg{display:block;width:17px;height:17px}
-#selected .sx25b3-control:disabled{cursor:default;opacity:.35}
-#selected .sx25b3-control:hover:not(:disabled){background:#d0d0d6;transform:scale(1.06)}
-#selected .sx25b3-control:focus-visible{outline:2px solid #0071e3;outline-offset:3px}
+:is(#selected,#experience) .sx25b3-metric{display:flex;align-items:center;flex:0 1 auto;min-width:0;max-width:calc(100% - 41px);min-height:40px;height:auto;padding:5px 8px 5px 5px;gap:2px;border-radius:24px;background:rgba(77,77,77,.78);color:#fff;-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px)}
+:is(#selected,#experience) .sx25b3-metric strong{font-size:25px;font-weight:700;line-height:1;letter-spacing:-.05em;color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums;flex:none}
+:is(#selected,#experience) .sx25b3-metric .sx25b3-laurel{flex:0 0 12px;display:block;width:12px;height:25px;object-fit:contain;opacity:.92}
+:is(#selected,#experience) .sx25b3-metric span{display:block;flex:0 1 auto;min-width:0;max-width:155px;margin-left:4px;white-space:normal;overflow-wrap:normal;word-break:normal;font-size:11.5px;line-height:1.14;font-weight:480;letter-spacing:0;color:#fff}
+:is(#selected,#experience) .sx25b3-arrow{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;background:rgba(85,85,85,.67);border:0;outline:0;box-shadow:none;border-radius:50%;color:#fff;font-size:25px;font-weight:340;line-height:1;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+:is(#selected,#experience) .sx25b3-arrow img{width:21px;height:21px;display:block}
+:is(#selected,#experience) .sx25b3-controls{width:min(1120px,calc(100% - 52px));margin:20px auto 0;display:flex;justify-content:flex-end;align-items:center;gap:12px}
+:is(#selected,#experience) .sx25b3-control{appearance:none;display:grid;place-items:center;width:34px;height:34px;border:0;border-radius:50%;background:#dfdfe3;color:#5c5c61;cursor:pointer;transition:background .22s ease,transform .22s ease,opacity .22s ease}
+:is(#selected,#experience) .sx25b3-control svg{display:block;width:17px;height:17px}
+:is(#selected,#experience) .sx25b3-control:disabled{cursor:default;opacity:.35}
+:is(#selected,#experience) .sx25b3-control:hover:not(:disabled){background:#d0d0d6;transform:scale(1.06)}
+:is(#selected,#experience) .sx25b3-control:focus-visible{outline:2px solid #0071e3;outline-offset:3px}
 @media(max-width:850px){
  #selected.sx25b3-selected{padding:60px 0 50px!important}
  #selected .sx25b3-inner{width:calc(100% - 40px)}
@@ -46,7 +46,7 @@
  #selected .sx25b3-section-head p{font-size:18px;line-height:1.28}
  #selected .sx25b3-rail{gap:16px;padding-left:20px;padding-right:20px;scroll-padding-inline:20px}
  #selected a.sx25b3-card{flex-basis:315px!important;width:315px!important;min-width:315px!important;max-width:315px!important}
- #selected .sx25b3-controls{width:calc(100% - 40px)}
+ :is(#selected,#experience) .sx25b3-controls{width:calc(100% - 40px)}
 }
 /* Mobile: show approx 1.4-1.5 cards in the viewport. Cards remain fixed-width
    rail items; the viewport is cropped, not a grid or a 100%-width card. */
@@ -63,42 +63,42 @@
  #selected .sx25b3-meta i{height:9px}
  #selected .sx25b3-card h3{font-size:clamp(17px,5.7vw,22px);margin:9px 0 6px;line-height:1.14}
  #selected .sx25b3-card p{font-size:clamp(11px,3.5vw,13px);line-height:1.24}
- #selected .sx25b3-card-foot{bottom:8px;left:8px;right:8px;gap:5px}
- #selected .sx25b3-metric{min-height:40px;padding:5px 8px 5px 4px;max-width:calc(100% - 41px);border-radius:20px;gap:1px}
- #selected .sx25b3-metric strong{font-size:22px}
- #selected .sx25b3-metric .sx25b3-laurel{width:11px;height:23px;flex-basis:11px}
- #selected .sx25b3-metric span{font-size:10.5px;line-height:1.13;max-width:none;margin-left:4px}
- #selected .sx25b3-arrow{width:33px;height:33px;flex-basis:33px}
- #selected .sx25b3-arrow img{width:19px;height:19px}
- #selected .sx25b3-controls{width:calc(100% - 32px);margin-top:17px}
+ :is(#selected,#experience) .sx25b3-card-foot{bottom:8px;left:8px;right:8px;gap:5px}
+ :is(#selected,#experience) .sx25b3-metric{min-height:40px;padding:5px 8px 5px 4px;max-width:calc(100% - 41px);border-radius:20px;gap:1px}
+ :is(#selected,#experience) .sx25b3-metric strong{font-size:22px}
+ :is(#selected,#experience) .sx25b3-metric .sx25b3-laurel{width:11px;height:23px;flex-basis:11px}
+ :is(#selected,#experience) .sx25b3-metric span{font-size:10.5px;line-height:1.13;max-width:none;margin-left:4px}
+ :is(#selected,#experience) .sx25b3-arrow{width:33px;height:33px;flex-basis:33px}
+ :is(#selected,#experience) .sx25b3-arrow img{width:19px;height:19px}
+ :is(#selected,#experience) .sx25b3-controls{width:calc(100% - 32px);margin-top:17px}
 }
 @media(prefers-reduced-motion:reduce){
- #selected a.sx25b3-card,#selected .sx25b3-control{transition:none!important}
+ #selected a.sx25b3-card,:is(#selected,#experience) .sx25b3-control{transition:none!important}
  #selected .sx25b3-rail{scroll-behavior:auto!important}
  #selected a.sx25b3-card:hover{transform:none!important}
 }
 
 /* Block 3 v3: approved line wrapping and invisible borders, Apple Store vertical rhythm. */
 #selected .sx25b3-card h3{text-wrap:initial}
-#selected .sx25b3-metric,#selected .sx25b3-arrow{border:none!important;outline:0!important;box-shadow:none!important}
-#selected .sx25b3-metric span{word-break:normal;overflow-wrap:normal;hyphens:none}
-#selected .sx25b3-arrow img{filter:none}
+:is(#selected,#experience) .sx25b3-metric,:is(#selected,#experience) .sx25b3-arrow{border:none!important;outline:0!important;box-shadow:none!important}
+:is(#selected,#experience) .sx25b3-metric span{word-break:normal;overflow-wrap:normal;hyphens:none}
+:is(#selected,#experience) .sx25b3-arrow img{filter:none}
 #selected .sx25b3-rail{overscroll-behavior-inline:contain}
 @media (max-width:850px){
- #selected .sx25b3-metric,#selected .sx25b3-arrow{border:0!important;box-shadow:none!important}
+ :is(#selected,#experience) .sx25b3-metric,:is(#selected,#experience) .sx25b3-arrow{border:0!important;box-shadow:none!important}
 }
 @media (max-width:560px){
  #selected .sx25b3-card h3{text-wrap:initial}
- #selected .sx25b3-metric span{white-space:normal}
+ :is(#selected,#experience) .sx25b3-metric span{white-space:normal}
 }
 
 @media(max-width:850px){#selected .sx25b3-desktop-break{display:none}}
 
 /* Desktop: two-line introduction, 1116px grid, operable overlay-free arrows. */
 @media(min-width:801px){
- #selected .sx25b3-inner,#selected .sx25b3-controls{width:min(var(--ds-container-max,1116px),calc(100% - var(--ds-gutter,40px) - var(--ds-gutter,40px)))}
+ #selected .sx25b3-inner,:is(#selected,#experience) .sx25b3-controls{width:min(var(--ds-container-max,1116px),calc(100% - var(--ds-gutter,40px) - var(--ds-gutter,40px)))}
  #selected .sx25b3-section-head{max-width:900px}
  #selected .sx25b3-section-head p{max-width:810px;line-height:1.28}
- #selected .sx25b3-controls{position:relative;z-index:8;pointer-events:auto}
- #selected .sx25b3-control{pointer-events:auto;touch-action:manipulation}
+ :is(#selected,#experience) .sx25b3-controls{position:relative;z-index:8;pointer-events:auto}
+ :is(#selected,#experience) .sx25b3-control{pointer-events:auto;touch-action:manipulation}
 }
