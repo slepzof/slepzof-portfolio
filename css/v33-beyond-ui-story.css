@@ -1,8 +1,7 @@
 /* Beyond UI v33 — desktop bleed, transition blackplate and a single mobile story state.
    This file changes only scoped #beyond-ui styles and the two approved metrics pill variants. */
 #beyond-ui .sx28-panel[hidden]{display:none!important;}
-#selected .sx25b3-metric {padding-right:24px!important;}
-#beyond-ui .sx28-card .sx25b3-metric {padding-right:24px!important;}
+/* Metric padding is controlled exclusively by the shared Figma ProjectCard. */
 /* For shorter pill texts, do not stretch the label; preserve the approved wording. */
 #selected .sx25b3-metric span,
 #beyond-ui .sx28-card .sx25b3-metric span {min-width:0;}
