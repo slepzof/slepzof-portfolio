@@ -122,15 +122,24 @@
    });
    // A text review shares the approved tall card size; real author portrait
    // is never guessed, fabricated or sourced from another person.
-   if(reviews[d.id]){
+   if(reviews[d.id]&&rail.children.length){
      const review=reviews[d.id];
-     const card=el("article","sx42-card sx42-review");
-     card.append(el("span","sx42-quote-mark","“"),el("p","sx42-review-text",review.text));
-     const footer=el("div","sx42-review-author",review.author);
-     card.append(footer);
-     // Reviews are testimonials, not links, and therefore have no false
-     // "open case" arrow. Every actual project and achievement link does.
-     rail.insertBefore(card,rail.children[Math.min(1,rail.children.length)]||null);
+     const destination={
+       "auto-2026":"automotive","summer-2026":"vremena-goda",
+       "hash":"hash-hedge","private-2025":"vlad-bykov",
+       "duck":"duckmaster"
+     }[d.id];
+     const source=originalCards.get(destination);
+     if(source){
+       const card=el("a","sx42-card sx42-review");
+       card.href=source.getAttribute("href");
+       card.append(el("span","sx42-quote-mark","“"),el("p","sx42-review-text",review.text));
+       card.append(el("div","sx42-review-author",review.author));
+       const arrow=el("span","sx42-card-arrow","↗");
+       arrow.setAttribute("aria-hidden","true");
+       card.append(arrow);
+       rail.insertBefore(card,rail.children[Math.min(1,rail.children.length)]||null);
+     }
    }
    if(rail.children.length){
      railWrap.append(rail);
