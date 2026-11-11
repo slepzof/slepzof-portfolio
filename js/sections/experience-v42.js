@@ -86,9 +86,14 @@
        img.className="sx42-card-art";img.loading="lazy";img.decoding="async";
        img.alt="";
        if(uploadedCovers.has(slug)){
-         img.src="/assets/cases/"+slug+"/cover-work.png";
-         img.removeAttribute("srcset");
-         img.removeAttribute("sizes");
+         const workSrc="/assets/cases/"+slug+"/cover-work.png";
+         // When the original HTML references this same cover, the static
+         // build has already supplied responsive srcset/sizes. Keep them.
+         if(img.getAttribute("src")!==workSrc){
+           img.src=workSrc;
+           img.removeAttribute("srcset");
+           img.removeAttribute("sizes");
+         }
        }
        img.width=1424;img.height=2048;
        card.append(img);
