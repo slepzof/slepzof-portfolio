@@ -21,10 +21,10 @@
   #beyond-ui.sx33-mobile {
     padding-bottom:0!important;
   }
-  /* Account for the next section's own padding: 64px total after the last
-     skill, rather than unintentionally combining 64px with another 72px. */
+  /* Give the process heading its own breathing room after the Beyond UI
+     section boundary; preserve the Leadership exit spacing above it. */
   #process.sx38-process {
-    padding-top:0!important;
+    padding-top:64px!important;
   }
 
   /* Keep Safari from creating an unintended horizontal page scroller.
