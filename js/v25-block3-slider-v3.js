@@ -15,8 +15,10 @@
   const maximum=()=>Math.max(0,rail.scrollWidth-rail.clientWidth);
   const positions=()=>{
    const first=cards[0].getBoundingClientRect().left;
-   const x=rail.scrollLeft,max=maximum();
-   return cards.map(c=>clamp(Math.round(c.getBoundingClientRect().left-first+x),0,max));
+   const max=maximum();
+   // Differences between card positions are already scroll-independent.
+   // Do not add scrollLeft twice or Safari skips cards on subsequent clicks.
+   return cards.map(c=>clamp(Math.round(c.getBoundingClientRect().left-first),0,max));
   };
   const update=()=>{
    const max=maximum(),x=rail.scrollLeft;
