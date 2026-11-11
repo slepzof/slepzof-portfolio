@@ -690,3 +690,94 @@
     backface-visibility:hidden;
   }
 }
+
+
+/* sx47-reference-correction: exact 393px Figma composition, mobile ONLY.
+   The fourth card keeps its center; the radar turns while the card is pinned,
+   and expands only AFTER that 45-degree rotation. No new copy or counters. */
+@media (max-width:800px) {
+  /* Radar is background geometry. Figma's edges extend past the mobile frame;
+     the existing source SVG is enlarged, not redrawn or replaced. */
+  #beyond-ui.sx43-morph .sx43-morph-stage .sx28-radar-svg {
+    opacity:.67!important;
+  }
+  #beyond-ui.sx43-morph .sx43-morph-stage::after {
+    background:linear-gradient(to bottom,
+      transparent 0%,rgba(0,0,0,.08) 12%,
+      rgba(0,0,0,.50) 53%,#000 91%)!important;
+  }
+
+  /* The 0-height marker remains in the normal scroll flow. Its negative margin
+     cancels the extra 24px gap introduced by the flex stack. */
+  #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-carousel-rail > .sx44-portal-marker {
+    display:block!important;position:relative!important;
+    flex:0 0 0px!important;align-self:center!important;
+    width:0!important;height:0!important;
+    margin:0 0 -24px!important;padding:0!important;
+    visibility:hidden;pointer-events:none!important;
+  }
+
+  /* Deliberate scroll distance under the SAME visible sticky card:
+     neutral card → clockwise wheel → skill identity → center expansion.
+     This is not a blank screen; the fourth card remains in view throughout. */
+  #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-carousel-rail > .sx44-portal-runway {
+    display:block!important;position:relative!important;
+    flex:0 0 590px!important;align-self:center!important;
+    width:0!important;height:590px!important;
+    margin:0!important;padding:0!important;
+    visibility:hidden;pointer-events:none!important;
+  }
+
+  #beyond-ui.sx43-morph .sx43-scroll-stack .sx28-carousel-rail > .sx44-portal {
+    position:sticky!important;
+    top:var(--sx44-sticky-top,232px)!important;
+    left:auto!important;right:auto!important;
+    align-self:center!important;
+    transform:none!important;
+    border:4px solid var(--sx44-border,#25262a)!important;
+    border-radius:var(--sx44-radius,27px)!important;
+    box-sizing:border-box!important;
+    background:#000!important;
+    -webkit-transform:none!important;
+    overflow:hidden!important;
+    max-width:none!important;
+    z-index:4!important;
+    will-change:width,top,border-color;
+  }
+
+  /* No "01 → 02 / 08" and no decorative placeholder remain in DOM. */
+  #beyond-ui.sx43-morph .sx44-portal-counter,
+  #beyond-ui.sx43-morph .sx44-portal-preview {
+    display:none!important;
+  }
+
+  /* The Figma title starts ~270px down the card even before the rotation.
+     Its source paragraphs live on the same surface, below the deep radar. */
+  #beyond-ui.sx43-morph .sx44-portal-hero {
+    height:var(--sx44-hero-height,270px)!important;
+    overflow:visible!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-chart {
+    top:var(--sx44-chart-top,305px)!important;
+    left:0!important;right:0!important;bottom:auto!important;
+    z-index:0!important;
+    opacity:var(--sx44-wheel-alpha,.84)!important;
+    pointer-events:none!important;
+    -webkit-mask-image:linear-gradient(to bottom,
+      #000 0%,#000 30%,rgba(0,0,0,.72) 65%,transparent 100%)!important;
+    mask-image:linear-gradient(to bottom,
+      #000 0%,#000 30%,rgba(0,0,0,.72) 65%,transparent 100%)!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-content {
+    position:relative!important;z-index:2!important;
+    background:transparent!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-identity {
+    z-index:3!important;
+    opacity:var(--sx44-identity-alpha,0)!important;
+  }
+  #beyond-ui.sx43-morph .sx44-portal-details {
+    max-height:var(--sx44-details-height,0px)!important;
+    opacity:var(--sx44-details-alpha,0)!important;
+  }
+}
