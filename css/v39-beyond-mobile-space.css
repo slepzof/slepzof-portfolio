@@ -3,10 +3,7 @@
 @media (max-width:800px) {
   /* Both project carousels use the same readable mobile description size. */
   #selected .sx25b3-card p,
-  #beyond-ui .sx28-card p {
-    font-size:15px!important;
-    line-height:1.35!important;
-  }
+  /* Project copy is governed by the shared Figma component. */
 
   /* Skills 1–7: black runway prevents the next section from showing before
      the existing scroll-triggered handoff to the next skill. */
