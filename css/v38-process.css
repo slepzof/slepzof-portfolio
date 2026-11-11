@@ -9,7 +9,7 @@
 #process .sx38-portrait{width:min(100%,1000px);margin:44px auto 0;position:relative;pointer-events:none}
 #process .sx38-portrait img{display:block;width:100%;height:auto;object-fit:contain}
 #process .sx38-track-wrap{width:100%;position:relative;z-index:2;margin-top:-8px}
-#process .sx38-track{display:flex;align-items:flex-start;gap:18px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-left:max(24px,calc((100vw - 1230px)/2));scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:0 max(24px,calc((100vw - 1230px)/2)) 6px;touch-action:pan-x pan-y}
+#process .sx38-track{display:flex;align-items:flex-start;gap:18px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-left:max(var(--ds-gutter,40px),calc((100vw - var(--ds-container-max,1116px))/2));scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:0 max(var(--ds-gutter,40px),calc((100vw - var(--ds-container-max,1116px))/2)) 6px;touch-action:pan-x pan-y}
 #process .sx38-track::-webkit-scrollbar{display:none}
 #process .sx38-card{flex:0 0 clamp(325px,29vw,430px);scroll-snap-align:start;min-width:0}
 #process .sx38-card:nth-child(2){flex-basis:clamp(399px,35.6vw,527px)}
@@ -68,7 +68,7 @@
   #process.sx38-visible .sx38-portrait{transition-delay:.22s!important}
   #process.sx38-visible .sx38-track-wrap{transition-delay:.37s!important}
   #process.sx38-visible .sx38-controls{transition-delay:.46s!important}
-  #process .sx38-card img{transition:transform .7s cubic-bezier(.22,1,.36,1)}
+  #process .sx38-card img{transition:filter .35s ease}
   #process.sx38-js-ready .sx38-card{opacity:0}
   #process.sx38-js-ready.sx38-visible .sx38-card{opacity:1;transition:opacity .65s cubic-bezier(.22,1,.36,1)}
   #process.sx38-visible .sx38-card:nth-child(1){transition-delay:.47s}
@@ -77,7 +77,7 @@
   #process.sx38-visible .sx38-card:nth-child(4){transition-delay:.74s}
 }
 @media (hover:hover) and (pointer:fine){
-  #process .sx38-card:hover img{transform:scale(1.014)}
+  #process .sx38-card:hover img{filter:brightness(1.055)}
 }
 @media(prefers-reduced-motion:reduce){
   #process .sx38-head h2,#process .sx38-head p,#process .sx38-portrait,#process .sx38-track-wrap,#process .sx38-controls,#process .sx38-card img{transition:none!important;transform:none!important;opacity:1!important}

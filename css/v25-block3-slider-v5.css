@@ -93,3 +93,12 @@
 }
 
 @media(max-width:850px){#selected .sx25b3-desktop-break{display:none}}
+
+/* Desktop: two-line introduction, 1116px grid, operable overlay-free arrows. */
+@media(min-width:801px){
+ #selected .sx25b3-inner,#selected .sx25b3-controls{width:min(var(--ds-container-max,1116px),calc(100% - var(--ds-gutter,40px) - var(--ds-gutter,40px)))}
+ #selected .sx25b3-section-head{max-width:900px}
+ #selected .sx25b3-section-head p{max-width:810px;line-height:1.28}
+ #selected .sx25b3-controls{position:relative;z-index:8;pointer-events:auto}
+ #selected .sx25b3-control{pointer-events:auto;touch-action:manipulation}
+}

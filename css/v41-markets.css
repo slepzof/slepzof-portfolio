@@ -52,8 +52,8 @@
  --sx41-w:var(--sx41-card-width);--sx41-h:var(--sx41-card-height);
  --sx41-gap:var(--sx41-card-gap);
  position:absolute;z-index:3;top:var(--sx41-gallery-top);
- left:calc(var(--sx41-panel-left) + var(--sx41-content-pad));
- right:auto;width:calc(var(--sx41-panel-width) - var(--sx41-content-pad));
+ left:var(--sx41-panel-left);
+ right:auto;width:var(--sx41-panel-width);
  height:calc(var(--sx41-h) + var(--sx41-h) + var(--sx41-gap));
  overflow:clip;
 }
@@ -61,6 +61,7 @@
  display:grid;grid-template-rows:repeat(2,var(--sx41-h));
  grid-auto-flow:column;grid-auto-columns:var(--sx41-w);
  gap:var(--sx41-gap);width:max-content;
+ padding-left:var(--sx41-content-pad);padding-right:var(--sx41-content-pad);
  transform:translate3d(0,0,0);will-change:transform;
 }
 #markets .sx41-card{

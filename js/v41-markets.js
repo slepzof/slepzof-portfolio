@@ -22,6 +22,7 @@
     let deckStep=270;
     let desktopDistance=0;
     let verticalDistance=0;
+    let galleryLift=0;
     let lastIsMobile=null;
     let raf=0;
     let lastVisible=new Set();
@@ -78,6 +79,9 @@
       // Pin only the viewport, not the taller Figma scene. This prevents
       // the empty screen after the last horizontally scrolled market.
       verticalDistance=Math.max(0,scene.offsetHeight-stageHeight);
+      galleryLift=Math.min(verticalDistance,Math.max(0,
+        windowEl.offsetTop-Math.max(24,(stageHeight-windowEl.offsetHeight)/2)
+      ));
       if(mobile.matches){
         deckStep=clamp(Math.round(window.innerHeight*.34),245,320);
         runway=deckStep*(deck.length-1)+260;
@@ -103,9 +107,15 @@
         const value=clamp(consumed/deckStep,0,deck.length-1);
         renderDeck(value);
       }else{
-        const progress=clamp(consumed/runway,0,1);
-        track.style.transform="translate3d("+(-desktopDistance*progress)+"px,0,0)";
-        scene.style.transform="translate3d(0,"+(-verticalDistance*progress)+"px,0)";
+        // Intro: 0–16%; gallery: 16–72%; final cards hold: 72–86%.
+        // Only afterwards reveal the footer at 86–100%.
+        const t=consumed/runway;
+        const ease=x=>{x=clamp(x,0,1);return x*x*(3-2*x);};
+        const lead=ease(t/.16),slide=clamp((t-.16)/.56,0,1);
+        const outro=ease((t-.86)/.14);
+        const y=galleryLift*lead+(verticalDistance-galleryLift)*outro;
+        track.style.transform="translate3d("+(-desktopDistance*slide)+"px,0,0)";
+        scene.style.transform="translate3d(0,"+(-y)+"px,0)";
       }
     }
     function schedule(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;update();});}
