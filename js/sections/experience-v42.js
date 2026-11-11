@@ -45,7 +45,7 @@
  const newInner=el("div","sx42-inner");
  const existingHero=target?.querySelector("h2");
  if(existingHero)existingHero.textContent="Мой опыт работы.";
- if(target){const p=target.querySelector("p");if(p)p.remove();const a=target.querySelector("a");if(a)a.textContent="Все кейсы ↗";}
+ if(target){const p=target.querySelector("p");if(p)p.remove();const eyebrow=target.querySelector(".sx-eyebrow");if(eyebrow)eyebrow.remove();const a=target.querySelector("a");if(a)a.textContent="Все кейсы ↗";}
  const total=periods.length;
  const fallbackUsed=new Set();
  // Short excerpts from the supplied My Works source. Portraits are inserted
