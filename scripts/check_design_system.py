@@ -53,6 +53,13 @@ expect(len(parser.urls) == 21, f"Unexpected asset references: {len(parser.urls)}
 expect("/assets/process-v38/" not in html, "Outdated process image URL")
 expect("/assets/markets/" not in html, "Outdated market image URL")
 expect("/css/sections/mobile-layout.css" in html, "Missing mobile layout stylesheet")
+expect("/css/sections/beyond-mobile-orbit.css" in html, "Missing mobile orbit stylesheet")
+expect("/js/sections/beyond-mobile-orbit.js" in html, "Missing mobile orbit script")
+orbit = (ROOT / "js/sections/beyond-mobile-orbit.js").read_text("utf-8")
+controller = (ROOT / "js/v34-beyond-ui-story.js").read_text("utf-8")
+expect("scene.append(first,meta)" in orbit, "Mobile must reuse the original radar, not clone it")
+expect("orbit+=reduced.matches" in orbit, "Orbit must follow native scroll")
+expect("continuousMobile()" in controller, "Legacy forced chapter transitions must be disabled in orbit mode")
 expect("sx41-mobile-scroll" in html and "sx41-mobile-viewport" in html,
        "Missing mobile markets scroll shell")
 expect("const mobileConsumed=" in markets_js,

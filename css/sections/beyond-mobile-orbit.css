@@ -1,0 +1,141 @@
+/* Beyond UI / mobile orbit: one living radar, native continuous scrolling.
+   The original approved radar, text, metrics, tools, and cases are retained.
+   All rules are opt-in and scoped below 801px; desktop is untouched. */
+@media(max-width:800px){
+  #beyond-ui.sx40-mobile-continuous .sx28-story{
+    position:relative;display:block!important;height:auto!important;
+    overflow:visible!important;max-width:100%;
+    background:#000;isolation:auto;overflow-anchor:none;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx28-panel-column{
+    display:block;position:relative!important;height:auto!important;
+    overflow:visible!important;contain:none!important;
+    background:#000;
+  }
+  /* The old mobile chapters inserted a separate radar and 800px of black
+     transition space after each skill. Neither belongs in this layout. */
+  #beyond-ui.sx40-mobile-continuous.sx33-mobile .sx28-panel[data-sx28-skill]{
+    display:flex!important;position:relative!important;
+    flex-direction:column;width:100%!important;
+    height:auto!important;min-height:0!important;
+    padding:24px var(--ds-gutter,20px) 76px!important;
+    margin:0!important;opacity:1!important;visibility:visible!important;
+    transform:none!important;transition:none!important;
+    overflow:visible!important;contain:none!important;
+    pointer-events:auto!important;
+    scroll-margin-top:calc(var(--sx28-nav,56px) + 200px)!important;
+  }
+  #beyond-ui.sx40-mobile-continuous.sx33-mobile .sx28-panel[data-sx28-skill="7"]{
+    padding-bottom:64px!important;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx28-panel .sx32-mobile-radar{
+    display:none!important;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx28-panel .sx28-skill-head,
+  #beyond-ui.sx40-mobile-continuous .sx28-panel .sx28-body,
+  #beyond-ui.sx40-mobile-continuous .sx28-panel .sx28-stats,
+  #beyond-ui.sx40-mobile-continuous .sx28-panel .sx28-tools,
+  #beyond-ui.sx40-mobile-continuous .sx28-panel .sx28-carousel{
+    opacity:1!important;transform:none!important;visibility:visible!important;
+  }
+  /* This is the ONE radar: visible full-size on entry, zoomed and rotated
+     while the native page continues beneath it. No cloned transition overlay. */
+  #beyond-ui.sx40-mobile-continuous .sx40-scene{
+    --sx40-zoom:0;
+    --sx40-label-opacity:1;
+    position:sticky;top:var(--sx28-nav,56px);z-index:6;
+    height:min(96vw,420px);min-height:280px;
+    width:100%;margin:0 auto;
+    background:#000;overflow:hidden;isolation:isolate;
+    -webkit-backface-visibility:hidden;
+    contain:layout paint;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-scene.sx40-detail{
+    -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 77%,transparent 100%);
+    mask-image:linear-gradient(to bottom,#000 0%,#000 77%,transparent 100%);
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-scene > .sx32-mobile-radar{
+    display:flex!important;position:absolute!important;
+    inset:0!important;width:100%!important;height:100%!important;
+    min-height:0!important;margin:0!important;padding:0!important;
+    align-items:center;justify-content:center;
+    pointer-events:none;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-scene .sx28-radar-shade{
+    display:flex!important;position:relative!important;
+    width:100%!important;height:100%!important;
+    background:none!important;align-items:center!important;
+    justify-content:center!important;overflow:visible!important;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-scene .sx28-radar{
+    display:block;position:relative!important;
+    width:min(calc(100vw - 28px),410px)!important;height:auto!important;
+    aspect-ratio:1!important;transform:none!important;
+    opacity:1!important;max-height:none!important;pointer-events:none;
+    overflow:visible!important;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-scene .sx28-radar-svg{
+    position:absolute;inset:0;width:100%;height:100%;
+    transform-origin:center center;transform-box:view-box;
+    transform:translate3d(0,var(--sx40-chart-y,0px),0)
+      rotate(var(--sx40-angle,0deg)) scale(var(--sx40-scale,1));
+    will-change:transform;overflow:visible;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-scene .sx28-node{
+    opacity:var(--sx40-label-opacity,1)!important;
+    transition:none!important;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-scene:not(.sx40-detail) .sx28-node{
+    pointer-events:auto!important;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-scene.sx40-detail .sx28-node{
+    pointer-events:none!important;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-meta{
+    position:absolute;top:12px;left:var(--ds-gutter,20px);
+    right:var(--ds-gutter,20px);
+    z-index:7;display:flex;flex-direction:column;align-items:center;
+    justify-content:flex-start;text-align:center;gap:6px;
+    color:#f5f5f7;opacity:var(--sx40-zoom,0);
+    transform:translate3d(0,calc((1 - var(--sx40-zoom,0))*14px),0);
+    pointer-events:none;user-select:none;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-meta-icon{
+    display:flex;align-items:center;justify-content:center;
+    width:42px;height:42px;color:#00baff;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-meta-icon svg{
+    display:block;width:38px;height:38px;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-meta-title{
+    font-family:var(--ds-font-family);font-size:20px;
+    line-height:26px;font-weight:600;letter-spacing:-.02em;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-meta-score{
+    font-family:var(--ds-font-family);font-size:29px;
+    line-height:34px;font-weight:600;letter-spacing:-.03em;
+    font-variant-numeric:tabular-nums;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx28-panel[data-sx28-skill] .sx28-skill-head{
+    margin-top:0;max-width:520px;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx28-panel[data-sx28-skill] + .sx28-panel{
+    padding-top:28px!important;
+  }
+}
+@media(max-width:360px){
+  #beyond-ui.sx40-mobile-continuous .sx40-scene{
+    min-height:268px;height:calc(100vw - 16px);
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-meta-title{
+    font-size:18px;line-height:24px;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-meta-score{
+    font-size:26px;line-height:30px;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  #beyond-ui.sx40-mobile-continuous .sx40-scene .sx28-radar-svg{
+    will-change:auto;
+  }
+}

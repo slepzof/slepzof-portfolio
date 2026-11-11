@@ -54,3 +54,11 @@ The mobile market gallery now uses normal-flow header/footer and a dedicated sti
 
 ## Universal entry loader (11 November 2026)
 The `css/sections/home-entrance.css` and `js/sections/home-entrance.js` sequence is shared by desktop and mobile: neutral S for 150ms, blue fill for 1050ms, filled hold for 200ms, and 320ms fade-out. Hero copy reveals with staggered motion; existing Lottie fallback crossfades after the real SVG/canvas is ready. Reduced-motion users skip this decorative sequence, Safari BFCache restores skip it, and a 2400ms inline watchdog removes the loading class if JavaScript fails.
+
+## Beyond UI / Mobile Orbit (2026-11-11)
+
+`css/sections/beyond-mobile-orbit.css` + `js/sections/beyond-mobile-orbit.js`: mobile-only, native scroll-driven narrative. The radar from the first skill is **moved** into one sticky viewport (not cloned), initially shown full-size. Native scroll zooms into the active vertex, then rotates the existing SVG 45 degrees between skills. The displayed icon/name/score follows the foreground vertex; the spotlight coordinates update continuously. All eight approved skill panels, their texts, metrics, tools, and project carousels are kept in natural document flow, without cloned full-screen overlays or forced scroll jumps.
+
+`js/v34-beyond-ui-story.js` preserves existing desktop behaviour, while its legacy mobile switching/gesture handlers explicitly short-circuit when `.sx40-mobile-continuous` is present. Mobile radar point clicks still scroll directly to the appropriate content. On device-width changes the original radar returns to its source panel, so the desktop layout remains unchanged. Reduced-motion preference produces immediate, non-scrubbed states.
+
+This is a deliberate transition away from `sx37-overlay` on mobile. Do not re-enable 800px chapter padding or mobile `scrollTo` chapter resets.

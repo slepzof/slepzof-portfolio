@@ -29,6 +29,7 @@ const pendingReveal=new WeakSet();
 const pageTop=()=>window.scrollY+story.getBoundingClientRect().top;
 let mobileIndex=0,mobileBusy=false,mobileLockUntil=0,mobileSwitchToken=0,touchStartY=0,touchStartX=0,mobileTouchWasAtEnd=false,mobileTouchWasAtTop=false,mobileLastScrollY=window.scrollY;
 const toggleInstantScroll=on=>document.documentElement.classList.toggle('sx33-controlled-scroll',on);
+const continuousMobile=()=>section.classList.contains('sx40-mobile-continuous');
 const chapterTop=i=>Math.round(pageTop()-headerHeight()-10+i*chapterSpan);
 function spotlight(i){
  const goal=anchors[i];if(!goal)return;
@@ -167,6 +168,7 @@ function inMobileChapter(){
  return r.top<=headerHeight()+100&&r.bottom>headerHeight()+20;
 }
 function switchMobile(next){
+ if(continuousMobile())return;
  next=clamp(next,0,7);
  if(desktopReady||mobileBusy||next===mobileIndex)return;
  mobileBusy=true;
@@ -275,6 +277,7 @@ function switchMobile(next){
  later(1800,cleanup);
 }
 function readMobile(){
+ if(continuousMobile())return;
  // A scroll listener fires during iOS momentum scrolling as well as on finger drag.
  // Crossing the end threshold opens EXACTLY one new chapter automatically.
  section.dataset.sx28Active=String(mobileIndex);
@@ -315,8 +318,8 @@ function layout(){
  }else{
   section.classList.remove('sx30-desktop','sx31-desktop','sx33-desktop');section.classList.add('sx33-mobile');
   story.style.removeProperty('--sx30-story-height');
-  panels.forEach((p,j)=>{p.style.removeProperty('opacity');p.style.removeProperty('transform');p.style.removeProperty('visibility');p.style.removeProperty('width');p.dataset.sx30Interactive='true';p.hidden=j!==mobileIndex;p.inert=j!==mobileIndex;p.querySelector('.sx28-carousel')?.style.removeProperty('--sx31-bleed');p.querySelector('.sx28-carousel')?.style.removeProperty('--sx32-controls-width');});
-  section.dataset.sx28Active=String(mobileIndex);mobileLastScrollY=window.scrollY;markActive(mobileIndex,true);
+  panels.forEach((p,j)=>{p.style.removeProperty('opacity');p.style.removeProperty('transform');p.style.removeProperty('visibility');p.style.removeProperty('width');p.dataset.sx30Interactive='true';p.hidden=!continuousMobile()&&j!==mobileIndex;p.inert=!continuousMobile()&&j!==mobileIndex;p.querySelector('.sx28-carousel')?.style.removeProperty('--sx31-bleed');p.querySelector('.sx28-carousel')?.style.removeProperty('--sx32-controls-width');});
+  section.dataset.sx28Active=String(mobileIndex);mobileLastScrollY=window.scrollY;if(!continuousMobile())markActive(mobileIndex,true);
  }
  if(locked){locked=false;cancelAnimationFrame(lockFrame);toggleInstantScroll(false);}
  schedule();
@@ -324,6 +327,13 @@ function layout(){
 function visit(i){
  if(i<0||i>=8)return;
  if(!desktopReady){
+  if(continuousMobile()){
+   const rect=panels[i].getBoundingClientRect();
+   const sceneHeight=section.querySelector('.sx40-scene')?.offsetHeight||260;
+   const offset=headerHeight()+Math.min(sceneHeight,innerHeight*.43)+14;
+   window.scrollTo({top:Math.max(0,window.scrollY+rect.top-offset),behavior:reduced.matches?'auto':'smooth'});
+   return;
+  }
   if(i!==mobileIndex)switchMobile(i);
   else window.scrollTo({top:Math.max(0,pageTop()-headerHeight()-6),behavior:reduced.matches?'auto':'smooth'});
   return;
@@ -356,7 +366,7 @@ if('IntersectionObserver' in window){
 // Mobile: the following intentional gesture after the end opens one new skill.
 // Inertial events while travelling back to the radar are absorbed.
 window.addEventListener('wheel',e=>{
- if(desktopReady||!inMobileChapter())return;
+ if(desktopReady||continuousMobile()||!inMobileChapter())return;
  if(mobileBusy||performance.now()<mobileLockUntil){if(e.cancelable)e.preventDefault();return;}
  if(e.deltaY>6&&mobileAtEnd()&&mobileIndex<7){if(e.cancelable)e.preventDefault();switchMobile(mobileIndex+1);}
  else if(e.deltaY<-6&&mobileAtTop()&&mobileIndex>0){if(e.cancelable)e.preventDefault();switchMobile(mobileIndex-1);}
@@ -364,16 +374,16 @@ window.addEventListener('wheel',e=>{
 // During the black transition, prevent Safari momentum from moving the page
 // behind the curtain. Outside this interval all gestures remain native.
 window.addEventListener('touchmove',e=>{
- if((mobileBusy||performance.now()<mobileLockUntil)&&e.cancelable)e.preventDefault();
+ if(!continuousMobile()&&(mobileBusy||performance.now()<mobileLockUntil)&&e.cancelable)e.preventDefault();
 },{passive:false,capture:true});
 window.addEventListener('touchstart',e=>{
- if(desktopReady||!e.touches.length)return;
+ if(desktopReady||continuousMobile()||!e.touches.length)return;
  touchStartY=e.touches[0].clientY;touchStartX=e.touches[0].clientX;
  mobileTouchWasAtEnd=inMobileChapter()&&mobileAtEnd();
  mobileTouchWasAtTop=inMobileChapter()&&mobileAtTop();
 },{passive:true});
 window.addEventListener('touchend',e=>{
- if(desktopReady||mobileBusy||performance.now()<mobileLockUntil)return;
+ if(desktopReady||continuousMobile()||mobileBusy||performance.now()<mobileLockUntil)return;
  if(!e.changedTouches.length)return;
  const dy=touchStartY-e.changedTouches[0].clientY;
  const dx=touchStartX-e.changedTouches[0].clientX;
