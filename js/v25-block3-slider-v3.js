@@ -17,9 +17,13 @@
    // Do not add scrollLeft twice or Safari skips cards on subsequent clicks.
    return cards.map(c=>clamp(Math.round(c.getBoundingClientRect().left-first),0,max));
   };
+  const controls=prev.closest(".sx25b3-controls");
   const update=()=>{
    const max=maximum(),x=rail.scrollLeft;
-   prev.disabled=x<=2;next.disabled=max<=2||x>=max-2;
+   // Hide inert arrows when all cards fit (e.g. 3 x 356 + 2 x 24).
+   if(controls)controls.hidden=max<=2;
+   prev.disabled=max<=2||x<=2;
+   next.disabled=max<=2||x>=max-2;
   };
   let committed=null,lastClick=0;
   const move=dir=>{
@@ -61,6 +65,12 @@
    raf=requestAnimationFrame(()=>{raf=0;update();});
   },{passive:true});
   window.addEventListener("resize",()=>{committed=null;update()},{passive:true});
+  if("ResizeObserver" in window){
+   const resize=new ResizeObserver(()=>{committed=null;update()});
+   resize.observe(rail);
+   if(cards[0])resize.observe(cards[0]);
+  }
+  document.fonts?.ready?.then(update).catch(()=>{});
   update();
  }
  function init(){
