@@ -22,6 +22,13 @@ const polar=(i,r)=>[r*Math.cos(i*Math.PI/4-Math.PI/2),r*Math.sin(i*Math.PI/4-Mat
 const points=(r,vals)=>Array.from({length:8},(_,i)=>{
  const [x,y]=polar(i,r*(vals?vals[i]/10:1));return x.toFixed(2)+','+y.toFixed(2);
 }).join(' ');
+// The reference advances clockwise. Mirror only the fourth-card wheel's
+// coordinates, so a POSITIVE SVG rotation brings the next skill to 12 o'clock.
+const portalPolar=(i,r)=>[-r*Math.sin(i*Math.PI/4),-r*Math.cos(i*Math.PI/4)];
+const portalPoints=(r,vals)=>Array.from({length:8},(_,i)=>{
+ const [x,y]=portalPolar(i,r*(vals?vals[i]/10:1));
+ return x.toFixed(2)+','+y.toFixed(2);
+}).join(' ');
 const nodes=()=>[...source.querySelectorAll('.sx28-node[data-sx28-jump]')];
 let morph=null,stage=null,firstIdentity=null,portals=[],stacks=[],raf=0;
 const originalRailAttrs=new WeakMap();
@@ -50,26 +57,26 @@ function makePortal(i){
  counter.textContent=String(i+1).padStart(2,'0')+' → '+String(i+2).padStart(2,'0')+' / 08';
  const art=make('div','sx44-portal-chart');
  const diagram=svg('svg',{viewBox:'0 0 400 160','aria-hidden':'true',focusable:'false'});
- const wheel=svg('g',{transform:'translate(200 261) rotate('+(-45*i)+')'});
+ const wheel=svg('g',{transform:'translate(200 261) rotate('+(45*i)+')'});
  for(const r of [.25,.5,.75,1])wheel.append(svg('polygon',{
-  points:points(186*r),fill:'none',stroke:'#353740','stroke-width':1.2
+  points:portalPoints(186*r),fill:'none',stroke:'#28292d','stroke-width':1.0
  }));
  for(let j=0;j<8;j++){
-  const [x,y]=polar(j,186);
+  const [x,y]=portalPolar(j,186);
   wheel.append(svg('line',{x1:0,y1:0,x2:x.toFixed(2),y2:y.toFixed(2),
    stroke:'#26282E','stroke-width':1}));
  }
- wheel.append(svg('polygon',{points:points(186,scores),stroke:'#E0E0E6',
-  'stroke-width':1.7,'stroke-linejoin':'round',fill:'#00B7FF','fill-opacity':.06}));
+ wheel.append(svg('polygon',{points:portalPoints(186,scores),stroke:'#a4a5a9',
+  'stroke-width':1.45,'stroke-linejoin':'round',fill:'#00B7FF','fill-opacity':.025}));
  for(let j=0;j<8;j++){
-  const [x,y]=polar(j,186*scores[j]/10);
+  const [x,y]=portalPolar(j,186*scores[j]/10);
   wheel.append(svg('circle',{cx:x.toFixed(2),cy:y.toFixed(2),
    r:3,fill:'#E6E6E9'}));
  }
- const [fx,fy]=polar(i,186*scores[i]/10);
- const [tx,ty]=polar(i+1,186*scores[i+1]/10);
+ const [fx,fy]=portalPolar(i,186*scores[i]/10);
+ const [tx,ty]=portalPolar(i+1,186*scores[i+1]/10);
  const currentDot=svg('circle',{cx:fx.toFixed(2),cy:fy.toFixed(2),
-  r:6,fill:'#00B7FF'});
+  r:5,fill:'#bfc0c4'});
  const nextDot=svg('circle',{cx:tx.toFixed(2),cy:ty.toFixed(2),
   r:6,fill:'#00B7FF',opacity:0});
  wheel.append(currentDot,nextDot);
@@ -105,13 +112,18 @@ function makePortal(i){
  preview.textContent=head.querySelector('h3')?.textContent?.replace(/\s+/g,' ').trim()||'';
  const content=make('div','sx44-portal-content');
  content.append(head,stats,tools); // Full approved chapter inside one card.
+ // The genuine existing title/body remain visible in the fourth card FROM
+ // ITS FIRST FRAME. Never swap a fake teaser for the real text on expansion.
+ const details=make('div','sx44-portal-details');
+ details.append(stats,tools);
+ content.append(details);
  hero.append(counter,art,identity,preview);
  wrapper.append(hero,content);
  rail.append(wrapper); // Fourth card is in the SAME scroll stack.
  panels[i].classList.add('sx45-has-portal');
  panel.classList.add('sx45-cases-only');
  return {wrapper,head,stats,tools,panel,previousLabelled,
-   owner:panels[i],rail,hero,content,wheel,currentDot,nextDot,i};
+   owner:panels[i],rail,hero,content,details,wheel,currentDot,nextDot,i};
 }
 function restoreContent(){
  panels.forEach(p=>{
@@ -183,15 +195,15 @@ function draw(){
  for(const {portal,y,railWidth} of measurements){
   if(y<height*.6)visible=portal.i+1;
   if(y>height*1.35||y< -height*1.6)continue;
-  const turnStart=height*1.02,turnEnd=height*.73;
+  const turnStart=height*.98,turnEnd=height*.69;
   const turn=reduced.matches?(y<turnEnd?1:0):
    ease((turnStart-y)/(turnStart-turnEnd));
-  const expandStart=height*.81,expandEnd=nav+24;
+  const expandStart=height*.69,expandEnd=nav+24;
   const expand=reduced.matches?(y<expandEnd?1:0):
    ease((expandStart-y)/Math.max(220,expandStart-expandEnd));
-  const identity=ease((turn-.14)/.65);
-  const teaser=identity*(1-ease((expand-.18)/.38));
-  const real=reduced.matches?1:ease((expand-.08)/.63);
+  const identity=ease((turn-.77)/.23);
+  const teaser=0; // Headline is the actual source node, not a duplicated preview.
+  const real=reduced.matches?1:ease((expand-.3)/.63);
   const portalWidth=railWidth+(innerWidth-railWidth)*expand;
   // At entry the portal equals a fourth full-height case cover.
   // As it becomes the next skill, the hero SHRINKS and its real text rises.
@@ -206,13 +218,16 @@ function draw(){
   style.setProperty('--sx44-identity-alpha',identity.toFixed(3));
   style.setProperty('--sx44-preview-alpha',teaser.toFixed(3));
   style.setProperty('--sx44-content-alpha',real.toFixed(3));
-  style.setProperty('--sx44-content-limit',(1200*real).toFixed(2)+'px');
+  style.setProperty('--sx44-content-limit','none');
+  style.setProperty('--sx44-details-height',(600*real).toFixed(2)+'px');
+  style.setProperty('--sx44-details-alpha',real.toFixed(3));
+  style.setProperty('--sx44-chart-top',(305-220*turn).toFixed(2)+'px');
   style.setProperty('--sx44-content-padding',(20*expand).toFixed(2)+'px');
   style.setProperty('--sx44-expand',expand.toFixed(4));
-  style.setProperty('--sx44-wheel-alpha',(1-.12*ease((expand-.32)/.54)).toFixed(3));
-  portal.content.style.pointerEvents=real>.7?'auto':'none';
+  style.setProperty('--sx44-wheel-alpha',(.84-.06*ease((expand-.32)/.54)).toFixed(3));
+  portal.content.style.pointerEvents=expand>.7?'auto':'none';
   portal.wheel.setAttribute('transform',
-   'translate(200 261) rotate('+(-45*(portal.i+turn)).toFixed(2)+')');
+   'translate(200 261) rotate('+(45*(portal.i+turn)).toFixed(2)+')');
   portal.currentDot.setAttribute('opacity',(1-turn).toFixed(3));
   portal.nextDot.setAttribute('opacity',turn.toFixed(3));
  }
