@@ -1,0 +1,294 @@
+/* SLEPZOF Beyond UI / Radar Morph / MOBILE ONLY.
+   Full original radar -> one compact skill card, centered reading, swipeable
+   project deck and small clock turns. No overlay above page content. */
+@media(max-width:800px){
+ #beyond-ui.sx43-morph{
+  --sx43-gap:var(--ds-gutter,20px);
+  --sx43-card-w:min(100%,360px);
+  --sx43-card-h:clamp(360px,calc((100vw - 2 * var(--sx43-gap))*1.32),505px);
+  --sx43-blue:#00b7ff;
+  background:#000!important;overflow:clip!important;padding-bottom:72px!important;
+ }
+ /* Leave the existing approved intro typography untouched. */
+ #beyond-ui.sx43-morph .sx28-story{
+  display:block!important;position:relative!important;max-width:100%!important;
+  height:auto!important;overflow:visible!important;margin:0 auto!important;
+  background:#000!important;isolation:auto!important;
+ }
+ #beyond-ui.sx43-morph .sx28-radar-sticky{display:none!important}
+ #beyond-ui.sx43-morph .sx28-panel-column{
+  display:block!important;position:relative!important;width:100%!important;
+  height:auto!important;margin:0!important;padding:0!important;z-index:1!important;
+  overflow:visible!important;contain:none!important;background:#000!important;
+ }
+ /* Only the 220px animation runway is sticky. No panel underneath it. */
+ #beyond-ui.sx43-morph .sx43-morph-track{
+  position:relative;width:100%;height:calc(clamp(355px,108vw,455px) + 220px);
+  margin:0 0 20px;padding:0;background:#000;isolation:isolate;
+ }
+ #beyond-ui.sx43-morph .sx43-morph-stage{
+  position:sticky;top:calc(var(--sx28-nav,56px) + 8px);
+  width:100%;height:clamp(355px,108vw,455px);
+  display:grid;place-items:center;overflow:hidden;background:#000;
+  isolation:isolate;contain:paint;
+ }
+ #beyond-ui.sx43-morph .sx43-morph-radar{
+  display:grid!important;place-items:center!important;
+  position:absolute!important;inset:0!important;width:100%!important;
+  height:100%!important;margin:0!important;padding:0!important;
+  opacity:calc(1 - var(--sx43-morph,0));
+  pointer-events:auto;overflow:visible!important;
+ }
+ #beyond-ui.sx43-morph .sx43-morph-radar .sx28-radar-shade{
+  position:relative!important;display:flex!important;justify-content:center!important;
+  align-items:center!important;width:100%!important;height:100%!important;
+  background:none!important;overflow:visible!important;pointer-events:none;
+ }
+ #beyond-ui.sx43-morph .sx43-morph-radar .sx28-radar-shade::after{display:none!important}
+ #beyond-ui.sx43-morph .sx43-morph-radar .sx28-radar{
+  position:relative!important;display:block!important;max-width:none!important;
+  max-height:none!important;width:min(84vw,400px)!important;
+  height:auto!important;aspect-ratio:1!important;overflow:visible!important;
+  opacity:1!important;
+  transform:translate3d(0,calc(-42px * var(--sx43-morph,0)),0)
+    scale(calc(1 + .48 * var(--sx43-morph,0)))!important;
+  transform-origin:50% 19%!important;transition:none!important;
+ }
+ #beyond-ui.sx43-morph .sx43-morph-radar .sx28-radar-svg{
+  position:absolute;inset:0;width:100%;height:100%;overflow:visible!important;
+ }
+ #beyond-ui.sx43-morph .sx43-morph-radar .sx28-node{pointer-events:auto!important}
+ #beyond-ui.sx43-morph .sx43-morph-stage.sx43-morphed .sx43-morph-radar{
+  pointer-events:none!important;
+ }
+ #beyond-ui.sx43-morph .sx43-focus-card,
+ #beyond-ui.sx43-morph .sx43-next-card{
+  width:132px;min-height:150px;padding:18px 12px 14px;
+  background:#101012;border:1px solid #1c1c20;border-radius:23px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;color:#f5f5f7;text-align:center;
+  box-shadow:0 14px 38px rgba(0,0,0,.24);
+  font-family:var(--ds-font-family,-apple-system,sans-serif);
+ }
+ #beyond-ui.sx43-morph .sx43-focus-card{
+  position:absolute;top:50%;left:50%;z-index:2;pointer-events:none;
+  opacity:clamp(0,calc((var(--sx43-morph,0) - .31) * 1.7),1);
+  transform:translate3d(-50%,calc(-50% + 25px * (1 - var(--sx43-morph,0))),0)
+    scale(calc(.8 + .2 * var(--sx43-morph,0)));
+ }
+ #beyond-ui.sx43-morph .sx43-card-icon{
+  width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+  color:var(--sx43-blue);flex:none;
+ }
+ #beyond-ui.sx43-morph .sx43-card-icon svg{width:34px;height:34px;display:block}
+ #beyond-ui.sx43-morph .sx43-card-title{
+  font-size:15px;line-height:19px;font-weight:600;letter-spacing:-.02em;
+ }
+ #beyond-ui.sx43-morph .sx43-card-score{
+  font-size:26px;line-height:29px;font-weight:600;letter-spacing:-.035em;
+  font-variant-numeric:tabular-nums;
+ }
+ /* Reading starts after the morph runway, never under a fixed graphic. */
+ #beyond-ui.sx43-morph.sx33-mobile .sx28-panel-column >
+ .sx28-panel[data-sx28-skill]{
+  position:relative!important;display:flex!important;
+  flex-direction:column!important;align-items:center!important;
+  justify-content:flex-start!important;
+  top:auto!important;left:auto!important;right:auto!important;
+  width:100%!important;height:auto!important;min-height:0!important;
+  padding:24px var(--sx43-gap) 48px!important;margin:0!important;
+  opacity:1!important;visibility:visible!important;transform:none!important;
+  transition:none!important;contain:none!important;
+  overflow:visible!important;pointer-events:auto!important;
+  scroll-margin-top:calc(var(--sx28-nav,56px) + 28px)!important;
+ }
+ #beyond-ui.sx43-morph.sx33-mobile .sx28-panel-column >
+ .sx28-panel[data-sx28-skill="0"]{padding-top:10px!important}
+ #beyond-ui.sx43-morph.sx33-mobile .sx28-panel-column >
+ .sx28-panel[data-sx28-skill="7"]{padding-bottom:42px!important}
+ #beyond-ui.sx43-morph .sx28-panel .sx32-mobile-radar{display:none!important}
+ #beyond-ui.sx43-morph .sx28-panel .sx28-skill-head,
+ #beyond-ui.sx43-morph .sx28-panel .sx28-body,
+ #beyond-ui.sx43-morph .sx28-panel .sx28-stats,
+ #beyond-ui.sx43-morph .sx28-panel .sx28-tools,
+ #beyond-ui.sx43-morph .sx28-panel .sx28-carousel{
+  opacity:1!important;visibility:visible!important;transform:none!important;
+ }
+ #beyond-ui.sx43-morph .sx28-panel .sx28-skill-head{
+  width:100%;max-width:540px;margin:0 auto!important;text-align:center!important;
+ }
+ #beyond-ui.sx43-morph .sx28-panel .sx28-eyebrow{
+  display:none!important; /* The morph/transition card already names the skill. */
+ }
+ #beyond-ui.sx43-morph .sx28-panel .sx28-skill-head h3{
+  width:100%!important;max-width:18ch!important;margin:0 auto 20px!important;
+  font-size:clamp(26px,7.2vw,31px)!important;line-height:1.13!important;
+  font-weight:600!important;letter-spacing:-.038em!important;
+  text-align:center!important;text-wrap:balance;
+ }
+ #beyond-ui.sx43-morph .sx28-panel .sx28-body{
+  width:100%!important;max-width:36ch!important;text-align:center!important;
+  margin:0 auto 32px!important;
+ }
+ #beyond-ui.sx43-morph .sx28-panel .sx28-body p{
+  margin:0 auto 22px!important;
+  font-size:17px!important;line-height:1.45!important;
+  color:#98989d!important;font-weight:400!important;
+  text-align:center!important;text-wrap:pretty;
+ }
+ #beyond-ui.sx43-morph .sx28-panel .sx28-body p:last-child{margin-bottom:0!important}
+ #beyond-ui.sx43-morph .sx28-panel .sx28-stats{
+  display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  width:100%!important;max-width:540px!important;
+  gap:6px!important;margin:0 auto 28px!important;
+  padding:24px 0!important;border-top:1px solid #29292c!important;
+  border-bottom:1px solid #29292c!important;
+ }
+ #beyond-ui.sx43-morph .sx28-panel .sx28-stat{
+  display:flex!important;min-width:0;flex-direction:column;
+  align-items:center!important;text-align:center!important;gap:8px!important;
+ }
+ #beyond-ui.sx43-morph .sx28-panel .sx28-stat strong{
+  font-size:clamp(28px,8vw,38px)!important;line-height:1.05!important;
+  font-weight:600!important;letter-spacing:-.04em!important;
+ }
+ #beyond-ui.sx43-morph .sx28-panel .sx28-stat span{
+  font-size:clamp(10.5px,2.7vw,12px)!important;line-height:1.32!important;
+  color:#929297!important;text-align:center!important;
+ }
+ #beyond-ui.sx43-morph .sx28-panel .sx28-tools{
+  width:100%!important;max-width:540px!important;
+  margin:0 auto 40px!important;display:flex!important;
+  flex-direction:column!important;align-items:center!important;
+  text-align:center!important;gap:14px!important;
+ }
+ #beyond-ui.sx43-morph .sx28-panel .sx28-tools-label{
+  color:#98989d!important;font-size:14px!important;line-height:20px!important;
+  font-weight:400!important;
+ }
+ #beyond-ui.sx43-morph .sx28-panel .sx28-tools-row{
+  width:100%;display:flex!important;justify-content:center!important;
+  align-items:center!important;flex-wrap:wrap!important;
+  gap:10px 8px!important;
+ }
+ #beyond-ui.sx43-morph .sx28-panel .sx28-tool{
+  display:inline-flex!important;align-items:center!important;
+  gap:6px!important;margin:0!important;padding:8px 12px!important;
+  border:1px solid #2b2b2f!important;border-radius:99px!important;
+  font-size:13px!important;line-height:18px!important;
+  color:#f5f5f7!important;background:#080809!important;
+  white-space:nowrap;
+ }
+ #beyond-ui.sx43-morph .sx28-panel .sx28-tool::before{
+  content:none!important;display:none!important;
+ }
+ #beyond-ui.sx43-morph .sx28-panel .sx30-tool-icon{
+  width:18px!important;height:18px!important;flex:none;
+ }
+ /* All three APPROVED covers become one stacked, vertically compact deck. */
+ #beyond-ui.sx43-morph .sx28-panel .sx28-carousel{
+  display:block!important;width:100%!important;max-width:540px!important;
+  margin:0 auto!important;padding:0!important;overflow:visible!important;
+ }
+ #beyond-ui.sx43-morph .sx28-carousel.sx43-mobile-deck .sx28-carousel-rail{
+  position:relative!important;display:block!important;
+  width:var(--sx43-card-w)!important;max-width:360px!important;
+  height:calc(var(--sx43-card-h) + 45px)!important;
+  margin:0 auto!important;padding:0!important;
+  overflow:visible!important;scroll-behavior:auto!important;
+  scroll-snap-type:none!important;touch-action:pan-y;
+  isolation:isolate;
+ }
+ #beyond-ui.sx43-morph .sx28-carousel.sx43-mobile-deck .sx28-carousel-rail::after{
+  content:none!important;display:none!important;
+ }
+ #beyond-ui.sx43-morph a.sx28-card{
+  position:absolute!important;display:block!important;flex:none!important;
+  left:0!important;top:0!important;right:0!important;
+  width:100%!important;min-width:0!important;max-width:100%!important;
+  height:var(--sx43-card-h)!important;aspect-ratio:1424/2048!important;
+  border-radius:27px!important;overflow:hidden!important;
+  transform:translate3d(0,calc(40px - 18px * var(--sx43-depth,0)),0)
+    scale(calc(1 - .04 * var(--sx43-depth,0)))!important;
+  transform-origin:50% 100%!important;
+  z-index:calc(5 - var(--sx43-depth,0))!important;
+  opacity:1!important;visibility:visible!important;
+  box-shadow:0 14px 38px rgba(0,0,0,.38);
+  transition:transform .38s cubic-bezier(.22,1,.36,1),
+    opacity .25s ease,visibility .25s ease!important;
+  pointer-events:none!important;
+ }
+ #beyond-ui.sx43-morph a.sx28-card.sx43-active{
+  pointer-events:auto!important;
+ }
+ #beyond-ui.sx43-morph a.sx28-card.sx43-off{
+  opacity:0!important;visibility:hidden!important;
+  pointer-events:none!important;
+ }
+ #beyond-ui.sx43-morph .sx28-card .sx25b3-art{
+  object-fit:cover!important;inset:0!important;width:100%!important;
+  height:100%!important;
+ }
+ #beyond-ui.sx43-morph .sx28-carousel.sx43-mobile-deck .sx28-carousel-controls{
+  display:flex!important;position:relative!important;
+  align-items:center!important;justify-content:flex-end!important;
+  width:var(--sx43-card-w)!important;max-width:360px!important;
+  margin:18px auto 0!important;padding:0!important;
+  gap:10px!important;z-index:2;
+ }
+ #beyond-ui.sx43-morph .sx43-deck-count{
+  display:block;margin-right:auto!important;
+  color:#98989d;font:500 14px/20px var(--ds-font-family,-apple-system,sans-serif);
+  font-variant-numeric:tabular-nums;letter-spacing:.02em;
+ }
+ #beyond-ui.sx43-morph .sx28-carousel.sx43-mobile-deck .sx28-carousel-controls button{
+  display:grid;place-items:center;width:40px!important;height:40px!important;
+  min-width:40px!important;flex:0 0 40px!important;border-radius:50%!important;
+  background:#242427!important;color:#f5f5f7!important;
+ }
+ #beyond-ui.sx43-morph .sx28-carousel.sx43-mobile-deck .sx28-carousel-controls button:disabled{
+  opacity:.32!important;cursor:default!important;
+ }
+ /* Short, self-contained next-skill morph. Never covers a reading section. */
+ #beyond-ui.sx43-morph .sx43-transition{
+  display:grid;place-items:center;position:relative;
+  width:100%;height:258px;isolation:isolate;overflow:hidden;
+  padding:0;margin:0 auto;background:#000;
+  --sx43-turn:0;
+ }
+ #beyond-ui.sx43-morph .sx43-transition-wheel{
+  position:absolute;inset:0;width:100%;height:150px;
+  overflow:hidden;pointer-events:none;
+  opacity:calc(1 - var(--sx43-turn,0));
+ }
+ #beyond-ui.sx43-morph .sx43-transition-wheel svg{
+  display:block;position:absolute;top:0;left:50%;
+  width:min(100vw,440px);height:150px;
+  transform:translateX(-50%);
+ }
+ #beyond-ui.sx43-morph .sx43-turn-group{
+  transform-origin:center center;will-change:transform;
+ }
+ #beyond-ui.sx43-morph .sx43-next-card{
+  position:absolute;left:50%;top:50%;
+  transform:translate3d(-50%,-30%,0)
+    scale(calc(.84 + .16 * var(--sx43-turn,0)));
+  opacity:var(--sx43-turn,0);pointer-events:none;z-index:1;
+ }
+ #beyond-ui.sx43-morph .sx43-transition-counter{
+  position:absolute;left:0;right:0;top:0;text-align:center;
+  font:500 11px/16px var(--ds-font-family,-apple-system,sans-serif);
+  color:#77777d;letter-spacing:.08em;
+  opacity:calc(1 - var(--sx43-turn,0));
+ }
+}
+@media(max-width:360px){
+ #beyond-ui.sx43-morph{--sx43-card-h:calc((100vw - 2 * var(--sx43-gap))*1.32)}
+ #beyond-ui.sx43-morph .sx28-panel .sx28-body p{font-size:16px!important;line-height:1.43!important}
+ #beyond-ui.sx43-morph .sx28-panel .sx28-skill-head h3{font-size:26px!important}
+ #beyond-ui.sx43-morph .sx43-morph-track{height:calc(360px + 200px)}
+}
+@media(prefers-reduced-motion:reduce){
+ #beyond-ui.sx43-morph a.sx28-card{transition:none!important}
+ #beyond-ui.sx43-morph .sx43-transition-wheel .sx43-turn-group{will-change:auto}
+}

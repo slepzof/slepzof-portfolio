@@ -29,7 +29,7 @@ const pendingReveal=new WeakSet();
 const pageTop=()=>window.scrollY+story.getBoundingClientRect().top;
 // Mobile chapters are managed by the cinematic module.
 const toggleInstantScroll=on=>document.documentElement.classList.toggle('sx33-controlled-scroll',on);
-const continuousMobile=()=>section.classList.contains('sx42-cinematic');
+const continuousMobile=()=>section.classList.contains('sx43-morph');
 const chapterTop=i=>Math.round(pageTop()-headerHeight()-10+i*chapterSpan);
 function spotlight(i){
  const goal=anchors[i];if(!goal)return;
@@ -245,12 +245,15 @@ section.querySelectorAll('.sx28-carousel').forEach(c=>{
    Math.abs(p-x)<Math.abs(positions[best]-x)?i:best,0);
  let committedIndex=null, committedAt=0;
  const update=()=>{
+  if(c.classList.contains('sx43-mobile-deck'))return;
   const here=rail.scrollLeft, positions=snapPositions(), lo=positions[0], hi=positions[positions.length-1];
   rail.classList.toggle('sx33-has-leading',here>lo+7);
   prev.disabled=here<=lo+7;
   next.disabled=here>=hi-7;
  };
  const move=dir=>{
+  // The mobile stack owns its own navigation; retain native desktop rail only.
+  if(c.classList.contains('sx43-mobile-deck'))return;
   const positions=snapPositions(), here=rail.scrollLeft;
   // Consecutive fast clicks advance independently of an ongoing smooth scroll.
   const index=(committedIndex!==null&&performance.now()-committedAt<500)

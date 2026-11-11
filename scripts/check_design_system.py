@@ -53,22 +53,16 @@ expect(len(parser.urls) == 21, f"Unexpected asset references: {len(parser.urls)}
 expect("/assets/process-v38/" not in html, "Outdated process image URL")
 expect("/assets/markets/" not in html, "Outdated market image URL")
 expect("/css/sections/mobile-layout.css" in html, "Missing mobile layout stylesheet")
-expect("/css/sections/beyond-mobile-chapters.css" in html, "Missing mobile cinematic CSS")
-expect("/js/sections/beyond-mobile-chapters.js" in html, "Missing mobile cinematic JS")
-cinematic = (ROOT / "js/sections/beyond-mobile-chapters.js").read_text("utf-8")
+expect("/css/sections/beyond-mobile-morph.css" in html, "Missing mobile morph CSS")
+expect("/js/sections/beyond-mobile-morph.js" in html, "Missing mobile morph JS")
+morph = (ROOT / "js/sections/beyond-mobile-morph.js").read_text("utf-8")
 controller = (ROOT / "js/v34-beyond-ui-story.js").read_text("utf-8")
-expect("story.insertBefore(overview,column)" in cinematic,
-       "Mobile overview must preserve the original full radar")
-expect("column.insertBefore(ch.element,panels[i+1])" in cinematic,
-       "Lightweight chapter graphics must be in normal document flow")
-expect("ch.wheel.setAttribute('transform'" in cinematic,
-       "Clock rotation must derive from native scroll")
-expect("window.scrollTo(" not in cinematic and "touchmove" not in cinematic,
-       "Mobile animation must not intercept or reset scrolling")
-expect("sx37-overlay" not in controller and "switchMobile(" not in controller,
-       "Fullscreen mobile chapter mechanism must be removed")
-expect("position:sticky" not in (ROOT / "css/sections/beyond-mobile-chapters.css").read_text("utf-8"),
-       "No sticky mobile radar must remain")
+expect("story.insertBefore(morph,column)" in morph, "Single original radar must enter morph stage")
+expect("column.insertBefore(ch.wrap,panels[i+1])" in morph, "Seven small turns must be in natural flow")
+expect("const step=d=>" in morph and "touchend" in morph, "Mobile project decks need swipe controls")
+expect("window.scrollTo(" not in morph and "preventDefault()" not in morph.split("function draw(){")[1].split("function enable(){")[0], "Scroll-bound animations may not hijack scrolling")
+expect("sx43-mobile-deck" in controller, "Desktop rail must skip mobile deck navigation")
+expect("position:sticky;top:calc(var(--sx28-nav" in (ROOT / "css/sections/beyond-mobile-morph.css").read_text("utf-8"), "Morph sticky must be limited to the short runway")
 expect("sx41-mobile-scroll" in html and "sx41-mobile-viewport" in html,
        "Missing mobile markets scroll shell")
 expect("const mobileConsumed=" in markets_js,
