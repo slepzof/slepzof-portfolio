@@ -88,10 +88,14 @@ expect("-webkit-mask-image:none!important" in morph_css,
        "Legacy horizontal slider gradient must be disabled in mobile deck")
 expect("font-size:clamp(21px,6.2vw,24px)!important" in morph_css,
        "Mobile cases must use Featured Projects typographic scale")
-expect("const heroHeight=coverHeight+(270-coverHeight)*expand;" in morph,
-       "Expanded chapter must retain space for the active radar beneath its title")
-expect("1-.12*ease((expand-.32)/.54)" in morph,
-       "Expanded chapter must keep its radar visibly connected to previous chapter")
+expect("const heroHeight=coverHeight+(270-coverHeight)*ease((turn-.18)/.82);" in morph,
+       "Fourth-card headline must rise with the turning radar before expansion")
+expect("(.84-.06*ease((expand-.32)/.54))" in morph,
+       "Expanded chapter must retain a low-opacity connected radar behind the title")
+expect("rotate('+(45*(portal.i+turn))" in morph,
+       "Fourth-card radar must rotate CLOCKWISE to reveal the next skill")
+expect("details.append(stats,tools)" in morph and "content.append(head,stats,tools)" in morph,
+       "Approved title/body must remain visible while metrics and tools reveal after rotation")
 expect("font-size:clamp(11px,3.35vw,13px)!important" in morph_css and
        "font-size:clamp(13px,3.6vw,14px)!important" in morph_css,
        "Case metadata and description must reach the approved desktop type scale")
