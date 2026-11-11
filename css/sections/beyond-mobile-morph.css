@@ -5,7 +5,7 @@
  #beyond-ui.sx43-morph{
   --sx43-gap:var(--ds-gutter,20px);
   --sx43-card-w:min(100%,360px);
-  --sx43-card-h:clamp(360px,calc((100vw - 2 * var(--sx43-gap))*1.32),505px);
+  --sx43-card-h:clamp(360px,126vw,505px);
   --sx43-blue:#00b7ff;
   background:#000!important;overflow:clip!important;padding-bottom:72px!important;
  }
@@ -50,8 +50,8 @@
   max-height:none!important;width:min(84vw,400px)!important;
   height:auto!important;aspect-ratio:1!important;overflow:visible!important;
   opacity:1!important;
-  transform:translate3d(0,calc(-42px * var(--sx43-morph,0)),0)
-    scale(calc(1 + .48 * var(--sx43-morph,0)))!important;
+  transform:translate3d(0,var(--sx43-radar-shift,0px),0)
+    scale(var(--sx43-radar-scale,1))!important;
   transform-origin:50% 19%!important;transition:none!important;
  }
  #beyond-ui.sx43-morph .sx43-morph-radar .sx28-radar-svg{
@@ -72,9 +72,9 @@
  }
  #beyond-ui.sx43-morph .sx43-focus-card{
   position:absolute;top:50%;left:50%;z-index:2;pointer-events:none;
-  opacity:clamp(0,calc((var(--sx43-morph,0) - .31) * 1.7),1);
-  transform:translate3d(-50%,calc(-50% + 25px * (1 - var(--sx43-morph,0))),0)
-    scale(calc(.8 + .2 * var(--sx43-morph,0)));
+  opacity:var(--sx43-focus-alpha,0);
+  transform:translate3d(-50%,calc(-50% + var(--sx43-focus-y,25px)),0)
+    scale(var(--sx43-focus-scale,.8));
  }
  #beyond-ui.sx43-morph .sx43-card-icon{
   width:36px;height:36px;display:flex;align-items:center;justify-content:center;
@@ -208,10 +208,10 @@
   width:100%!important;min-width:0!important;max-width:100%!important;
   height:var(--sx43-card-h)!important;aspect-ratio:1424/2048!important;
   border-radius:27px!important;overflow:hidden!important;
-  transform:translate3d(0,calc(40px - 18px * var(--sx43-depth,0)),0)
-    scale(calc(1 - .04 * var(--sx43-depth,0)))!important;
+  transform:translate3d(0,var(--sx43-card-offset,40px),0)
+    scale(var(--sx43-card-scale,1))!important;
   transform-origin:50% 100%!important;
-  z-index:calc(5 - var(--sx43-depth,0))!important;
+  z-index:var(--sx43-card-layer,3)!important;
   opacity:1!important;visibility:visible!important;
   box-shadow:0 14px 38px rgba(0,0,0,.38);
   transition:transform .38s cubic-bezier(.22,1,.36,1),
@@ -272,7 +272,7 @@
  #beyond-ui.sx43-morph .sx43-next-card{
   position:absolute;left:50%;top:50%;
   transform:translate3d(-50%,-30%,0)
-    scale(calc(.84 + .16 * var(--sx43-turn,0)));
+    scale(var(--sx43-next-scale,.84));
   opacity:var(--sx43-turn,0);pointer-events:none;z-index:1;
  }
  #beyond-ui.sx43-morph .sx43-transition-counter{
@@ -283,7 +283,7 @@
  }
 }
 @media(max-width:360px){
- #beyond-ui.sx43-morph{--sx43-card-h:calc((100vw - 2 * var(--sx43-gap))*1.32)}
+ #beyond-ui.sx43-morph{--sx43-card-h:clamp(360px,126vw,453px)}
  #beyond-ui.sx43-morph .sx28-panel .sx28-body p{font-size:16px!important;line-height:1.43!important}
  #beyond-ui.sx43-morph .sx28-panel .sx28-skill-head h3{font-size:26px!important}
  #beyond-ui.sx43-morph .sx43-morph-track{height:calc(360px + 200px)}

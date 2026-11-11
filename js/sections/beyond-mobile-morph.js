@@ -92,6 +92,9 @@ function attachDeck(panel){
    card.classList.toggle('sx43-active',depth===0);
    card.classList.toggle('sx43-off',!visible);
    card.style.setProperty('--sx43-depth',String(clamp(depth,0,2)));
+   card.style.setProperty('--sx43-card-offset',(40-18*clamp(depth,0,2))+'px');
+   card.style.setProperty('--sx43-card-scale',String(1-.04*clamp(depth,0,2)));
+   card.style.setProperty('--sx43-card-layer',String(5-clamp(depth,0,2)));
    card.tabIndex=depth===0?0:-1;
    if(depth===0)card.removeAttribute('aria-hidden');
    else card.setAttribute('aria-hidden','true');
@@ -133,6 +136,9 @@ function detachDeck(d){
  cards.forEach(card=>{
   card.classList.remove('sx43-active','sx43-off');
   card.style.removeProperty('--sx43-depth');
+  card.style.removeProperty('--sx43-card-offset');
+  card.style.removeProperty('--sx43-card-scale');
+  card.style.removeProperty('--sx43-card-layer');
   card.removeAttribute('aria-hidden');card.removeAttribute('tabindex');
  });
 }
@@ -144,6 +150,11 @@ function draw(){
  const top=morph.getBoundingClientRect().top;
  const t=reduced.matches?1:ease((nav+8-top)/220);
  stage.style.setProperty('--sx43-morph',t.toFixed(4));
+ stage.style.setProperty('--sx43-radar-shift',(-42*t).toFixed(2)+'px');
+ stage.style.setProperty('--sx43-radar-scale',(1+.48*t).toFixed(4));
+ stage.style.setProperty('--sx43-focus-alpha',ease((t-.29)/.64).toFixed(4));
+ stage.style.setProperty('--sx43-focus-scale',(.8+.2*t).toFixed(4));
+ stage.style.setProperty('--sx43-focus-y',(25*(1-t)).toFixed(2)+'px');
  stage.classList.toggle('sx43-morphed',t>.83);
  // Small clock turns occur in the document flow, not over reading content.
  let visible=0;
@@ -161,6 +172,7 @@ function draw(){
   let p=clamp((height*.80-y)/span,0,1);
   p=reduced.matches?(p>.5?1:0):ease(p);
   ch.wrap.style.setProperty('--sx43-turn',p.toFixed(3));
+  ch.wrap.style.setProperty('--sx43-next-scale',(.84+.16*p).toFixed(4));
   ch.group.setAttribute('transform',
    'translate(200 208) rotate('+(-45*(ch.i+p)).toFixed(2)+')');
  });

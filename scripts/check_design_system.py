@@ -60,6 +60,11 @@ controller = (ROOT / "js/v34-beyond-ui-story.js").read_text("utf-8")
 expect("story.insertBefore(morph,column)" in morph, "Single original radar must enter morph stage")
 expect("column.insertBefore(ch.wrap,panels[i+1])" in morph, "Seven small turns must be in natural flow")
 expect("const step=d=>" in morph and "touchend" in morph, "Mobile project decks need swipe controls")
+morph_css = (ROOT / "css/sections/beyond-mobile-morph.css").read_text("utf-8")
+expect("--sx43-radar-shift" in morph_css and "--sx43-card-offset" in morph_css,
+       "Safari-safe animation values must be explicit CSS properties")
+expect(" * var(--sx43" not in morph_css,
+       "Avoid unsupported CSS calc multiplication on older iOS Safari")
 expect("window.scrollTo(" not in morph and "preventDefault()" not in morph.split("function draw(){")[1].split("function enable(){")[0], "Scroll-bound animations may not hijack scrolling")
 expect("sx43-mobile-deck" in controller, "Desktop rail must skip mobile deck navigation")
 expect("position:sticky;top:calc(var(--sx28-nav" in (ROOT / "css/sections/beyond-mobile-morph.css").read_text("utf-8"), "Morph sticky must be limited to the short runway")
