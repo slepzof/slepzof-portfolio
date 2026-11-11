@@ -58,6 +58,8 @@ expect("/js/sections/beyond-mobile-orbit.js" in html, "Missing mobile orbit scri
 orbit = (ROOT / "js/sections/beyond-mobile-orbit.js").read_text("utf-8")
 controller = (ROOT / "js/v34-beyond-ui-story.js").read_text("utf-8")
 expect("scene.append(first,meta)" in orbit, "Mobile must reuse the original radar, not clone it")
+expect("slots=[makeSlot('current'),makeSlot('next')]" in orbit,
+       "Skill icon/name transitions must crossfade during diagram rotation")
 expect("orbit+=reduced.matches" in orbit, "Orbit must follow native scroll")
 expect("window.scrollTo(" not in orbit, "Orbit must never forcibly scroll the page")
 expect("touchmove" not in orbit, "Orbit must not intercept native touch scrolling")

@@ -18,9 +18,9 @@
     [18.3693,179.1],[67.573,67.5711]];
   const first=panels[0].querySelector(':scope > .sx32-mobile-radar');
   if(!first)return;
-  let scene=null,icon=null,title=null,score=null;
-  let nodes=[],flash=null,raf=0,selected=-1;
-  let lastY=NaN;
+  let scene=null;
+  let slots=[],nodes=[],flash=null,raf=0,selected=-1;
+  let labelPair=[-1,-1];
   const resetPanels=()=>{
     panels.forEach(p=>{
       p.hidden=false;
@@ -32,18 +32,21 @@
                          'sx37-enter-pending','sx37-enter-active');
     });
   };
-  const choose=i=>{
-    if(i===selected||!nodes.length)return;
-    selected=i;
-    const node=nodes[i];
+  const fill=(slot,idx)=>{
+    const node=nodes[idx];
+    if(!node||!slot)return;
     const svg=node.querySelector('svg');
     if(svg){
       const cloned=svg.cloneNode(true);
       cloned.setAttribute('aria-hidden','true');
-      icon.replaceChildren(cloned);
+      slot.icon.replaceChildren(cloned);
     }
-    title.textContent=node.querySelector('span')?.textContent||'';
-    score.textContent=node.querySelector('b')?.textContent||'';
+    slot.title.textContent=node.querySelector('span')?.textContent||'';
+    slot.score.textContent=node.querySelector('b')?.textContent||'';
+  };
+  const choose=i=>{
+    if(i===selected||!nodes.length)return;
+    selected=i;
     nodes.forEach((n,j)=>n.setAttribute('aria-pressed',String(i===j)));
     section.dataset.sx28Active=String(i);
   };
@@ -70,6 +73,10 @@
     const skill=clamp(Math.round(orbit),0,7);
     choose(skill);
     const a=Math.floor(orbit),b=Math.min(7,a+1),t=orbit-a;
+    // Both labels stay mounted; crossfade is scrubbed by the SAME scroll
+    // fraction that rotates the diagram. No instant icon/name swaps.
+    if(a!==labelPair[0]){fill(slots[0],a);labelPair[0]=a;}
+    if(b!==labelPair[1]){fill(slots[1],b);labelPair[1]=b;}
     if(flash){
       flash.setAttribute('cx',String(anchors[a][0]+(anchors[b][0]-anchors[a][0])*t));
       flash.setAttribute('cy',String(anchors[a][1]+(anchors[b][1]-anchors[a][1])*t));
@@ -77,6 +84,10 @@
     const origin=scene.style;
     const mark=Math.round(zoom*1000)/1000;
     origin.setProperty('--sx40-zoom',String(mark));
+    origin.setProperty('--sx40-meta-mix',String(t));
+    origin.setProperty('--sx40-meta-y',(14*(1-mark)).toFixed(2)+'px');
+    origin.setProperty('--sx40-meta-current-y',(-10*t).toFixed(2)+'px');
+    origin.setProperty('--sx40-meta-next-y',(10*(1-t)).toFixed(2)+'px');
     origin.setProperty('--sx40-label-opacity',String(Math.max(0,1-mark*1.5)));
     origin.setProperty('--sx40-angle',(-45*orbit).toFixed(2)+'deg');
     origin.setProperty('--sx40-scale',(1+.85*mark).toFixed(3));
@@ -96,17 +107,24 @@
     scene.setAttribute('aria-label','Интерактивная диаграмма навыков');
     const meta=document.createElement('div');
     meta.className='sx40-meta';
-    icon=document.createElement('span');icon.className='sx40-meta-icon';
-    title=document.createElement('span');title.className='sx40-meta-title';
-    score=document.createElement('span');score.className='sx40-meta-score';
-    meta.append(icon,title,score);
+    const makeSlot=kind=>{
+      const element=document.createElement('div');
+      element.className='sx40-meta-layer sx40-meta-layer--'+kind;
+      const i=document.createElement('span');i.className='sx40-meta-icon';
+      const name=document.createElement('span');name.className='sx40-meta-title';
+      const rating=document.createElement('span');rating.className='sx40-meta-score';
+      element.append(i,name,rating);
+      meta.append(element);
+      return {icon:i,title:name,score:rating};
+    };
+    slots=[makeSlot('current'),makeSlot('next')];
     scene.append(first,meta);
     story.insertBefore(scene,column);
     nodes=[...first.querySelectorAll('.sx28-node[data-sx28-jump]')];
     flash=first.querySelector('[id*="sx29-flash-circle"]');
     section.classList.add('sx40-mobile-continuous');
     resetPanels();
-    selected=-1;
+    selected=-1;labelPair=[-1,-1];
     choose(0);
     schedule();
     requestAnimationFrame(schedule);

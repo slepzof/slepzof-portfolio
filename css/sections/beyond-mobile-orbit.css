@@ -98,11 +98,23 @@
   #beyond-ui.sx40-mobile-continuous .sx40-meta{
     position:absolute;top:12px;left:var(--ds-gutter,20px);
     right:var(--ds-gutter,20px);
-    z-index:7;display:flex;flex-direction:column;align-items:center;
-    justify-content:flex-start;text-align:center;gap:6px;
+    z-index:7;height:116px;text-align:center;
     color:#f5f5f7;opacity:var(--sx40-zoom,0);
-    transform:translate3d(0,calc((1 - var(--sx40-zoom,0))*14px),0);
+    transform:translate3d(0,var(--sx40-meta-y,0px),0);
     pointer-events:none;user-select:none;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-meta-layer{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    align-items:center;justify-content:flex-start;gap:6px;
+    pointer-events:none;
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-meta-layer--current{
+    opacity:calc(1 - var(--sx40-meta-mix,0));
+    transform:translate3d(0,var(--sx40-meta-current-y,0px),0);
+  }
+  #beyond-ui.sx40-mobile-continuous .sx40-meta-layer--next{
+    opacity:var(--sx40-meta-mix,0);
+    transform:translate3d(0,var(--sx40-meta-next-y,10px),0);
   }
   #beyond-ui.sx40-mobile-continuous .sx40-meta-icon{
     display:flex;align-items:center;justify-content:center;
