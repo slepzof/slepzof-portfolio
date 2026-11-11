@@ -17,6 +17,8 @@ jobs:
         env:
           SITE_BASE_PATH: /slepzof-portfolio
         run: python3 scripts/build_static.py
+      - name: Validate design-system tokens and homepage assets
+        run: python3 scripts/check_design_system.py
       - name: Verify files
         run: |
           test -s dist/index.html
