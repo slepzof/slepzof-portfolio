@@ -2,6 +2,8 @@
 """Validate design-system integration and homepage media without third-party deps."""
 from pathlib import Path
 from html.parser import HTMLParser
+import json
+import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -165,14 +167,6 @@ expect("slide=clamp((t-.16)/.56" in markets_js,
        "Desktop markets must scroll only after both rows enter the viewport")
 expect("padding-left:var(--sx41-content-pad)" in markets_css,
        "Markets must clip on the left panel edge")
-if errors:
-    print("Design system check FAILED:")
-    for error in errors:
-        print(" -", error)
-    sys.exit(1)
-print(f"Design system check passed. {len(parser.urls)} media files, required tokens and scene verified.")
-
-
 # Work Experience v42: keep approved 1116px grid and case navigation, including
 # achievement cards. No rewrite of desktop card images is allowed.
 experience_js = (ROOT / "js/sections/experience-v42.js").read_text("utf-8")
@@ -187,12 +181,47 @@ expect('const periods=[' in experience_js and
 expect('const arrow=el("span","sx42-card-arrow","↗")' in experience_js and
        'foot.append(arrow);card.append(foot)' in experience_js,
        "Every featured work case must keep its round arrow")
-expect('card.href=link.getAttribute("href")' in experience_js and
-       'card.href=source.getAttribute("href")' in experience_js,
-       "Achievement and testimonial cards must navigate to real cases")
+expect('card.href=link?link.getAttribute("href"):extra[3]' in experience_js and
+       'card.href=source?source.getAttribute("href"):extraSource[3]' in experience_js,
+       "Achievement and testimonial cards must have functional destinations")
 expect('width:min(1116px' in experience_css and
        'aspect-ratio:1424/2048!important' in experience_css,
        "Experience carousel cards must follow the approved Featured sizing")
 expect('IntersectionObserver' in experience_js and
        'prefers-reduced-motion:reduce' in experience_css,
        "Work experience scroll reveal must honor reduced motion")
+
+# Work Experience v43 source-integrity and responsive design checks.
+expect(experience_js.count('{id:"') == 12,
+       "All twelve approved work history periods must exist in one timeline")
+expect("uploadedCovers=new Set(" in experience_js and
+       'img.src=workSrc;' in experience_js and
+       "extraProjects" in experience_js,
+       "New original project covers must replace old artwork in work history")
+expect("sx42-review-portrait" in experience_css and
+       "portrait.src=" in experience_js,
+       "Confirmed uploaded testimonial portraits must render in source cards")
+expect("sx42-period.sx42-visible .sx42-carousel" in experience_css and
+       "sx42-card:nth-child(-n+3)" in experience_css,
+       "Work experience sections and first three covers must reveal on scroll")
+expect('width:calc(100% - 32px)' in experience_css and
+       'flex-basis:clamp(244px,65vw,310px)' in experience_css,
+       "Mobile work experience needs native 1.45-card swipe layout")
+match = re.search(r"uploadedCovers=new Set\((\[[^\n]*\])\)", experience_js)
+if match:
+    covers = json.loads(match.group(1))
+    for slug in covers:
+        expect((ROOT / "assets" / "cases" / slug / "cover-work.png").is_file(),
+               f"Missing source cover for work experience: {slug}")
+else:
+    expect(False, "Cannot read work-experience source image manifest")
+for portrait in re.findall(r'portrait:"([^"]+)"', experience_js):
+    expect((ROOT / "assets" / "reviews" / (portrait + ".png")).is_file(),
+           f"Missing testimonial portrait: {portrait}")
+
+if errors:
+    print("Design system check FAILED:")
+    for error in errors:
+        print(" -", error)
+    sys.exit(1)
+print(f"Design system check passed. {len(parser.urls)} core media checks, work-history sources and design tokens verified.")
