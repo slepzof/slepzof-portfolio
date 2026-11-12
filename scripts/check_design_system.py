@@ -308,6 +308,37 @@ if period_source_match:
                    f"Project order differs from PDF registry in {period_id}")
         else:
             expect(False, f"Missing project list for {period_id}")
+    # Exact approved project-card content snapshots, including metadata,
+    # descriptions, achievement values, manual line breaks, and contrast.
+    # Keep these in sync only when the user approves a new source PDF.
+    source_card_hashes={
+        "bonape":0xb9c13e30,
+        "forfis":0x9cffd921,
+        "summer-2026":0x34fd5682,
+        "auto-2026":0x93b53e4f,
+        "hash":0x9f9a9304,
+        "media":0x14b14b0f,
+        "sober":0xc48b4f3a,
+        "onlinesklad":0xb648141d,
+        "nutaku":0x806aca5e,
+        "2020-projects":0xffc1701c,
+        "duck":0x4aefb6fb,
+        "private-2025":0x8d343c3e,
+    }
+    for period_id,expected_hash in source_card_hashes.items():
+        parts=[]
+        for slug,card in source_cards.get(period_id, {}).items():
+            parts.append("\\x1f".join([
+                slug,card["name"],card["title"],card["description"],
+                card["category"],card["year"],card["tone"],
+                card["metric"][0],card["metric"][1]
+            ]))
+        joined="\\x1e".join(parts)
+        checksum=2166136261
+        for char in joined:
+            checksum=((checksum ^ ord(char)) * 16777619) & 0xffffffff
+        expect(checksum==expected_hash,
+               f"Approved PDF card text/design changed in {period_id}: {checksum:#x}")
     expect("poizon-shop" not in source_cards.get("bonape", {}),
            "POIZON SHOP must remain excluded from the portfolio")
     expect((ROOT / "assets/cases/rdmart/cover-work.svg").is_file(),
