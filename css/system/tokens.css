@@ -31,8 +31,9 @@
   --ds-project-inset: 32px;
   --ds-project-metadata-size: 16px;
   --ds-project-metadata-line: 20px;
-  --ds-project-title-size: 28px;
-  --ds-project-title-line: 32px;
+  /* Approved ProjectCard headline (Featured / Beyond UI / Experience): 24px / 28px. */
+  --ds-project-title-size: 24px;
+  --ds-project-title-line: 28px;
   --ds-project-metadata-weight: 510;
   --ds-project-title-weight: 510;
   --ds-project-metric-weight: 590;

@@ -109,9 +109,9 @@ QA_HTML = r"""<!doctype html>
    css(firstH).fontSize+"/"+css(work.querySelector("h3")).fontSize);
   if(mode==="desktop"){
    const approvedTitle=css(firstH);
-   ok("Figma desktop project title exactly 28/32",
-      eq(parseFloat(approvedTitle.fontSize),28)&&
-      eq(parseFloat(approvedTitle.lineHeight),32),
+   ok("Figma desktop project title exactly 24/28",
+      eq(parseFloat(approvedTitle.fontSize),24)&&
+      eq(parseFloat(approvedTitle.lineHeight),28),
       approvedTitle.fontSize+"/"+approvedTitle.lineHeight);
   }
   ok(mode+" same project description size",
@@ -407,8 +407,8 @@ QA_HTML = r"""<!doctype html>
       approval?css(approval).display:"missing");
    ok("Figma metadata 16",eq(parseFloat(css(firstMeta).fontSize),16),
       css(firstMeta).fontSize);
-   ok("Figma title 28/32",
-       eq(parseFloat(css(firstH).fontSize),28)&&eq(parseFloat(css(firstH).lineHeight),32),
+   ok("Figma title 24/28",
+       eq(parseFloat(css(firstH).fontSize),24)&&eq(parseFloat(css(firstH).lineHeight),28),
        css(firstH).fontSize+"/"+css(firstH).lineHeight);
    ok("Figma description 16/20",
        eq(parseFloat(css(firstP).fontSize),16)&&eq(parseFloat(css(firstP).lineHeight),20),
