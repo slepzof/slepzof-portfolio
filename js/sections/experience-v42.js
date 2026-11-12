@@ -37,7 +37,10 @@
   const legacy=originalCards.get(slug);
   const featured=selected.get(slug);
   const extra=data.extraProjects[slug];
-  const uploaded=data.uploadedCovers.has(slug);
+  // FitnessPro's original uploaded cover was filed under the normalized
+  // "fitness-pro" slug. Use the actual source cover, never placeholder artwork.
+  const sourceSlug=slug==="fitnesspro"?"fitness-pro":slug;
+  const uploaded=data.uploadedCovers.has(sourceSlug);
   if(!uploaded&&!legacy&&!featured)return null;
   const meta=[...(featured?.querySelectorAll(".sx25b3-meta span")||[])].map(x=>x.textContent.trim());
   const tags=[...(legacy?.querySelectorAll(".sx-tag")||[])].map(x=>x.textContent.trim());
@@ -58,12 +61,12 @@
     (oldMetric?
       {value:oldMetric.querySelector("strong")?.textContent.trim(),
        label:oldMetric.querySelector("span")?.textContent.trim()}:null));
-  const cover=uploaded?"/assets/cases/"+slug+"/cover-work.png":
+  const cover=uploaded?"/assets/cases/"+sourceSlug+"/cover-work.png":
     (featured?.querySelector(".sx25b3-art")?.getAttribute("src")||
      legacy?.querySelector(".sx-card-image img")?.getAttribute("src"));
   if(!cover)return null;
   return {
-    slug,name,title,description,category,year,metric,cover,
+    slug,mediaSlug:sourceSlug,name,title,description,category,year,metric,cover,
     tone:components.toneFor(slug,
       featured?.classList.contains("sx25b3-card-light")?"light":null),
     href:legacy?.getAttribute("href")||featured?.getAttribute("href")||extra?.[3]||"/projects/",
