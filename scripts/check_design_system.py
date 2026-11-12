@@ -286,7 +286,7 @@ period_source_match = re.search(
     r' const pdfPeriodCards=(\{[\s\S]*?\});\s*const periodCardOverrides=', work_data)
 if period_source_match:
     source_cards = json.loads(period_source_match.group(1))
-    for period_id, expected_count in (("forfis", 15), ("bonape", 27), ("summer-2026", 7), ("auto-2026", 4)):
+    for period_id, expected_count in (("forfis", 15), ("bonape", 27), ("summer-2026", 7), ("auto-2026", 4), ("hash", 2), ("media", 4), ("sober", 1), ("onlinesklad", 1), ("nutaku", 5), ("2020-projects", 9), ("duck", 2)):
         records = source_cards.get(period_id, {})
         expect(len(records) == expected_count,
                f"Source PDF period {period_id} must contain {expected_count} projects")
