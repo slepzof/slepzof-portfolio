@@ -33,6 +33,10 @@
   --ds-project-metadata-line: 20px;
   --ds-project-title-size: 28px;
   --ds-project-title-line: 32px;
+  --ds-project-metadata-weight: 510;
+  --ds-project-title-weight: 510;
+  --ds-project-metric-weight: 590;
+  --ds-review-lead-weight: 510;
   --ds-project-description-size: 16px;
   --ds-project-description-line: 20px;
   --ds-project-metric-size: 24px;
