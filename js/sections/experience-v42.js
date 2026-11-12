@@ -47,32 +47,27 @@
   if(!uploaded&&!legacy&&!featured)return null;
   const meta=[...(featured?.querySelectorAll(".sx25b3-meta span")||[])].map(x=>x.textContent.trim());
   const tags=[...(legacy?.querySelectorAll(".sx-tag")||[])].map(x=>x.textContent.trim());
-  const name=fromPdf?.name||approved2020?.name||extra?.[0]||meta[0]||legacy?.querySelector("h4")?.textContent.trim()||slug;
-  const title=fromPdf?.title||approved2020?.title||extra?.[1]||featured?.querySelector("h3")?.textContent.replace(/\s+/g," ").trim()||legacy?.querySelector("h4")?.textContent.trim()||name;
-  const description=fromPdf?.description||approved2020?.description||extra?.[2]||featured?.querySelector(".sx25b3-card-copy > p")?.textContent.trim()||
-    legacy?.querySelector(".sx-card-copy > p")?.textContent.trim()||"";
-  const category=fromPdf?.category||approved2020?.category||data.coverIndustries[slug]||extra?.[4]||meta[1]||tags[0]||"PROJECT";
-  const periodDefaultYear=(period.id==="private-2025"||period.id==="nutaku")?"2025":period.date.match(/20\d\d/)?.[0];
-  const year=fromPdf?.year||yearOverrides[slug]||periodDefaultYear||meta[2]||"";
-  const oldMetric=legacy?.querySelector(".sx-card-metric");
-  const featuredMetric=featured?.querySelector(".sx25b3-metric");
-  const approved=fromPdf?.metric||approved2020?.metric||data.coverMetrics[slug];
-  const metric=approved?
-    {value:approved[0],label:approved[1]}:
-    (featuredMetric?
-      {value:featuredMetric.querySelector("strong")?.textContent.trim(),
-       label:featuredMetric.querySelector("span")?.textContent.trim()}:
-    (oldMetric?
-      {value:oldMetric.querySelector("strong")?.textContent.trim(),
-       label:oldMetric.querySelector("span")?.textContent.trim()}:null));
+  // The source PDF registry is authoritative for every published work card.
+  // Do not reintroduce copy from older marketing data or legacy DOM fallbacks.
+  if(!fromPdf||!fromPdf.name||!fromPdf.title||!fromPdf.description||
+     !fromPdf.category||!fromPdf.year||!fromPdf.tone||
+     !Array.isArray(fromPdf.metric)||fromPdf.metric.length!==2){
+    console.error("Missing approved PDF data:",period.id,slug);
+    return null;
+  }
+  const name=fromPdf.name;
+  const title=fromPdf.title;
+  const description=fromPdf.description;
+  const category=fromPdf.category;
+  const year=fromPdf.year;
+  const metric={value:fromPdf.metric[0],label:fromPdf.metric[1]};
   const cover=uploaded?"/assets/cases/"+sourceSlug+"/cover-work."+(slug==="rdmart"||slug==="nda-web3"?"svg":"png"):
     (featured?.querySelector(".sx25b3-art")?.getAttribute("src")||
      legacy?.querySelector(".sx-card-image img")?.getAttribute("src"));
   if(!cover)return null;
   return {
     slug,mediaSlug:sourceSlug,name,title,description,category,year,metric,cover,
-    tone:fromPdf?.tone||components.toneFor(slug,
-      featured?.classList.contains("sx25b3-card-light")?"light":null),
+    tone:fromPdf.tone,
     href:legacy?.getAttribute("href")||featured?.getAttribute("href")||extra?.[3]||"/projects/",
     className:"sx42-card"
   };
