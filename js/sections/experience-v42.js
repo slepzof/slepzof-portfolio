@@ -25,28 +25,16 @@
   if(content!==undefined)node.textContent=content;
   return node;
  };
- const yearOverrides={
-  "hash-hedge":"2026","wsct":"2026","duckmaster":"2024",
-  "game-of-year":"2024","onlinesklad":"2022","sober-driver":"2021",
-  "my-ai-slut":"2024","fab-fantasy":"2024","poker-n-sluts":"2025",
-  "horny-villa":"2025","desire-inn":"2025",
-  "restar":"2019","vk-media":"2018","youtube-1":"2017","youtube-2":"2016",
-  "vlad-bykov":"2024","echo-app":"2025",
-  "greenbox":"2025","sailor-planner":"2025","vybor":"2025"
- };
  function details(slug,period){
   const legacy=originalCards.get(slug);
   const featured=selected.get(slug);
   const extra=data.extraProjects[slug];
-  const approved2020=period.id==="2020-projects"?data.periodCardOverrides?.["2020-projects"]?.[slug]:null;
   const fromPdf=data.pdfPeriodCards?.[period.id]?.[slug]||null;
   // FitnessPro's original uploaded cover was filed under the normalized
   // "fitness-pro" slug. Use the actual source cover, never placeholder artwork.
   const sourceSlug=slug==="fitnesspro"?"fitness-pro":slug;
   const uploaded=data.uploadedCovers.has(sourceSlug)||slug==="rdmart"||slug==="nda-web3";
   if(!uploaded&&!legacy&&!featured)return null;
-  const meta=[...(featured?.querySelectorAll(".sx25b3-meta span")||[])].map(x=>x.textContent.trim());
-  const tags=[...(legacy?.querySelectorAll(".sx-tag")||[])].map(x=>x.textContent.trim());
   // The source PDF registry is authoritative for every published work card.
   // Do not reintroduce copy from older marketing data or legacy DOM fallbacks.
   if(!fromPdf||!fromPdf.name||!fromPdf.title||!fromPdf.description||
