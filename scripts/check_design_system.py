@@ -312,10 +312,10 @@ if period_source_match:
     # descriptions, achievement values, manual line breaks, and contrast.
     # Keep these in sync only when the user approves a new source PDF.
     source_card_hashes={
-        "bonape":0xb9c13e30,
-        "forfis":0x9cffd921,
+        "bonape":0x0ed90218,
+        "forfis":0x15d386a9,
         "summer-2026":0x34fd5682,
-        "auto-2026":0x93b53e4f,
+        "auto-2026":0xa583d1d5,
         "hash":0x9f9a9304,
         "media":0x14b14b0f,
         "sober":0xc48b4f3a,
