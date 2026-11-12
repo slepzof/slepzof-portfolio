@@ -220,10 +220,22 @@ expect("ds-review-card" in cards_js and
        "Testimonials have no destination arrow and are not links")
 expect((ROOT / "assets/icons/experience/quote.svg").is_file(),
        "Original quote SVG must exist for testimonials")
-expect("font:510 20px/24px" in work_css and
-       "font:510 40px/48px" in work_css and
-       "font:510 16px/20px" in work_css,
-       "Work dates, headings and descriptions must match Figma typography")
+site_contract = (ROOT / "css/system/site-contract.css").read_text("utf-8")
+expect("font:500 var(--ds-font-h6)/var(--ds-line-h6)" in work_css and
+       "font:600 var(--ds-font-h3)/var(--ds-line-h3)" in work_css and
+       "--ds-font-h2" in site_contract and "--ds-line-h2" in site_contract,
+       "Work dates, headings and section titles must use design-system tokens")
+expect('/css/system/site-contract.css?v=' in html and
+       (ROOT / "docs/DESIGN_SYSTEM_CONTRACT.md").is_file(),
+       "Global design contract must load and be documented")
+expect('sx25b3-inner sx25b3-inner--gallery' in html and
+       '#selected .sx25b3-inner--gallery' in featured_css,
+       "Featured gallery must start at the approved container grid")
+expect('перед&nbsp;компанией.' in html,
+       "Featured introduction must not orphan its final word")
+expect("periodCardOverrides" in work_data and
+       'approved2020?.title' in work_render,
+       "All 2020 card titles must be sourced from approved PDF overrides")
 expect("!important" not in work_css and
        "sx42-card-metric" not in work_css and
        "sx42-fact" not in work_css,
