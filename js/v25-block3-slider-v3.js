@@ -74,7 +74,7 @@
   // Keep history/back-forward restoration intact, but start new visits at the
   // first approved project so the carousel aligns with the section grid.
   const nav=performance.getEntriesByType("navigation")[0];
-  if(nav?.type==="navigate"){
+  if(nav?.type!=="back_forward"){
    const reset=()=>{
     rail.style.scrollBehavior="auto";
     rail.scrollLeft=0;
