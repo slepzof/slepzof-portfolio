@@ -188,6 +188,21 @@ QA_HTML = r"""<!doctype html>
   if(mode==="desktop"){
    ok("Figma card width 356",eq(selected.getBoundingClientRect().width,356),
       selected.getBoundingClientRect().width);
+   ok("Beyond UI cards have exactly the same 356px width as Featured",
+      !!beyondCard&&eq(beyondCard.getBoundingClientRect().width,selected.getBoundingClientRect().width),
+      beyondCard?.getBoundingClientRect().width);
+   for(const [name,selector] of [["Featured","#selected .sx25b3-rail"],
+                                   ["Beyond UI","#beyond-ui .sx28-carousel-rail"],
+                                   ["Experience","#experience.sx42-ready .sx42-rail"]]){
+     const rail=pick(selector);
+     ok(name+" rail retains hover clearance",
+        !!rail&&parseFloat(css(rail).paddingTop)>=12,
+        rail?css(rail).paddingTop:"missing");
+   }
+   const approval=selected.querySelector(".sx25b3-metric br.sx25b3-approved-break");
+   ok("Approved metric manual line break is retained",
+      !!approval&&css(approval).display!=="none",
+      approval?css(approval).display:"missing");
    ok("Figma metadata 16",eq(parseFloat(css(firstMeta).fontSize),16),
       css(firstMeta).fontSize);
    ok("Figma title 28/32",
