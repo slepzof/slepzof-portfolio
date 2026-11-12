@@ -191,8 +191,8 @@ for name, value in {
     "--ds-project-width: 356px": "card width",
     "--ds-project-height: 512px": "card height",
     "--ds-project-radius: 32px": "radius",
-    "--ds-project-title-size: 24px": "title",
-    "--ds-project-title-line: 28px": "title leading",
+    "--ds-project-title-size: 28px": "title",
+    "--ds-project-title-line: 32px": "title leading",
     "--ds-project-description-size: 16px": "description",
     "--ds-project-description-line: 20px": "description leading",
 }.items():
