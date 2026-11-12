@@ -200,6 +200,7 @@ QA_HTML = r"""<!doctype html>
       featuredViewport?.getBoundingClientRect().left);
    const expectedTone={
      "2space":"dark","glavbankrot":"dark","sailor-planner":"dark",
+     "parking":"dark","digital-lawyer":"dark",
      "forfis-new-site":"light","bill-split":"light",
      "poker-n-sluts":"light","desire-inn":"light"
    };
