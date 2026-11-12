@@ -266,6 +266,37 @@ QA_HTML = r"""<!doctype html>
    ok("PDF NDA Web3 artwork exists",
      !!nda2025&&nda2025.querySelector("img.sx25b3-art")?.getAttribute("src")?.endsWith("/assets/cases/nda-web3/cover-work.svg"),
      nda2025?.querySelector("img.sx25b3-art")?.getAttribute("src")||"missing");
+   // Every visible project uses canonical typography tokens. On desktop,
+   // content must fit without any line-clamp truncation.
+   const titleToken=parseFloat(getComputedStyle(document.documentElement)
+     .getPropertyValue("--ds-project-title-size"));
+   const titleLeading=parseFloat(getComputedStyle(document.documentElement)
+     .getPropertyValue("--ds-project-title-line"));
+   const descToken=parseFloat(getComputedStyle(document.documentElement)
+     .getPropertyValue("--ds-project-description-size"));
+   const descLeading=parseFloat(getComputedStyle(document.documentElement)
+     .getPropertyValue("--ds-project-description-line"));
+   if(innerWidth>=1200){
+     const cards=[...document.querySelectorAll("#experience a.ds-project-card")];
+     const failures=[];
+     for(const card of cards){
+       const title=card.querySelector("h3");
+       const desc=card.querySelector(".sx25b3-card-copy > p");
+       if(!title||!desc){failures.push(card.dataset.slug+":missing");continue;}
+       const tc=css(title),dc=css(desc);
+       const tLines=title.getBoundingClientRect().height/parseFloat(tc.lineHeight);
+       const dLines=desc.getBoundingClientRect().height/parseFloat(dc.lineHeight);
+       if(tLines>2.05||dLines>3.05||
+          Math.abs(parseFloat(tc.fontSize)-titleToken)>.1||
+          Math.abs(parseFloat(tc.lineHeight)-titleLeading)>.1||
+          Math.abs(parseFloat(dc.fontSize)-descToken)>.1||
+          Math.abs(parseFloat(dc.lineHeight)-descLeading)>.1||
+          tc.webkitLineClamp!=="none"||dc.webkitLineClamp!=="none")
+         failures.push(card.dataset.slug+":"+tLines.toFixed(1)+"/"+dLines.toFixed(1));
+     }
+     ok("All Experience cards use token typography and max 2/3 visible lines",
+       cards.length>90&&failures.length===0,failures.slice(0,15));
+   }
    const expectedTone={
      "2space":"dark","glavbankrot":"dark","sailor-planner":"dark",
      "parking":"dark","digital-lawyer":"dark","twin-finder":"dark","media-garant":"dark",
