@@ -24,6 +24,130 @@
  ];
  const reviews={"auto-2026":[{"id":"felix-g","name":"Felix G.","role":"NDA CEO","lead":"...мне понравился твой подход. Ты относишься к проекту, как к собственному.","body":"Спасибо тебе за работу и мой первый отпуск за 6 лет. Я не верил, что ты сможешь превысить KPI в 4 раза и взять ответственность за свои слова. Жалко с тобой прощаться, но надеюсь скрипты для менеджеров будут работать и без твоего надзора за ребятами.","before":"izi-crm","href":"/cases/automotive/"}],"summer-2026":[{"id":"alexey-rsk","name":"Alexey D.","role":"CEO RSK, ВРЕМЕНА ГОДА","lead":"...Времена года это мое чадо, которое начало работать, благодаря тебе!!","body":"Богдан хороший спец, после него пробовали другие ребята в найме, по итогу его одного смогли заменить только три дизайнера. Полиграфия, баннеры, сайты, реклама, CRM, всё настроил и сделал.","before":"vremena-goda","href":"/cases/vremena-goda/"},{"id":"victor-s","name":"Victor S.","role":"CEO EXOCURE","lead":"Хорошо выносит мозг и отрезвляет, когда глаз становится замыленным.","body":"С этим человеком быстрые звонки могут быть, только если вы не заинтересованы в своём продукте. 5 часов и 31 минуту мы обсуждали тупо один слайд презентации. Круто было поработать с дизайнером, а не очередным сотрудником.","after":"exocure","href":"/cases/exocure/"}],"hash":[{"id":"david-t-hash-hedge","name":"David T.","role":"CPO Hash Hedge","lead":"Богдан, спасибо тебе за всё. Забавно конечно начинали с утки, а в итоге столько всего сделали в Hash Hedge.","body":"С тобой реально было приятно работать, можно спокойно доверить задачу и не переживать за итог. Правда со сроками ты меня иногда подставлял ахах) За неделю делал месячный бэклог, а мне потом на тебя другие отделы жаловались.","after":"wsct","href":"/cases/hash-hedge/"}],"private-2025":[{"id":"vlad-b","name":"Vlad B.","role":"Заказчик","lead":"Let's put it this way. I'm a picky client, but only when it comes to incompetent designers who use AI instead of their own hands and eyes.","body":"You're a good designer, but you lack some fucking flexibility. Your website works well, but mine is good too.","after":"vlad-bykov","href":"/cases/vlad-bykov/"},{"id":"denis-k","name":"Denis K.","role":"Art Director Chatus","lead":"Приятный человек и классный дизайнер.","body":"Поработав вместе с тобой на проекте, понял, почему тебя рекомендовали к нам. Наши с тобой отношения сложно назвать хорошими, но работу мы сделали супер быстро и отставание дизайна на 1,5 месяца догнали за неделю.","after":"echo-app","href":"/cases/chatus/"},{"id":"evgenii-g","name":"Evgenii G.","role":"Director GreenBox","lead":"...мой совет — работать с ним легко стало, когда дал ему полное согласие на всё...","body":"Продать газоны летом может каждый, а вот не в сезон звучит глупо. Богдана нашёл случайно, через знакомых, хотел к лету подготовиться, но он решил сделать запуск зимой. Теперь брони до 2027 года, короче советую поработать хоть раз с ним.","after":"greenbox","href":"/cases/greenbox/"}],"nutaku":[{"id":"alex","name":"Alex","role":"CPO Filth Fruits","lead":"Solid guy, honest as hell and knows his stuff even on complex projects.","body":"Bogdan was billing us hourly and let's be real, people love padding their hours lol. Not this guy tho. He'd actually cut his own time saying the job was too easy. Never had to question a single invoice. Mad respect for that.","after":"my-ai-slut","href":"/projects/"}],"duck":[{"id":"david-t-duckmaster","name":"David T.","role":"CPO DuckMaster","lead":"Рады были поработать с тобой на проекте. Не ожидал, что за сутки ты пересоберёшь проект или его визуальное исполнение.","body":"Когда смотрели твоё портфолио, были не уверены, что ты приживёшься у нас. В итоге за месяц мы изменили с тобой проект до какого-то неузнаваемого уровня. Надеюсь ещё поработать с тобой в будущем!","before":"duckmaster","href":"/cases/duckmaster/"}],"bonape":[{"id":"alexander-b","name":"Alexander B.","role":"Founder Apple Bar","lead":"Команда Bonape удивила меня своей любовью к делу.","body":"У нас была офлайн-точка по продаже телефонов в Волгограде, бизнес рос, но медленно. Посоветовали Богдана с его компанией, за три недели сделали сайт-каталог в нужном стиле, а после запустили рекламу. Более 500 заказов за месяц работы, спасибо вам!","after":"apple-bar","href":"/cases/apple-bar/"},{"id":"sardal-r","name":"Sardal R.","role":"Director Slab Service","lead":"РАБОТА СДЕЛАНА НА 5+!","body":"Мы продаём и устанавливаем декоративную плитку в Москве. Конкуренция тут большая, но ребята справились. Очень хотел получать клиентов без вливания миллионов в рекламу. Настроили поиск, Яндекс, ВКонтакте и Одноклассники, через месяц всё отлично заработало, клиентов куча. Радостно было работать с вами!!","after":"slab-service","href":"/cases/slab-service/"}],"onlinesklad":[{"id":"almira-m","name":"Almira M.","role":"CPO Onlinesklad","lead":"...думала, что он слишком усложняет, но потом поняла, что именно благодаря этому мы половину интерфейса не переделывали.","body":"Богдану нельзя сказать, что нам нужен каталог товаров, он сразу начнёт спрашивать: а что если у товара пять поставщиков, разные цены, остатки? А если возврат? И так до бесконечности)","after":"onlinesklad","href":"/cases/onlinesklad/"},{"id":"sergey-j","name":"Sergey J.","role":"Founder Onlinesklad","lead":"Богдан показал себя как грамотный и ответственный специалист.","body":"Хорошо разобрался в специфике нашего продукта, самостоятельно находил проблемы и предлагал решения. Работа выполнена качественно, в согласованные сроки. Результатом доволен.","after":"almira-m","href":"/cases/onlinesklad/"}],"sober":[{"id":"evgenii-y","name":"Evgenii Y.","role":"Founder Sober Driver","lead":"Добротную работу делает, помог найти нам подрядчиков на разные задачи.","body":"Пришёл с командой, остался один на проекте и вытащил его из идеи до готового продукта. Справился с 176-страничным документом правок от новых подрядчиков, спасибо за работу, ещё позовём.","after":"sober-driver","href":"/cases/sober-driver/"}],"media":[{"id":"elena-s","name":"Elena S.","role":"CEO RESTAR & Mom Slepzof :)","lead":"Ответственный парень, который любит свою работу.","body":"Богдан с детства такой, если ему что-то действительно интересно, он может сутками сидеть, разбираться, пока не получится. Ответственный и исполнительный. Но иногда бывает ужасно ленивым, особенно если не видит смысла в том, что делает. Зато когда появляется цель, его уже не остановить.","after":"restar","href":"/cases/restar/"}]};
  // Exact 2020 card copy from the approved My Works PDF, not generic brand labels.
+ const pdfPeriodCards={
+  "forfis": {
+    "vodacom": {
+      "name": "VODACOM",
+      "title": "Сервис заказа и доставки воды",
+      "metric": [
+        "86",
+        "уникальных заявок\nза первый месяц"
+      ]
+    },
+    "psychology": {
+      "name": "PSY.INFO",
+      "title": "Развитие личного бренда психолога",
+      "metric": [
+        "7k",
+        "обращений\nза первый месяц"
+      ]
+    },
+    "pelikan": {
+      "name": "PELIKAN",
+      "title": "Приложение доставки со списком заказов",
+      "metric": [
+        "4k",
+        "пользователей\nза 2 месяца работы"
+      ]
+    },
+    "fly-ball": {
+      "name": "FLY BALL",
+      "title": "Приложение для волейбола",
+      "metric": [
+        "4,1",
+        "средняя оценка\nв Google Play"
+      ]
+    },
+    "restomesto": {
+      "name": "RESTOMESTO",
+      "title": "Сервис бронирования ресторанов",
+      "metric": [
+        "12",
+        "пользовательских\nсценариев"
+      ]
+    },
+    "hamilya-shop": {
+      "name": "HAMILYA",
+      "title": "Интернет-магазин одежды Hamilya",
+      "metric": [
+        "24k",
+        "покупок\nза 4 месяца"
+      ]
+    },
+    "domashniy-doktor": {
+      "name": "ДОМ&ВРАЧ",
+      "title": "Вызов врача на дом и запись в клинику",
+      "metric": [
+        "6",
+        "дней на полный\nцикл дизайна"
+      ]
+    },
+    "treasures-pskov": {
+      "name": "TREASUREPSKOV",
+      "title": "Туристическое приложение",
+      "metric": [
+        "3",
+        "дня на полный\nцикл дизайна"
+      ]
+    },
+    "history-app": {
+      "name": "HISTORY APP",
+      "title": "Исторические маршруты столицы",
+      "metric": [
+        "5,0",
+        "оценка приложения\nв App Store & Google Play"
+      ]
+    },
+    "transport-tech": {
+      "name": "TRANSPORTTECH",
+      "title": "Приложение для станции заправок",
+      "metric": [
+        "23",
+        "экрана\nприложения"
+      ]
+    },
+    "tezgo": {
+      "name": "TEZGO",
+      "title": "Сервис заказа и доставки продуктов",
+      "metric": [
+        "356",
+        "заказов\nза 2 месяца"
+      ]
+    },
+    "pizza-dashboard": {
+      "name": "MAESTRELLO",
+      "title": "Панель управления для пиццерии",
+      "metric": [
+        "244",
+        "заказа\nза месяц"
+      ]
+    },
+    "deli-she": {
+      "name": "DELI SHE",
+      "title": "Сервис доставки и такси в Донецке",
+      "metric": [
+        "1,2k",
+        "заказов\nза 3 месяца"
+      ]
+    },
+    "diary-book": {
+      "name": "DIARY BOOK",
+      "title": "Приложение для личного дневника",
+      "metric": [
+        "8",
+        "уникальных\nэкранов"
+      ]
+    },
+    "trips": {
+      "name": "TRIPS",
+      "title": "White label решение для туризма",
+      "metric": [
+        "7",
+        "туроператоров\nв одном подключении"
+      ]
+    }
+  }
+};
  const periodCardOverrides={
   "2020-projects":{
    "myasnoy-dvor":{name:"МЯСНОЙ ДВОР",category:"FOODTECH",title:"Продвижение мясного бизнеса",description:"Продажи привычного продукта выросли со 184 до 270 заказов в месяц. Без запуска нового бренда.",metric:["270","заказов каждый месяц за 2021 год"]},
@@ -48,6 +172,6 @@
    "sober":["2 700 пользователей"]
  };
  window.SlepzofWorkData=Object.freeze({
-  uploadedCovers,extraProjects,coverMetrics,coverIndustries,periods,reviews,emphasis,periodCardOverrides
+  uploadedCovers,extraProjects,coverMetrics,coverIndustries,periods,reviews,emphasis,periodCardOverrides,pdfPeriodCards
  });
 })();
