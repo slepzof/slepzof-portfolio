@@ -192,6 +192,23 @@ QA_HTML = r"""<!doctype html>
    ok("Featured carousel begins on same 1116px grid as heading",
       featuredGridLeft!==undefined&&Math.abs(selected.getBoundingClientRect().left-featuredGridLeft)<2,
       selected.getBoundingClientRect().left+"/"+featuredGridLeft);
+   const featuredRail=pick("#selected .sx25b3-rail");
+   const featuredViewport=pick("#selected .sx25b3-viewport");
+   ok("Featured rail can scroll past the left container edge",
+      !!featuredViewport&&Math.abs(featuredViewport.getBoundingClientRect().left)<2&&
+      !!featuredRail&&featuredRail.scrollWidth>featuredRail.clientWidth,
+      featuredViewport?.getBoundingClientRect().left);
+   const expectedTone={
+     "2space":"dark","glavbankrot":"dark","sailor-planner":"dark",
+     "forfis-new-site":"light","bill-split":"light",
+     "poker-n-sluts":"light","desire-inn":"light"
+   };
+   for(const [slug,tone] of Object.entries(expectedTone)){
+     const item=pick('#experience a.ds-project-card[data-slug="'+slug+'"]');
+     ok("PDF text contrast "+slug,
+       !!item&&item.dataset.tone===tone,
+       item?.dataset.tone||"missing");
+   }
    ok("Experience title uses H2 token (48/52)",
       !!experienceHeading&&eq(parseFloat(css(experienceHeading).fontSize),48)&&
       eq(parseFloat(css(experienceHeading).lineHeight),52),
