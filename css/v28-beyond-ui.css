@@ -49,7 +49,7 @@
 #beyond-ui .sx28-tool{font-size:13px;color:#e9e9ee;white-space:nowrap}
 #beyond-ui .sx28-tool + .sx28-tool::before{content:"";display:inline-block;width:1px;height:12px;background:#424247;margin-right:14px;vertical-align:middle}
 #beyond-ui .sx28-carousel{position:relative;width:100%;min-width:0;margin-top:0}
-#beyond-ui .sx28-carousel-rail{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:stretch;gap:17px;width:100%;overflow-x:auto;overflow-y:hidden;padding:5px 4px 16px;scroll-padding-inline:4px;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+#beyond-ui .sx28-carousel-rail{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:stretch;gap:var(--ds-project-gap);width:100%;overflow-x:auto;overflow-y:hidden;padding:16px 4px 24px;scroll-padding-inline:4px;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
 #beyond-ui .sx28-carousel-rail::-webkit-scrollbar{display:none}
 #beyond-ui .sx28-carousel-rail:focus-visible{outline:2px solid var(--sx28-blue);outline-offset:-2px}
 /* Exact Onlinesklad approved card: copy/data, cover art, complete metric, laurels and arrow are preserved. */
