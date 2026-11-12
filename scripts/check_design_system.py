@@ -328,12 +328,12 @@ if period_source_match:
     for period_id,expected_hash in source_card_hashes.items():
         parts=[]
         for slug,card in source_cards.get(period_id, {}).items():
-            parts.append("\\x1f".join([
+            parts.append(chr(31).join([
                 slug,card["name"],card["title"],card["description"],
                 card["category"],card["year"],card["tone"],
                 card["metric"][0],card["metric"][1]
             ]))
-        joined="\\x1e".join(parts)
+        joined=chr(30).join(parts)
         checksum=2166136261
         for char in joined:
             checksum=((checksum ^ ord(char)) * 16777619) & 0xffffffff
