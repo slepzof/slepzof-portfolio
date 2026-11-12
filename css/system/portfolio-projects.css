@@ -127,7 +127,7 @@
   font-size:var(--ds-project-metric-caption-size);
   line-height:var(--ds-project-metric-caption-line);
   letter-spacing:0;
-  color:#fff;margin-left:4px;white-space:normal;
+  color:#fff;margin-left:4px;white-space:pre-line;
   overflow-wrap:normal;word-break:normal;
 }
 :is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-arrow{
