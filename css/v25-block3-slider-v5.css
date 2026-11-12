@@ -37,9 +37,12 @@
   max-width:var(--ds-container-max);
   margin-inline:auto;
 }
+/* Full viewport rail; only its initial content is padded to the grid.
+   After scrolling, cards may reach the left viewport edge. */
 #selected .sx25b3-viewport{
   position:relative;
-  width:calc(100% + max(24px,calc((100vw - var(--ds-container-max)) / 2)));
+  width:100vw;
+  margin-left:calc(50% - 50vw);
   overflow:visible;
 }
 #selected .sx25b3-rail{
@@ -47,8 +50,10 @@
  gap:var(--ds-project-gap);
  overflow-x:auto;overflow-y:hidden;
  width:100%;min-width:0;max-width:none;
- padding:16px 0 26px;margin:0;
- scroll-padding-inline:0;scroll-snap-type:x mandatory;
+ padding:16px max(var(--ds-gutter),calc((100vw - var(--ds-container-max)) / 2)) 26px;
+ margin:0;
+ scroll-padding-inline-start:max(var(--ds-gutter),calc((100vw - var(--ds-container-max)) / 2));
+ scroll-snap-type:x mandatory;
  scroll-behavior:smooth;overscroll-behavior-x:contain;
  scrollbar-width:none;-webkit-overflow-scrolling:touch;
 }
@@ -101,7 +106,11 @@
  #selected .sx25b3-section-head{margin-bottom:26px}
  #selected .sx25b3-section-head h2{font-size:var(--ds-font-h2);line-height:var(--ds-line-h2);margin-bottom:11px}
  #selected .sx25b3-section-head p{font-size:var(--ds-font-lead);line-height:var(--ds-line-lead)}
- #selected .sx25b3-rail{gap:var(--ds-project-gap)}
+ #selected .sx25b3-rail{
+  gap:var(--ds-project-gap);
+  padding-left:var(--ds-gutter);padding-right:var(--ds-gutter);
+  scroll-padding-inline-start:var(--ds-gutter);
+ }
  :is(#selected,#experience) .sx25b3-controls{
   width:calc(100% - 32px);margin-top:17px;
  }
