@@ -70,6 +70,19 @@
    resize.observe(rail);
    if(cards[0])resize.observe(cards[0]);
   }
+  // Safari may restore an old inner scroll offset on a new navigation.
+  // Keep history/back-forward restoration intact, but start new visits at the
+  // first approved project so the carousel aligns with the section grid.
+  const nav=performance.getEntriesByType("navigation")[0];
+  if(nav?.type==="navigate"){
+   const reset=()=>{
+    rail.style.scrollBehavior="auto";
+    rail.scrollLeft=0;
+    requestAnimationFrame(()=>{rail.style.removeProperty("scroll-behavior");update();});
+   };
+   reset();
+   window.addEventListener("pageshow",e=>{if(!e.persisted)reset()},{once:true});
+  }
   document.fonts?.ready?.then(update).catch(()=>{});
   update();
  }
