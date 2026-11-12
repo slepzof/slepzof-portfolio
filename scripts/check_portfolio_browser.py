@@ -97,6 +97,56 @@ QA_HTML = r"""<!doctype html>
    css(firstP).fontSize);
   ok(mode+" no giant Featured description padding",
    parseFloat(css(firstP).paddingBottom)<30,css(firstP).paddingBottom);
+  // Strict shared-component parity. Every project card should inherit exactly
+  // the same typography, metric, arrow and corner geometry from Figma tokens.
+  const metricCss=(card,selector,prop)=>card?.querySelector(selector)?
+      css(card.querySelector(selector))[prop]:null;
+  const beyondCard=beyond[0];
+  for(const [kind,card] of [["Experience",work],["Beyond UI",beyondCard]]){
+   ok(mode+" "+kind+" project typography matches Featured",
+      !!card&&
+      eq(parseFloat(metricCss(selected,"h3","fontSize")),
+         parseFloat(metricCss(card,"h3","fontSize")))&&
+      eq(parseFloat(metricCss(selected,"h3","lineHeight")),
+         parseFloat(metricCss(card,"h3","lineHeight"))),
+      kind+" "+metricCss(selected,"h3","fontSize")+"/"+metricCss(card,"h3","fontSize")+
+      " line "+metricCss(selected,"h3","lineHeight")+"/"+metricCss(card,"h3","lineHeight"));
+   ok(mode+" "+kind+" metadata matches Featured",
+      !!card&&
+      eq(parseFloat(metricCss(selected,".sx25b3-meta","fontSize")),
+         parseFloat(metricCss(card,".sx25b3-meta","fontSize")))&&
+      eq(parseFloat(metricCss(selected,".sx25b3-meta","lineHeight")),
+         parseFloat(metricCss(card,".sx25b3-meta","lineHeight"))),
+      kind+" meta "+metricCss(selected,".sx25b3-meta","fontSize")+
+      "/"+metricCss(card,".sx25b3-meta","fontSize"));
+   ok(mode+" "+kind+" description matches Featured",
+      !!card&&
+      eq(parseFloat(metricCss(selected,".sx25b3-card-copy>p","fontSize")),
+         parseFloat(metricCss(card,".sx25b3-card-copy>p","fontSize")))&&
+      eq(parseFloat(metricCss(selected,".sx25b3-card-copy>p","lineHeight")),
+         parseFloat(metricCss(card,".sx25b3-card-copy>p","lineHeight"))),
+      kind+" copy "+metricCss(selected,".sx25b3-card-copy>p","fontSize")+
+      "/"+metricCss(card,".sx25b3-card-copy>p","fontSize"));
+   ok(mode+" "+kind+" corner radius matches Featured",
+      !!card&&eq(parseFloat(css(card).borderTopLeftRadius),
+         parseFloat(css(selected).borderTopLeftRadius)),
+      kind+" "+(card?css(card).borderTopLeftRadius:"not present"));
+   ok(mode+" "+kind+" laurels and metric align with Featured",
+      !!card&&!!card.querySelector(".sx25b3-metric")&&
+      eq(parseFloat(metricCss(selected,".sx25b3-metric strong","fontSize")),
+         parseFloat(metricCss(card,".sx25b3-metric strong","fontSize")))&&
+      eq(parseFloat(metricCss(selected,".sx25b3-metric span","fontSize")),
+         parseFloat(metricCss(card,".sx25b3-metric span","fontSize"))),
+      kind+" metrics "+metricCss(selected,".sx25b3-metric strong","fontSize")+
+      "/"+metricCss(card,".sx25b3-metric strong","fontSize"));
+   ok(mode+" "+kind+" project arrow matches Featured",
+      !!card&&!!card.querySelector(".sx25b3-arrow")&&
+      eq(parseFloat(metricCss(selected,".sx25b3-arrow","width")),
+         parseFloat(metricCss(card,".sx25b3-arrow","width"))),
+      kind+" arrow "+metricCss(selected,".sx25b3-arrow","width")+
+      "/"+metricCss(card,".sx25b3-arrow","width"));
+  }
+
   for(const slug of ["echo-app","vita-ai","luch","city-exchange"]){
    const card=pick('#experience [data-slug="'+slug+'"]');
    const caption=card?.querySelector(".sx25b3-metric strong");
