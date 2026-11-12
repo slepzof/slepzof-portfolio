@@ -23,13 +23,13 @@
   max-width:none;
 }
 #experience.sx42-ready .sx-experience-head h2{
-  font:510 clamp(56px,5.55vw,80px)/1.1 var(--ds-font-family);
+  font:600 var(--ds-font-h2)/var(--ds-line-h2) var(--ds-font-family);
   letter-spacing:-.045em;color:#111;
   margin:0;padding:0;
   max-width:none;
 }
 #experience.sx42-ready .sx-experience-head > a{
-  font:400 clamp(18px,1.8vw,27px)/1.25 var(--ds-font-family);
+  font:500 var(--ds-font-body)/var(--ds-line-body) var(--ds-font-family);
   letter-spacing:0;color:var(--ds-color-primary);
   text-decoration:none;white-space:nowrap;
   align-self:center;
@@ -52,12 +52,12 @@
 }
 #experience.sx42-ready .sx42-period-main{width:100%;max-width:none}
 #experience.sx42-ready .sx42-date{
-  font:510 20px/24px var(--ds-font-family);
+  font:500 var(--ds-font-h6)/var(--ds-line-h6) var(--ds-font-family);
   color:#111;letter-spacing:0;
   margin:0 0 4px;
 }
 #experience.sx42-ready .sx42-period-name{
-  font:510 40px/48px var(--ds-font-family);
+  font:600 var(--ds-font-h3)/var(--ds-line-h3) var(--ds-font-family);
   color:#111;letter-spacing:0;
   margin:0 0 16px;
 }
@@ -70,7 +70,7 @@
   font-weight:650;color:#111;
 }
 #experience.sx42-ready .sx42-role{
-  font:510 16px/20px var(--ds-font-family);
+  font:500 var(--ds-font-body)/var(--ds-line-body) var(--ds-font-family);
   color:#727272;letter-spacing:0;
   margin:12px 0 0;
 }
@@ -136,7 +136,7 @@
  #experience.sx42-ready .sx-experience-head{margin-bottom:64px}
  #experience.sx42-ready .sx42-period{margin-bottom:80px}
  #experience.sx42-ready .sx42-date{font-size:18px;line-height:22px}
- #experience.sx42-ready .sx42-period-name{font-size:34px;line-height:40px}
+ #experience.sx42-ready .sx42-period-name{font-size:var(--ds-font-h3);line-height:var(--ds-line-h3)}
  #experience.sx42-ready .sx42-description{font-size:17px;line-height:24px}
  #experience.sx42-ready .sx42-rail{
   padding-inline:20px;scroll-padding-inline:20px;
@@ -154,7 +154,7 @@
   gap:12px;margin-bottom:48px;
  }
  #experience.sx42-ready .sx-experience-head h2{
-  font-size:clamp(32px,8vw,40px);line-height:1.1;
+  font-size:var(--ds-font-h2);line-height:var(--ds-line-h2);
  }
  #experience.sx42-ready .sx-experience-head > a{
   font-size:16px;
@@ -165,10 +165,10 @@
  }
  #experience.sx42-ready .sx42-date{font-size:14px;line-height:20px}
  #experience.sx42-ready .sx42-period-name{
-  font-size:30px;line-height:36px;margin-bottom:12px;
+  font-size:var(--ds-font-h3);line-height:var(--ds-line-h3);margin-bottom:12px;
  }
- #experience.sx42-ready .sx42-description{font-size:16px;line-height:23px}
- #experience.sx42-ready .sx42-role{font-size:13px;line-height:18px}
+ #experience.sx42-ready .sx42-description{font-size:var(--ds-font-body);line-height:var(--ds-line-body)}
+ #experience.sx42-ready .sx42-role{font-size:var(--ds-font-body-sm);line-height:var(--ds-line-body-sm)}
  #experience.sx42-ready .sx42-rail{
   padding-inline:16px;scroll-padding-inline:16px;
   gap:var(--ds-project-gap);
