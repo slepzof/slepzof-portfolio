@@ -5,15 +5,22 @@
   "use strict";
   const root=window;
   const ASSET="/assets/";
+  // Explicit source-matched light artwork. Never infer contrasting text from
+  // a category or global theme: Figma palette belongs to each cover.
   const tones={
-    "echo-app":"light","vita-ai":"light","luch":"light",
-    "city-exchange":"light","digital-lawyer":"light",
-    "pixel-drop":"light","aicors":"light","psychology":"light",
-    "domvrach":"light","pilots-app":"light","sailor-planner":"light",
-    "2space":"light","numa":"light","glavbankrot":"light",
-    "transport-tech":"light","trips":"light","pelikan":"light",
-    "media-garant":"light","invaprom":"light","fitness-pro":"light",
-    "parking":"light","restomesto":"light","history-app":"light"
+    "echo-app":"light",
+    "vita-ai":"light",
+    "luch":"light",
+    "city-exchange":"light",
+    "digital-lawyer":"light",
+    "psychology":"light",
+    "numa":"light",
+    "glavbankrot":"light",
+    "trips":"light",
+    "fitness-pro":"light",
+    "parking":"light",
+    "sailor-planner":"light",
+    "2space":"light"
   };
   function el(tag,cls,text){
     const node=document.createElement(tag);
