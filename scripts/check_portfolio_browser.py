@@ -186,6 +186,32 @@ QA_HTML = r"""<!doctype html>
   const reviewArrow=doc.querySelector('#experience .ds-review-card .sx25b3-arrow');
   ok(mode+" no testimonial arrows",!reviewArrow,!!reviewArrow);
   if(mode==="desktop"){
+   // Featured must use the exact same PDF-approved text as Experience.
+   const pdfSource=window.SlepzofWorkData?.pdfPeriodCards||{};
+   const featuredPdf=[
+     ["hash-hedge","hash","hash-hedge"],
+     ["onlinesklad","onlinesklad","onlinesklad"],
+     ["duckmaster","duck","duckmaster"],
+     ["sober-driver","sober","sober-driver"],
+     ["apple-bar","bonape","apple-bar"],
+     ["aicors","summer-2026","aicors"],
+     ["dead-choices","summer-2026","dead-choices"],
+     ["vezu-edu","bonape","vezu-edu"],
+     ["bonape","bonape","bonape-training"]
+   ];
+   const normalize=s=>(s||"").replace(/\\s+/g," ").trim();
+   for(const [slug,period,pdfSlug] of featuredPdf){
+     const card=pick('#selected a.sx25b3-card[data-sx25b3-slug="'+slug+'"]');
+     const approved=pdfSource[period]?.[pdfSlug];
+     ok("Featured title matches PDF "+slug,
+        !!card&&!!approved&&
+        normalize(card.querySelector("h3")?.textContent)===normalize(approved.title),
+        card?.querySelector("h3")?.textContent||"missing");
+     ok("Featured description matches PDF "+slug,
+        !!card&&!!approved&&
+        normalize(card.querySelector(".sx25b3-card-copy > p")?.textContent)===normalize(approved.description),
+        card?.querySelector(".sx25b3-card-copy > p")?.textContent||"missing");
+   }
    const featuredHeading=pick("#selected .sx25b3-section-head h2");
    const experienceHeading=pick("#experience .sx-experience-head h2");
    const featuredGridLeft=pick("#selected .sx25b3-section-head")?.getBoundingClientRect().left;
