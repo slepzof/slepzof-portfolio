@@ -364,6 +364,39 @@ if private_match:
            "Private practice projects must keep Figma source order")
 else:
     expect(False, "Private practice card sequence missing")
+# Exact normalized-text checksums of the 12 PDF period introductions.
+# These are derived from the supplied per-period PDF text, not generated copy.
+period_intro_pdf={
+    "auto-2026":("Автомобильная тематика.",0x190c5687),
+    "summer-2026":("Проектная работа",0x77dada02),
+    "hash":("Hash Hedge & WSCT",0xc0de685c),
+    "private-2025":("Частная практика",0xbce49771),
+    "nutaku":("Nutaku Projects (NDA 2026)",0x46e4e02f),
+    "duck":("Duck Master & Game Of Year",0xe1dc2ea1),
+    "bonape":("Bonape & Salute & Artsavur",0xb8c1c611),
+    "onlinesklad":("Onlinesklad",0x64b7e050),
+    "sober":("Трезвый Водитель",0x6d7cf715),
+    "forfis":("FORFIS AGENCY",0x40a7835c),
+    "2020-projects":("Частная практика",0xcce5a62d),
+    "media":("Развитие в медиа & RESTAR",0xc2b91bb),
+}
+found_periods=list(re.finditer(
+    r'\{id:"([^"]+)",date:"[^"]+",name:"([^"]+)",role:"[^"]+",desc:"([^"]+)",slugs:',
+    work_data))
+expect(len(found_periods)==12, "Twelve PDF period introductions must remain present")
+for item in found_periods:
+    period_id,heading,raw=item.groups()
+    if period_id not in period_intro_pdf:
+        expect(False,f"Unapproved period heading: {period_id}")
+        continue
+    expected_name,expected_hash=period_intro_pdf[period_id]
+    expect(heading==expected_name,f"PDF period title changed: {period_id}")
+    value=re.sub(r'\s+', ' ', raw).strip()
+    checksum=2166136261
+    for char in value:
+        checksum=((checksum ^ ord(char)) * 16777619) & 0xffffffff
+    expect(checksum==expected_hash,
+           f"PDF period introduction differs: {period_id} (got {checksum:#x})")
 if errors:
     print("Design system check FAILED:")
     for error in errors:
