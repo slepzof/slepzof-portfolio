@@ -65,6 +65,21 @@ QA_HTML = r"""<!doctype html>
       textViewport.getBoundingClientRect().bottom >
       portrait.getBoundingClientRect().top+4;
   }).map(card=>card.dataset.reviewId);
+  const allProjectCards=[...doc.querySelectorAll(
+    "#selected a.ds-project-card, #experience a.ds-project-card, #beyond-ui a.ds-project-card"
+  )];
+  // Text integrity is as important as the font sizes: detect impossible
+  // Figma layouts instead of silently hiding content with a line clamp.
+  const overflowingTitles=allProjectCards.filter(card=>{
+   const h=card.querySelector("h3,h4");
+   return h&&h.scrollWidth>h.clientWidth+2;
+  }).map(card=>card.dataset.slug||card.dataset.sx25b3Slug);
+  const copyMetricCollisions=allProjectCards.filter(card=>{
+   const copy=card.querySelector(".sx25b3-card-copy");
+   const foot=card.querySelector(".sx25b3-card-foot");
+   if(!copy||!foot||css(card).display==="none")return false;
+   return copy.getBoundingClientRect().bottom>foot.getBoundingClientRect().top+3;
+  }).map(card=>card.dataset.slug||card.dataset.sx25b3Slug);
   const selected=pick("#selected a.ds-project-card");
   const work=pick("#experience a.ds-project-card");
   const firstMeta=selected?.querySelector(".sx25b3-meta");
@@ -75,7 +90,8 @@ QA_HTML = r"""<!doctype html>
    selectedRadius:selected?css(selected).borderTopLeftRadius:null,
    selectedTitle:firstH?css(firstH).fontSize:null,
    selectedDescription:firstP?css(firstP).fontSize:null,
-   experienceWidth:work?.getBoundingClientRect().width,reviewCollisions};
+   experienceWidth:work?.getBoundingClientRect().width,
+   reviewCollisions,overflowingTitles,copyMetricCollisions};
   ok(mode+" 12 periods",periods.length===12,periods.length);
   ok(mode+" 15 reviews",reviews.length===15,reviews.length);
   ok(mode+" review text never overlaps the portrait",reviewCollisions.length===0,reviewCollisions.join(","));
