@@ -229,7 +229,7 @@
  }
  :is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-metric{
    max-width:calc(100% - 44px);min-height:36px;
-   padding:4px 8px 4px 3px;gap:1px;
+   padding:4px 28px 4px 3px;gap:1px;
  }
  :is(#selected,#beyond-ui,#experience) .ds-project-card .sx25b3-laurel{
    flex-basis:11px;width:11px;height:25px;

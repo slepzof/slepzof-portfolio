@@ -118,6 +118,15 @@ QA_HTML = r"""<!doctype html>
   const metricCss=(card,selector,prop)=>card?.querySelector(selector)?
       css(card.querySelector(selector))[prop]:null;
   const beyondCard=beyond[0];
+  // Approved +20px on the right side of each metric pill applies on mobile,
+  // too. The base desktop inset is 16px -> 36px; mobile 8px -> 28px.
+  const approvedMetricRight=mode==="mobile"?28:36;
+  for(const [kind,card] of [["Featured",selected],["Experience",work],["Beyond UI",beyondCard]]){
+   const pill=card?.querySelector(".sx25b3-metric");
+   ok(mode+" "+kind+" approved metric right padding",
+      !!pill&&eq(parseFloat(css(pill).paddingRight),approvedMetricRight),
+      pill?css(pill).paddingRight:"missing");
+  }
   for(const [kind,card] of [["Experience",work],["Beyond UI",beyondCard]]){
    ok(mode+" "+kind+" project typography matches Featured",
       !!card&&
