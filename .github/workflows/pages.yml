@@ -55,6 +55,8 @@ jobs:
           node --check js/sections/beyond-mobile-morph.js
       - name: Validate design-system tokens and homepage assets
         run: python3 scripts/check_design_system.py
+      - name: Browser parity test (desktop/mobile cards and carousels)
+        run: python3 scripts/check_portfolio_browser.py
       - name: Report CSS/JS dependencies (read-only)
         run: python3 scripts/audit_dependencies.py | tee "$GITHUB_STEP_SUMMARY"
       - name: Upload Pages artifact
