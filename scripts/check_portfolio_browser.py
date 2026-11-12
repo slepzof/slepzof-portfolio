@@ -222,6 +222,30 @@ QA_HTML = r"""<!doctype html>
    ok("RDMART restored PDF source artwork",
      !!rdmart&&rdmart.querySelector(".sx25b3-art")?.getAttribute("src")?.endsWith("/assets/cases/rdmart/cover-work.svg"),
      rdmart?.querySelector(".sx25b3-art")?.getAttribute("src")||"missing");
+   // Titles and descriptions are verified against the PDF, not truncated.
+   // The shared 356px card should show two and three complete lines respectively.
+   const summerSlugs=["vremena-goda","rsk","payment-gateway","exocure",
+                      "pixel-drop","dead-choices","aicors"];
+   for(const slug of summerSlugs){
+     const card=pick('#experience #summer-2026 a.ds-project-card[data-slug="'+slug+'"]');
+     const title=card?.querySelector(".sx25b3-card-copy h3");
+     const desc=card?.querySelector(".sx25b3-card-copy > p");
+     const lines=el=>{
+       if(!el)return -1;
+       const lh=parseFloat(css(el).lineHeight);
+       return lh>0?el.getBoundingClientRect().height/lh:-1;
+     };
+     ok("PDF two title lines "+slug,
+        !!title&&Math.abs(lines(title)-2)<.1,
+        title?lines(title):"missing");
+     ok("PDF three description lines "+slug,
+        !!desc&&Math.abs(lines(desc)-3)<.1,
+        desc?lines(desc):"missing");
+     ok("Full source copy visible "+slug,
+        !!title&&!!desc&&css(title).webkitLineClamp==="none"&&
+        css(desc).webkitLineClamp==="none",
+        title?.textContent||"missing");
+   }
    const expectedTone={
      "2space":"dark","glavbankrot":"dark","sailor-planner":"dark",
      "parking":"dark","digital-lawyer":"dark",
