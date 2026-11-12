@@ -210,6 +210,11 @@ QA_HTML = r"""<!doctype html>
        !!item&&item.dataset.tone===tone,
        item?.dataset.tone||"missing");
    }
+   for(const slug of ["parking","digital-lawyer","2space","forfis-new-site","bill-split","sailor-planner"]){
+     const item=pick('#experience #private-2025 a.ds-project-card[data-slug="'+slug+'"]');
+     const year=item?.querySelector(".sx25b3-meta span:last-child")?.textContent.trim();
+     ok("PDF project year 2025 "+slug,year==="2025",year||"missing");
+   }
    ok("Experience title uses H2 token (48/52)",
       !!experienceHeading&&eq(parseFloat(css(experienceHeading).fontSize),48)&&
       eq(parseFloat(css(experienceHeading).lineHeight),52),
