@@ -47,6 +47,13 @@ QA_HTML = r"""<!doctype html>
   const periods=doc.querySelectorAll("#experience.sx42-ready .sx42-period");
   const reviews=doc.querySelectorAll("#experience.sx42-ready .ds-review-card");
   const beyond=doc.querySelectorAll("#beyond-ui a.ds-project-card");
+  const source=frame.contentWindow.SlepzofWorkData;
+  const omittedProjects=source?.periods.flatMap(p=>
+     p.slugs.filter(slug=>!doc.querySelector(
+       '#experience .sx42-period[data-period="'+p.id+'"] [data-slug="'+slug+'"]'
+     )).map(slug=>p.id+":"+slug)
+  )||[];
+
   // Diagnostic for variable-length client testimonials inside the fixed
   // Figma 356x512 cards; captured before changing typography or crop rules.
   const reviewCollisions=[...reviews].filter(card=>{
@@ -64,7 +71,7 @@ QA_HTML = r"""<!doctype html>
   const firstH=selected?.querySelector("h3");
   const firstP=selected?.querySelector(".sx25b3-card-copy>p");
   metrics[mode]={periods:periods.length,workCards:cards.length,reviews:reviews.length,
-   beyondCards:beyond.length,selectedWidth:selected?.getBoundingClientRect().width,
+   beyondCards:beyond.length,omittedProjects,selectedWidth:selected?.getBoundingClientRect().width,
    selectedRadius:selected?css(selected).borderTopLeftRadius:null,
    selectedTitle:firstH?css(firstH).fontSize:null,
    selectedDescription:firstP?css(firstP).fontSize:null,
