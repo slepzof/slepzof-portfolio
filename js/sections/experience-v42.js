@@ -43,7 +43,7 @@
   // FitnessPro's original uploaded cover was filed under the normalized
   // "fitness-pro" slug. Use the actual source cover, never placeholder artwork.
   const sourceSlug=slug==="fitnesspro"?"fitness-pro":slug;
-  const uploaded=data.uploadedCovers.has(sourceSlug);
+  const uploaded=data.uploadedCovers.has(sourceSlug)||slug==="rdmart";
   if(!uploaded&&!legacy&&!featured)return null;
   const meta=[...(featured?.querySelectorAll(".sx25b3-meta span")||[])].map(x=>x.textContent.trim());
   const tags=[...(legacy?.querySelectorAll(".sx-tag")||[])].map(x=>x.textContent.trim());
@@ -65,7 +65,7 @@
     (oldMetric?
       {value:oldMetric.querySelector("strong")?.textContent.trim(),
        label:oldMetric.querySelector("span")?.textContent.trim()}:null));
-  const cover=uploaded?"/assets/cases/"+sourceSlug+"/cover-work.png":
+  const cover=uploaded?"/assets/cases/"+sourceSlug+"/cover-work."+(slug==="rdmart"?"svg":"png"):
     (featured?.querySelector(".sx25b3-art")?.getAttribute("src")||
      legacy?.querySelector(".sx-card-image img")?.getAttribute("src"));
   if(!cover)return null;
