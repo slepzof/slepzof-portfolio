@@ -199,7 +199,7 @@ QA_HTML = r"""<!doctype html>
       !!featuredRail&&featuredRail.scrollWidth>featuredRail.clientWidth,
       featuredViewport?.getBoundingClientRect().left);
    // Design source contracts: every FORFIS/BONAPE project must show a metric.
-   for(const [period,expected] of [["forfis",15],["bonape",27]]){
+   for(const [period,expected] of [["forfis",15],["bonape",27],["private-2025",27]]){
      const cards=[...document.querySelectorAll("#experience #"+period+" a.ds-project-card[data-slug]")];
      ok("PDF period "+period+" has all "+expected+" projects",
        cards.length===expected,cards.length);
@@ -246,9 +246,29 @@ QA_HTML = r"""<!doctype html>
         css(desc).webkitLineClamp==="none",
         title?.textContent||"missing");
    }
+   const approved2025={
+     "twin-finder":["Поиск двойников с помощью AI","Найти похожего человека умеет технология. Превратить результат в интересный продукт сложнее."],
+     "2space":["Сайт для агентства TMA приложений","Создание сайта с предложением на разработку TMA под заказ, с ИИ калькулятором для клиентов."],
+     "forfis-new-site":["Сайт для агентства полного цикла","Редизайн сайта партнера с ИИ калькулятором и проработкой GEO запросов для нейросетей."],
+     "media-garant":["Гарант для сделок с цифровыми активами","Ошибка может стоить денег. Поэтому каждый этап сделки должен быть прозрачным."],
+     "digital-lawyer":["Продукт для поиска юриста через ИИ","Искусственный интеллект не сможет заменить полноценно юриста, но поможет найти лучшего."],
+     "nda-web3":["Закрытый продукт для майнинга","Проектирование Web3-интерфейса. Подробности продукта и название не раскрываются."],
+     "bill-split":["Приложение для разделения расходов","Один платит за всех, другой только за себя. И это ещё до полной мультивалютности и долгов."]
+   };
+   for(const [slug,[title,description]] of Object.entries(approved2025)){
+     const card=pick('#experience #private-2025 a.ds-project-card[data-slug="'+slug+'"]');
+     ok("PDF title "+slug,!!card&&card.querySelector("h3")?.textContent===title,
+        card?.querySelector("h3")?.textContent||"missing");
+     ok("PDF description "+slug,!!card&&card.querySelector(".sx25b3-card-copy > p")?.textContent===description,
+        card?.querySelector(".sx25b3-card-copy > p")?.textContent||"missing");
+   }
+   const nda2025=pick('#experience #private-2025 a.ds-project-card[data-slug="nda-web3"]');
+   ok("PDF NDA Web3 artwork exists",
+     !!nda2025&&nda2025.querySelector("img.sx25b3-art")?.getAttribute("src")?.endsWith("/assets/cases/nda-web3/cover-work.svg"),
+     nda2025?.querySelector("img.sx25b3-art")?.getAttribute("src")||"missing");
    const expectedTone={
      "2space":"dark","glavbankrot":"dark","sailor-planner":"dark",
-     "parking":"dark","digital-lawyer":"dark",
+     "parking":"dark","digital-lawyer":"dark","twin-finder":"dark","media-garant":"dark",
      "forfis-new-site":"light","bill-split":"light",
      "poker-n-sluts":"light","desire-inn":"light"
    };
