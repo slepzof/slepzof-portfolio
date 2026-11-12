@@ -107,6 +107,13 @@ QA_HTML = r"""<!doctype html>
   ok(mode+" same project headline size",
    eq(parseFloat(css(firstH).fontSize),parseFloat(css(work.querySelector("h3")).fontSize)),
    css(firstH).fontSize+"/"+css(work.querySelector("h3")).fontSize);
+  if(mode==="desktop"){
+   const approvedTitle=css(firstH);
+   ok("Figma desktop project title exactly 28/32",
+      eq(parseFloat(approvedTitle.fontSize),28)&&
+      eq(parseFloat(approvedTitle.lineHeight),32),
+      approvedTitle.fontSize+"/"+approvedTitle.lineHeight);
+  }
   ok(mode+" same project description size",
    eq(parseFloat(css(firstP).fontSize),
       parseFloat(css(work.querySelector(".sx25b3-card-copy>p")).fontSize)),
