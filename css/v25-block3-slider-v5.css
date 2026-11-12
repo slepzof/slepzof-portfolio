@@ -29,7 +29,7 @@
 #selected .sx25b3-section-head p{
  font:400 20px/1.167 var(--ds-font-family);
  letter-spacing:-.025em;color:#757575;
- max-width:625px;margin:0;padding:0;
+ max-width:var(--ds-container-narrow);margin:0;padding:0;
 }
 #selected .sx25b3-section-head strong{font-weight:520;color:#171717}
 #selected .sx25b3-inner--gallery{
