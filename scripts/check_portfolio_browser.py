@@ -298,14 +298,16 @@ QA_HTML = r"""<!doctype html>
        cards.length>90&&failures.length===0,failures.slice(0,15));
    }
    const expectedTone={
-     "2space":"dark","glavbankrot":"dark","sailor-planner":"dark",
-     "parking":"dark","digital-lawyer":"dark","twin-finder":"dark","media-garant":"dark",
-     "forfis-new-site":"light","bill-split":"light",
-     "poker-n-sluts":"light","desire-inn":"light"
+     "2space":["private-2025","dark"],"sailor-planner":["private-2025","dark"],
+     "parking":["private-2025","dark"],"digital-lawyer":["private-2025","dark"],
+     "twin-finder":["private-2025","dark"],"media-garant":["private-2025","dark"],
+     "forfis-new-site":["private-2025","light"],"bill-split":["private-2025","light"],
+     "poker-n-sluts":["nutaku","light"],"desire-inn":["nutaku","light"],
+     "glavbankrot":["bonape","light"]
    };
-   for(const [slug,tone] of Object.entries(expectedTone)){
-     const item=pick('#experience #private-2025 a.ds-project-card[data-slug="'+slug+'"]');
-     ok("PDF text contrast "+slug,
+   for(const [slug,[period,tone]] of Object.entries(expectedTone)){
+     const item=pick('#experience #'+period+' a.ds-project-card[data-slug="'+slug+'"]');
+     ok("PDF text contrast "+period+"/"+slug,
        !!item&&item.dataset.tone===tone,
        item?.dataset.tone||"missing");
    }
