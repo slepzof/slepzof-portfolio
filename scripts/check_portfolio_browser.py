@@ -52,8 +52,10 @@ QA_HTML = r"""<!doctype html>
   const reviewCollisions=[...reviews].filter(card=>{
    const tail=card.querySelector(".ds-review-card__body")||
        card.querySelector(".ds-review-card__lead");
+   const textViewport=card.querySelector(".ds-review-card__text")||tail;
    const portrait=card.querySelector(".ds-review-card__portrait");
-   return !!tail&&!!portrait&&tail.getBoundingClientRect().bottom >
+   return !!tail&&!!portrait&&
+      textViewport.getBoundingClientRect().bottom >
       portrait.getBoundingClientRect().top+4;
   }).map(card=>card.dataset.reviewId);
   const selected=pick("#selected a.ds-project-card");
@@ -69,6 +71,7 @@ QA_HTML = r"""<!doctype html>
    experienceWidth:work?.getBoundingClientRect().width,reviewCollisions};
   ok(mode+" 12 periods",periods.length===12,periods.length);
   ok(mode+" 15 reviews",reviews.length===15,reviews.length);
+  ok(mode+" review text never overlaps the portrait",reviewCollisions.length===0,reviewCollisions.join(","));
   ok(mode+" 100+ project and testimonial cards",cards.length>=90,cards.length);
   ok(mode+" 8 Beyond skills",beyond.length>=24,beyond.length);
   ok(mode+" Featured and Experience share ProjectCard",!!selected&&!!work,
@@ -96,6 +99,17 @@ QA_HTML = r"""<!doctype html>
   }
   const hash=pick('#experience [data-period="hash"]');
   ok(mode+" Hash period retained",!!hash,hash?.id);
+  if(mode==="mobile"){
+   const overflowing=[...reviews].filter(card=>{
+    const region=card.querySelector(".ds-review-card__text");
+    return region&&region.scrollHeight>region.clientHeight+2;
+   });
+   ok("Long mobile reviews remain scrollable",overflowing.length>0,
+      overflowing.length);
+   ok("Mobile testimonial text uses scroll instead of clipping",
+     [...reviews].every(card=>css(card.querySelector(".ds-review-card__text")).overflowY==="auto"),
+     "region overflow-y");
+  }
   const reviewArrow=doc.querySelector('#experience .ds-review-card .sx25b3-arrow');
   ok(mode+" no testimonial arrows",!reviewArrow,!!reviewArrow);
   if(mode==="desktop"){
