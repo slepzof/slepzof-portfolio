@@ -229,7 +229,7 @@ QA_HTML = r"""<!doctype html>
      "poker-n-sluts":"light","desire-inn":"light"
    };
    for(const [slug,tone] of Object.entries(expectedTone)){
-     const item=pick('#experience a.ds-project-card[data-slug="'+slug+'"]');
+     const item=pick('#experience #private-2025 a.ds-project-card[data-slug="'+slug+'"]');
      ok("PDF text contrast "+slug,
        !!item&&item.dataset.tone===tone,
        item?.dataset.tone||"missing");
