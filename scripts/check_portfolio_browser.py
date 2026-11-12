@@ -211,6 +211,14 @@ QA_HTML = r"""<!doctype html>
         !!card&&!!approved&&
         normalize(card.querySelector(".sx25b3-card-copy > p")?.textContent)===normalize(approved.description),
         card?.querySelector(".sx25b3-card-copy > p")?.textContent||"missing");
+     ok("Featured metric value matches PDF "+slug,
+        !!card&&!!approved&&
+        normalize(card.querySelector(".sx25b3-metric > strong")?.textContent)===normalize(approved.metric?.[0]),
+        card?.querySelector(".sx25b3-metric > strong")?.textContent||"missing");
+     ok("Featured metric caption matches PDF "+slug,
+        !!card&&!!approved&&
+        normalize(card.querySelector(".sx25b3-metric > span")?.textContent)===normalize(approved.metric?.[1]),
+        card?.querySelector(".sx25b3-metric > span")?.textContent||"missing");
    }
    const featuredHeading=pick("#selected .sx25b3-section-head h2");
    const experienceHeading=pick("#experience .sx-experience-head h2");
