@@ -39,6 +39,7 @@
   const featured=selected.get(slug);
   const extra=data.extraProjects[slug];
   const approved2020=period.id==="2020-projects"?data.periodCardOverrides?.["2020-projects"]?.[slug]:null;
+  const fromPdf=data.pdfPeriodCards?.[period.id]?.[slug]||null;
   // FitnessPro's original uploaded cover was filed under the normalized
   // "fitness-pro" slug. Use the actual source cover, never placeholder artwork.
   const sourceSlug=slug==="fitnesspro"?"fitness-pro":slug;
@@ -46,16 +47,16 @@
   if(!uploaded&&!legacy&&!featured)return null;
   const meta=[...(featured?.querySelectorAll(".sx25b3-meta span")||[])].map(x=>x.textContent.trim());
   const tags=[...(legacy?.querySelectorAll(".sx-tag")||[])].map(x=>x.textContent.trim());
-  const name=approved2020?.name||extra?.[0]||meta[0]||legacy?.querySelector("h4")?.textContent.trim()||slug;
-  const title=approved2020?.title||extra?.[1]||featured?.querySelector("h3")?.textContent.replace(/\s+/g," ").trim()||legacy?.querySelector("h4")?.textContent.trim()||name;
-  const description=approved2020?.description||extra?.[2]||featured?.querySelector(".sx25b3-card-copy > p")?.textContent.trim()||
+  const name=fromPdf?.name||approved2020?.name||extra?.[0]||meta[0]||legacy?.querySelector("h4")?.textContent.trim()||slug;
+  const title=fromPdf?.title||approved2020?.title||extra?.[1]||featured?.querySelector("h3")?.textContent.replace(/\s+/g," ").trim()||legacy?.querySelector("h4")?.textContent.trim()||name;
+  const description=fromPdf?.description||approved2020?.description||extra?.[2]||featured?.querySelector(".sx25b3-card-copy > p")?.textContent.trim()||
     legacy?.querySelector(".sx-card-copy > p")?.textContent.trim()||"";
-  const category=approved2020?.category||data.coverIndustries[slug]||extra?.[4]||meta[1]||tags[0]||"PROJECT";
+  const category=fromPdf?.category||approved2020?.category||data.coverIndustries[slug]||extra?.[4]||meta[1]||tags[0]||"PROJECT";
   const periodDefaultYear=(period.id==="private-2025"||period.id==="nutaku")?"2025":period.date.match(/20\d\d/)?.[0];
   const year=yearOverrides[slug]||periodDefaultYear||meta[2]||"";
   const oldMetric=legacy?.querySelector(".sx-card-metric");
   const featuredMetric=featured?.querySelector(".sx25b3-metric");
-  const approved=approved2020?.metric||data.coverMetrics[slug];
+  const approved=fromPdf?.metric||approved2020?.metric||data.coverMetrics[slug];
   const metric=approved?
     {value:approved[0],label:approved[1]}:
     (featuredMetric?
