@@ -19,7 +19,8 @@
  for(const card of document.querySelectorAll("#selected a.sx25b3-card[data-sx25b3-slug]")){
   selected.set(card.dataset.sx25b3Slug,card);
  }
- const pdfWebpCovers=new Set(["internship-platform","avtoshkola","domashniy-doktor"]);\n const el=(tag,cls,content)=>{
+ const pdfWebpCovers=new Set(["internship-platform","avtoshkola","domashniy-doktor"]);
+ const el=(tag,cls,content)=>{
   const node=document.createElement(tag);
   if(cls)node.className=cls;
   if(content!==undefined)node.textContent=content;
@@ -33,7 +34,9 @@
   // FitnessPro's original uploaded cover was filed under the normalized
   // "fitness-pro" slug. Use the actual source cover, never placeholder artwork.
   const sourceSlug=slug==="fitnesspro"?"fitness-pro":slug;
-  const uploaded=data.uploadedCovers.has(sourceSlug)||slug==="rdmart"||slug==="nda-web3";\n  const pdfWebp=pdfWebpCovers.has(sourceSlug);\n  if(!uploaded&&!pdfWebp&&!legacy&&!featured)return null;
+  const uploaded=data.uploadedCovers.has(sourceSlug)||slug==="rdmart"||slug==="nda-web3";
+  const pdfWebp=pdfWebpCovers.has(sourceSlug);
+  if(!uploaded&&!pdfWebp&&!legacy&&!featured)return null;
   // The source PDF registry is authoritative for every published work card.
   // Do not reintroduce copy from older marketing data or legacy DOM fallbacks.
   if(!fromPdf||!fromPdf.name||!fromPdf.title||!fromPdf.description||
@@ -48,7 +51,9 @@
   const category=fromPdf.category;
   const year=fromPdf.year;
   const metric={value:fromPdf.metric[0],label:fromPdf.metric[1]};
-  const cover=pdfWebp?"/assets/cases/"+sourceSlug+"/cover.webp":\n    uploaded?"/assets/cases/"+sourceSlug+"/cover-work."+(slug==="rdmart"||slug==="nda-web3"?"svg":"png"):\n    (featured?.querySelector(".sx25b3-art")?.getAttribute("src")||
+  const cover=pdfWebp?"/assets/cases/"+sourceSlug+"/cover.webp":
+    uploaded?"/assets/cases/"+sourceSlug+"/cover-work."+(slug==="rdmart"||slug==="nda-web3"?"svg":"png"):
+    (featured?.querySelector(".sx25b3-art")?.getAttribute("src")||
      legacy?.querySelector(".sx-card-image img")?.getAttribute("src"));
   if(!cover)return null;
   return {
