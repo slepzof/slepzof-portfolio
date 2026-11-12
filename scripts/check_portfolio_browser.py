@@ -47,6 +47,15 @@ QA_HTML = r"""<!doctype html>
   const periods=doc.querySelectorAll("#experience.sx42-ready .sx42-period");
   const reviews=doc.querySelectorAll("#experience.sx42-ready .ds-review-card");
   const beyond=doc.querySelectorAll("#beyond-ui a.ds-project-card");
+  // Diagnostic for variable-length client testimonials inside the fixed
+  // Figma 356x512 cards; captured before changing typography or crop rules.
+  const reviewCollisions=[...reviews].filter(card=>{
+   const tail=card.querySelector(".ds-review-card__body")||
+       card.querySelector(".ds-review-card__lead");
+   const portrait=card.querySelector(".ds-review-card__portrait");
+   return !!tail&&!!portrait&&tail.getBoundingClientRect().bottom >
+      portrait.getBoundingClientRect().top+4;
+  }).map(card=>card.dataset.reviewId);
   const selected=pick("#selected a.ds-project-card");
   const work=pick("#experience a.ds-project-card");
   const firstMeta=selected?.querySelector(".sx25b3-meta");
@@ -57,7 +66,7 @@ QA_HTML = r"""<!doctype html>
    selectedRadius:selected?css(selected).borderTopLeftRadius:null,
    selectedTitle:firstH?css(firstH).fontSize:null,
    selectedDescription:firstP?css(firstP).fontSize:null,
-   experienceWidth:work?.getBoundingClientRect().width};
+   experienceWidth:work?.getBoundingClientRect().width,reviewCollisions};
   ok(mode+" 12 periods",periods.length===12,periods.length);
   ok(mode+" 15 reviews",reviews.length===15,reviews.length);
   ok(mode+" 100+ project and testimonial cards",cards.length>=90,cards.length);
