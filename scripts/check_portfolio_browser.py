@@ -199,7 +199,7 @@ QA_HTML = r"""<!doctype html>
      ["vezu-edu","bonape","vezu-edu"],
      ["bonape","bonape","bonape-training"]
    ];
-   const normalize=s=>(s||"").replace(/\\s+/g," ").trim();
+   const normalize=s=>(s||"").replace(/\s+/g," ").trim();
    for(const [slug,period,pdfSlug] of featuredPdf){
      const card=pick('#selected a.sx25b3-card[data-sx25b3-slug="'+slug+'"]');
      const approved=pdfSource[period]?.[pdfSlug];
