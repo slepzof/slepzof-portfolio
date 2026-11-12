@@ -39,7 +39,7 @@
 }
 #selected .sx25b3-viewport{
   position:relative;
-  width:calc(100% + max(24px,(100vw - var(--ds-container-max))/2));
+  width:calc(100% + max(24px,calc((100vw - var(--ds-container-max)) / 2)));
   overflow:visible;
 }
 #selected .sx25b3-rail{
