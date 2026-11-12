@@ -198,6 +198,30 @@ QA_HTML = r"""<!doctype html>
       !!featuredViewport&&Math.abs(featuredViewport.getBoundingClientRect().left)<2&&
       !!featuredRail&&featuredRail.scrollWidth>featuredRail.clientWidth,
       featuredViewport?.getBoundingClientRect().left);
+   // Design source contracts: every FORFIS/BONAPE project must show a metric.
+   for(const [period,expected] of [["forfis",15],["bonape",27]]){
+     const cards=[...document.querySelectorAll("#experience #"+period+" a.ds-project-card[data-slug]")];
+     ok("PDF period "+period+" has all "+expected+" projects",
+       cards.length===expected,cards.length);
+     ok("PDF period "+period+" contains achievements on every project",
+       cards.length===expected&&cards.every(card=>!!card.querySelector(".sx25b3-metric")),
+       cards.filter(card=>!card.querySelector(".sx25b3-metric")).map(card=>card.dataset.slug));
+   }
+   const periodTones=[
+     ["forfis","psychology","light"],["forfis","trips","dark"],
+     ["bonape","apple-bar","light"],["bonape","slab-service","light"],
+     ["bonape","x6","light"],["bonape","glavbankrot","light"],
+     ["bonape","numa","light"],["bonape","winline","dark"]
+   ];
+   for(const [period,slug,tone] of periodTones){
+     const card=pick('#experience #'+period+' a.ds-project-card[data-slug="'+slug+'"]');
+     ok("PDF period-specific contrast "+period+"/"+slug,
+       !!card&&card.dataset.tone===tone,card?.dataset.tone||"missing");
+   }
+   const rdmart=pick('#experience #bonape a.ds-project-card[data-slug="rdmart"]');
+   ok("RDMART restored PDF source artwork",
+     !!rdmart&&rdmart.querySelector(".sx25b3-art")?.getAttribute("src")?.endsWith("/assets/cases/rdmart/cover-work.svg"),
+     rdmart?.querySelector(".sx25b3-art")?.getAttribute("src")||"missing");
    const expectedTone={
      "2space":"dark","glavbankrot":"dark","sailor-planner":"dark",
      "parking":"dark","digital-lawyer":"dark",
