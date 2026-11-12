@@ -263,6 +263,18 @@ if metrics_match:
            "Restored source PDF achievements must not disappear")
 else:
     expect(False, "Source PDF achievement map not found")
+expect("white-space:pre-line" in cards_css and
+       '"parking":["4,9","оценка приложения\\nв App Store & Google Play"]' in work_data and
+       '"digital-lawyer":["#1","продукт недели\\nна Product Radar"]' in work_data,
+       "Approved PDF achievement breaks must be retained by shared cards")
+expect('"parking":"light"' not in cards_js and
+       '"digital-lawyer":"light"' not in cards_js and
+       '"forfis-new-site":"light"' in cards_js and
+       '"bill-split":"light"' in cards_js,
+       "Source PDF card contrast must not regress")
+expect('periodDefaultYear' in work_render and
+       '"greenbox":"2025"' in work_render,
+       "2025 project years must not derive from 2024 period start")
 expect("css/system/portfolio-projects.css" in html,
        "Every project section must load canonical Figma card CSS")
 legacy_mobile = (ROOT / "css/v39-beyond-mobile-space.css").read_text("utf-8")
