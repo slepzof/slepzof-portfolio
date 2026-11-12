@@ -275,6 +275,17 @@ expect('"parking":"light"' not in cards_js and
 expect('periodDefaultYear' in work_render and
        '"greenbox":"2025"' in work_render,
        "2025 project years must not derive from 2024 period start")
+expect("--ds-project-title-weight:" in tokens and
+       "var(--ds-project-title-weight)" in cards_css and
+       "font-size:var(--ds-project-title-size)" in cards_css and
+       "line-height:var(--ds-project-title-line)" in cards_css,
+       "Project typography must use only approved design tokens")
+expect('"bonape": {' in work_data and
+       '"forfis": {' in work_data and
+       '"rdmart": {' in work_data and
+       "fromPdf?.tone" in work_render and
+       "fromPdf?.year" in work_render,
+       "PDF-specific card content, contrast and year must be source-driven")
 expect("css/system/portfolio-projects.css" in html,
        "Every project section must load canonical Figma card CSS")
 legacy_mobile = (ROOT / "css/v39-beyond-mobile-space.css").read_text("utf-8")
