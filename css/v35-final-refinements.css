@@ -61,11 +61,7 @@
   }
 }
 
-/* Mobile project-card typography and geometry now belong exclusively
-   to css/system/portfolio-projects.css. Keep this approved manual break. */
-@media(max-width:560px){
- #selected [data-sx25b3-slug="vezu-edu"] .sx25b3-metric br.sx25b3-approved-break{display:none}
-}
+/* Approved metric line breaks remain visible at every viewport width. */
 /* Blend the hero's placeholder into the animation instead of an abrupt swap. */
 @media (max-width:800px) {
   .sx26-block1 .sx25-animation-wrap .sx20-static-fallback {
