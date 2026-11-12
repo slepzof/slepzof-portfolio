@@ -183,12 +183,12 @@
 #experience.sx42-ready .ds-review-card__lead{
   position:relative;z-index:2;
   margin:0 0 8px;color:#111;
-  font:510 20px/24px var(--ds-font-family);
+  font:510 var(--ds-font-lead)/var(--ds-line-body) var(--ds-font-family);
 }
 #experience.sx42-ready .ds-review-card__body{
   position:relative;z-index:2;
   margin:0;color:#262626;
-  font:400 16px/20px var(--ds-font-family);
+  font:400 var(--ds-font-body)/var(--ds-line-card) var(--ds-font-family);
 }
 #experience.sx42-ready .ds-review-card__portrait{
   display:block;position:absolute;z-index:1;
