@@ -233,9 +233,10 @@ expect('sx25b3-inner sx25b3-inner--gallery' in html and
        "Featured gallery must start at the approved container grid")
 expect('перед&nbsp;компанией.' in html,
        "Featured introduction must not orphan its final word")
-expect("periodCardOverrides" in work_data and
-       'approved2020?.title' in work_render,
-       "All 2020 card titles must be sourced from approved PDF overrides")
+expect("pdfPeriodCards" in work_data and
+       "const title=fromPdf.title" in work_render and
+       "const description=fromPdf.description" in work_render,
+       "Every project title and description must be copied only from the approved PDF registry")
 expect("!important" not in work_css and
        "sx42-card-metric" not in work_css and
        "sx42-fact" not in work_css,
@@ -272,9 +273,9 @@ expect('"parking":"light"' not in cards_js and
        '"forfis-new-site":"light"' in cards_js and
        '"bill-split":"light"' in cards_js,
        "Source PDF card contrast must not regress")
-expect('periodDefaultYear' in work_render and
-       '"greenbox":"2025"' in work_render,
-       "2025 project years must not derive from 2024 period start")
+expect("const year=fromPdf.year" in work_render and
+       '"greenbox": {' in work_data,
+       "Project years must come from the approved source PDF, not employment period dates")
 expect("--ds-project-title-weight:" in tokens and
        "var(--ds-project-title-weight)" in cards_css and
        "font-size:var(--ds-project-title-size)" in cards_css and
@@ -316,8 +317,8 @@ else:
 expect('"bonape": {' in work_data and
        '"forfis": {' in work_data and
        '"rdmart": {' in work_data and
-       "fromPdf?.tone" in work_render and
-       "fromPdf?.year" in work_render,
+       "tone:fromPdf.tone" in work_render and
+       "const year=fromPdf.year" in work_render,
        "PDF-specific card content, contrast and year must be source-driven")
 expect("css/system/portfolio-projects.css" in html,
        "Every project section must load canonical Figma card CSS")
