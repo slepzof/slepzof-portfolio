@@ -1,5 +1,5 @@
 /* SLEPZOF Beyond UI v29: visual refinement, does not touch other sections */
-#beyond-ui.sx28-beyond{--sx28-card-width:270px}
+#beyond-ui.sx28-beyond{--sx28-card-width:var(--ds-project-width)}
 /* The intro heading remains at the approved 75% size. */
 #beyond-ui .sx28-intro h2{font-size:clamp(28px,3.45vw,57px)!important}
 @media(max-width:800px){#beyond-ui .sx28-intro h2{font-size:clamp(26px,4.65vw,37.5px)!important}}
