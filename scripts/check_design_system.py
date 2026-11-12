@@ -341,7 +341,7 @@ if period_source_match:
                f"Approved PDF card text/design changed in {period_id}: {checksum:#x}")
     expect("poizon-shop" not in source_cards.get("bonape", {}),
            "POIZON SHOP must remain excluded from the portfolio")
-    expect((ROOT / "assets/cases/rdmart/cover-work.svg").is_file(),
+    expect((ROOT / "assets/cases/rdmart/cover-work.png").is_file(),
            "RDMART project cover must exist")
 else:
     expect(False, "PDF period cards registry missing or not valid JSON")
