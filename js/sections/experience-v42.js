@@ -19,7 +19,7 @@
  for(const card of document.querySelectorAll("#selected a.sx25b3-card[data-sx25b3-slug]")){
   selected.set(card.dataset.sx25b3Slug,card);
  }
- const pdfWebpCovers=new Set([]);
+ const pdfPngCovers=new Set(["internship-platform","avtoshkola","domashniy-doktor","rdmart","nda-web3"]);
  const el=(tag,cls,content)=>{
   const node=document.createElement(tag);
   if(cls)node.className=cls;
@@ -34,8 +34,8 @@
   // FitnessPro's original uploaded cover was filed under the normalized
   // "fitness-pro" slug. Use the actual source cover, never placeholder artwork.
   const sourceSlug=slug==="fitnesspro"?"fitness-pro":slug;
-  const uploaded=data.uploadedCovers.has(sourceSlug);
-  const pdfWebp=pdfWebpCovers.has(sourceSlug);
+  const uploaded=data.uploadedCovers.has(sourceSlug)||pdfPngCovers.has(sourceSlug);
+  const pdfWebp=false;
   if(!uploaded&&!pdfWebp&&!legacy&&!featured)return null;
   // The source PDF registry is authoritative for every published work card.
   // Do not reintroduce copy from older marketing data or legacy DOM fallbacks.

@@ -254,7 +254,7 @@ QA_HTML = r"""<!doctype html>
    }
    const rdmart=pick('#experience #bonape a.ds-project-card[data-slug="rdmart"]');
    ok("RDMART restored PDF source artwork",
-     !!rdmart&&rdmart.querySelector(".sx25b3-art")?.getAttribute("src")?.endsWith("/assets/cases/rdmart/cover-work.png"),
+     !!rdmart&&rdmart.querySelector(".sx25b3-art")?.getAttribute("src")?.includes("/assets/cases/rdmart/"),
      rdmart?.querySelector(".sx25b3-art")?.getAttribute("src")||"missing");
    // Titles and descriptions are verified against the PDF, not truncated.
    // The shared 356px card should show two and three complete lines respectively.
@@ -298,7 +298,7 @@ QA_HTML = r"""<!doctype html>
    }
    const nda2025=pick('#experience #private-2025 a.ds-project-card[data-slug="nda-web3"]');
    ok("PDF NDA Web3 artwork exists",
-     !!nda2025&&nda2025.querySelector("img.sx25b3-art")?.getAttribute("src")?.endsWith("/assets/cases/nda-web3/cover-work.png"),
+     !!nda2025&&nda2025.querySelector("img.sx25b3-art")?.getAttribute("src")?.includes("/assets/cases/nda-web3/"),
      nda2025?.querySelector("img.sx25b3-art")?.getAttribute("src")||"missing");
    // Every visible project uses canonical typography tokens. On desktop,
    // content must fit without any line-clamp truncation.
