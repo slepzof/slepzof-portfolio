@@ -53,7 +53,7 @@
 #beyond-ui .sx28-carousel-rail::-webkit-scrollbar{display:none}
 #beyond-ui .sx28-carousel-rail:focus-visible{outline:2px solid var(--sx28-blue);outline-offset:-2px}
 /* Exact Onlinesklad approved card: copy/data, cover art, complete metric, laurels and arrow are preserved. */
-#beyond-ui a.sx28-card{display:block;flex:0 0 var(--sx28-card-width);width:var(--sx28-card-width);min-width:var(--sx28-card-width);max-width:var(--sx28-card-width);height:auto;aspect-ratio:1424/2048;position:relative;isolation:isolate;overflow:hidden;margin:0;padding:0;text-decoration:none;color:#fff;border:0;border-radius:27px;background:#24c9ce;scroll-snap-align:start;transform:translateZ(0);transition:transform .48s cubic-bezier(.2,.7,.3,1),box-shadow .48s ease}
+#beyond-ui a.sx28-card{display:block;flex:0 0 var(--sx28-card-width);width:var(--sx28-card-width);min-width:var(--sx28-card-width);max-width:var(--sx28-card-width);height:auto;aspect-ratio:1424/2048;position:relative;isolation:isolate;overflow:hidden;margin:0;padding:0;text-decoration:none;color:#fff;border:0;border-radius:var(--ds-project-radius,32px);background:#24c9ce;scroll-snap-align:start;transform:translateZ(0);transition:transform .48s cubic-bezier(.2,.7,.3,1),box-shadow .48s ease}
 /* ProjectCard contents (cover, typography, laurels, link arrow) are now
    fully defined once in css/system/portfolio-projects.css. */
 #beyond-ui a.sx28-card:focus-visible{outline:2px solid #00bafa;outline-offset:3px}
