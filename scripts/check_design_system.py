@@ -235,6 +235,32 @@ expect("sx25b3-card-foot" in cards_css and
        "sx25b3-laurel" in cards_css and
        "sx25b3-arrow" in cards_css,
        "Metric and SVG arrow primitives must be shared")
+# Figma source metrics: no missing laurels on the four reported light cards.
+metrics_match = re.search(r' const coverMetrics=(\\{[^\\n]+\\});', work_data)
+if metrics_match:
+    metrics_map = json.loads(metrics_match.group(1))
+    for slug, expected in {
+        "echo-app": "9", "vita-ai": "4,4",
+        "luch": "4,9", "city-exchange": "4,2k",
+        "chatus": "841k", "starhash-benchmark": "34,2k",
+        "2space": "182", "digital-lawyer": "#1",
+    }.items():
+        expect(slug in metrics_map and metrics_map[slug][0] == expected,
+               f"Figma project achievement missing or changed: {slug}")
+    expect(len(metrics_map) >= 49,
+           "Restored source PDF achievements must not disappear")
+else:
+    expect(False, "Source PDF achievement map not found")
+expect("css/system/portfolio-projects.css" in html,
+       "Every project section must load canonical Figma card CSS")
+legacy_mobile = (ROOT / "css/v39-beyond-mobile-space.css").read_text("utf-8")
+expect("#selected .sx25b3-card p," not in legacy_mobile,
+       "Do not accidentally apply 800px Beyond runway to Featured descriptions")
+legacy_beyond = (ROOT / "css/v33-beyond-ui-story.css").read_text("utf-8")
+expect("#selected .sx25b3-metric {padding-right:24px!important;}" not in legacy_beyond,
+       "Remove outdated duplicated metric overrides")
+expect((ROOT / "scripts/check_portfolio_browser.py").is_file(),
+       "Actual desktop/mobile Chrome regression test must be committed")
 work_periods = re.findall(r'\{id:"([^"]+)",date:"', work_data)
 expect(len(work_periods) == 12 and len(set(work_periods)) == 12,
        "All twelve distinct approved employment periods must be retained")
