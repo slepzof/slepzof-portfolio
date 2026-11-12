@@ -19,7 +19,7 @@ def expect(ok, why):
         errors.append(why)
 
 for name in ("tokens", "typography", "layout", "components"):
-    expect(f'@import url("system/{name}.css")' in legacy_entry,
+    expect(re.search(r'@import url\("system/'+name+r'\.css(?:\?v=\d+)?"\)', legacy_entry) is not None,
            f"Global design-system import missing in v10.css: {name}")
 expect('/css/v10.css' in html, "Homepage must load the shared CSS entrypoint")
 for token in ("--ds-container-max: 1116px", "--ds-font-h1: 56px",
