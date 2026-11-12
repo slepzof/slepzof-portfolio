@@ -1,0 +1,193 @@
+#!/usr/bin/env python3
+"""Headless Chromium smoke test for the actual built homepage, not source strings.
+
+Check Figma component parity across Featured / Beyond UI / Work Experience,
+including Safari-safe scroll primitives, restored metrics and light cover contrast.
+All files under dist/__qa_portfolio.html are temporary and not deployed.
+Uses only Python stdlib and Chrome preinstalled in GitHub Actions Ubuntu runner.
+"""
+from __future__ import annotations
+
+import html
+import json
+import re
+import shutil
+import subprocess
+import tempfile
+import time
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+DIST = ROOT / "dist"
+BASE = "slepzof-portfolio"
+
+QA_HTML = r"""<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>QA-running</title>
+<style>
+  body{margin:0;background:#fff}
+  iframe{position:absolute;border:0;top:0;left:0;visibility:hidden}
+</style>
+</head><body><output id="report">QA_WAITING</output>
+<script>
+(()=>{
+ const sizes=[{name:"desktop",w:1440,h:900},{name:"mobile",w:393,h:852}];
+ const frames=[];
+ const errors=[];
+ const metrics={};
+ let completed=0;
+ const ok=(label,success,value)=>{
+  if(!success)errors.push(label+" ["+String(value)+"]");
+ };
+ const eq=(x,y)=>Math.abs(x-y)<=.65;
+ function check(frame,mode){
+  const doc=frame.contentDocument;
+  const css=x=>frame.contentWindow.getComputedStyle(x);
+  const pick=s=>doc.querySelector(s);
+  const cards=doc.querySelectorAll("#experience.sx42-ready .sx42-card");
+  const periods=doc.querySelectorAll("#experience.sx42-ready .sx42-period");
+  const reviews=doc.querySelectorAll("#experience.sx42-ready .ds-review-card");
+  const beyond=doc.querySelectorAll("#beyond-ui a.ds-project-card");
+  const selected=pick("#selected a.ds-project-card");
+  const work=pick("#experience a.ds-project-card");
+  const firstMeta=selected?.querySelector(".sx25b3-meta");
+  const firstH=selected?.querySelector("h3");
+  const firstP=selected?.querySelector(".sx25b3-card-copy>p");
+  metrics[mode]={periods:periods.length,workCards:cards.length,reviews:reviews.length,
+   beyondCards:beyond.length,selectedWidth:selected?.getBoundingClientRect().width,
+   selectedRadius:selected?css(selected).borderTopLeftRadius:null,
+   selectedTitle:firstH?css(firstH).fontSize:null,
+   selectedDescription:firstP?css(firstP).fontSize:null,
+   experienceWidth:work?.getBoundingClientRect().width};
+  ok(mode+" 12 periods",periods.length===12,periods.length);
+  ok(mode+" 15 reviews",reviews.length===15,reviews.length);
+  ok(mode+" 100+ project and testimonial cards",cards.length>=90,cards.length);
+  ok(mode+" 8 Beyond skills",beyond.length>=24,beyond.length);
+  ok(mode+" Featured and Experience share ProjectCard",!!selected&&!!work,
+   !!selected+"/"+!!work);
+  if(!selected||!work)return;
+  ok(mode+" shared radius Featured",eq(parseFloat(css(selected).borderTopLeftRadius),32),
+   css(selected).borderTopLeftRadius);
+  ok(mode+" shared radius Experience",eq(parseFloat(css(work).borderTopLeftRadius),32),
+   css(work).borderTopLeftRadius);
+  ok(mode+" same project headline size",
+   eq(parseFloat(css(firstH).fontSize),parseFloat(css(work.querySelector("h3")).fontSize)),
+   css(firstH).fontSize+"/"+css(work.querySelector("h3")).fontSize);
+  ok(mode+" same project description size",
+   eq(parseFloat(css(firstP).fontSize),
+      parseFloat(css(work.querySelector(".sx25b3-card-copy>p")).fontSize)),
+   css(firstP).fontSize);
+  ok(mode+" no giant Featured description padding",
+   parseFloat(css(firstP).paddingBottom)<30,css(firstP).paddingBottom);
+  for(const slug of ["echo-app","vita-ai","luch","city-exchange"]){
+   const card=pick('#experience [data-slug="'+slug+'"]');
+   const caption=card?.querySelector(".sx25b3-metric strong");
+   ok(mode+" "+slug+" rendered metric",!!caption,caption?.textContent);
+   ok(mode+" "+slug+" readable light text",!!card&&css(card).color==="rgb(17, 17, 17)",
+      card?css(card).color:"missing");
+  }
+  const hash=pick('#experience [data-period="hash"]');
+  ok(mode+" Hash period retained",!!hash,hash?.id);
+  const reviewArrow=doc.querySelector('#experience .ds-review-card .sx25b3-arrow');
+  ok(mode+" no testimonial arrows",!reviewArrow,!!reviewArrow);
+  if(mode==="desktop"){
+   ok("Figma card width 356",eq(selected.getBoundingClientRect().width,356),
+      selected.getBoundingClientRect().width);
+   ok("Figma metadata 16",eq(parseFloat(css(firstMeta).fontSize),16),
+      css(firstMeta).fontSize);
+   ok("Figma title 28/32",
+       eq(parseFloat(css(firstH).fontSize),28)&&eq(parseFloat(css(firstH).lineHeight),32),
+       css(firstH).fontSize+"/"+css(firstH).lineHeight);
+   ok("Figma description 16/20",
+       eq(parseFloat(css(firstP).fontSize),16)&&eq(parseFloat(css(firstP).lineHeight),20),
+       css(firstP).fontSize+"/"+css(firstP).lineHeight);
+   ok("Hash arrows hidden when cards fit",
+      !!hash?.querySelector(".sx42-featured-controls")?.hidden,
+      hash?.querySelector(".sx42-featured-controls")?.hidden);
+  }else{
+   ok("Beyond mobile project radius 32",!!beyond[0]&&
+      eq(parseFloat(css(beyond[0]).borderTopLeftRadius),32),
+      beyond[0]?css(beyond[0]).borderTopLeftRadius:"missing");
+   ok("Mobile headline not miniature",parseFloat(css(firstH).fontSize)>=19,
+      css(firstH).fontSize);
+   ok("Mobile description readable",parseFloat(css(firstP).fontSize)>=13,
+      css(firstP).fontSize);
+   ok("Fourth skill portal retained",
+       doc.querySelectorAll("#beyond-ui .sx44-portal").length>=7,
+       doc.querySelectorAll("#beyond-ui .sx44-portal").length);
+  }
+ }
+ function finish(){
+  const report={status:errors.length?"failed":"passed",errors,metrics};
+  document.title="QA-"+report.status;
+  document.getElementById("report").textContent="QA_JSON:"+JSON.stringify(report);
+ }
+ sizes.forEach(size=>{
+  const frame=document.createElement("iframe");
+  frame.width=size.w;frame.height=size.h;
+  frame.style.width=size.w+"px";frame.style.height=size.h+"px";
+  frame.src="/slepzof-portfolio/index.html#qa";
+  frame.onload=()=>{
+   setTimeout(()=>{
+    try{check(frame,size.name)}
+    catch(e){errors.push(size.name+" exception: "+e.message)}
+    if(++completed===sizes.length)finish();
+   },1000);
+  };
+  frame.onerror=()=>{errors.push(size.name+" iframe load failure");if(++completed===sizes.length)finish()};
+  frames.push(frame);
+  document.body.append(frame);
+ });
+ setTimeout(()=>{if(completed<sizes.length){errors.push("iframe timeout");finish()}},13500);
+})();
+</script></body></html>"""
+
+
+def main() -> None:
+    browser = next((x for x in ("google-chrome", "google-chrome-stable", "chromium")
+                    if shutil.which(x)), None)
+    if not browser:
+        raise SystemExit("Headless browser not found (Google Chrome expected on CI runner)")
+    if not (DIST / "index.html").is_file():
+        raise SystemExit("Run scripts/build_static.py first")
+    qa = DIST / "__qa_portfolio.html"
+    qa.write_text(QA_HTML, encoding="utf-8")
+    try:
+        with tempfile.TemporaryDirectory() as temp:
+            serve = Path(temp) / BASE
+            serve.symlink_to(DIST, target_is_directory=True)
+            server = subprocess.Popen(
+                ["python3", "-m", "http.server", "8765",
+                 "--bind", "127.0.0.1", "--directory", temp],
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+            )
+            try:
+                time.sleep(1)
+                cmd = [browser, "--headless=new", "--no-sandbox", "--disable-gpu",
+                       "--disable-dev-shm-usage", "--hide-scrollbars",
+                       "--disable-background-networking", "--disable-extensions",
+                       "--virtual-time-budget=18000", "--dump-dom",
+                       "http://127.0.0.1:8765/slepzof-portfolio/__qa_portfolio.html"]
+                result = subprocess.run(cmd, capture_output=True, text=True,
+                                        timeout=95, check=False)
+                m = re.search(r"QA_JSON:(\{.*?\})</output>", result.stdout, re.S)
+                if not m:
+                    raise SystemExit(
+                        f"Browser smoke test incomplete (code={result.returncode}): "
+                        + result.stderr[-1600:] + "\n" + result.stdout[-1200:]
+                    )
+                data = json.loads(html.unescape(m.group(1)))
+                print(json.dumps(data, ensure_ascii=False, indent=2))
+                if data["status"] != "passed":
+                    raise SystemExit("Browser design-system smoke test FAILED")
+            finally:
+                server.terminate()
+                try:
+                    server.wait(timeout=5)
+                except subprocess.TimeoutExpired:
+                    server.kill()
+    finally:
+        qa.unlink(missing_ok=True)
+
+
+if __name__ == "__main__":
+    main()
