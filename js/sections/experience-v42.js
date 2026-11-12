@@ -53,7 +53,7 @@
     legacy?.querySelector(".sx-card-copy > p")?.textContent.trim()||"";
   const category=fromPdf?.category||approved2020?.category||data.coverIndustries[slug]||extra?.[4]||meta[1]||tags[0]||"PROJECT";
   const periodDefaultYear=(period.id==="private-2025"||period.id==="nutaku")?"2025":period.date.match(/20\d\d/)?.[0];
-  const year=yearOverrides[slug]||periodDefaultYear||meta[2]||"";
+  const year=fromPdf?.year||yearOverrides[slug]||periodDefaultYear||meta[2]||"";
   const oldMetric=legacy?.querySelector(".sx-card-metric");
   const featuredMetric=featured?.querySelector(".sx25b3-metric");
   const approved=fromPdf?.metric||approved2020?.metric||data.coverMetrics[slug];
@@ -71,7 +71,7 @@
   if(!cover)return null;
   return {
     slug,mediaSlug:sourceSlug,name,title,description,category,year,metric,cover,
-    tone:components.toneFor(slug,
+    tone:fromPdf?.tone||components.toneFor(slug,
       featured?.classList.contains("sx25b3-card-light")?"light":null),
     href:legacy?.getAttribute("href")||featured?.getAttribute("href")||extra?.[3]||"/projects/",
     className:"sx42-card"
