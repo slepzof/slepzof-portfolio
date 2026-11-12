@@ -50,7 +50,8 @@
   const description=approved2020?.description||extra?.[2]||featured?.querySelector(".sx25b3-card-copy > p")?.textContent.trim()||
     legacy?.querySelector(".sx-card-copy > p")?.textContent.trim()||"";
   const category=approved2020?.category||data.coverIndustries[slug]||extra?.[4]||meta[1]||tags[0]||"PROJECT";
-  const year=yearOverrides[slug]||meta[2]||period.date.match(/20\d\d/)?.[0]||"";
+  const periodDefaultYear=(period.id==="private-2025"||period.id==="nutaku")?"2025":period.date.match(/20\d\d/)?.[0];
+  const year=yearOverrides[slug]||periodDefaultYear||meta[2]||"";
   const oldMetric=legacy?.querySelector(".sx-card-metric");
   const featuredMetric=featured?.querySelector(".sx25b3-metric");
   const approved=approved2020?.metric||data.coverMetrics[slug];
