@@ -94,8 +94,15 @@
     quote.alt="";quote.width=32;quote.height=32;
     quote.setAttribute("aria-hidden","true");
     card.append(quote);
-    card.append(el("p","ds-review-card__lead",review.lead));
-    if(review.body)card.append(el("p","ds-review-card__body",review.body));
+    // Scrollable only on narrow screens: long source quotes stay complete,
+    // while the signed portrait remains legible in the Figma 356:512 frame.
+    const textRegion=el("div","ds-review-card__text");
+    textRegion.tabIndex=0;
+    textRegion.setAttribute("role","region");
+    textRegion.setAttribute("aria-label","Текст отзыва "+review.name);
+    textRegion.append(el("p","ds-review-card__lead",review.lead));
+    if(review.body)textRegion.append(el("p","ds-review-card__body",review.body));
+    card.append(textRegion);
     const portrait=el("img","ds-review-card__portrait");
     portrait.src=ASSET+"reviews/"+review.id+".png";
     portrait.loading="lazy";portrait.decoding="async";
