@@ -1,0 +1,68 @@
+/* SLEPZOF | Approved design-system contract.
+   Reference: docs/STYLE_GUIDE.md + docs/DESIGN_SYSTEM_CONTRACT.md.
+   Values must come from css/system/tokens.css; no locally invented fonts.
+   This file is loaded AFTER legacy CSS to prevent late cascade drift.
+*/
+:where(#selected,#experience) {
+  font-family:var(--ds-font-family);
+}
+#selected .sx25b3-section-head h2,
+#experience.sx42-ready .sx-experience-head h2 {
+  font-family:var(--ds-font-family);
+  font-size:var(--ds-font-h2);
+  line-height:var(--ds-line-h2);
+  font-weight:600;
+  letter-spacing:-.04em;
+  text-wrap:balance;
+}
+#selected .sx25b3-section-head p {
+  font-family:var(--ds-font-family);
+  font-size:var(--ds-font-lead);
+  line-height:var(--ds-line-lead);
+  font-weight:400;
+  max-width:var(--ds-container-narrow);
+}
+#experience.sx42-ready .sx42-period-name {
+  font-family:var(--ds-font-family);
+  font-size:var(--ds-font-h3);
+  line-height:var(--ds-line-h3);
+  font-weight:600;
+  letter-spacing:-.035em;
+}
+#experience.sx42-ready .sx42-date {
+  font-family:var(--ds-font-family);
+  font-size:var(--ds-font-h6);
+  line-height:var(--ds-line-h6);
+  font-weight:500;
+}
+#experience.sx42-ready .sx42-description {
+  font-family:var(--ds-font-family);
+  font-size:var(--ds-font-lead);
+  line-height:var(--ds-line-lead);
+  font-weight:400;
+}
+#experience.sx42-ready .sx42-role {
+  font-family:var(--ds-font-family);
+  font-size:var(--ds-font-body);
+  line-height:var(--ds-line-body);
+}
+#experience.sx42-ready .sx-experience-head > a {
+  color:var(--ds-color-primary);
+  font:500 var(--ds-font-body)/var(--ds-line-body) var(--ds-font-family);
+}
+:is(#selected,#experience) .sx25b3-control {
+  width:var(--ds-control-size);
+  height:var(--ds-control-size);
+  border-radius:var(--ds-radius-pill);
+}
+:is(#selected,#experience) .sx25b3-control:focus-visible {
+  outline:2px solid var(--ds-color-primary);
+  outline-offset:3px;
+}
+@media(max-width:767px){
+  #selected .sx25b3-section-head h2,
+  #experience.sx42-ready .sx-experience-head h2 {
+    font-size:var(--ds-font-h2);
+    line-height:var(--ds-line-h2);
+  }
+}
