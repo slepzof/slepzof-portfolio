@@ -280,6 +280,39 @@ expect("--ds-project-title-weight:" in tokens and
        "font-size:var(--ds-project-title-size)" in cards_css and
        "line-height:var(--ds-project-title-line)" in cards_css,
        "Project typography must use only approved design tokens")
+# Parse the actual period-specific source registry: merely finding a string
+# is not enough to prove the full Figma card list survived the next revision.
+period_source_match = re.search(
+    r' const pdfPeriodCards=(\{[\s\S]*?\});\s*const periodCardOverrides=', work_data)
+if period_source_match:
+    source_cards = json.loads(period_source_match.group(1))
+    for period_id, expected_count in (("forfis", 15), ("bonape", 27)):
+        records = source_cards.get(period_id, {})
+        expect(len(records) == expected_count,
+               f"Source PDF period {period_id} must contain {expected_count} projects")
+        missing = [slug for slug, card in records.items()
+                   if not all(card.get(k) for k in
+                              ("name", "title", "description", "category", "year", "tone"))
+                   or not isinstance(card.get("metric"), list)
+                   or len(card.get("metric", [])) != 2
+                   or not all(card.get("metric", []))]
+        expect(not missing,
+               f"Missing PDF content, contrast or achievement in {period_id}: {missing}")
+        period_slugs_match = re.search(
+            rf'\{{id:"{period_id}",[\s\S]*?slugs:(\[[^\]]+\])',
+            work_data)
+        if period_slugs_match:
+            rendered_slugs = json.loads(period_slugs_match.group(1))
+            expect(rendered_slugs == list(records),
+                   f"Project order differs from PDF registry in {period_id}")
+        else:
+            expect(False, f"Missing project list for {period_id}")
+    expect("poizon-shop" not in source_cards.get("bonape", {}),
+           "POIZON SHOP must remain excluded from the portfolio")
+    expect((ROOT / "assets/cases/rdmart/cover-work.svg").is_file(),
+           "RDMART project cover must exist")
+else:
+    expect(False, "PDF period cards registry missing or not valid JSON")
 expect('"bonape": {' in work_data and
        '"forfis": {' in work_data and
        '"rdmart": {' in work_data and
