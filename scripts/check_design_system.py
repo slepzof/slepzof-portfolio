@@ -236,7 +236,7 @@ expect("sx25b3-card-foot" in cards_css and
        "sx25b3-arrow" in cards_css,
        "Metric and SVG arrow primitives must be shared")
 # Figma source metrics: no missing laurels on the four reported light cards.
-metrics_match = re.search(r' const coverMetrics=(\\{[^\\n]+\\});', work_data)
+metrics_match = re.search(r' const coverMetrics=(\{[^\n]+\});', work_data)
 if metrics_match:
     metrics_map = json.loads(metrics_match.group(1))
     for slug, expected in {
