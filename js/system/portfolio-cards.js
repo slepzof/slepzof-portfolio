@@ -16,12 +16,10 @@
     "vita-ai":"light",
     "luch":"light",
     "city-exchange":"light",
-    "digital-lawyer":"light",
     "psychology":"light",
     "numa":"light",
     "trips":"light",
     "fitness-pro":"light",
-    "parking":"light",
   };
   function el(tag,cls,text){
     const node=document.createElement(tag);
