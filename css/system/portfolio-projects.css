@@ -177,6 +177,9 @@
   width:32px;height:32px;object-fit:contain;
   margin:0 0 12px;
 }
+#experience.sx42-ready .ds-review-card__text{
+  position:relative;z-index:2;
+}
 #experience.sx42-ready .ds-review-card__lead{
   position:relative;z-index:2;
   margin:0 0 8px;color:#111;
@@ -235,6 +238,20 @@
    width:19px;height:19px;
  }
  #experience.sx42-ready .ds-review-card{padding:22px 20px 0}
+ #experience.sx42-ready .ds-review-card__text{
+   /* Source quotes stay complete and scannable above their signed portraits. */
+   position:absolute;z-index:3;
+   top:66px;left:20px;right:20px;bottom:calc(34% + 8px);
+   overflow-y:auto;overflow-x:hidden;
+   overscroll-behavior-y:contain;
+   scrollbar-width:thin;
+   scrollbar-color:rgba(0,0,0,.22) transparent;
+   padding-right:3px;
+   -webkit-overflow-scrolling:touch;
+ }
+ #experience.sx42-ready .ds-review-card__text:focus-visible{
+   outline:2px solid var(--ds-color-primary);outline-offset:-2px;
+ }
  #experience.sx42-ready .ds-review-card__lead{
    font-size:clamp(15px,4.3vw,18px);line-height:1.25;
  }
