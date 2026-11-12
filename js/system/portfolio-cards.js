@@ -44,7 +44,7 @@
     card.setAttribute("aria-label","Открыть кейс "+(data.name||data.title||data.slug));
     setTone(card,toneFor(data.slug,data.tone));
     const art=el("img","sx25b3-art ds-project-card__art");
-    const responsive=root.SlepzofWorkMedia?.[data.slug];
+    const responsive=root.SlepzofWorkMedia?.[data.mediaSlug||data.slug];
     art.src=responsive?.src||data.cover;
     if(responsive?.srcset){
       art.srcset=responsive.srcset;
