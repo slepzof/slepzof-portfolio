@@ -8,6 +8,10 @@
   // Explicit source-matched light artwork. Never infer contrasting text from
   // a category or global theme: Figma palette belongs to each cover.
   const tones={
+    "forfis-new-site":"light",
+    "bill-split":"light",
+    "poker-n-sluts":"light",
+    "desire-inn":"light",
     "echo-app":"light",
     "vita-ai":"light",
     "luch":"light",
@@ -15,12 +19,9 @@
     "digital-lawyer":"light",
     "psychology":"light",
     "numa":"light",
-    "glavbankrot":"light",
     "trips":"light",
     "fitness-pro":"light",
     "parking":"light",
-    "sailor-planner":"light",
-    "2space":"light"
   };
   function el(tag,cls,text){
     const node=document.createElement(tag);
