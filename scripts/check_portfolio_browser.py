@@ -186,6 +186,34 @@ QA_HTML = r"""<!doctype html>
   const reviewArrow=doc.querySelector('#experience .ds-review-card .sx25b3-arrow');
   ok(mode+" no testimonial arrows",!reviewArrow,!!reviewArrow);
   if(mode==="desktop"){
+   const featuredHeading=pick("#selected .sx25b3-section-head h2");
+   const experienceHeading=pick("#experience .sx-experience-head h2");
+   const featuredGridLeft=pick("#selected .sx25b3-section-head")?.getBoundingClientRect().left;
+   ok("Featured carousel begins on same 1116px grid as heading",
+      featuredGridLeft!==undefined&&Math.abs(selected.getBoundingClientRect().left-featuredGridLeft)<2,
+      selected.getBoundingClientRect().left+"/"+featuredGridLeft);
+   ok("Experience title uses H2 token (48/52)",
+      !!experienceHeading&&eq(parseFloat(css(experienceHeading).fontSize),48)&&
+      eq(parseFloat(css(experienceHeading).lineHeight),52),
+      experienceHeading?css(experienceHeading).fontSize+"/"+css(experienceHeading).lineHeight:"missing");
+   ok("Featured title uses same H2 as Experience",
+      !!featuredHeading&&!!experienceHeading&&
+      eq(parseFloat(css(featuredHeading).fontSize),parseFloat(css(experienceHeading).fontSize)),
+      featuredHeading?css(featuredHeading).fontSize:"missing");
+   const works2020=pick('#experience .sx42-period[data-period="2020-projects"]');
+   const expected2020=[["myasnoy-dvor","Продвижение мясного бизнеса"],
+     ["papa-pizza","Маркетинг для пиццерии и чайной"],
+     ["khleb-iz-tandyra","Продвижение локальной пекарни"],
+     ["moonlight","Сайт, Facebook-воронка и бот"],
+     ["zaryadka","Приложение для зарядки устройств"],
+     ["chexolchik","Продажа аксессуаров через сайт и бота"],
+     ["mobilka34","Сайт, бот и реклама магазина техники"],
+     ["baraholka34","Локальный магазин одежды в городе"],
+     ["izum","Продвижение локального магазина"]];
+   ok("2020 original PDF card titles restored",
+      !!works2020&&expected2020.every(([slug,title])=>
+        works2020.querySelector('[data-slug="'+slug+'"] h3')?.textContent===title),
+      works2020?.querySelectorAll(".ds-project-card").length);
    ok("Figma card width 356",eq(selected.getBoundingClientRect().width,356),
       selected.getBoundingClientRect().width);
    ok("Beyond UI cards have exactly the same 356px width as Featured",
