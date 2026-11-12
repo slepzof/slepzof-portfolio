@@ -32,7 +32,16 @@
  max-width:625px;margin:0;padding:0;
 }
 #selected .sx25b3-section-head strong{font-weight:520;color:#171717}
-#selected .sx25b3-viewport{position:relative;width:100%;overflow:visible}
+#selected .sx25b3-inner--gallery{
+  width:min(var(--ds-container-max),calc(100% - 48px));
+  max-width:var(--ds-container-max);
+  margin-inline:auto;
+}
+#selected .sx25b3-viewport{
+  position:relative;
+  width:calc(100% + max(24px,(100vw - var(--ds-container-max))/2));
+  overflow:visible;
+}
 #selected .sx25b3-rail{
  display:flex;flex-flow:row nowrap;align-items:stretch;
  gap:var(--ds-project-gap);
