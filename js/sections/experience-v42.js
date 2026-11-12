@@ -31,7 +31,8 @@
   "my-ai-slut":"2024","fab-fantasy":"2024","poker-n-sluts":"2025",
   "horny-villa":"2025","desire-inn":"2025",
   "restar":"2019","vk-media":"2018","youtube-1":"2017","youtube-2":"2016",
-  "vlad-bykov":"2024","echo-app":"2025"
+  "vlad-bykov":"2024","echo-app":"2025",
+  "greenbox":"2025","sailor-planner":"2025","vybor":"2025"
  };
  function details(slug,period){
   const legacy=originalCards.get(slug);
