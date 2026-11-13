@@ -104,9 +104,12 @@ QA_HTML = r"""<!doctype html>
    css(selected).borderTopLeftRadius);
   ok(mode+" shared radius Experience",eq(parseFloat(css(work).borderTopLeftRadius),32),
    css(work).borderTopLeftRadius);
-  ok(mode+" same project headline size",
-   eq(parseFloat(css(firstH).fontSize),parseFloat(css(work.querySelector("h3")).fontSize)),
-   css(firstH).fontSize+"/"+css(work.querySelector("h3")).fontSize);
+  const workHeading=work.querySelector("h3");
+  ok(mode+" approved Experience headline size",
+   mode==="mobile"
+    ? eq(parseFloat(css(workHeading).fontSize),24)&&eq(parseFloat(css(workHeading).lineHeight),28)
+    : eq(parseFloat(css(firstH).fontSize),parseFloat(css(workHeading).fontSize)),
+   css(workHeading).fontSize+"/"+css(workHeading).lineHeight);
   if(mode==="desktop"){
    const approvedTitle=css(firstH);
    ok("Figma desktop project title exactly 24/28",
@@ -114,10 +117,12 @@ QA_HTML = r"""<!doctype html>
       eq(parseFloat(approvedTitle.lineHeight),28),
       approvedTitle.fontSize+"/"+approvedTitle.lineHeight);
   }
-  ok(mode+" same project description size",
-   eq(parseFloat(css(firstP).fontSize),
-      parseFloat(css(work.querySelector(".sx25b3-card-copy>p")).fontSize)),
-   css(firstP).fontSize);
+  const workDescription=work.querySelector(".sx25b3-card-copy>p");
+  ok(mode+" approved Experience description size",
+   mode==="mobile"
+    ? eq(parseFloat(css(workDescription).fontSize),16)&&eq(parseFloat(css(workDescription).lineHeight),20)
+    : eq(parseFloat(css(firstP).fontSize),parseFloat(css(workDescription).fontSize)),
+   css(workDescription).fontSize+"/"+css(workDescription).lineHeight);
   ok(mode+" no giant Featured description padding",
    parseFloat(css(firstP).paddingBottom)<30,css(firstP).paddingBottom);
   // Strict shared-component parity. Every project card should inherit exactly
@@ -127,14 +132,17 @@ QA_HTML = r"""<!doctype html>
   const beyondCard=beyond[0];
   // Approved +20px on the right side of each metric pill applies on mobile,
   // too. The base desktop inset is 16px -> 36px; mobile 8px -> 28px.
-  const approvedMetricRight=mode==="mobile"?28:36;
   for(const [kind,card] of [["Featured",selected],["Experience",work],["Beyond UI",beyondCard]]){
    const pill=card?.querySelector(".sx25b3-metric");
+   const approvedMetricRight=mode==="mobile"&&kind!=="Experience"?28:36;
    ok(mode+" "+kind+" approved metric right padding",
       !!pill&&eq(parseFloat(css(pill).paddingRight),approvedMetricRight),
       pill?css(pill).paddingRight:"missing");
   }
-  for(const [kind,card] of [["Experience",work],["Beyond UI",beyondCard]]){
+  const parityCards=mode==="mobile"
+   ? [["Beyond UI",beyondCard]]
+   : [["Experience",work],["Beyond UI",beyondCard]];
+  for(const [kind,card] of parityCards){
    ok(mode+" "+kind+" project typography matches Featured",
       !!card&&
       eq(parseFloat(metricCss(selected,"h3","fontSize")),
@@ -189,15 +197,17 @@ QA_HTML = r"""<!doctype html>
   const hash=pick('#experience [data-period="hash"]');
   ok(mode+" Hash period retained",!!hash,hash?.id);
   if(mode==="mobile"){
-   const overflowing=[...reviews].filter(card=>{
-    const region=card.querySelector(".ds-review-card__text");
-    return region&&region.scrollHeight>region.clientHeight+2;
-   });
-   ok("Long mobile reviews remain scrollable",overflowing.length>0,
-      overflowing.length);
-   ok("Mobile testimonial text uses scroll instead of clipping",
-     [...reviews].every(card=>css(card.querySelector(".ds-review-card__text")).overflowY==="auto"),
-     "region overflow-y");
+   const firstReview=reviews[0];
+   ok("Mobile Experience keeps desktop-width project cards",
+      eq(work.getBoundingClientRect().width,356),work.getBoundingClientRect().width);
+   ok("Mobile Experience keeps desktop-width testimonial cards",
+      !!firstReview&&eq(firstReview.getBoundingClientRect().width,356),
+      firstReview?.getBoundingClientRect().width);
+   ok("Mobile testimonial text uses the desktop flow",
+      [...reviews].every(card=>{
+       const region=card.querySelector(".ds-review-card__text");
+       return region&&css(region).position==="relative"&&css(region).overflowY==="visible";
+      }),"desktop review flow");
   }
   const reviewArrow=doc.querySelector('#experience .ds-review-card .sx25b3-arrow');
   ok(mode+" no testimonial arrows",!reviewArrow,!!reviewArrow);
