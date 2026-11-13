@@ -315,11 +315,14 @@
  }
  #experience.sx42-ready .ds-review-card{padding:32px 32px 0}
  #experience.sx42-ready .ds-review-card__text{
-  position:relative;
-  top:auto;left:auto;right:auto;bottom:auto;
-  overflow:visible;
-  padding-right:0;
-  -webkit-overflow-scrolling:auto;
+  position:absolute;
+  top:66px;left:32px;right:32px;bottom:183px;
+  overflow-y:auto;overflow-x:hidden;
+  overscroll-behavior-y:contain;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(0,0,0,.22) transparent;
+  padding-right:3px;
+  -webkit-overflow-scrolling:touch;
  }
  #experience.sx42-ready .ds-review-card__lead{
   font-size:18px;line-height:24px;

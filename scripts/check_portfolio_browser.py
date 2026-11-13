@@ -203,11 +203,11 @@ QA_HTML = r"""<!doctype html>
    ok("Mobile Experience keeps desktop-width testimonial cards",
       !!firstReview&&eq(firstReview.getBoundingClientRect().width,356),
       firstReview?.getBoundingClientRect().width);
-   ok("Mobile testimonial text uses the desktop flow",
+   ok("Mobile testimonial text stays above the portrait",
       [...reviews].every(card=>{
        const region=card.querySelector(".ds-review-card__text");
-       return region&&css(region).position==="relative"&&css(region).overflowY==="visible";
-      }),"desktop review flow");
+       return region&&css(region).position==="absolute"&&css(region).overflowY==="auto";
+      }),"bounded review text");
   }
   const reviewArrow=doc.querySelector('#experience .ds-review-card .sx25b3-arrow');
   ok(mode+" no testimonial arrows",!reviewArrow,!!reviewArrow);
